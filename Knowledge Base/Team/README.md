@@ -4,12 +4,15 @@
 
 ### Shahzod Narzulloev
 
-- Role: Founder & CEO
+- Role: Founder, CEO, CTO
 - Responsibilities: vision, product direction, partnerships, fundraising, execution
 
 ## Co-Founders
 
-Add co-founder profiles here as roles become formalized.
+### Co-Founder
+
+- Role: Co-Founder, CFO
+- Responsibilities: finance, strategy, operational discipline
 
 Suggested structure:
 
