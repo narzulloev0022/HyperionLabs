@@ -303,33 +303,30 @@ document
   .querySelectorAll("[data-count]")
   .forEach((el) => counterObserver.observe(el));
 
-// ── Form handling ──
+// ── Form handling (validation + rate limit, Formspree submits) ──
 let lastSubmit = 0;
-const honeypot = document.getElementById("hp-check");
 
 form.addEventListener("submit", (e) => {
-  e.preventDefault();
   const lang = document.documentElement.lang === "ru" ? "ru" : "en";
-
-  if (honeypot && honeypot.value) return;
 
   const now = Date.now();
   if (now - lastSubmit < 5000) {
+    e.preventDefault();
     formMsg.textContent = translations[lang].formRateLimit;
     return;
   }
 
   const value = emailInput.value.trim();
   const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-  formMsg.textContent = valid
-    ? translations[lang].formSuccess
-    : translations[lang].formError;
-  if (valid) {
-    lastSubmit = now;
-    form.reset();
-  } else {
+  if (!valid) {
+    e.preventDefault();
+    formMsg.textContent = translations[lang].formError;
     emailInput.focus();
+    return;
   }
+
+  lastSubmit = now;
+  formMsg.textContent = translations[lang].formSuccess;
 });
 
 // ── Email deobfuscation ──
