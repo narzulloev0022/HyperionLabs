@@ -4,870 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hyperion Labs | Building the Future of AI for Central Asia</title>
-    <meta
-      name="description"
-      content="Hyperion Labs builds world-class artificial intelligence products for Central Asia, starting with AvrisAI."
-    />
-    <style>
-      :root {
-        --bg: #050810;
-        --bg-soft: rgba(15, 20, 32, 0.78);
-        --bg-panel: rgba(10, 14, 24, 0.82);
-        --card: rgba(13, 18, 30, 0.76);
-        --card-strong: rgba(15, 23, 38, 0.92);
-        --line: rgba(255, 255, 255, 0.1);
-        --line-strong: rgba(74, 163, 145, 0.32);
-        --text: #f4f7fb;
-        --muted: rgba(228, 235, 244, 0.7);
-        --teal: #4aa391;
-        --teal-strong: #62c5b1;
-        --shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
-        --radius: 26px;
-        --radius-sm: 18px;
-        --max: 1240px;
-        --nav-height: 82px;
-        --mono: "SFMono-Regular", "JetBrains Mono", "Menlo", monospace;
-        --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
-      body {
-        margin: 0;
-        font-family: var(--sans);
-        background:
-          radial-gradient(circle at 20% 20%, rgba(74, 163, 145, 0.16), transparent 28%),
-          radial-gradient(circle at 80% 0%, rgba(44, 107, 196, 0.18), transparent 32%),
-          linear-gradient(180deg, #050810 0%, #060b14 48%, #050810 100%);
-        color: var(--text);
-        overflow-x: hidden;
-      }
-
-      body::before {
-        content: "";
-        position: fixed;
-        inset: 0;
-        pointer-events: none;
-        background:
-          linear-gradient(125deg, rgba(255, 255, 255, 0.03), transparent 32%),
-          linear-gradient(315deg, rgba(74, 163, 145, 0.08), transparent 40%);
-        mix-blend-mode: screen;
-        opacity: 0.8;
-      }
-
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
-
-      button,
-      input {
-        font: inherit;
-      }
-
-      img {
-        display: block;
-        max-width: 100%;
-      }
-
-      .skip-link {
-        position: absolute;
-        top: -48px;
-        left: 16px;
-        padding: 12px 16px;
-        border-radius: 999px;
-        background: var(--teal);
-        color: #04110e;
-        z-index: 1000;
-        transition: top 0.2s ease;
-      }
-
-      .skip-link:focus {
-        top: 16px;
-      }
-
-      .site-shell {
-        position: relative;
-        isolation: isolate;
-      }
-
-      .hero-canvas {
-        position: fixed;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -2;
-        opacity: 0.95;
-      }
-
-      .page-glow {
-        position: fixed;
-        inset: auto auto 15% -8%;
-        width: 28rem;
-        height: 28rem;
-        border-radius: 50%;
-        background: radial-gradient(circle, rgba(74, 163, 145, 0.16), transparent 70%);
-        filter: blur(30px);
-        z-index: -1;
-        pointer-events: none;
-      }
-
-      .container {
-        width: min(calc(100% - 32px), var(--max));
-        margin: 0 auto;
-      }
-
-      .site-header {
-        position: sticky;
-        top: 0;
-        z-index: 30;
-        padding: 14px 0;
-        transition: padding 0.3s ease;
-      }
-
-      .site-header.scrolled {
-        padding: 10px 0;
-      }
-
-      .nav {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        gap: 16px;
-        min-height: var(--nav-height);
-        padding: 14px 18px;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 999px;
-        background: rgba(9, 14, 24, 0.52);
-        backdrop-filter: blur(20px);
-        box-shadow: 0 18px 60px rgba(0, 0, 0, 0.18);
-      }
-
-      .brand {
-        font-size: 1.05rem;
-        font-weight: 800;
-        letter-spacing: -0.06em;
-        white-space: nowrap;
-      }
-
-      .nav-links {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-wrap: wrap;
-        order: 3;
-        width: 100%;
-        gap: 22px;
-        padding-top: 4px;
-        color: var(--muted);
-        font-size: 0.95rem;
-      }
-
-      .nav-links a,
-      .footer-links a,
-      .social-links a {
-        transition: color 0.25s ease;
-      }
-
-      .nav-links a:hover,
-      .nav-links a:focus-visible,
-      .footer-links a:hover,
-      .footer-links a:focus-visible,
-      .social-links a:hover,
-      .social-links a:focus-visible {
-        color: var(--text);
-      }
-
-      .nav-actions {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-
-      .lang-toggle {
-        display: inline-flex;
-        padding: 4px;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.03);
-      }
-
-      .lang-toggle button {
-        border: 0;
-        border-radius: 999px;
-        background: transparent;
-        color: var(--muted);
-        padding: 8px 12px;
-        cursor: pointer;
-        transition: all 0.25s ease;
-      }
-
-      .lang-toggle button.active {
-        background: rgba(74, 163, 145, 0.18);
-        color: var(--text);
-      }
-
-      .button {
-        position: relative;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        min-height: 52px;
-        padding: 0 22px;
-        border-radius: 999px;
-        border: 1px solid transparent;
-        font-weight: 600;
-        color: var(--text);
-        cursor: pointer;
-        transition:
-          transform 0.25s ease,
-          box-shadow 0.25s ease,
-          border-color 0.25s ease,
-          background 0.25s ease;
-      }
-
-      .button:hover,
-      .button:focus-visible {
-        transform: translateY(-2px) scale(1.01);
-        box-shadow: 0 0 0 1px rgba(74, 163, 145, 0.3), 0 18px 48px rgba(74, 163, 145, 0.18);
-      }
-
-      .button-primary {
-        background: linear-gradient(135deg, #58bca8 0%, #3c8d7e 100%);
-        color: #04110e;
-      }
-
-      .button-secondary {
-        border-color: rgba(255, 255, 255, 0.18);
-        background: rgba(255, 255, 255, 0.03);
-      }
-
-      main {
-        position: relative;
-      }
-
-      section {
-        position: relative;
-        padding: 84px 0;
-      }
-
-      .section-header {
-        max-width: 760px;
-        margin-bottom: 36px;
-      }
-
-      .eyebrow {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        margin-bottom: 18px;
-        color: var(--teal-strong);
-        font-size: 0.92rem;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
-
-      .eyebrow::before {
-        content: "";
-        width: 28px;
-        height: 1px;
-        background: currentColor;
-      }
-
-      h1,
-      h2,
-      h3,
-      p {
-        margin: 0;
-      }
-
-      h1 {
-        font-size: clamp(3.3rem, 9vw, 4.6rem);
-        line-height: 0.98;
-        letter-spacing: -0.06em;
-        max-width: 11ch;
-      }
-
-      h2 {
-        font-size: clamp(2rem, 5vw, 3.5rem);
-        line-height: 1.02;
-        letter-spacing: -0.05em;
-      }
-
-      h3 {
-        font-size: clamp(1.3rem, 3vw, 1.7rem);
-        letter-spacing: -0.04em;
-      }
-
-      .lead {
-        margin-top: 20px;
-        max-width: 760px;
-        font-size: clamp(1.05rem, 2.2vw, 1.28rem);
-        line-height: 1.7;
-        color: var(--muted);
-      }
-
-      .hero {
-        min-height: calc(100vh - 112px);
-        display: flex;
-        align-items: center;
-        padding-top: 32px;
-      }
-
-      .hero-grid {
-        display: grid;
-        gap: 44px;
-        align-items: center;
-      }
-
-      .hero-copy {
-        position: relative;
-        z-index: 2;
-      }
-
-      .hero-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 12px;
-        padding: 10px 16px;
-        margin-bottom: 24px;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.03);
-        color: rgba(255, 255, 255, 0.82);
-      }
-
-      .hero-badge span {
-        color: var(--teal-strong);
-      }
-
-      .hero-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 14px;
-        margin-top: 34px;
-      }
-
-      .hero-panel {
-        position: relative;
-        padding: 28px;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: var(--radius);
-        background:
-          linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)),
-          rgba(10, 14, 24, 0.62);
-        backdrop-filter: blur(18px);
-        box-shadow: var(--shadow);
-        overflow: hidden;
-      }
-
-      .hero-panel::before {
-        content: "";
-        position: absolute;
-        inset: -20% auto auto -10%;
-        width: 220px;
-        height: 220px;
-        border-radius: 50%;
-        background: radial-gradient(circle, rgba(74, 163, 145, 0.24), transparent 72%);
-      }
-
-      .panel-grid {
-        display: grid;
-        gap: 16px;
-      }
-
-      .signal-card,
-      .product-card,
-      .stat-card,
-      .research-card,
-      .team-card,
-      .achievement-card,
-      .footer-panel,
-      .cta-panel {
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: var(--radius);
-        background: var(--card);
-        backdrop-filter: blur(18px);
-        box-shadow: var(--shadow);
-      }
-
-      .signal-card {
-        padding: 18px;
-      }
-
-      .signal-kicker {
-        color: var(--teal-strong);
-        font-size: 0.88rem;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-      }
-
-      .signal-value {
-        margin-top: 16px;
-        font-family: var(--mono);
-        font-size: 2.1rem;
-      }
-
-      .hero-visual-note {
-        margin-top: 12px;
-        color: var(--muted);
-        line-height: 1.7;
-      }
-
-      .marquee-wrap {
-        overflow: hidden;
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        background: rgba(255, 255, 255, 0.02);
-      }
-
-      .marquee {
-        display: flex;
-        width: max-content;
-        animation: marquee 24s linear infinite;
-      }
-
-      .marquee-group {
-        display: flex;
-        gap: 16px;
-        padding: 18px 16px;
-      }
-
-      .logo-chip {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        min-width: 180px;
-        padding: 16px 22px;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 999px;
-        color: rgba(255, 255, 255, 0.82);
-        background: rgba(255, 255, 255, 0.02);
-      }
-
-      .cards-grid,
-      .stats-grid,
-      .research-grid,
-      .team-grid,
-      .achievements-grid,
-      .footer-grid {
-        display: grid;
-        gap: 18px;
-      }
-
-      .product-card,
-      .research-card,
-      .team-card,
-      .achievement-card {
-        padding: 24px;
-        transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
-      }
-
-      .product-card:hover,
-      .research-card:hover,
-      .team-card:hover,
-      .achievement-card:hover {
-        transform: translateY(-8px);
-        border-color: var(--line-strong);
-        box-shadow: 0 28px 80px rgba(0, 0, 0, 0.34);
-      }
-
-      .product-card.featured {
-        position: relative;
-        overflow: hidden;
-        background:
-          linear-gradient(180deg, rgba(74, 163, 145, 0.08), rgba(13, 18, 30, 0.86)),
-          rgba(13, 18, 30, 0.82);
-      }
-
-      .product-card.featured::after {
-        content: "";
-        position: absolute;
-        inset: auto -12% -16% auto;
-        width: 220px;
-        height: 220px;
-        background: radial-gradient(circle, rgba(74, 163, 145, 0.18), transparent 70%);
-        filter: blur(18px);
-      }
-
-      .product-header,
-      .team-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 16px;
-      }
-
-      .product-icon,
-      .research-icon,
-      .team-avatar {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 54px;
-        height: 54px;
-        border-radius: 16px;
-        background: rgba(74, 163, 145, 0.12);
-        color: var(--teal-strong);
-        font-weight: 700;
-      }
-
-      .pill {
-        display: inline-flex;
-        align-items: center;
-        padding: 8px 12px;
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.06);
-        color: rgba(255, 255, 255, 0.8);
-        font-size: 0.9rem;
-      }
-
-      .pill.pill-teal {
-        background: rgba(74, 163, 145, 0.14);
-        color: var(--teal-strong);
-      }
-
-      .product-copy,
-      .research-copy,
-      .achievement-copy,
-      .team-copy {
-        margin-top: 18px;
-      }
-
-      .card-text {
-        margin-top: 12px;
-        color: var(--muted);
-        line-height: 1.7;
-      }
-
-      .ghosted {
-        position: relative;
-        overflow: hidden;
-      }
-
-      .ghosted .product-copy,
-      .ghosted .product-header,
-      .ghosted .card-text,
-      .ghosted .button-inline {
-        filter: blur(5px);
-        opacity: 0.68;
-      }
-
-      .button-inline {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        margin-top: 24px;
-        color: var(--teal-strong);
-      }
-
-      .stats-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .stat-card {
-        padding: 22px;
-      }
-
-      .stat-number {
-        font-family: var(--mono);
-        font-size: clamp(2.4rem, 7vw, 4.2rem);
-        line-height: 0.95;
-      }
-
-      .stat-label {
-        margin-top: 14px;
-        color: var(--muted);
-        line-height: 1.6;
-      }
-
-      .mission {
-        padding-top: 108px;
-      }
-
-      .mission-panel {
-        padding: 36px;
-        border-radius: calc(var(--radius) + 6px);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        background:
-          linear-gradient(120deg, rgba(74, 163, 145, 0.08), rgba(255, 255, 255, 0.02)),
-          rgba(9, 13, 22, 0.7);
-        box-shadow: var(--shadow);
-        transform: translateY(var(--mission-offset, 0px));
-        transition: transform 0.2s linear;
-      }
-
-      .mission-statement {
-        max-width: 960px;
-        font-size: clamp(2rem, 5vw, 4rem);
-        line-height: 1.08;
-        letter-spacing: -0.05em;
-      }
-
-      .research-grid,
-      .team-grid,
-      .achievements-grid,
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .team-card {
-        position: relative;
-        overflow: hidden;
-      }
-
-      .team-card::after {
-        content: "";
-        position: absolute;
-        inset: auto -10% -10% auto;
-        width: 180px;
-        height: 180px;
-        border-radius: 50%;
-        background: radial-gradient(circle, rgba(74, 163, 145, 0.14), transparent 70%);
-        opacity: 0;
-        transition: opacity 0.35s ease;
-      }
-
-      .team-card:hover::after {
-        opacity: 1;
-      }
-
-      .linkedin-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        margin-top: 20px;
-        color: var(--teal-strong);
-      }
-
-      .cta-panel {
-        position: relative;
-        padding: 34px;
-        background:
-          radial-gradient(circle at top left, rgba(74, 163, 145, 0.24), transparent 40%),
-          linear-gradient(135deg, rgba(21, 30, 49, 0.96), rgba(7, 11, 18, 0.96));
-        overflow: hidden;
-      }
-
-      .cta-layout {
-        display: grid;
-        gap: 24px;
-        position: relative;
-        z-index: 1;
-      }
-
-      .cta-panel::after {
-        content: "";
-        position: absolute;
-        inset: auto -15% -45% auto;
-        width: 320px;
-        height: 320px;
-        border-radius: 50%;
-        background: radial-gradient(circle, rgba(74, 163, 145, 0.22), transparent 70%);
-        filter: blur(24px);
-      }
-
-      .cta-form {
-        display: grid;
-        gap: 14px;
-        margin-top: 26px;
-      }
-
-      .form-field {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        min-height: 62px;
-        padding: 10px 12px 10px 18px;
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        border-radius: 999px;
-        background: rgba(7, 11, 18, 0.55);
-      }
-
-      .form-field input {
-        flex: 1;
-        min-width: 0;
-        border: 0;
-        outline: 0;
-        background: transparent;
-        color: var(--text);
-      }
-
-      .form-message {
-        min-height: 24px;
-        color: var(--teal-strong);
-      }
-
-      .footer-panel {
-        padding: 28px;
-      }
-
-      .footer-copy {
-        max-width: 420px;
-        color: var(--muted);
-        line-height: 1.7;
-      }
-
-      .footer-links,
-      .social-links {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px 18px;
-        margin-top: 18px;
-        color: var(--muted);
-      }
-
-      .footer-meta {
-        margin-top: 28px;
-        padding-top: 18px;
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
-        color: rgba(255, 255, 255, 0.56);
-        font-size: 0.95rem;
-      }
-
-      .reveal {
-        opacity: 0;
-        transform: translateY(26px);
-        transition: opacity 0.7s ease, transform 0.7s ease;
-      }
-
-      .reveal.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      .hero-animate {
-        opacity: 0;
-        transform: translateY(34px);
-        animation: heroIn 0.95s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-      }
-
-      .delay-1 {
-        animation-delay: 0.12s;
-      }
-
-      .delay-2 {
-        animation-delay: 0.24s;
-      }
-
-      .delay-3 {
-        animation-delay: 0.36s;
-      }
-
-      .sr-only {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        border: 0;
-      }
-
-      @keyframes heroIn {
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes marquee {
-        from {
-          transform: translateX(0);
-        }
-        to {
-          transform: translateX(-50%);
-        }
-      }
-
-      @media (min-width: 760px) {
-        .nav {
-          flex-wrap: nowrap;
-        }
-
-        .nav-links {
-          order: initial;
-          width: auto;
-          padding-top: 0;
-          font-size: 1rem;
-        }
-
-        .hero-grid,
-        .cards-grid,
-        .cta-layout,
-        .footer-grid {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-
-        .stats-grid {
-          grid-template-columns: repeat(4, minmax(0, 1fr));
-        }
-
-        .research-grid,
-        .team-grid,
-        .achievements-grid {
-          grid-template-columns: repeat(3, minmax(0, 1fr));
-        }
-
-        .cta-form {
-          grid-template-columns: minmax(0, 1fr);
-        }
-      }
-
-      @media (min-width: 1100px) {
-        section {
-          padding: 104px 0;
-        }
-
-        .hero-grid {
-          grid-template-columns: minmax(0, 1.15fr) minmax(360px, 0.85fr);
-        }
-
-        .cards-grid {
-          grid-template-columns: 1.2fr 1fr;
-        }
-
-        .footer-grid {
-          grid-template-columns: 1.1fr 0.9fr;
-        }
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        html {
-          scroll-behavior: auto;
-        }
-
-        *,
-        *::before,
-        *::after {
-          animation: none !important;
-          transition-duration: 0s !important;
-          transition-delay: 0s !important;
-        }
-
-        .reveal,
-        .hero-animate {
-          opacity: 1;
-          transform: none;
-        }
-      }
-    </style>
+    <meta name="description" content="Hyperion Labs builds world-class artificial intelligence products for Central Asia, starting with AvrisAI — voice-powered clinical documentation." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <a class="skip-link" href="#main-content" data-i18n="skip">Skip to content</a>
-    <canvas class="hero-canvas" aria-hidden="true"></canvas>
-    <div class="page-glow" aria-hidden="true"></div>
+    <!-- Skip link -->
+    <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
 
+    <!-- Background layers -->
+    <canvas class="bg-canvas" id="bg-canvas" aria-hidden="true"></canvas>
+    <div class="bg-orbs" aria-hidden="true">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+    <div class="dot-grid" aria-hidden="true"></div>
+    <div class="grain" id="grain" aria-hidden="true"></div>
+
+    <!-- Shell -->
     <div class="site-shell">
+      <!-- ═══ HEADER ═══ -->
       <header class="site-header" id="site-header">
         <div class="container">
           <nav class="nav" aria-label="Primary navigation">
@@ -884,63 +43,43 @@
                 <button type="button" class="active" data-lang="en" aria-pressed="true">EN</button>
                 <button type="button" data-lang="ru" aria-pressed="false">RU</button>
               </div>
-              <a class="button button-primary" href="#contact" data-i18n="navCta">Get Early Access</a>
+              <a class="btn btn-primary" href="#contact" data-i18n="navCta">Get Early Access</a>
             </div>
           </nav>
         </div>
       </header>
 
-      <main id="main-content">
+      <!-- ═══ MAIN ═══ -->
+      <main id="main">
+        <!-- HERO -->
         <section class="hero" id="top">
-          <div class="container hero-grid">
+          <div class="container hero-centered">
             <div class="hero-copy">
-              <div class="hero-badge hero-animate">
-                <span data-i18n="heroBadgeLabel">Now building</span>
+              <div class="hero-badge hero-anim">
+                <span class="dot"></span>
+                <span data-i18n="heroBadge">Now building</span>
                 <strong>AvrisAI</strong>
               </div>
-              <h1 class="hero-animate delay-1" data-i18n="heroTitle">
-                Building the Future of AI for Central Asia
+              <h1 class="hero-anim hero-d1">
+                <span data-i18n="heroTitle1">Building the Future</span><br />
+                <span data-i18n="heroTitle2">of AI for </span><span class="accent" data-i18n="heroTitle3">Central Asia</span>
               </h1>
-              <p class="lead hero-animate delay-2" data-i18n="heroSubtitle">
-                World-class artificial intelligence products, built for emerging markets.
+              <div class="hero-glow hero-anim hero-d2" aria-hidden="true"></div>
+              <p class="lead hero-anim hero-d2" data-i18n="heroSub">
+                World-class artificial intelligence products, engineered for emerging markets where innovation matters most.
               </p>
-              <div class="hero-actions hero-animate delay-3">
-                <a class="button button-primary" href="#products" data-i18n="heroPrimary">Explore AvrisAI →</a>
-                <a class="button button-secondary" href="#research" data-i18n="heroSecondary">Our Research</a>
+              <div class="hero-actions hero-anim hero-d3">
+                <a class="btn btn-primary btn-lg" href="#products" data-i18n="heroPrimary">Explore AvrisAI</a>
+                <a class="btn btn-secondary btn-lg" href="#research" data-i18n="heroSecondary">Our Research</a>
               </div>
             </div>
-
-            <aside class="hero-panel reveal" aria-label="Company signals">
-              <div class="panel-grid">
-                <div class="signal-card">
-                  <div class="signal-kicker" data-i18n="heroPanel1Label">Flagship Product</div>
-                  <div class="signal-value">AvrisAI</div>
-                  <p class="hero-visual-note" data-i18n="heroPanel1Text">
-                    Voice-powered clinical documentation designed for healthcare systems across Central Asia.
-                  </p>
-                </div>
-                <div class="signal-card">
-                  <div class="signal-kicker" data-i18n="heroPanel2Label">Vision</div>
-                  <div class="signal-value" data-i18n="heroPanel2Value">World-class, region-first</div>
-                  <p class="hero-visual-note" data-i18n="heroPanel2Text">
-                    We build premium AI products with global standards and local market depth.
-                  </p>
-                </div>
-                <div class="signal-card">
-                  <div class="signal-kicker" data-i18n="heroPanel3Label">Domain</div>
-                  <div class="signal-value">hyperion-labs.ai</div>
-                  <p class="hero-visual-note" data-i18n="heroPanel3Text">
-                    A premium identity for an ambitious company shaping the next era of AI in the region.
-                  </p>
-                </div>
-              </div>
-            </aside>
           </div>
         </section>
 
-        <section class="marquee-section reveal" aria-labelledby="partners-title">
-          <div class="container section-header">
-            <div class="eyebrow" id="partners-title" data-i18n="partnersEyebrow">Trusted by leading institutions</div>
+        <!-- MARQUEE -->
+        <section class="marquee-section reveal" aria-labelledby="partners-label">
+          <div class="container" style="margin-bottom:16px">
+            <div class="eyebrow" id="partners-label" data-i18n="partnersEyebrow">Trusted by leading institutions</div>
           </div>
           <div class="marquee-wrap" aria-hidden="true">
             <div class="marquee">
@@ -964,569 +103,277 @@
           </div>
         </section>
 
+        <!-- PRODUCTS -->
         <section id="products">
           <div class="container">
             <div class="section-header reveal">
               <div class="eyebrow" data-i18n="productsEyebrow">Products</div>
               <h2 data-i18n="productsTitle">Our Products</h2>
-              <p class="lead" data-i18n="productsLead">
-                We are building a focused portfolio of AI products designed for high-stakes, underserved markets.
-              </p>
+              <p class="lead" data-i18n="productsLead">A focused portfolio of AI products designed for high-stakes, underserved markets.</p>
             </div>
-            <div class="cards-grid">
-              <article class="product-card featured reveal">
-                <div class="product-header">
-                  <div class="product-icon" aria-hidden="true">A</div>
-                  <div class="pill pill-teal" data-i18n="avrisStatus">Launching 2026</div>
-                </div>
-                <div class="product-copy">
-                  <h3>AvrisAI</h3>
-                  <p class="card-text" data-i18n="avrisDesc">Voice-Powered Clinical Documentation</p>
-                  <p class="card-text" data-i18n="avrisMeta">Launching 2026 · Central Asia</p>
-                  <a class="button-inline" href="#contact" data-i18n="learnMore">Learn More →</a>
+            <div class="grid-2">
+              <article class="card featured reveal reveal-delay-1">
+                <div class="card-inner">
+                  <div class="card-header">
+                    <div class="card-icon">A</div>
+                    <div class="pill pill-accent" data-i18n="avrisStatus">Launching 2026</div>
+                  </div>
+                  <div class="card-body">
+                    <h3>AvrisAI</h3>
+                    <p class="card-text" data-i18n="avrisDesc">Voice-powered clinical documentation that understands context, language, and the realities of care delivery in Central Asia.</p>
+                    <a class="card-link" href="#contact" data-i18n="learnMore">Learn more <span aria-hidden="true">&#8594;</span></a>
+                  </div>
                 </div>
               </article>
-
-              <article class="product-card ghosted reveal">
-                <div class="product-header">
-                  <div class="product-icon" aria-hidden="true">?</div>
-                  <div class="pill" data-i18n="comingSoon">Coming Soon</div>
-                </div>
-                <div class="product-copy">
-                  <h3>[REDACTED]</h3>
-                  <p class="card-text" data-i18n="futureDesc">
-                    A future Hyperion Labs product being developed for the next layer of AI infrastructure.
-                  </p>
-                  <a class="button-inline" href="#contact" data-i18n="privatePipeline">Private pipeline →</a>
+              <article class="card ghosted reveal reveal-delay-2">
+                <div class="card-inner">
+                  <div class="card-header">
+                    <div class="card-icon">?</div>
+                    <div class="pill" data-i18n="comingSoon">Coming Soon</div>
+                  </div>
+                  <div class="card-body">
+                    <h3>[REDACTED]</h3>
+                    <p class="card-text" data-i18n="futureDesc">A future Hyperion Labs product being developed for the next layer of AI infrastructure.</p>
+                    <a class="card-link" href="#contact" data-i18n="privatePipeline">Private pipeline <span aria-hidden="true">&#8594;</span></a>
+                  </div>
                 </div>
               </article>
             </div>
           </div>
         </section>
 
+        <!-- STATS -->
         <section id="about">
           <div class="container">
             <div class="section-header reveal">
               <div class="eyebrow" data-i18n="statsEyebrow">Momentum</div>
               <h2 data-i18n="statsTitle">A focused lab with meaningful ambition.</h2>
             </div>
-            <div class="stats-grid">
-              <article class="stat-card reveal">
-                <div class="stat-number">3</div>
+            <div class="grid-4">
+              <div class="stat-card reveal reveal-delay-1">
+                <div class="stat-number" data-count="3">0</div>
                 <p class="stat-label" data-i18n="stat1">Products in development</p>
-              </article>
-              <article class="stat-card reveal">
-                <div class="stat-number">10K+</div>
+              </div>
+              <div class="stat-card reveal reveal-delay-2">
+                <div class="stat-number" data-count="10" data-suffix="K+">0</div>
                 <p class="stat-label" data-i18n="stat2">Potential users in pipeline</p>
-              </article>
-              <article class="stat-card reveal">
-                <div class="stat-number">3</div>
+              </div>
+              <div class="stat-card reveal reveal-delay-3">
+                <div class="stat-number" data-count="3">0</div>
                 <p class="stat-label" data-i18n="stat3">Countries target market</p>
-              </article>
-              <article class="stat-card reveal">
-                <div class="stat-number">2026</div>
+              </div>
+              <div class="stat-card reveal reveal-delay-4">
+                <div class="stat-number" data-count="2026">0</div>
                 <p class="stat-label" data-i18n="stat4">Launch year</p>
-              </article>
+              </div>
             </div>
           </div>
         </section>
 
+        <!-- MISSION -->
         <section class="mission" id="mission">
           <div class="container">
-            <div class="mission-panel reveal" id="mission-panel">
-              <div class="eyebrow" data-i18n="missionEyebrow">Our Mission</div>
-              <p class="mission-statement" data-i18n="missionText">
-                We build AI products that solve real problems for real people in Central Asia.
-              </p>
+            <div class="mission-panel reveal">
+              <div class="mission-inner">
+                <div class="eyebrow" data-i18n="missionEyebrow">Our Mission</div>
+                <p class="mission-text">
+                  <span data-i18n="missionText1">We build AI products that solve </span><span class="accent" data-i18n="missionText2">real problems</span><span data-i18n="missionText3"> for </span><span class="accent" data-i18n="missionText4">real people</span><span data-i18n="missionText5"> in Central Asia.</span>
+                </p>
+              </div>
             </div>
           </div>
         </section>
 
+        <!-- RESEARCH -->
         <section id="research">
           <div class="container">
             <div class="section-header reveal">
               <div class="eyebrow" data-i18n="researchEyebrow">Hyperion Research</div>
               <h2 data-i18n="researchTitle">Research grounded in practical deployment.</h2>
             </div>
-            <div class="research-grid">
-              <article class="research-card reveal">
-                <div class="research-icon" aria-hidden="true">01</div>
-                <div class="research-copy">
-                  <h3 data-i18n="research1Title">Medical AI</h3>
-                  <p class="card-text" data-i18n="research1Text">
-                    Clinical workflows, voice intelligence, and trust-critical AI systems for care delivery.
-                  </p>
+            <div class="grid-3">
+              <article class="card research-card reveal reveal-delay-1">
+                <div class="card-inner">
+                  <span class="research-num">01</span>
+                  <div>
+                    <h3 data-i18n="research1Title">Medical AI</h3>
+                    <p class="card-text" data-i18n="research1Text">Clinical workflows, voice intelligence, and trust-critical AI systems for care delivery.</p>
+                  </div>
                 </div>
               </article>
-              <article class="research-card reveal">
-                <div class="research-icon" aria-hidden="true">02</div>
-                <div class="research-copy">
-                  <h3 data-i18n="research2Title">NLP for Turkic Languages</h3>
-                  <p class="card-text" data-i18n="research2Text">
-                    Language models and interfaces better tuned for regional linguistic realities.
-                  </p>
+              <article class="card research-card reveal reveal-delay-2">
+                <div class="card-inner">
+                  <span class="research-num">02</span>
+                  <div>
+                    <h3 data-i18n="research2Title">NLP for Turkic Languages</h3>
+                    <p class="card-text" data-i18n="research2Text">Language models and interfaces tuned for regional linguistic realities.</p>
+                  </div>
                 </div>
               </article>
-              <article class="research-card reveal">
-                <div class="research-icon" aria-hidden="true">03</div>
-                <div class="research-copy">
-                  <h3 data-i18n="research3Title">Healthcare Infrastructure</h3>
-                  <p class="card-text" data-i18n="research3Text">
-                    Systems, tooling, and infrastructure that make AI usable in real institutional settings.
-                  </p>
+              <article class="card research-card reveal reveal-delay-3">
+                <div class="card-inner">
+                  <span class="research-num">03</span>
+                  <div>
+                    <h3 data-i18n="research3Title">Healthcare Infrastructure</h3>
+                    <p class="card-text" data-i18n="research3Text">Systems, tooling, and infrastructure that make AI usable in real institutional settings.</p>
+                  </div>
                 </div>
               </article>
             </div>
           </div>
         </section>
 
+        <!-- TEAM -->
         <section id="careers">
           <div class="container">
             <div class="section-header reveal">
               <div class="eyebrow" data-i18n="teamEyebrow">The Team</div>
               <h2 data-i18n="teamTitle">Builders with product taste and regional conviction.</h2>
             </div>
-            <div class="team-grid">
-              <article class="team-card reveal">
-                <div class="team-header">
-                  <div class="team-avatar" aria-hidden="true">SN</div>
-                  <div class="pill pill-teal">Founder</div>
-                </div>
-                <div class="team-copy">
-                  <h3>Shahzod Narzulloev</h3>
-                  <p class="card-text" data-i18n="teamFounderRole">Founder & CEO</p>
-                  <a class="linkedin-link" href="https://www.linkedin.com" target="_blank" rel="noreferrer" data-i18n="linkedin">LinkedIn ↗</a>
-                </div>
-              </article>
-              <article class="team-card reveal">
-                <div class="team-header">
-                  <div class="team-avatar" aria-hidden="true">CF</div>
-                  <div class="pill" data-i18n="cofounderLabel">Co-Founder</div>
-                </div>
-                <div class="team-copy">
-                  <h3 data-i18n="cofounderTitle">Open Co-Founder Seat</h3>
-                  <p class="card-text" data-i18n="cofounderText">
-                    Placeholder for a future operator, researcher, or technical co-founder aligned with the mission.
-                  </p>
-                  <a class="linkedin-link" href="#contact" data-i18n="joinUs">Join us ↗</a>
+            <div class="grid-3">
+              <article class="card team-card reveal reveal-delay-1">
+                <div class="card-inner">
+                  <div class="card-header">
+                    <div class="avatar">SN</div>
+                    <div class="pill pill-accent">Founder</div>
+                  </div>
+                  <div class="card-body">
+                    <h3>Shahzod Narzulloev</h3>
+                    <p class="team-role" data-i18n="teamFounderRole">Founder &amp; CEO</p>
+                    <p class="card-text" data-i18n="teamFounderBio">Building world-class AI for Central Asia. Medical student turned entrepreneur.</p>
+                    <a class="team-link" href="https://www.linkedin.com/in/%D1%88%D0%B0%D1%85%D0%B7%D0%BE%D0%B4-%D0%BD%D0%B0%D1%80%D0%B7%D1%83%D0%BB%D0%BB%D0%BE%D0%B5%D0%B2-2069953b5?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" rel="noopener noreferrer" data-i18n="linkedin">LinkedIn <span aria-hidden="true">&#8599;</span></a>
+                  </div>
                 </div>
               </article>
-              <article class="team-card reveal">
-                <div class="team-header">
-                  <div class="team-avatar" aria-hidden="true">CF</div>
-                  <div class="pill" data-i18n="cofounderLabel">Co-Founder</div>
+              <article class="card team-card reveal reveal-delay-2">
+                <div class="card-inner">
+                  <div class="card-header">
+                    <div class="avatar">TC</div>
+                    <div class="pill" data-i18n="cofounderLabel">Co-Founder</div>
+                  </div>
+                  <div class="card-body">
+                    <h3 data-i18n="cofounderTitle">Technical Co-Founder</h3>
+                    <p class="card-text" data-i18n="cofounderText">Looking for: AI/ML engineer, researcher, or fullstack dev with passion for healthcare.</p>
+                    <a class="team-link" href="mailto:careers@hyperion-labs.ai" data-i18n="joinUs">Join us <span aria-hidden="true">&#8599;</span></a>
+                  </div>
                 </div>
-                <div class="team-copy">
-                  <h3 data-i18n="cofounderTitle2">Strategic Co-Founder Seat</h3>
-                  <p class="card-text" data-i18n="cofounderText2">
-                    Reserved for cross-functional talent in healthcare, partnerships, or GTM across Central Asia.
-                  </p>
-                  <a class="linkedin-link" href="#contact" data-i18n="connect">Connect ↗</a>
+              </article>
+              <article class="card team-card reveal reveal-delay-3">
+                <div class="card-inner">
+                  <div class="card-header">
+                    <div class="avatar">BC</div>
+                    <div class="pill" data-i18n="cofounderLabel">Co-Founder</div>
+                  </div>
+                  <div class="card-body">
+                    <h3 data-i18n="cofounderTitle2">Business / Commercial Co-Founder</h3>
+                    <p class="card-text" data-i18n="cofounderText2">Looking for: GTM expert, investor relations, or healthcare partnerships lead.</p>
+                    <a class="team-link" href="https://www.linkedin.com/in/%D1%88%D0%B0%D1%85%D0%B7%D0%BE%D0%B4-%D0%BD%D0%B0%D1%80%D0%B7%D1%83%D0%BB%D0%BB%D0%BE%D0%B5%D0%B2-2069953b5?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" rel="noopener noreferrer" data-i18n="connect">Connect <span aria-hidden="true">&#8599;</span></a>
+                  </div>
                 </div>
               </article>
             </div>
           </div>
         </section>
 
+        <!-- ACHIEVEMENTS -->
         <section id="achievements">
           <div class="container">
             <div class="section-header reveal">
               <div class="eyebrow" data-i18n="achievementsEyebrow">Achievements</div>
               <h2 data-i18n="achievementsTitle">Built for credibility from day one.</h2>
             </div>
-            <div class="achievements-grid">
-              <article class="achievement-card reveal">
-                <div class="achievement-copy">
+            <div class="grid-3">
+              <article class="card reveal reveal-delay-1">
+                <div class="card-inner">
                   <h3 data-i18n="achievement1Title">Accelerator Ready</h3>
-                  <p class="card-text" data-i18n="achievement1Text">
-                    Positioned for top-tier accelerator and venture conversations with a sharp frontier-market narrative.
-                  </p>
+                  <p class="card-text" data-i18n="achievement1Text">Positioned for top-tier accelerator and venture conversations with a sharp frontier-market narrative.</p>
                 </div>
               </article>
-              <article class="achievement-card reveal">
-                <div class="achievement-copy">
+              <article class="card reveal reveal-delay-2">
+                <div class="card-inner">
                   <h3 data-i18n="achievement2Title">Institutional Pathways</h3>
-                  <p class="card-text" data-i18n="achievement2Text">
-                    Designed for collaboration with hospitals, research bodies, and public-sector innovation partners.
-                  </p>
+                  <p class="card-text" data-i18n="achievement2Text">Designed for collaboration with hospitals, research bodies, and public-sector innovation partners.</p>
                 </div>
               </article>
-              <article class="achievement-card reveal">
-                <div class="achievement-copy">
-                  <h3 data-i18n="achievement3Title">Media and Awards</h3>
-                  <p class="card-text" data-i18n="achievement3Text">
-                    Space reserved for future recognition, media coverage, and ecosystem milestones as the company launches.
-                  </p>
+              <article class="card reveal reveal-delay-3">
+                <div class="card-inner">
+                  <h3 data-i18n="achievement3Title">Media &amp; Awards</h3>
+                  <p class="card-text" data-i18n="achievement3Text">Space reserved for future recognition, media coverage, and ecosystem milestones.</p>
                 </div>
               </article>
             </div>
           </div>
         </section>
 
+        <!-- CTA -->
         <section id="contact">
           <div class="container">
             <div class="cta-panel reveal">
-              <div class="cta-layout">
-                <div>
-                  <div class="eyebrow" data-i18n="ctaEyebrow">Early Access</div>
-                  <h2 data-i18n="ctaTitle">Ready to work with us?</h2>
-                  <p class="lead" data-i18n="ctaLead">
-                    Join the early access list for AvrisAI and stay close to the next generation of AI products for Central Asia.
-                  </p>
+              <div class="cta-inner">
+                <div class="cta-grid">
+                  <div>
+                    <div class="eyebrow" data-i18n="ctaEyebrow">Early Access</div>
+                    <h2 data-i18n="ctaTitle">Ready to work with us?</h2>
+                    <p class="lead" data-i18n="ctaLead">Join the early access list for AvrisAI and stay close to the next generation of AI products for Central Asia.</p>
+                  </div>
+                  <form class="cta-form" id="early-access-form" novalidate>
+                    <label class="form-field" for="email">
+                      <span class="sr-only" data-i18n="emailLabel">Email address</span>
+                      <input id="email" name="email" type="email" autocomplete="email" required placeholder="name@company.com" aria-describedby="form-msg" />
+                      <button class="btn btn-primary" type="submit" data-i18n="submitLabel">Get Access</button>
+                    </label>
+                    <p class="form-msg" id="form-msg" role="status" aria-live="polite"></p>
+                  </form>
                 </div>
-                <form class="cta-form" id="early-access-form" novalidate>
-                  <label class="form-field" for="email">
-                    <span class="sr-only" data-i18n="emailLabel">Email address</span>
-                    <input
-                      id="email"
-                      name="email"
-                      type="email"
-                      autocomplete="email"
-                      required
-                      aria-describedby="form-message"
-                      placeholder="name@company.com"
-                    />
-                    <button class="button button-primary" type="submit" data-i18n="submitLabel">Get Early Access</button>
-                  </label>
-                  <p class="form-message" id="form-message" role="status" aria-live="polite"></p>
-                </form>
               </div>
             </div>
           </div>
         </section>
       </main>
 
+      <!-- ═══ FOOTER ═══ -->
       <footer>
         <div class="container">
           <div class="footer-panel reveal">
             <div class="footer-grid">
               <div>
                 <div class="brand">HYPERION LABS</div>
-                <p class="footer-copy" data-i18n="footerDesc">
-                  Hyperion Labs is building world-class AI products for Central Asia, starting with voice infrastructure for healthcare.
-                </p>
+                <p class="footer-desc" data-i18n="footerDesc">Hyperion Labs is building world-class AI products for Central Asia, starting with voice infrastructure for healthcare.</p>
+                <div class="footer-contact" style="margin-top:16px">
+                  <a href="https://theavris.ai" target="_blank" rel="noopener noreferrer" style="color:var(--accent-light);font-size:.9rem">AvrisAI — theavris.ai</a>
+                </div>
               </div>
               <div>
                 <div class="footer-links">
                   <a href="#products" data-i18n="footerProducts">Products</a>
-                  <a href="#about" data-i18n="footerCompany">Company</a>
+                  <a href="#careers" data-i18n="footerCompany">Team</a>
                   <a href="#research" data-i18n="footerResearch">Research</a>
-                  <a href="#contact" data-i18n="footerLegal">Legal</a>
+                  <a href="/careers" data-i18n="footerCareers">Careers</a>
+                  <a href="/privacy" data-i18n="footerLegal">Legal</a>
                 </div>
                 <div class="social-links">
-                  <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
-                  <a href="https://twitter.com" target="_blank" rel="noreferrer">Twitter</a>
-                  <a href="https://github.com/narzulloev0022" target="_blank" rel="noreferrer">GitHub</a>
+                  <a href="https://www.instagram.com/hyperionlabs.ai?igsh=MWVjd3Z1ZGFvN2thNw%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <span aria-hidden="true">◎</span> Instagram
+                  </a>
+                  <a href="https://x.com/hyperionlabsai?s=21" target="_blank" rel="noopener noreferrer" aria-label="Twitter X">
+                    <span aria-hidden="true">𝕏</span> Twitter
+                  </a>
+                  <a href="https://www.linkedin.com/in/%D1%88%D0%B0%D1%85%D0%B7%D0%BE%D0%B4-%D0%BD%D0%B0%D1%80%D0%B7%D1%83%D0%BB%D0%BB%D0%BE%D0%B5%D0%B2-2069953b5?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <span aria-hidden="true">in</span> LinkedIn
+                  </a>
+                  <a href="https://github.com/narzulloev0022" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <span aria-hidden="true">⌘</span> GitHub
+                  </a>
                 </div>
               </div>
             </div>
-            <div class="footer-meta">© 2026 Hyperion Labs. All rights reserved.</div>
+            <div class="footer-meta">&copy; 2026 Hyperion Labs. All rights reserved.</div>
           </div>
         </div>
+        <div style="height:48px"></div>
       </footer>
     </div>
 
-    <script>
-      const translations = {
-        en: {
-          skip: "Skip to content",
-          navAbout: "About",
-          navProducts: "Products",
-          navResearch: "Research",
-          navCareers: "Careers",
-          navContact: "Contact",
-          navCta: "Get Early Access",
-          heroBadgeLabel: "Now building",
-          heroTitle: "Building the Future of AI for Central Asia",
-          heroSubtitle: "World-class artificial intelligence products, built for emerging markets.",
-          heroPrimary: "Explore AvrisAI →",
-          heroSecondary: "Our Research",
-          heroPanel1Label: "Flagship Product",
-          heroPanel1Text: "Voice-powered clinical documentation designed for healthcare systems across Central Asia.",
-          heroPanel2Label: "Vision",
-          heroPanel2Value: "World-class, region-first",
-          heroPanel2Text: "We build premium AI products with global standards and local market depth.",
-          heroPanel3Label: "Domain",
-          heroPanel3Text: "A premium identity for an ambitious company shaping the next era of AI in the region.",
-          partnersEyebrow: "Trusted by leading institutions",
-          productsEyebrow: "Products",
-          productsTitle: "Our Products",
-          productsLead: "We are building a focused portfolio of AI products designed for high-stakes, underserved markets.",
-          avrisStatus: "Launching 2026",
-          avrisDesc: "Voice-Powered Clinical Documentation",
-          avrisMeta: "Launching 2026 · Central Asia",
-          learnMore: "Learn More →",
-          comingSoon: "Coming Soon",
-          futureDesc: "A future Hyperion Labs product being developed for the next layer of AI infrastructure.",
-          privatePipeline: "Private pipeline →",
-          statsEyebrow: "Momentum",
-          statsTitle: "A focused lab with meaningful ambition.",
-          stat1: "Products in development",
-          stat2: "Potential users in pipeline",
-          stat3: "Countries target market",
-          stat4: "Launch year",
-          missionEyebrow: "Our Mission",
-          missionText: "We build AI products that solve real problems for real people in Central Asia.",
-          researchEyebrow: "Hyperion Research",
-          researchTitle: "Research grounded in practical deployment.",
-          research1Title: "Medical AI",
-          research1Text: "Clinical workflows, voice intelligence, and trust-critical AI systems for care delivery.",
-          research2Title: "NLP for Turkic Languages",
-          research2Text: "Language models and interfaces better tuned for regional linguistic realities.",
-          research3Title: "Healthcare Infrastructure",
-          research3Text: "Systems, tooling, and infrastructure that make AI usable in real institutional settings.",
-          teamEyebrow: "The Team",
-          teamTitle: "Builders with product taste and regional conviction.",
-          teamFounderRole: "Founder & CEO",
-          linkedin: "LinkedIn ↗",
-          cofounderLabel: "Co-Founder",
-          cofounderTitle: "Open Co-Founder Seat",
-          cofounderText: "Placeholder for a future operator, researcher, or technical co-founder aligned with the mission.",
-          joinUs: "Join us ↗",
-          cofounderTitle2: "Strategic Co-Founder Seat",
-          cofounderText2: "Reserved for cross-functional talent in healthcare, partnerships, or GTM across Central Asia.",
-          connect: "Connect ↗",
-          achievementsEyebrow: "Achievements",
-          achievementsTitle: "Built for credibility from day one.",
-          achievement1Title: "Accelerator Ready",
-          achievement1Text: "Positioned for top-tier accelerator and venture conversations with a sharp frontier-market narrative.",
-          achievement2Title: "Institutional Pathways",
-          achievement2Text: "Designed for collaboration with hospitals, research bodies, and public-sector innovation partners.",
-          achievement3Title: "Media and Awards",
-          achievement3Text: "Space reserved for future recognition, media coverage, and ecosystem milestones as the company launches.",
-          ctaEyebrow: "Early Access",
-          ctaTitle: "Ready to work with us?",
-          ctaLead: "Join the early access list for AvrisAI and stay close to the next generation of AI products for Central Asia.",
-          emailLabel: "Email address",
-          submitLabel: "Get Early Access",
-          footerDesc: "Hyperion Labs is building world-class AI products for Central Asia, starting with voice infrastructure for healthcare.",
-          footerProducts: "Products",
-          footerCompany: "Company",
-          footerResearch: "Research",
-          footerLegal: "Legal",
-          formSuccess: "Thanks. We will be in touch soon.",
-          formError: "Please enter a valid email address."
-        },
-        ru: {
-          skip: "Перейти к содержимому",
-          navAbout: "О нас",
-          navProducts: "Продукты",
-          navResearch: "Исследования",
-          navCareers: "Карьера",
-          navContact: "Контакты",
-          navCta: "Ранний доступ",
-          heroBadgeLabel: "Сейчас создаём",
-          heroTitle: "Создаём будущее AI для Центральной Азии",
-          heroSubtitle: "AI-продукты мирового уровня, созданные для развивающихся рынков.",
-          heroPrimary: "Изучить AvrisAI →",
-          heroSecondary: "Наши исследования",
-          heroPanel1Label: "Флагманский продукт",
-          heroPanel1Text: "Голосовая клиническая документация для систем здравоохранения Центральной Азии.",
-          heroPanel2Label: "Видение",
-          heroPanel2Value: "Мировой уровень, фокус на регионе",
-          heroPanel2Text: "Мы создаём премиальные AI-продукты с глобальными стандартами и глубоким знанием локального рынка.",
-          heroPanel3Label: "Домен",
-          heroPanel3Text: "Премиальная идентичность для амбициозной компании, формирующей новую эпоху AI в регионе.",
-          partnersEyebrow: "Нам доверяют ведущие институты",
-          productsEyebrow: "Продукты",
-          productsTitle: "Наши продукты",
-          productsLead: "Мы создаём сфокусированный портфель AI-продуктов для сложных и недообслуженных рынков.",
-          avrisStatus: "Запуск в 2026",
-          avrisDesc: "Голосовая клиническая документация",
-          avrisMeta: "Запуск в 2026 · Центральная Азия",
-          learnMore: "Узнать больше →",
-          comingSoon: "Скоро",
-          futureDesc: "Будущий продукт Hyperion Labs для следующего уровня AI-инфраструктуры.",
-          privatePipeline: "Закрытый pipeline →",
-          statsEyebrow: "Динамика",
-          statsTitle: "Сфокусированная лаборатория с серьёзными амбициями.",
-          stat1: "Продукта в разработке",
-          stat2: "Потенциальных пользователей в pipeline",
-          stat3: "Страны целевого рынка",
-          stat4: "Год запуска",
-          missionEyebrow: "Наша миссия",
-          missionText: "Мы создаём AI-продукты, которые решают реальные проблемы реальных людей в Центральной Азии.",
-          researchEyebrow: "Hyperion Research",
-          researchTitle: "Исследования, ориентированные на практическое внедрение.",
-          research1Title: "Medical AI",
-          research1Text: "Клинические процессы, голосовой интеллект и AI-системы для критически важных сценариев.",
-          research2Title: "NLP для тюркских языков",
-          research2Text: "Языковые модели и интерфейсы, лучше адаптированные к лингвистической реальности региона.",
-          research3Title: "Инфраструктура здравоохранения",
-          research3Text: "Системы и инструменты, которые делают AI применимым в реальных институциональных условиях.",
-          teamEyebrow: "Команда",
-          teamTitle: "Люди с продуктовым вкусом и сильной верой в регион.",
-          teamFounderRole: "Founder & CEO",
-          linkedin: "LinkedIn ↗",
-          cofounderLabel: "Co-Founder",
-          cofounderTitle: "Открытая позиция кофаундера",
-          cofounderText: "Плейсхолдер для будущего операционного, исследовательского или технического кофаундера.",
-          joinUs: "Присоединиться ↗",
-          cofounderTitle2: "Стратегическая позиция кофаундера",
-          cofounderText2: "Для сильного кросс-функционального партнёра в healthcare, partnerships или GTM по Центральной Азии.",
-          connect: "Связаться ↗",
-          achievementsEyebrow: "Достижения",
-          achievementsTitle: "С самого начала строимся на доверии и качестве.",
-          achievement1Title: "Готовность к акселераторам",
-          achievement1Text: "Позиционирование для сильных разговоров с топовыми акселераторами и венчурными фондами.",
-          achievement2Title: "Институциональные партнёрства",
-          achievement2Text: "Архитектура компании подходит для работы с больницами, исследовательскими организациями и госсектором.",
-          achievement3Title: "Медиа и награды",
-          achievement3Text: "Место для будущих наград, публикаций и экосистемных достижений после запуска компании.",
-          ctaEyebrow: "Ранний доступ",
-          ctaTitle: "Готовы работать с нами?",
-          ctaLead: "Оставьте email для раннего доступа к AvrisAI и следите за новым поколением AI-продуктов для Центральной Азии.",
-          emailLabel: "Электронная почта",
-          submitLabel: "Получить доступ",
-          footerDesc: "Hyperion Labs создаёт AI-продукты мирового уровня для Центральной Азии, начиная с голосовой инфраструктуры для здравоохранения.",
-          footerProducts: "Продукты",
-          footerCompany: "Компания",
-          footerResearch: "Исследования",
-          footerLegal: "Правовая информация",
-          formSuccess: "Спасибо. Мы скоро свяжемся с вами.",
-          formError: "Введите корректный email."
-        }
-      };
-
-      const langButtons = Array.from(document.querySelectorAll(".lang-toggle button"));
-      const i18nNodes = Array.from(document.querySelectorAll("[data-i18n]"));
-      const form = document.getElementById("early-access-form");
-      const emailInput = document.getElementById("email");
-      const formMessage = document.getElementById("form-message");
-      const header = document.getElementById("site-header");
-      const missionPanel = document.getElementById("mission-panel");
-
-      function setLanguage(lang) {
-        const dict = translations[lang] || translations.en;
-        document.documentElement.lang = lang;
-        i18nNodes.forEach((node) => {
-          const key = node.dataset.i18n;
-          if (dict[key]) node.textContent = dict[key];
-        });
-        emailInput.placeholder = lang === "ru" ? "name@company.com" : "name@company.com";
-        langButtons.forEach((button) => {
-          const active = button.dataset.lang === lang;
-          button.classList.toggle("active", active);
-          button.setAttribute("aria-pressed", String(active));
-        });
-        localStorage.setItem("hyperion-language", lang);
-      }
-
-      langButtons.forEach((button) => {
-        button.addEventListener("click", () => setLanguage(button.dataset.lang));
-      });
-
-      const preferredLanguage = localStorage.getItem("hyperion-language") || "en";
-      setLanguage(preferredLanguage);
-
-      const revealObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("visible");
-              revealObserver.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.16 }
-      );
-
-      document.querySelectorAll(".reveal").forEach((node) => revealObserver.observe(node));
-
-      window.addEventListener(
-        "scroll",
-        () => {
-          header.classList.toggle("scrolled", window.scrollY > 24);
-
-          const offset = Math.min(window.scrollY * 0.08, 24);
-          missionPanel.style.setProperty("--mission-offset", `${-offset}px`);
-        },
-        { passive: true }
-      );
-
-      form.addEventListener("submit", (event) => {
-        event.preventDefault();
-        const lang = document.documentElement.lang === "ru" ? "ru" : "en";
-        const value = emailInput.value.trim();
-        const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-        formMessage.textContent = valid ? translations[lang].formSuccess : translations[lang].formError;
-        if (!valid) {
-          emailInput.focus();
-          return;
-        }
-        form.reset();
-      });
-
-      const canvas = document.querySelector(".hero-canvas");
-      const context = canvas.getContext("2d");
-      const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      let particles = [];
-      let width = 0;
-      let height = 0;
-      let animationFrame = 0;
-
-      function resizeCanvas() {
-        const dpr = Math.min(window.devicePixelRatio || 1, 2);
-        width = window.innerWidth;
-        height = window.innerHeight;
-        canvas.width = width * dpr;
-        canvas.height = height * dpr;
-        canvas.style.width = `${width}px`;
-        canvas.style.height = `${height}px`;
-        context.setTransform(dpr, 0, 0, dpr, 0, 0);
-        particles = Array.from({ length: Math.min(72, Math.max(28, Math.floor(width / 22))) }, () => ({
-          x: Math.random() * width,
-          y: Math.random() * height,
-          r: Math.random() * 1.9 + 0.4,
-          vx: (Math.random() - 0.5) * 0.12,
-          vy: (Math.random() - 0.5) * 0.12,
-          alpha: Math.random() * 0.8 + 0.2
-        }));
-      }
-
-      function drawBackground() {
-        context.clearRect(0, 0, width, height);
-
-        const gradient = context.createRadialGradient(width * 0.68, height * 0.22, 0, width * 0.68, height * 0.22, width * 0.58);
-        gradient.addColorStop(0, "rgba(74, 163, 145, 0.18)");
-        gradient.addColorStop(0.45, "rgba(30, 78, 138, 0.10)");
-        gradient.addColorStop(1, "rgba(5, 8, 16, 0)");
-        context.fillStyle = gradient;
-        context.fillRect(0, 0, width, height);
-
-        particles.forEach((particle) => {
-          particle.x += particle.vx;
-          particle.y += particle.vy;
-
-          if (particle.x < -20) particle.x = width + 20;
-          if (particle.x > width + 20) particle.x = -20;
-          if (particle.y < -20) particle.y = height + 20;
-          if (particle.y > height + 20) particle.y = -20;
-
-          context.beginPath();
-          context.fillStyle = `rgba(165, 232, 220, ${particle.alpha})`;
-          context.arc(particle.x, particle.y, particle.r, 0, Math.PI * 2);
-          context.fill();
-        });
-      }
-
-      function animate() {
-        drawBackground();
-        animationFrame = window.requestAnimationFrame(animate);
-      }
-
-      resizeCanvas();
-      if (!prefersReduced) {
-        animate();
-      } else {
-        drawBackground();
-      }
-
-      window.addEventListener("resize", () => {
-        window.cancelAnimationFrame(animationFrame);
-        resizeCanvas();
-        if (!prefersReduced) animate();
-      });
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
