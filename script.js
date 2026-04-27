@@ -14,24 +14,17 @@ const translations = {
     navCta: "Get Early Access",
     heroBadge: "Now building",
     heroTitle1: "Building the Future",
-    heroTitle2: "of AI for ",
-    heroTitle3: "Central Asia",
-    heroSub: "World-class artificial intelligence products, engineered for emerging markets where innovation matters most.",
+    heroTitle2: "of ",
+    heroTitle3: "AI",
+    heroSub: "World-class AI products engineered for emerging markets.",
     heroPrimary: "Explore AvrisAI",
     heroSecondary: "Our Research",
-    panel1Label: "Flagship Product",
-    panel1Text: "Voice-powered clinical documentation designed for healthcare systems across Central Asia.",
-    panel2Label: "Vision",
-    panel2Value: "World-class, region-first",
-    panel2Text: "We build premium AI products with global standards and local market depth.",
-    panel3Label: "Domain",
-    panel3Text: "A premium identity for an ambitious company shaping the next era of AI in the region.",
     partnersEyebrow: "Trusted by leading institutions",
     productsEyebrow: "Products",
     productsTitle: "Our Products",
     productsLead: "A focused portfolio of AI products designed for high-stakes, underserved markets.",
     avrisStatus: "Launching 2026",
-    avrisDesc: "Voice-powered clinical documentation that understands context, language, and the realities of care delivery in Central Asia.",
+    avrisDesc: "Voice-powered clinical documentation that understands context, language, and the realities of modern care delivery.",
     learnMore: "Learn more",
     comingSoon: "Coming Soon",
     futureDesc: "A future Hyperion Labs product being developed for the next layer of AI infrastructure.",
@@ -39,36 +32,35 @@ const translations = {
     statsEyebrow: "Momentum",
     statsTitle: "A focused lab with meaningful ambition.",
     stat1: "Products in development",
-    stat2: "Potential users in pipeline",
-    stat3: "Countries target market",
+    stat2: "Expected users in first round",
+    stat3: "Countries in target market",
     stat4: "Launch year",
     missionEyebrow: "Our Mission",
     missionText1: "We build AI products that solve ",
     missionText2: "real problems",
     missionText3: " for ",
     missionText4: "real people",
-    missionText5: " in Central Asia.",
+    missionText5: ".",
     researchEyebrow: "Hyperion Research",
     researchTitle: "Research grounded in practical deployment.",
     research1Title: "Medical AI",
     research1Text: "Clinical workflows, voice intelligence, and trust-critical AI systems for care delivery.",
-    research2Title: "NLP for Turkic Languages",
-    research2Text: "Language models and interfaces tuned for regional linguistic realities.",
+    research2Title: "NLP for CIS & Regional Languages",
+    research2Text: "Language models tuned for CIS countries and regions with unique linguistic realities.",
     research3Title: "Healthcare Infrastructure",
     research3Text: "Systems, tooling, and infrastructure that make AI usable in real institutional settings.",
     teamEyebrow: "The Team",
     teamTitle: "Builders with product taste and regional conviction.",
-    teamFounderRole: "Founder, CEO, CTO",
-    teamFounderBio: "Building world-class AI for Central Asia. Medical student turned entrepreneur.",
+    teamFounderRole: "Founder & CEO",
+    teamFounderBio: "Building world-class AI for emerging markets. Medical student turned entrepreneur.",
     linkedin: "LinkedIn",
     cofounderLabel: "Co-Founder",
-    cofounderTitle: "Co-Founder",
-    cofounderRole: "CFO",
+    cofounderRole: "Co-Founder & CFO",
     cofounderText: "Leading finance, strategy, and operational discipline behind Hyperion Labs.",
     joinUs: "Join us",
     cofounderTitle2: "Open Co-Founder Seat",
     cofounderRole2: "Founding Team",
-    cofounderText2: "We are looking for a strong co-founder to help build a world-class AI company for Central Asia.",
+    cofounderText2: "We are looking for a strong co-founder to help build a world-class AI company.",
     connect: "Connect",
     achievementsEyebrow: "Achievements",
     achievementsTitle: "Built for credibility from day one.",
@@ -80,10 +72,10 @@ const translations = {
     achievement3Text: "Space reserved for future recognition, media coverage, and ecosystem milestones.",
     ctaEyebrow: "Early Access",
     ctaTitle: "Ready to work with us?",
-    ctaLead: "Join the early access list for AvrisAI and stay close to the next generation of AI products for Central Asia.",
+    ctaLead: "Join the early access list for AvrisAI and stay close to the next generation of AI products.",
     emailLabel: "Email address",
     submitLabel: "Get Access",
-    footerDesc: "Hyperion Labs is building world-class AI products for Central Asia, starting with voice infrastructure for healthcare.",
+    footerDesc: "Hyperion Labs is building world-class AI products for emerging markets, starting with voice infrastructure for healthcare.",
     footerProducts: "Products",
     footerCompany: "Team",
     footerResearch: "Research",
@@ -102,24 +94,17 @@ const translations = {
     navCta: "Ранний доступ",
     heroBadge: "Сейчас создаём",
     heroTitle1: "Создаём будущее",
-    heroTitle2: "AI для ",
-    heroTitle3: "Центральной Азии",
-    heroSub: "AI-продукты мирового уровня, созданные для развивающихся рынков, где инновации важнее всего.",
+    heroTitle2: "",
+    heroTitle3: "AI",
+    heroSub: "AI-продукты мирового уровня для развивающихся рынков.",
     heroPrimary: "Изучить AvrisAI",
     heroSecondary: "Наши исследования",
-    panel1Label: "Флагманский продукт",
-    panel1Text: "Голосовая клиническая документация для систем здравоохранения Центральной Азии.",
-    panel2Label: "Видение",
-    panel2Value: "Мировой уровень, фокус на регионе",
-    panel2Text: "Мы создаём премиальные AI-продукты с глобальными стандартами и глубоким знанием локального рынка.",
-    panel3Label: "Домен",
-    panel3Text: "Премиальная идентичность для амбициозной компании, формирующей новую эпоху AI в регионе.",
     partnersEyebrow: "Нам доверяют ведущие институты",
     productsEyebrow: "Продукты",
     productsTitle: "Наши продукты",
     productsLead: "Сфокусированный портфель AI-продуктов для сложных и недообслуженных рынков.",
     avrisStatus: "Запуск в 2026",
-    avrisDesc: "Голосовая клиническая документация, которая понимает контекст, язык и реалии медицины в Центральной Азии.",
+    avrisDesc: "Голосовая клиническая документация, которая понимает контекст, язык и реалии современной медицины.",
     learnMore: "Узнать больше",
     comingSoon: "Скоро",
     futureDesc: "Будущий продукт Hyperion Labs для следующего уровня AI-инфраструктуры.",
@@ -127,36 +112,35 @@ const translations = {
     statsEyebrow: "Динамика",
     statsTitle: "Сфокусированная лаборатория с серьёзными амбициями.",
     stat1: "Продукта в разработке",
-    stat2: "Потенциальных пользователей",
-    stat3: "Страны целевого рынка",
+    stat2: "Ожидаемых пользователей",
+    stat3: "Стран целевого рынка",
     stat4: "Год запуска",
     missionEyebrow: "Наша миссия",
     missionText1: "Мы создаём AI-продукты, которые решают ",
     missionText2: "реальные проблемы",
     missionText3: " для ",
     missionText4: "реальных людей",
-    missionText5: " в Центральной Азии.",
+    missionText5: ".",
     researchEyebrow: "Hyperion Research",
     researchTitle: "Исследования, ориентированные на практическое внедрение.",
     research1Title: "Medical AI",
     research1Text: "Клинические процессы, голосовой интеллект и AI-системы для критически важных сценариев.",
-    research2Title: "NLP для тюркских языков",
-    research2Text: "Языковые модели, лучше адаптированные к лингвистической реальности региона.",
+    research2Title: "NLP для стран СНГ и региона",
+    research2Text: "Языковые модели для стран СНГ и регионов с уникальной лингвистической спецификой.",
     research3Title: "Инфраструктура здравоохранения",
     research3Text: "Системы и инструменты, которые делают AI применимым в реальных условиях.",
     teamEyebrow: "Команда",
     teamTitle: "Люди с продуктовым вкусом и верой в регион.",
-    teamFounderRole: "Founder, CEO, CTO",
-    teamFounderBio: "Создаём AI мирового уровня для Центральной Азии. Студент-медик, ставший предпринимателем.",
+    teamFounderRole: "Founder & CEO",
+    teamFounderBio: "Создаём AI мирового уровня для развивающихся рынков. Студент-медик, ставший предпринимателем.",
     linkedin: "LinkedIn",
     cofounderLabel: "Co-Founder",
-    cofounderTitle: "Co-Founder",
-    cofounderRole: "CFO",
+    cofounderRole: "Co-Founder & CFO",
     cofounderText: "Отвечает за финансы, стратегию и операционную дисциплину Hyperion Labs.",
     joinUs: "Присоединиться",
     cofounderTitle2: "Открытая позиция кофаундера",
     cofounderRole2: "Founding Team",
-    cofounderText2: "Ищем сильного кофаундера, чтобы вместе строить AI-компанию мирового уровня для Центральной Азии.",
+    cofounderText2: "Ищем сильного кофаундера, чтобы вместе строить AI-компанию мирового уровня.",
     connect: "Связаться",
     achievementsEyebrow: "Достижения",
     achievementsTitle: "С самого начала строимся на доверии.",
@@ -171,7 +155,7 @@ const translations = {
     ctaLead: "Оставьте email для раннего доступа к AvrisAI — следите за новым поколением AI-продуктов.",
     emailLabel: "Электронная почта",
     submitLabel: "Получить доступ",
-    footerDesc: "Hyperion Labs создаёт AI-продукты мирового уровня для Центральной Азии.",
+    footerDesc: "Hyperion Labs создаёт AI-продукты мирового уровня для развивающихся рынков.",
     footerProducts: "Продукты",
     footerCompany: "Команда",
     footerResearch: "Исследования",
@@ -196,7 +180,7 @@ function setLanguage(lang) {
   document.documentElement.lang = lang;
   i18nNodes.forEach((node) => {
     const key = node.dataset.i18n;
-    if (dict[key]) node.textContent = dict[key];
+    if (dict[key] !== undefined) node.textContent = dict[key];
   });
   langButtons.forEach((btn) => {
     const active = btn.dataset.lang === lang;
@@ -251,8 +235,9 @@ const counterObserver = new IntersectionObserver(
         const progress = Math.min(elapsed / duration, 1);
         const ease = 1 - Math.pow(1 - progress, 4);
         const current = Math.round(startVal + (num - startVal) * ease);
+        const val = suffix === "+" && current >= num ? num : current;
         el.textContent =
-          (suffix === "+" && current >= num ? num : current) +
+          (isYear ? String(val) : val.toLocaleString()) +
           (current >= num ? suffix : "");
         if (progress < 1) requestAnimationFrame(tick);
       }
@@ -334,7 +319,6 @@ function drawConnections() {
 function draw() {
   ctx.clearRect(0, 0, w, h);
 
-  // Subtle radial glow
   const grd = ctx.createRadialGradient(
     w * 0.65, h * 0.2, 0,
     w * 0.65, h * 0.2, w * 0.55
@@ -345,7 +329,6 @@ function draw() {
   ctx.fillStyle = grd;
   ctx.fillRect(0, 0, w, h);
 
-  // Particles
   particles.forEach((p) => {
     p.x += p.vx;
     p.y += p.vy;
@@ -398,3 +381,33 @@ window.addEventListener("resize", () => {
   grainEl.style.backgroundImage = `url(${gc.toDataURL()})`;
   grainEl.style.backgroundRepeat = "repeat";
 })();
+
+// ── Mobile menu ──
+const hamburger = document.getElementById("nav-hamburger");
+const mobileMenu = document.getElementById("mobile-menu");
+const mobileClose = document.getElementById("mobile-menu-close");
+
+function openMobileMenu() {
+  mobileMenu.classList.add("open");
+  mobileMenu.setAttribute("aria-hidden", "false");
+  hamburger.setAttribute("aria-expanded", "true");
+  document.body.style.overflow = "hidden";
+}
+
+function closeMobileMenu() {
+  mobileMenu.classList.remove("open");
+  mobileMenu.setAttribute("aria-hidden", "true");
+  hamburger.setAttribute("aria-expanded", "false");
+  document.body.style.overflow = "";
+}
+
+hamburger.addEventListener("click", openMobileMenu);
+mobileClose.addEventListener("click", closeMobileMenu);
+mobileMenu.querySelectorAll("a").forEach((link) =>
+  link.addEventListener("click", closeMobileMenu)
+);
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && mobileMenu.classList.contains("open")) {
+    closeMobileMenu();
+  }
+});
