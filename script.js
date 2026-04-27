@@ -105,9 +105,10 @@ const translations = {
     journey3: "Chief physician validation — real doctor confirmed AvrisAI solves a real problem.",
     journey4: "Domains acquired: theavris.ai + hyperion-labs.ai. Brand identity established.",
     journey5: "Pilot preparation. First paying customers target: Q2 2026.",
-    journey6: "Series A prep. Expansion to Kazakhstan & Uzbekistan.",
+    journey6: "Seed investment round. Strategic partnerships with regional healthcare institutions.",
     formSuccess: "Thanks — we'll be in touch soon.",
     formError: "Please enter a valid email address.",
+    formRateLimit: "Please wait a moment before trying again.",
   },
   ru: {
     skip: "Перейти к содержимому",
@@ -210,9 +211,10 @@ const translations = {
     journey3: "Валидация главврачом — реальный врач подтвердил, что AvrisAI решает реальную проблему.",
     journey4: "Приобретены домены: theavris.ai + hyperion-labs.ai. Создан фирменный стиль.",
     journey5: "Подготовка к пилоту. Первые платящие клиенты: цель — Q2 2026.",
-    journey6: "Подготовка к Series A. Экспансия в Казахстан и Узбекистан.",
+    journey6: "Посевной раунд инвестиций. Стратегические партнёрства с региональными медицинскими учреждениями.",
     formSuccess: "Спасибо — мы скоро свяжемся с вами.",
     formError: "Введите корректный email.",
+    formRateLimit: "Подождите немного перед повторной попыткой.",
   },
 };
 
@@ -302,17 +304,43 @@ document
   .forEach((el) => counterObserver.observe(el));
 
 // ── Form handling ──
+let lastSubmit = 0;
+const honeypot = document.getElementById("hp-check");
+
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   const lang = document.documentElement.lang === "ru" ? "ru" : "en";
+
+  if (honeypot && honeypot.value) return;
+
+  const now = Date.now();
+  if (now - lastSubmit < 5000) {
+    formMsg.textContent = translations[lang].formRateLimit;
+    return;
+  }
+
   const value = emailInput.value.trim();
   const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
   formMsg.textContent = valid
     ? translations[lang].formSuccess
     : translations[lang].formError;
-  if (valid) form.reset();
-  else emailInput.focus();
+  if (valid) {
+    lastSubmit = now;
+    form.reset();
+  } else {
+    emailInput.focus();
+  }
 });
+
+// ── Email deobfuscation ──
+const emailLink = document.getElementById("footer-email");
+if (emailLink) {
+  const addr = "hello" + "@" + "hyperion-labs" + "." + "ai";
+  emailLink.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.location.href = "mailto:" + addr;
+  });
+}
 
 // ── Canvas Particle System ──
 const canvas = document.getElementById("bg-canvas");
