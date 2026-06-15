@@ -3,18 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hyperion Labs | Building the Future of AI</title>
-    <meta name="description" content="Hyperion Labs builds world-class AI products for emerging markets. Flagship: AvrisAI — voice-powered clinical documentation." />
+    <title>Hyperion Labs | World-class AI for Central Asia</title>
+    <meta name="description" content="Hyperion Labs builds world-class AI for healthcare in Central Asia, starting with AvrisAI — the voice assistant for doctors." />
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
-    <meta property="og:title" content="Hyperion Labs | Building the Future of AI" />
-    <meta property="og:description" content="World-class AI products for emerging markets. Starting with AvrisAI — medical voice documentation." />
+    <meta property="og:title" content="Hyperion Labs | World-class AI for Central Asia" />
+    <meta property="og:description" content="AI infrastructure for healthcare in Central Asia, starting with AvrisAI — the voice assistant for doctors." />
     <meta property="og:url" content="https://hyperion-labs.ai" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Hyperion Labs" />
-    <meta name="twitter:description" content="World-class AI products for emerging markets." />
+    <meta name="twitter:description" content="World-class AI for healthcare in Central Asia." />
     <meta property="og:image" content="https://hyperion-labs.ai/og-image.png" />
     <meta name="twitter:image" content="https://hyperion-labs.ai/og-image.png" />
     <link rel="canonical" href="https://hyperion-labs.ai" />
@@ -22,22 +22,19 @@
     <link rel="apple-touch-icon" href="favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css?v=2" />
   </head>
   <body>
     <!-- Skip link -->
     <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
 
-    <!-- Background layers -->
-    <canvas class="bg-canvas" id="bg-canvas" aria-hidden="true"></canvas>
-    <div class="bg-orbs" aria-hidden="true">
-      <div class="orb orb-1"></div>
-      <div class="orb orb-2"></div>
-      <div class="orb orb-3"></div>
+    <!-- Living atmosphere (blurred periwinkle field, under content) -->
+    <div class="bg-field" aria-hidden="true">
+      <span class="bg-orb bg-orb-1"></span>
+      <span class="bg-orb bg-orb-2"></span>
+      <span class="bg-orb bg-orb-3"></span>
     </div>
-    <div class="dot-grid" aria-hidden="true"></div>
-    <div class="grain" id="grain" aria-hidden="true"></div>
 
     <!-- Shell -->
     <div class="site-shell">
@@ -45,12 +42,14 @@
       <header class="site-header" id="site-header">
         <div class="container">
           <nav class="nav" aria-label="Primary navigation">
-            <a class="brand" href="#top" aria-label="Hyperion Labs home">HYPERION LABS</a>
+            <!-- Logo slot — SVG goes here later, text fallback for now -->
+            <a class="logo" href="#top" aria-label="Hyperion Labs home">
+              <span class="logo-text">HYPERION LABS</span>
+            </a>
             <div class="nav-links">
-              <a href="#about" data-i18n="navAbout">About</a>
               <a href="#products" data-i18n="navProducts">Products</a>
-              <a href="#research" data-i18n="navResearch">Research</a>
-              <a href="#careers" data-i18n="navCareers">Careers</a>
+              <a href="#about" data-i18n="navAbout">About</a>
+              <a href="#team" data-i18n="navTeam">Team</a>
               <a href="#contact" data-i18n="navContact">Contact</a>
             </div>
             <div class="nav-actions">
@@ -70,16 +69,15 @@
       <!-- Mobile menu overlay -->
       <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
         <div class="mobile-menu-header">
-          <span class="brand">HYPERION LABS</span>
+          <span class="logo-text">HYPERION LABS</span>
           <button class="mobile-menu-close" id="mobile-menu-close" type="button" aria-label="Close menu">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
           </button>
         </div>
         <nav class="mobile-nav" aria-label="Mobile navigation">
-          <a href="#about" data-i18n="navAbout">About</a>
           <a href="#products" data-i18n="navProducts">Products</a>
-          <a href="#research" data-i18n="navResearch">Research</a>
-          <a href="#careers" data-i18n="navCareers">Careers</a>
+          <a href="#about" data-i18n="navAbout">About</a>
+          <a href="#team" data-i18n="navTeam">Team</a>
           <a href="#contact" data-i18n="navContact">Contact</a>
         </nav>
         <div class="mobile-menu-footer">
@@ -93,392 +91,275 @@
 
       <!-- ═══ MAIN ═══ -->
       <main id="main">
-        <!-- HERO -->
+        <!-- ── HERO ── -->
         <section class="hero" id="top">
-          <div class="container hero-centered">
-            <div class="hero-copy">
-              <div class="hero-badge hero-anim">
-                <span class="dot"></span>
-                <span data-i18n="heroBadge">Now building</span>
-                <strong>AvrisAI</strong>
-              </div>
-              <h1 class="hero-anim hero-d1">
-                <span data-i18n="heroTitle1">Building the Future</span><br />
-                <span data-i18n="heroTitle2">of </span><span class="accent" data-i18n="heroTitle3">AI</span>
-              </h1>
-              <div class="hero-glow hero-anim hero-d2" aria-hidden="true"></div>
-              <p class="lead hero-anim hero-d2" data-i18n="heroSub">
-                World-class AI products engineered for emerging markets.
-              </p>
-              <div class="hero-actions hero-anim hero-d3">
-                <a class="btn btn-primary btn-lg" href="#products" data-i18n="heroPrimary">Explore AvrisAI</a>
-                <a class="btn btn-secondary btn-lg" href="#research" data-i18n="heroSecondary">Our Research</a>
-              </div>
+          <div class="container hero-inner">
+            <div class="hero-badge hero-anim">
+              <span class="dot"></span>
+              <span data-i18n="heroBadge">AI Lab · Central Asia</span>
+            </div>
+            <h1 class="hero-title">
+              <span class="line"><span class="line-i line-r1" data-i18n="heroTitle1">World-class AI</span></span>
+              <span class="line"><span class="line-i line-r2 accent" data-i18n="heroTitle2">for the future of healthcare.</span></span>
+            </h1>
+            <p class="lead hero-anim hero-d2" data-i18n="heroSub">
+              Hyperion Labs builds the AI infrastructure for healthcare in Central Asia, starting with AvrisAI — the voice assistant for doctors.
+            </p>
+            <div class="hero-actions hero-anim hero-d3">
+              <a class="btn btn-primary btn-lg" href="#avris" data-i18n="heroPrimary">Explore AvrisAI</a>
+              <a class="btn btn-secondary btn-lg" href="#contact" data-i18n="heroSecondary">Get Early Access</a>
             </div>
           </div>
         </section>
 
-        <!-- MARQUEE -->
-        <section class="marquee-section reveal" aria-labelledby="partners-label">
-          <div class="container" style="margin-bottom:16px">
-            <div class="eyebrow" id="partners-label" data-i18n="partnersEyebrow">Trusted by leading institutions</div>
-          </div>
-          <div class="marquee-wrap" aria-hidden="true">
-            <div class="marquee">
-              <div class="marquee-group">
-                <div class="logo-chip">Regional Health Systems</div>
-                <div class="logo-chip">University Hospitals</div>
-                <div class="logo-chip">Clinical Research Partners</div>
-                <div class="logo-chip">Public Sector Innovation</div>
-                <div class="logo-chip">AI Infrastructure Labs</div>
-                <div class="logo-chip">Frontier Care Networks</div>
-              </div>
-              <div class="marquee-group">
-                <div class="logo-chip">Regional Health Systems</div>
-                <div class="logo-chip">University Hospitals</div>
-                <div class="logo-chip">Clinical Research Partners</div>
-                <div class="logo-chip">Public Sector Innovation</div>
-                <div class="logo-chip">AI Infrastructure Labs</div>
-                <div class="logo-chip">Frontier Care Networks</div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- WHO WE ARE -->
-        <section id="about">
-          <div class="container">
-            <div class="section-header reveal">
-              <div class="eyebrow" data-i18n="aboutEyebrow">Who We Are</div>
-              <h2 class="about-title" data-i18n="aboutTitle">More than a startup.</h2>
-            </div>
-            <div class="about-grid">
-              <div class="about-text reveal">
-                <p data-i18n="aboutP1">Hyperion Labs was founded in Dushanbe, Tajikistan &mdash; one of the most underserved tech markets in the world. We started with a simple question: why do doctors spend hours on paperwork when AI can handle it in seconds?</p>
-                <p data-i18n="aboutP2">That question became AvrisAI &mdash; our flagship product that listens to doctor-patient conversations and auto-generates structured clinical documentation in seconds.</p>
-                <p data-i18n="aboutP3">We are not building for Silicon Valley. We are building for the doctor in Dushanbe, the hospital in Tashkent, the clinic in Almaty. If we can solve it here, we can solve it anywhere.</p>
-              </div>
-              <div class="about-facts">
-                <div class="fact-card reveal reveal-delay-1">
-                  <div class="fact-label" data-i18n="aboutFact1Label">Founded in</div>
-                  <div class="fact-value" data-i18n="aboutFact1Value">2025 &middot; Dushanbe, TJ</div>
-                </div>
-                <div class="fact-card reveal reveal-delay-2">
-                  <div class="fact-label" data-i18n="aboutFact2Label">First product</div>
-                  <div class="fact-value" data-i18n="aboutFact2Value">AvrisAI &middot; Medical AI</div>
-                </div>
-                <div class="fact-card reveal reveal-delay-3">
-                  <div class="fact-label" data-i18n="aboutFact3Label">Vision</div>
-                  <div class="fact-value" data-i18n="aboutFact3Value">Global AI lab from emerging markets</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- OUR JOURNEY -->
-        <section id="journey">
-          <div class="container">
-            <div class="section-header reveal">
-              <div class="eyebrow" data-i18n="journeyEyebrow">Our Journey</div>
-              <h2 data-i18n="journeyTitle">Built step by step.</h2>
-            </div>
-            <div class="timeline">
-              <div class="timeline-item reveal">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                  <div class="timeline-date">2025 &middot; Q1</div>
-                  <div class="pill pill-teal" data-i18n="journeyBadge1">Founded</div>
-                  <p class="timeline-text" data-i18n="journey1">Hyperion Labs founded. AvrisAI concept validated through doctor interviews.</p>
-                </div>
-              </div>
-              <div class="timeline-item reveal">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                  <div class="timeline-date">2025 &middot; Q2</div>
-                  <div class="pill pill-blue" data-i18n="journeyBadge2">Prototype</div>
-                  <p class="timeline-text" data-i18n="journey2">First prototype built. Voice recording + SOAP auto-generation working.</p>
-                </div>
-              </div>
-              <div class="timeline-item reveal">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                  <div class="timeline-date">2025 &middot; Q3</div>
-                  <div class="pill pill-green" data-i18n="journeyBadge3">Validated</div>
-                  <p class="timeline-text" data-i18n="journey3">Chief physician validation &mdash; real doctor confirmed AvrisAI solves a real problem.</p>
-                </div>
-              </div>
-              <div class="timeline-item reveal">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                  <div class="timeline-date">2025 &middot; Q4</div>
-                  <div class="pill pill-purple" data-i18n="journeyBadge4">Brand</div>
-                  <p class="timeline-text" data-i18n="journey4">Domains acquired: theavris.ai + hyperion-labs.ai. Brand identity established.</p>
-                </div>
-              </div>
-              <div class="timeline-item timeline-now reveal">
-                <div class="timeline-dot dot-pulse"></div>
-                <div class="timeline-content">
-                  <div class="timeline-date">2026 &middot; Now</div>
-                  <div class="pill pill-teal" data-i18n="journeyBadge5">Now</div>
-                  <p class="timeline-text" data-i18n="journey5">Pilot preparation. First paying customers target: Q2 2026.</p>
-                </div>
-              </div>
-              <div class="timeline-item timeline-future reveal">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                  <div class="timeline-date">2026 &middot; Q3-Q4</div>
-                  <div class="pill pill-muted" data-i18n="journeyBadge6">Next</div>
-                  <p class="timeline-text" data-i18n="journey6">Seed investment round. Strategic partnerships with regional healthcare institutions.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- PRODUCTS -->
+        <!-- ── PRODUCTS ── -->
         <section id="products">
           <div class="container">
             <div class="section-header reveal">
               <div class="eyebrow" data-i18n="productsEyebrow">Products</div>
-              <h2 data-i18n="productsTitle">Our Products</h2>
-              <p class="lead" data-i18n="productsLead">A focused portfolio of AI products designed for high-stakes, underserved markets.</p>
+              <h2 data-i18n="productsTitle">Two products. One mission.</h2>
+              <p class="lead" data-i18n="productsLead">A focused portfolio building the digital backbone of healthcare for the region.</p>
             </div>
-            <div class="grid-2">
-              <article class="card featured reveal reveal-delay-1">
-                <div class="card-inner">
-                  <div class="card-header">
-                    <div class="card-icon">A</div>
-                    <div class="pill pill-accent" data-i18n="avrisStatus">Launching 2026</div>
-                  </div>
-                  <div class="card-body">
-                    <h3>AvrisAI</h3>
-                    <p class="card-text" data-i18n="avrisDesc">Voice-powered clinical documentation that understands context, language, and the realities of modern care delivery.</p>
-                    <a class="card-link" href="#contact" data-i18n="learnMore">Learn more <span aria-hidden="true">&#8594;</span></a>
-                  </div>
+
+            <!-- AvrisAI -->
+            <article class="product product--avris reveal" id="avris">
+              <div class="product-body">
+                <div class="product-eyebrow" data-i18n="avrisEyebrow">Flagship · Voice AI</div>
+                <div class="product-status"><span class="status-dot"></span>Live</div>
+                <h3 class="product-title">AvrisAI</h3>
+                <p class="product-tagline" data-i18n="avrisTagline">Voice AI assistant for doctors</p>
+                <p class="product-desc" data-i18n="avrisDesc">A voice AI assistant for doctors — already deployed and running. It listens to the doctor–patient conversation and produces structured clinical documentation in seconds. Pilot completed across three cities in Tajikistan.</p>
+                <div class="product-contacts">
+                  <a class="product-contact product-contact--text" href="https://theavris.ai" target="_blank" rel="noopener noreferrer" aria-label="Website">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg>
+                    <span>theavris.ai</span>
+                  </a>
+                  <a class="product-contact" href="mailto:info@theavris.ai" aria-label="Email">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+                  </a>
+                  <a class="product-contact" href="https://www.instagram.com/theavris.ai" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                  </a>
+                  <a class="product-contact" href="https://x.com/theavrisai" target="_blank" rel="noopener noreferrer" aria-label="X">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.732-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                  </a>
                 </div>
-              </article>
-              <article class="card ghosted reveal reveal-delay-2">
-                <div class="card-inner">
-                  <div class="card-header">
-                    <div class="card-icon">?</div>
-                    <div class="pill" data-i18n="comingSoon">Coming Soon</div>
-                  </div>
-                  <div class="card-body">
-                    <h3>[REDACTED]</h3>
-                    <p class="card-text" data-i18n="futureDesc">A future Hyperion Labs product being developed for the next layer of AI infrastructure.</p>
-                    <a class="card-link" href="#contact" data-i18n="privatePipeline">Private pipeline <span aria-hidden="true">&#8594;</span></a>
-                  </div>
+                <a class="product-cta" href="https://theavris.ai" target="_blank" rel="noopener noreferrer" data-i18n="avrisCta">Open AvrisAI <span aria-hidden="true">&#8599;</span></a>
+              </div>
+              <div class="product-mark">
+                <div class="wave" aria-hidden="true">
+                  <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
                 </div>
-              </article>
+                <img src="assets/logo/avris-logo.svg" alt="AvrisAI" />
+              </div>
+            </article>
+
+            <!-- Stealth teaser -->
+            <article class="product product--teaser reveal" id="teaser">
+              <div class="product-body">
+                <div class="pill pill-glow" data-i18n="teaserBadge">Coming Soon</div>
+                <p class="product-desc product-desc--teaser" data-i18n="teaserDesc">A new product in development. Coming soon.</p>
+                <a class="product-cta" href="#contact" data-i18n="teaserCta">Private pipeline <span aria-hidden="true">&#8594;</span></a>
+              </div>
+              <div class="product-mark product-mark--teaser" aria-hidden="true">
+                <svg class="teaser-glyph" viewBox="0 0 120 120">
+                  <circle class="ring ring-spin" cx="60" cy="60" r="42" stroke-dasharray="2 9" opacity=".5" />
+                  <circle class="ring" cx="60" cy="60" r="27" opacity=".3" />
+                  <circle class="node" cx="60" cy="60" r="5" opacity=".8" />
+                </svg>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- ── PILOT MARQUEE — AvrisAI live cities ── -->
+        <section class="marquee-section" id="proof">
+          <p class="sr-only" data-i18n="marqueeSr">AvrisAI is live in Dushanbe, Istaravshan and Bokhtar.</p>
+          <div class="marquee" aria-hidden="true">
+            <div class="marquee-track">
+              <span class="m-label" data-i18n="marqueeLabel">AvrisAI live in</span><span class="m-sep">·</span>
+              <span class="m-city"><span class="m-dot"></span><span data-i18n="city1">Dushanbe</span></span><span class="m-sep">·</span>
+              <span class="m-city"><span class="m-dot"></span><span data-i18n="city2">Istaravshan</span></span><span class="m-sep">·</span>
+              <span class="m-city"><span class="m-dot"></span><span data-i18n="city3">Bokhtar</span></span><span class="m-sep">·</span>
+              <span class="m-label" data-i18n="marqueeLabel">AvrisAI live in</span><span class="m-sep">·</span>
+              <span class="m-city"><span class="m-dot"></span><span data-i18n="city1">Dushanbe</span></span><span class="m-sep">·</span>
+              <span class="m-city"><span class="m-dot"></span><span data-i18n="city2">Istaravshan</span></span><span class="m-sep">·</span>
+              <span class="m-city"><span class="m-dot"></span><span data-i18n="city3">Bokhtar</span></span><span class="m-sep">·</span>
+              <span class="m-label" data-i18n="marqueeLabel">AvrisAI live in</span><span class="m-sep">·</span>
+              <span class="m-city"><span class="m-dot"></span><span data-i18n="city1">Dushanbe</span></span><span class="m-sep">·</span>
+              <span class="m-city"><span class="m-dot"></span><span data-i18n="city2">Istaravshan</span></span><span class="m-sep">·</span>
+              <span class="m-city"><span class="m-dot"></span><span data-i18n="city3">Bokhtar</span></span><span class="m-sep">·</span>
+            </div>
+            <div class="marquee-track" aria-hidden="true">
+              <span class="m-label" data-i18n="marqueeLabel">AvrisAI live in</span><span class="m-sep">·</span>
+              <span class="m-city"><span class="m-dot"></span><span data-i18n="city1">Dushanbe</span></span><span class="m-sep">·</span>
+              <span class="m-city"><span class="m-dot"></span><span data-i18n="city2">Istaravshan</span></span><span class="m-sep">·</span>
+              <span class="m-city"><span class="m-dot"></span><span data-i18n="city3">Bokhtar</span></span><span class="m-sep">·</span>
+              <span class="m-label" data-i18n="marqueeLabel">AvrisAI live in</span><span class="m-sep">·</span>
+              <span class="m-city"><span class="m-dot"></span><span data-i18n="city1">Dushanbe</span></span><span class="m-sep">·</span>
+              <span class="m-city"><span class="m-dot"></span><span data-i18n="city2">Istaravshan</span></span><span class="m-sep">·</span>
+              <span class="m-city"><span class="m-dot"></span><span data-i18n="city3">Bokhtar</span></span><span class="m-sep">·</span>
+              <span class="m-label" data-i18n="marqueeLabel">AvrisAI live in</span><span class="m-sep">·</span>
+              <span class="m-city"><span class="m-dot"></span><span data-i18n="city1">Dushanbe</span></span><span class="m-sep">·</span>
+              <span class="m-city"><span class="m-dot"></span><span data-i18n="city2">Istaravshan</span></span><span class="m-sep">·</span>
+              <span class="m-city"><span class="m-dot"></span><span data-i18n="city3">Bokhtar</span></span><span class="m-sep">·</span>
             </div>
           </div>
         </section>
 
-        <!-- STATS -->
+        <!-- ── ABOUT / MISSION ── -->
+        <section id="about">
+          <div class="container">
+            <div class="about-panel reveal">
+              <div class="eyebrow" data-i18n="aboutEyebrow">Who we are</div>
+              <h2 class="about-title" data-i18n="aboutTitle">More than a startup.</h2>
+              <div class="about-text">
+                <p data-i18n="aboutP1">Hyperion Labs was founded in Dushanbe, Tajikistan — one of the world's most underserved tech markets. We started with one question: why do doctors lose hours to paperwork when AI can do it in seconds?</p>
+                <p data-i18n="aboutP2">We're not building for Silicon Valley. We build for the doctor in Dushanbe, the hospital in Tashkent, the clinic in Almaty. If we can solve it here, we can solve it anywhere.</p>
+              </div>
+              <p class="about-mission">
+                <span data-i18n="missionText1">We build AI that solves </span><span class="accent" data-i18n="missionText2">real problems</span><span data-i18n="missionText3"> for </span><span class="accent" data-i18n="missionText4">real people</span><span data-i18n="missionText5">.</span>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ── STATS (revived, animated count-up) ── -->
         <section id="stats">
           <div class="container">
             <div class="section-header reveal">
-              <div class="eyebrow" data-i18n="statsEyebrow">Momentum</div>
-              <h2 data-i18n="statsTitle">A focused lab with meaningful ambition.</h2>
+              <div class="eyebrow" data-i18n="statsEyebrow">By the numbers</div>
+              <h2 data-i18n="statsTitle">Small lab. Real momentum.</h2>
             </div>
-            <div class="grid-4">
-              <div class="stat-card reveal reveal-delay-1">
+            <div class="stats-grid">
+              <div class="stat-card reveal">
+                <div class="stat-number" data-count="3">0</div>
+                <p class="stat-label" data-i18n="stat1">Pilot cities</p>
+              </div>
+              <div class="stat-card reveal">
                 <div class="stat-number" data-count="2">0</div>
-                <p class="stat-label" data-i18n="stat1">Products in development</p>
+                <p class="stat-label" data-i18n="stat2">Products</p>
               </div>
-              <div class="stat-card reveal reveal-delay-2">
-                <div class="stat-number" data-count="1000" data-suffix="+">0</div>
-                <p class="stat-label" data-i18n="stat2">Expected users in first round</p>
-              </div>
-              <div class="stat-card reveal reveal-delay-3">
-                <div class="stat-number" data-count="5">0</div>
-                <p class="stat-label" data-i18n="stat3">Countries in target market</p>
-              </div>
-              <div class="stat-card reveal reveal-delay-4">
+              <div class="stat-card reveal">
                 <div class="stat-number" data-count="2026">0</div>
-                <p class="stat-label" data-i18n="stat4">Launch year</p>
+                <p class="stat-label" data-i18n="stat3">Public launch</p>
+              </div>
+              <div class="stat-card reveal">
+                <div class="stat-number" data-count="2025">0</div>
+                <p class="stat-label" data-i18n="stat4">Founded · Dushanbe</p>
               </div>
             </div>
           </div>
         </section>
 
-        <!-- MISSION -->
-        <section class="mission" id="mission">
-          <div class="container">
-            <div class="mission-panel reveal">
-              <div class="mission-inner">
-                <div class="eyebrow" data-i18n="missionEyebrow">Our Mission</div>
-                <p class="mission-text">
-                  <span data-i18n="missionText1">We build AI products that solve </span><span class="accent" data-i18n="missionText2">real problems</span><span data-i18n="missionText3"> for </span><span class="accent" data-i18n="missionText4">real people</span><span data-i18n="missionText5">.</span>
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- RESEARCH -->
-        <section id="research">
+        <!-- ── FOCUS / RESEARCH (revived, restyled) ── -->
+        <section id="focus">
           <div class="container">
             <div class="section-header reveal">
-              <div class="eyebrow" data-i18n="researchEyebrow">Hyperion Research</div>
-              <h2 data-i18n="researchTitle">Research grounded in practical deployment.</h2>
+              <div class="eyebrow" data-i18n="focusEyebrow">What we work on</div>
+              <h2 data-i18n="focusTitle">Research grounded in real deployment.</h2>
             </div>
-            <div class="grid-3">
-              <article class="card research-card reveal reveal-delay-1">
-                <div class="card-inner">
-                  <span class="research-num">01</span>
-                  <div>
-                    <h3 data-i18n="research1Title">Medical AI</h3>
-                    <p class="card-text" data-i18n="research1Text">Clinical workflows, voice intelligence, and trust-critical AI systems for care delivery.</p>
-                  </div>
-                </div>
+            <div class="focus-grid">
+              <article class="focus-card reveal">
+                <span class="focus-num">01</span>
+                <h3 data-i18n="focus1Title">Medical voice AI</h3>
+                <p class="focus-text" data-i18n="focus1Text">Clinical workflows, speech understanding, and trust-critical systems for everyday care.</p>
               </article>
-              <article class="card research-card reveal reveal-delay-2">
-                <div class="card-inner">
-                  <span class="research-num">02</span>
-                  <div>
-                    <h3 data-i18n="research2Title">NLP for CIS &amp; Regional Languages</h3>
-                    <p class="card-text" data-i18n="research2Text">Language models tuned for CIS countries and regions with unique linguistic realities.</p>
-                  </div>
-                </div>
+              <article class="focus-card reveal">
+                <span class="focus-num">02</span>
+                <h3 data-i18n="focus2Title">Regional-language NLP</h3>
+                <p class="focus-text" data-i18n="focus2Text">Models tuned for Tajik, Russian, and the linguistic reality of Central Asia.</p>
               </article>
-              <article class="card research-card reveal reveal-delay-3">
-                <div class="card-inner">
-                  <span class="research-num">03</span>
-                  <div>
-                    <h3 data-i18n="research3Title">Healthcare Infrastructure</h3>
-                    <p class="card-text" data-i18n="research3Text">Systems, tooling, and infrastructure that make AI usable in real institutional settings.</p>
-                  </div>
-                </div>
+              <article class="focus-card reveal">
+                <span class="focus-num">03</span>
+                <h3 data-i18n="focus3Title">Healthcare infrastructure</h3>
+                <p class="focus-text" data-i18n="focus3Text">Tooling that makes AI usable inside real clinics and institutions.</p>
               </article>
             </div>
           </div>
         </section>
 
-        <!-- TEAM -->
-        <section id="careers">
+        <!-- ── TEAM ── -->
+        <section id="team">
           <div class="container">
             <div class="section-header reveal">
-              <div class="eyebrow" data-i18n="teamEyebrow">The Team</div>
-              <h2 data-i18n="teamTitle">Builders with product taste and regional conviction.</h2>
+              <div class="eyebrow" data-i18n="teamEyebrow">Team</div>
+              <h2 data-i18n="teamTitle">A small, elite team.</h2>
             </div>
-            <div class="grid-3">
-              <article class="card team-card reveal reveal-delay-1">
-                <div class="card-inner">
-                  <div class="card-header">
-                    <div class="avatar">SN</div>
-                    <div class="pill pill-accent">Founder</div>
-                  </div>
-                  <div class="card-body">
-                    <h3>Shahzod Narzulloev</h3>
-                    <p class="team-role" data-i18n="teamFounderRole">Founder &amp; CEO</p>
-                    <p class="card-text" data-i18n="teamFounderBio">Building world-class AI for emerging markets. Medical student turned entrepreneur.</p>
-                    <div class="team-socials">
-                      <a class="social-link" href="https://www.instagram.com/narzulloev__sh?igsh=MTM0dm5nejFrdTl0Yg%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                      </a>
-                      <a class="social-link" href="https://www.linkedin.com/in/%D1%88%D0%B0%D1%85%D0%B7%D0%BE%D0%B4-%D0%BD%D0%B0%D1%80%D0%B7%D1%83%D0%BB%D0%BB%D0%BE%D0%B5%D0%B2-2069953b5" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                      </a>
-                    </div>
-                  </div>
+            <div class="team-grid">
+              <article class="team-card reveal">
+                <div class="team-card-top">
+                  <div class="avatar">SN</div>
+                  <div class="pill pill-accent">Founder</div>
+                </div>
+                <h3>Shahzod Narzulloev</h3>
+                <p class="team-role" data-i18n="teamFounderRole">Founder &amp; CEO</p>
+                <p class="team-bio" data-i18n="teamFounderBio">Building world-class AI for emerging markets. Medical student turned entrepreneur.</p>
+                <div class="team-socials">
+                  <a class="social-link" href="https://www.instagram.com/narzulloev__sh?igsh=MTM0dm5nejFrdTl0Yg%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                  </a>
+                  <a class="social-link" href="https://www.linkedin.com/in/%D1%88%D0%B0%D1%85%D0%B7%D0%BE%D0%B4-%D0%BD%D0%B0%D1%80%D0%B7%D1%83%D0%BB%D0%BB%D0%BE%D0%B5%D0%B2-2069953b5" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                  </a>
                 </div>
               </article>
-              <article class="card team-card reveal reveal-delay-2">
-                <div class="card-inner">
-                  <div class="card-header">
-                    <div class="avatar">SO</div>
-                    <div class="pill pill-accent" data-i18n="cofounderLabel">Co-Founder</div>
-                  </div>
-                  <div class="card-body">
-                    <h3>Shahzod Obidov</h3>
-                    <p class="team-role" data-i18n="cofounderRole">Co-Founder &amp; CFO</p>
-                    <p class="card-text" data-i18n="cofounderText">Leading finance, strategy, and operational discipline behind Hyperion Labs.</p>
-                    <div class="team-socials">
-                      <a class="social-link" href="https://www.instagram.com/shaxzod_murodovich?igsh=MW1qMW42aG0zY2Q5aw==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                      </a>
-                      <a class="social-link" href="https://x.com/shahzodobidov34?s=11" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.732-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                      </a>
-                    </div>
-                  </div>
+
+              <article class="team-card reveal">
+                <div class="team-card-top">
+                  <div class="avatar">SO</div>
+                  <div class="pill pill-accent" data-i18n="cofounderLabel">Co-Founder</div>
+                </div>
+                <h3>Shahzod Obidov</h3>
+                <p class="team-role" data-i18n="cofounderRole">Co-Founder &amp; CFO</p>
+                <p class="team-bio" data-i18n="cofounderText">Leading finance, strategy, and operational discipline behind Hyperion Labs.</p>
+                <div class="team-socials">
+                  <a class="social-link" href="https://www.instagram.com/shaxzod_murodovich?igsh=MW1qMW42aG0zY2Q5aw==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                  </a>
+                  <a class="social-link" href="https://x.com/shahzodobidov34?s=11" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.732-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                  </a>
                 </div>
               </article>
-              <article class="card team-card reveal reveal-delay-3">
-                <div class="card-inner">
-                  <div class="card-header">
-                    <div class="avatar">+</div>
-                    <div class="pill" data-i18n="cofounderRole2">Founding Team</div>
-                  </div>
-                  <div class="card-body">
-                    <h3 data-i18n="cofounderTitle2">Open Co-Founder Seat</h3>
-                    <p class="card-text" data-i18n="cofounderText2">We are looking for a strong co-founder to help build a world-class AI company.</p>
-                    <a class="team-link" href="#contact" data-i18n="joinUs">Join us <span aria-hidden="true">&#8599;</span></a>
-                  </div>
+
+              <article class="team-card team-card--open reveal">
+                <div class="team-card-top">
+                  <div class="avatar avatar--open">+</div>
+                  <div class="pill" data-i18n="cofounderRole2">Founding Team</div>
                 </div>
+                <h3 data-i18n="cofounderTitle2">Open Co-Founder Seat</h3>
+                <p class="team-bio" data-i18n="cofounderText2">We are looking for a strong co-founder to help build a world-class AI company.</p>
+                <a class="team-link" href="#contact" data-i18n="joinUs">Join us <span aria-hidden="true">&#8599;</span></a>
               </article>
             </div>
           </div>
         </section>
 
-        <!-- ACHIEVEMENTS -->
-        <section id="achievements">
-          <div class="container">
-            <div class="section-header reveal">
-              <div class="eyebrow" data-i18n="achievementsEyebrow">Achievements</div>
-              <h2 data-i18n="achievementsTitle">Built for credibility from day one.</h2>
-            </div>
-            <div class="grid-3">
-              <article class="card reveal reveal-delay-1">
-                <div class="card-inner">
-                  <h3 data-i18n="achievement1Title">Accelerator Ready</h3>
-                  <p class="card-text" data-i18n="achievement1Text">Positioned for top-tier accelerator and venture conversations with a sharp frontier-market narrative.</p>
-                </div>
-              </article>
-              <article class="card reveal reveal-delay-2">
-                <div class="card-inner">
-                  <h3 data-i18n="achievement2Title">Institutional Pathways</h3>
-                  <p class="card-text" data-i18n="achievement2Text">Designed for collaboration with hospitals, research bodies, and public-sector innovation partners.</p>
-                </div>
-              </article>
-              <article class="card reveal reveal-delay-3">
-                <div class="card-inner">
-                  <h3 data-i18n="achievement3Title">Media &amp; Awards</h3>
-                  <p class="card-text" data-i18n="achievement3Text">Space reserved for future recognition, media coverage, and ecosystem milestones.</p>
-                </div>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <!-- CTA -->
+        <!-- ── CONTACT / EARLY ACCESS ── -->
         <section id="contact">
           <div class="container">
             <div class="cta-panel reveal">
-              <div class="cta-inner">
-                <div class="cta-grid">
-                  <div>
-                    <div class="eyebrow" data-i18n="ctaEyebrow">Early Access</div>
-                    <h2 data-i18n="ctaTitle">Ready to work with us?</h2>
-                    <p class="lead" data-i18n="ctaLead">Join the early access list for AvrisAI and stay close to the next generation of AI products.</p>
-                  </div>
-                  <form class="cta-form" id="early-access-form" action="https://formspree.io/f/xojyojva" method="POST" novalidate>
-                    <input type="hidden" name="_subject" value="Early Access Request — Hyperion Labs" />
-                    <input type="hidden" name="_next" value="https://hyperion-labs.ai/#contact" />
-                    <div class="hp-field" aria-hidden="true">
-                      <label for="hp-check">Leave empty</label>
-                      <input id="hp-check" name="_gotcha" type="text" tabindex="-1" autocomplete="off" />
-                    </div>
-                    <label class="form-field" for="email">
-                      <span class="sr-only" data-i18n="emailLabel">Email address</span>
-                      <input id="email" name="email" type="email" autocomplete="email" required placeholder="name@company.com" aria-describedby="form-msg" />
-                      <button class="btn btn-primary" type="submit" data-i18n="submitLabel">Get Access</button>
-                    </label>
-                    <p class="form-msg" id="form-msg" role="status" aria-live="polite"></p>
-                  </form>
+              <div class="cta-grid">
+                <div>
+                  <div class="eyebrow" data-i18n="ctaEyebrow">Early Access</div>
+                  <h2 data-i18n="ctaTitle">Work with us.</h2>
+                  <p class="lead" data-i18n="ctaLead">Join the early access list for AvrisAI and stay close to the next generation of healthcare AI.</p>
                 </div>
+                <form class="cta-form" id="early-access-form" action="https://formspree.io/f/xojyojva" method="POST" novalidate>
+                  <input type="hidden" name="_subject" value="Early Access Request — Hyperion Labs" />
+                  <input type="hidden" name="_next" value="https://hyperion-labs.ai/#contact" />
+                  <div class="hp-field" aria-hidden="true">
+                    <label for="hp-check">Leave empty</label>
+                    <input id="hp-check" name="_gotcha" type="text" tabindex="-1" autocomplete="off" />
+                  </div>
+                  <label class="form-field" for="email">
+                    <span class="sr-only" data-i18n="emailLabel">Email address</span>
+                    <input id="email" name="email" type="email" autocomplete="email" required placeholder="name@company.com" aria-describedby="form-msg" />
+                    <button class="btn btn-primary" type="submit" data-i18n="submitLabel">Get Access</button>
+                  </label>
+                  <p class="form-msg" id="form-msg" role="status" aria-live="polite"></p>
+                </form>
               </div>
             </div>
           </div>
@@ -488,46 +369,35 @@
       <!-- ═══ FOOTER ═══ -->
       <footer>
         <div class="container">
-          <div class="footer-panel reveal">
-            <div class="footer-grid">
-              <div>
-                <div class="brand">HYPERION LABS</div>
-                <p class="footer-desc" data-i18n="footerDesc">Hyperion Labs is building world-class AI products for emerging markets, starting with voice infrastructure for healthcare.</p>
-                <div class="footer-contact" style="margin-top:16px">
-                  <a href="https://theavris.ai" target="_blank" rel="noopener noreferrer" style="color:var(--accent-light);font-size:.9rem">AvrisAI — theavris.ai</a>
-                </div>
+          <div class="footer-grid">
+            <div class="footer-brand">
+              <div class="logo-text">HYPERION LABS</div>
+              <p class="footer-desc" data-i18n="footerDesc">Hyperion Labs is building world-class AI for healthcare in Central Asia.</p>
+              <a class="footer-product-link" href="https://theavris.ai" target="_blank" rel="noopener noreferrer">AvrisAI — theavris.ai</a>
+            </div>
+            <div>
+              <div class="footer-links">
+                <a href="#products" data-i18n="navProducts">Products</a>
+                <a href="#about" data-i18n="navAbout">About</a>
+                <a href="#team" data-i18n="navTeam">Team</a>
+                <a href="#contact" data-i18n="navContact">Contact</a>
               </div>
-              <div>
-                <div class="footer-links">
-                  <a href="#products" data-i18n="footerProducts">Products</a>
-                  <a href="#careers" data-i18n="footerCompany">Team</a>
-                  <a href="#research" data-i18n="footerResearch">Research</a>
-                  <a href="/careers" data-i18n="footerCareers">Careers</a>
-                  <a href="/privacy" data-i18n="footerLegal">Legal</a>
-                </div>
-                <div class="social-links">
-                  <a href="https://www.instagram.com/hyperionlabs.ai?igsh=MWVjd3Z1ZGFvN2thNw%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                    <span aria-hidden="true">&#9678;</span> Instagram
-                  </a>
-                  <a href="https://x.com/hyperionlabsai?s=21" target="_blank" rel="noopener noreferrer" aria-label="Twitter X">
-                    <span aria-hidden="true">&#120143;</span> Twitter
-                  </a>
-                  <a href="https://www.linkedin.com/in/%D1%88%D0%B0%D1%85%D0%B7%D0%BE%D0%B4-%D0%BD%D0%B0%D1%80%D0%B7%D1%83%D0%BB%D0%BB%D0%BE%D0%B5%D0%B2-2069953b5" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                    <span aria-hidden="true">in</span> LinkedIn
-                  </a>
-                  <a href="https://github.com/narzulloev0022" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                    <span aria-hidden="true">&#8984;</span> GitHub
-                  </a>
-                </div>
+              <div class="social-links">
+                <a href="https://www.instagram.com/hyperionlabs.ai?igsh=MWVjd3Z1ZGFvN2thNw%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer">Instagram</a>
+                <a href="https://x.com/hyperionlabsai?s=21" target="_blank" rel="noopener noreferrer">Twitter</a>
+                <a href="https://www.linkedin.com/in/%D1%88%D0%B0%D1%85%D0%B7%D0%BE%D0%B4-%D0%BD%D0%B0%D1%80%D0%B7%D1%83%D0%BB%D0%BB%D0%BE%D0%B5%D0%B2-2069953b5" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://github.com/narzulloev0022" target="_blank" rel="noopener noreferrer">GitHub</a>
               </div>
             </div>
-            <div class="footer-meta">&copy; 2026 Hyperion Labs. All rights reserved.</div>
           </div>
+          <div class="footer-meta">&copy; 2026 Hyperion Labs. All rights reserved.</div>
         </div>
-        <div style="height:48px"></div>
       </footer>
     </div>
 
-    <script src="script.js"></script>
+    <script src="assets/vendor/lenis.min.js"></script>
+    <script src="assets/vendor/gsap.min.js"></script>
+    <script src="assets/vendor/ScrollTrigger.min.js"></script>
+    <script src="script.js?v=2"></script>
   </body>
 </html>
