@@ -1,217 +1,161 @@
 /* ═══════════════════════════════════════════
-   HYPERION LABS — Interactive Layer
+   HYPERION LABS — Interactive Layer (v2)
    ═══════════════════════════════════════════ */
 
 // ── i18n Translations ──
 const translations = {
   en: {
     skip: "Skip to content",
-    navAbout: "About",
     navProducts: "Products",
-    navResearch: "Research",
-    navCareers: "Careers",
+    navAbout: "About",
+    navTeam: "Team",
     navContact: "Contact",
     navCta: "Get Early Access",
-    heroBadge: "Now building",
-    heroTitle1: "Building the Future",
-    heroTitle2: "of ",
-    heroTitle3: "AI",
-    heroSub: "World-class AI products engineered for emerging markets.",
+
+    heroBadge: "AI Lab · Central Asia",
+    heroTitle1: "World-class AI",
+    heroTitle2: "for the future of healthcare.",
+    heroSub:
+      "Hyperion Labs builds AI for healthcare in Central Asia, starting with AvrisAI — a voice assistant for doctors.",
     heroPrimary: "Explore AvrisAI",
-    heroSecondary: "Our Research",
-    partnersEyebrow: "Trusted by leading institutions",
+    heroSecondary: "Get Early Access",
+
     productsEyebrow: "Products",
-    productsTitle: "Our Products",
-    productsLead: "A focused portfolio of AI products designed for high-stakes, underserved markets.",
-    avrisStatus: "Launching 2026",
-    avrisDesc: "Voice-powered clinical documentation that understands context, language, and the realities of modern care delivery.",
-    learnMore: "Learn more",
-    comingSoon: "Coming Soon",
-    futureDesc: "A future Hyperion Labs product being developed for the next layer of AI infrastructure.",
-    privatePipeline: "Private pipeline",
-    statsEyebrow: "Momentum",
-    statsTitle: "A focused lab with meaningful ambition.",
-    stat1: "Products in development",
-    stat2: "Expected users in first round",
-    stat3: "Countries in target market",
-    stat4: "Launch year",
-    missionEyebrow: "Our Mission",
-    missionText1: "We build AI products that solve ",
+    productsTitle: "Two products. One mission.",
+    productsLead:
+      "A focused portfolio for the realities of healthcare in the region.",
+
+    avrisEyebrow: "Flagship · Voice AI",
+    avrisTagline: "Voice AI assistant for doctors",
+    avrisDesc:
+      "A voice AI assistant for doctors — already deployed and running. It listens to the doctor–patient conversation and produces structured clinical documentation in seconds. Pilot completed across three cities in Tajikistan.",
+    avrisCta: "Open AvrisAI",
+
+    teaserBadge: "Coming Soon",
+    teaserDesc: "A new product in development. Coming soon.",
+    teaserCta: "Private pipeline",
+
+    marqueeLabel: "AvrisAI live in",
+    city1: "Dushanbe",
+    city2: "Istaravshan",
+    city3: "Bokhtar",
+    marqueeSr: "AvrisAI is live in Dushanbe, Istaravshan and Bokhtar.",
+
+    aboutEyebrow: "Who we are",
+    aboutTitle: "More than a startup.",
+    aboutP1:
+      "Hyperion Labs was founded in Dushanbe, Tajikistan — one of the world's most underserved tech markets. We started with one question: why do doctors lose hours to paperwork when AI can do it in seconds?",
+    aboutP2:
+      "We're not building for Silicon Valley. We build for the doctor in Dushanbe, the hospital in Tashkent, the clinic in Almaty. If we can solve it here, we can solve it anywhere.",
+    missionText1: "We build AI that solves ",
     missionText2: "real problems",
     missionText3: " for ",
     missionText4: "real people",
     missionText5: ".",
-    researchEyebrow: "Hyperion Research",
-    researchTitle: "Research grounded in practical deployment.",
-    research1Title: "Medical AI",
-    research1Text: "Clinical workflows, voice intelligence, and trust-critical AI systems for care delivery.",
-    research2Title: "NLP for CIS & Regional Languages",
-    research2Text: "Language models tuned for CIS countries and regions with unique linguistic realities.",
-    research3Title: "Healthcare Infrastructure",
-    research3Text: "Systems, tooling, and infrastructure that make AI usable in real institutional settings.",
-    teamEyebrow: "The Team",
-    teamTitle: "Builders with product taste and regional conviction.",
+
+    teamEyebrow: "Team",
+    teamTitle: "A small, elite team.",
     teamFounderRole: "Founder & CEO",
-    teamFounderBio: "Building world-class AI for emerging markets. Medical student turned entrepreneur.",
-    linkedin: "LinkedIn",
+    teamFounderBio:
+      "Building world-class AI for emerging markets. Medical student turned entrepreneur.",
     cofounderLabel: "Co-Founder",
     cofounderRole: "Co-Founder & CFO",
-    cofounderText: "Leading finance, strategy, and operational discipline behind Hyperion Labs.",
-    joinUs: "Join us",
-    cofounderTitle2: "Open Co-Founder Seat",
+    cofounderText:
+      "Leading finance, strategy, and operational discipline behind Hyperion Labs.",
     cofounderRole2: "Founding Team",
-    cofounderText2: "We are looking for a strong co-founder to help build a world-class AI company.",
-    connect: "Connect",
-    achievementsEyebrow: "Achievements",
-    achievementsTitle: "Built for credibility from day one.",
-    achievement1Title: "Accelerator Ready",
-    achievement1Text: "Positioned for top-tier accelerator and venture conversations with a sharp frontier-market narrative.",
-    achievement2Title: "Institutional Pathways",
-    achievement2Text: "Designed for collaboration with hospitals, research bodies, and public-sector innovation partners.",
-    achievement3Title: "Media & Awards",
-    achievement3Text: "Space reserved for future recognition, media coverage, and ecosystem milestones.",
+    cofounderTitle2: "Open Co-Founder Seat",
+    cofounderText2:
+      "We are looking for a strong co-founder to help build a world-class AI company.",
+    joinUs: "Join us",
+
     ctaEyebrow: "Early Access",
-    ctaTitle: "Ready to work with us?",
-    ctaLead: "Join the early access list for AvrisAI and stay close to the next generation of AI products.",
+    ctaTitle: "Work with us.",
+    ctaLead:
+      "Join the early access list for AvrisAI. We'll only write when there's something real to share.",
     emailLabel: "Email address",
     submitLabel: "Get Access",
-    footerDesc: "Hyperion Labs is building world-class AI products for emerging markets, starting with voice infrastructure for healthcare.",
-    footerProducts: "Products",
-    footerCompany: "Team",
-    footerResearch: "Research",
-    footerCareers: "Careers",
-    footerLegal: "Legal",
-    aboutEyebrow: "Who We Are",
-    aboutTitle: "More than a startup.",
-    aboutP1: "Hyperion Labs was founded in Dushanbe, Tajikistan — one of the most underserved tech markets in the world. We started with a simple question: why do doctors spend hours on paperwork when AI can handle it in seconds?",
-    aboutP2: "That question became AvrisAI — our flagship product that listens to doctor-patient conversations and auto-generates structured clinical documentation in seconds.",
-    aboutP3: "We are not building for Silicon Valley. We are building for the doctor in Dushanbe, the hospital in Tashkent, the clinic in Almaty. If we can solve it here, we can solve it anywhere.",
-    aboutFact1Label: "Founded in",
-    aboutFact1Value: "2025 · Dushanbe, TJ",
-    aboutFact2Label: "First product",
-    aboutFact2Value: "AvrisAI · Medical AI",
-    aboutFact3Label: "Vision",
-    aboutFact3Value: "Global AI lab from emerging markets",
-    journeyEyebrow: "Our Journey",
-    journeyTitle: "Built step by step.",
-    journeyBadge1: "Founded",
-    journeyBadge2: "Prototype",
-    journeyBadge3: "Validated",
-    journeyBadge4: "Brand",
-    journeyBadge5: "Now",
-    journeyBadge6: "Next",
-    journey1: "Hyperion Labs founded. AvrisAI concept validated through doctor interviews.",
-    journey2: "First prototype built. Voice recording + SOAP auto-generation working.",
-    journey3: "Chief physician validation — real doctor confirmed AvrisAI solves a real problem.",
-    journey4: "Domains acquired: theavris.ai + hyperion-labs.ai. Brand identity established.",
-    journey5: "Pilot preparation. First paying customers target: Q2 2026.",
-    journey6: "Seed investment round. Strategic partnerships with regional healthcare institutions.",
+
+    footerDesc:
+      "Hyperion Labs is building world-class AI for healthcare in Central Asia.",
+
     formSuccess: "Thanks — we'll be in touch soon.",
     formError: "Please enter a valid email address.",
     formRateLimit: "Please wait a moment before trying again.",
   },
   ru: {
     skip: "Перейти к содержимому",
-    navAbout: "О нас",
     navProducts: "Продукты",
-    navResearch: "Исследования",
-    navCareers: "Карьера",
+    navAbout: "О нас",
+    navTeam: "Команда",
     navContact: "Контакты",
     navCta: "Ранний доступ",
-    heroBadge: "Сейчас создаём",
-    heroTitle1: "Создаём будущее",
-    heroTitle2: "",
-    heroTitle3: "AI",
-    heroSub: "AI-продукты мирового уровня для развивающихся рынков.",
+
+    heroBadge: "AI-лаборатория · Центральная Азия",
+    heroTitle1: "AI мирового уровня",
+    heroTitle2: "для будущего здравоохранения.",
+    heroSub:
+      "Hyperion Labs создаёт AI для здравоохранения Центральной Азии. Начали с AvrisAI — голосового ассистента для врачей.",
     heroPrimary: "Изучить AvrisAI",
-    heroSecondary: "Наши исследования",
-    partnersEyebrow: "Нам доверяют ведущие институты",
+    heroSecondary: "Ранний доступ",
+
     productsEyebrow: "Продукты",
-    productsTitle: "Наши продукты",
-    productsLead: "Сфокусированный портфель AI-продуктов для сложных и недообслуженных рынков.",
-    avrisStatus: "Запуск в 2026",
-    avrisDesc: "Голосовая клиническая документация, которая понимает контекст, язык и реалии современной медицины.",
-    learnMore: "Узнать больше",
-    comingSoon: "Скоро",
-    futureDesc: "Будущий продукт Hyperion Labs для следующего уровня AI-инфраструктуры.",
-    privatePipeline: "Закрытый pipeline",
-    statsEyebrow: "Динамика",
-    statsTitle: "Сфокусированная лаборатория с серьёзными амбициями.",
-    stat1: "Продукта в разработке",
-    stat2: "Ожидаемых пользователей",
-    stat3: "Стран целевого рынка",
-    stat4: "Год запуска",
-    missionEyebrow: "Наша миссия",
-    missionText1: "Мы создаём AI-продукты, которые решают ",
+    productsTitle: "Два продукта. Одна миссия.",
+    productsLead:
+      "Сфокусированный портфель под реальные задачи здравоохранения региона.",
+
+    avrisEyebrow: "Флагман · Voice AI",
+    avrisTagline: "Голосовой AI-ассистент для врачей",
+    avrisDesc:
+      "Голосовой AI-ассистент для врачей — уже развёрнут и работает. Слушает разговор врача с пациентом и за секунды формирует структурированную клиническую документацию. Пилот пройден в трёх городах Таджикистана.",
+    avrisCta: "Открыть AvrisAI",
+
+    teaserBadge: "Скоро",
+    teaserDesc: "Новый продукт в разработке. Скоро.",
+    teaserCta: "Закрытый pipeline",
+
+    marqueeLabel: "AvrisAI работает в",
+    city1: "Душанбе",
+    city2: "Истаравшан",
+    city3: "Бохтар",
+    marqueeSr: "AvrisAI работает в Душанбе, Истаравшане и Бохтаре.",
+
+    aboutEyebrow: "О нас",
+    aboutTitle: "Больше, чем стартап.",
+    aboutP1:
+      "Hyperion Labs основана в Душанбе, Таджикистан — одном из самых недообслуженных технологических рынков мира. Мы начали с простого вопроса: почему врачи теряют часы на бумажную работу, когда AI может справиться за секунды?",
+    aboutP2:
+      "Мы строим не для Кремниевой долины. Мы строим для врача в Душанбе, больницы в Ташкенте, клиники в Алматы. Если мы можем решить это здесь — мы можем решить это где угодно.",
+    missionText1: "Мы создаём AI, который решает ",
     missionText2: "реальные проблемы",
     missionText3: " для ",
     missionText4: "реальных людей",
     missionText5: ".",
-    researchEyebrow: "Hyperion Research",
-    researchTitle: "Исследования, ориентированные на практическое внедрение.",
-    research1Title: "Medical AI",
-    research1Text: "Клинические процессы, голосовой интеллект и AI-системы для критически важных сценариев.",
-    research2Title: "NLP для стран СНГ и региона",
-    research2Text: "Языковые модели для стран СНГ и регионов с уникальной лингвистической спецификой.",
-    research3Title: "Инфраструктура здравоохранения",
-    research3Text: "Системы и инструменты, которые делают AI применимым в реальных условиях.",
+
     teamEyebrow: "Команда",
-    teamTitle: "Люди с продуктовым вкусом и верой в регион.",
+    teamTitle: "Небольшая, сильная команда.",
     teamFounderRole: "Founder & CEO",
-    teamFounderBio: "Создаём AI мирового уровня для развивающихся рынков. Студент-медик, ставший предпринимателем.",
-    linkedin: "LinkedIn",
+    teamFounderBio:
+      "Создаём AI мирового уровня для развивающихся рынков. Студент-медик, ставший предпринимателем.",
     cofounderLabel: "Co-Founder",
     cofounderRole: "Co-Founder & CFO",
-    cofounderText: "Отвечает за финансы, стратегию и операционную дисциплину Hyperion Labs.",
-    joinUs: "Присоединиться",
-    cofounderTitle2: "Открытая позиция кофаундера",
+    cofounderText:
+      "Отвечает за финансы, стратегию и операционную дисциплину Hyperion Labs.",
     cofounderRole2: "Founding Team",
-    cofounderText2: "Ищем сильного кофаундера, чтобы вместе строить AI-компанию мирового уровня.",
-    connect: "Связаться",
-    achievementsEyebrow: "Достижения",
-    achievementsTitle: "С самого начала строимся на доверии.",
-    achievement1Title: "Готовность к акселераторам",
-    achievement1Text: "Позиционирование для разговоров с топовыми акселераторами и венчурными фондами.",
-    achievement2Title: "Институциональные партнёрства",
-    achievement2Text: "Архитектура для работы с больницами, исследовательскими организациями и госсектором.",
-    achievement3Title: "Медиа и награды",
-    achievement3Text: "Место для будущих наград, публикаций и экосистемных достижений.",
+    cofounderTitle2: "Открытая позиция кофаундера",
+    cofounderText2:
+      "Ищем сильного кофаундера, чтобы вместе строить AI-компанию мирового уровня.",
+    joinUs: "Присоединиться",
+
     ctaEyebrow: "Ранний доступ",
     ctaTitle: "Готовы работать с нами?",
-    ctaLead: "Оставьте email для раннего доступа к AvrisAI — следите за новым поколением AI-продуктов.",
+    ctaLead:
+      "Оставьте email для раннего доступа к AvrisAI. Напишем, только когда будет что показать.",
     emailLabel: "Электронная почта",
     submitLabel: "Получить доступ",
-    footerDesc: "Hyperion Labs создаёт AI-продукты мирового уровня для развивающихся рынков.",
-    footerProducts: "Продукты",
-    footerCompany: "Команда",
-    footerResearch: "Исследования",
-    footerCareers: "Карьера",
-    footerLegal: "Правовая информация",
-    aboutEyebrow: "О нас",
-    aboutTitle: "Больше, чем стартап.",
-    aboutP1: "Hyperion Labs основана в Душанбе, Таджикистан — одном из самых недообслуженных технологических рынков мира. Мы начали с простого вопроса: почему врачи тратят часы на бумажную работу, когда AI может справиться за секунды?",
-    aboutP2: "Этот вопрос стал AvrisAI — нашим флагманским продуктом, который слушает разговоры врача и пациента и автоматически генерирует структурированную клиническую документацию за секунды.",
-    aboutP3: "Мы строим не для Кремниевой долины. Мы строим для врача в Душанбе, больницы в Ташкенте, клиники в Алматы. Если мы можем решить это здесь — мы можем решить это где угодно.",
-    aboutFact1Label: "Основана",
-    aboutFact1Value: "2025 · Душанбе, TJ",
-    aboutFact2Label: "Первый продукт",
-    aboutFact2Value: "AvrisAI · Medical AI",
-    aboutFact3Label: "Видение",
-    aboutFact3Value: "Глобальная AI-лаборатория из развивающихся рынков",
-    journeyEyebrow: "Наш путь",
-    journeyTitle: "Построено шаг за шагом.",
-    journeyBadge1: "Основание",
-    journeyBadge2: "Прототип",
-    journeyBadge3: "Валидация",
-    journeyBadge4: "Бренд",
-    journeyBadge5: "Сейчас",
-    journeyBadge6: "Далее",
-    journey1: "Hyperion Labs основана. Концепция AvrisAI подтверждена через интервью с врачами.",
-    journey2: "Первый прототип. Запись голоса + автогенерация SOAP-документации.",
-    journey3: "Валидация главврачом — реальный врач подтвердил, что AvrisAI решает реальную проблему.",
-    journey4: "Приобретены домены: theavris.ai + hyperion-labs.ai. Создан фирменный стиль.",
-    journey5: "Подготовка к пилоту. Первые платящие клиенты: цель — Q2 2026.",
-    journey6: "Посевной раунд инвестиций. Стратегические партнёрства с региональными медицинскими учреждениями.",
+
+    footerDesc:
+      "Hyperion Labs создаёт AI мирового уровня для здравоохранения Центральной Азии.",
+
     formSuccess: "Спасибо — мы скоро свяжемся с вами.",
     formError: "Введите корректный email.",
     formRateLimit: "Подождите немного перед повторной попыткой.",
@@ -242,66 +186,100 @@ function setLanguage(lang) {
   localStorage.setItem("hyperion-lang", lang);
 }
 
+const prefersReduced = window.matchMedia(
+  "(prefers-reduced-motion: reduce)"
+).matches;
+const isCoarse = window.matchMedia("(pointer: coarse)").matches;
+const hasGSAP =
+  typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined";
+const useGSAP = hasGSAP && !prefersReduced;
+if (useGSAP) {
+  gsap.registerPlugin(ScrollTrigger);
+  document.documentElement.classList.add("gsap-on");
+}
+
+// Soft crossfade on language switch + keep ScrollTrigger in sync
+// (text length changes page height → triggers would otherwise drift)
+let langSwitching = false;
+function syncScroll() {
+  if (typeof ScrollTrigger !== "undefined") ScrollTrigger.refresh();
+  if (typeof lenis !== "undefined" && lenis) lenis.resize();
+}
+function switchLanguage(lang) {
+  if (lang === document.documentElement.lang || langSwitching) return;
+  if (prefersReduced) {
+    setLanguage(lang);
+    syncScroll();
+    return;
+  }
+  langSwitching = true;
+  const root = document.documentElement;
+  root.classList.add("lang-fade");
+  window.setTimeout(() => {
+    setLanguage(lang);
+    syncScroll();
+    requestAnimationFrame(() => {
+      root.classList.remove("lang-fade");
+      langSwitching = false;
+    });
+  }, 220);
+}
+
 langButtons.forEach((btn) =>
-  btn.addEventListener("click", () => setLanguage(btn.dataset.lang))
+  btn.addEventListener("click", () => switchLanguage(btn.dataset.lang))
 );
 setLanguage(localStorage.getItem("hyperion-lang") || "en");
 
-// ── Scroll header ──
+// ── Scroll header (glass appears on scroll) ──
 window.addEventListener(
   "scroll",
   () => header.classList.toggle("scrolled", window.scrollY > 50),
   { passive: true }
 );
 
-// ── Scroll reveals ──
-const revealObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        revealObserver.unobserve(entry.target);
-      }
+// ── Scroll reveals — IntersectionObserver fallback (used when GSAP is off) ──
+if (!useGSAP) {
+  document.querySelectorAll("section, footer").forEach((sec) => {
+    sec.querySelectorAll(".reveal").forEach((el, i) => {
+      el.style.setProperty("--rd", i * 80 + "ms");
     });
-  },
-  { threshold: 0.12 }
-);
-document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
+  });
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+  document
+    .querySelectorAll(".reveal")
+    .forEach((el) => revealObserver.observe(el));
+}
 
-// ── Animated counters ──
-const counterObserver = new IntersectionObserver(
+// ── Active nav link (scroll-spy) ──
+const navLinkMap = {};
+document.querySelectorAll(".nav-links a[href^='#']").forEach((a) => {
+  navLinkMap[a.getAttribute("href").slice(1)] = a;
+});
+const spySections = ["products", "about", "team", "contact"]
+  .map((id) => document.getElementById(id))
+  .filter(Boolean);
+const spyObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
-      const el = entry.target;
-      const target = el.dataset.count;
-      const suffix = el.dataset.suffix || "";
-      const isYear = target.length === 4 && !suffix;
-      const num = parseInt(target, 10);
-      const duration = 1600;
-      const start = performance.now();
-      const startVal = isYear ? num - 8 : 0;
-
-      function tick(now) {
-        const elapsed = now - start;
-        const progress = Math.min(elapsed / duration, 1);
-        const ease = 1 - Math.pow(1 - progress, 4);
-        const current = Math.round(startVal + (num - startVal) * ease);
-        const val = suffix === "+" && current >= num ? num : current;
-        el.textContent =
-          (isYear ? String(val) : val.toLocaleString()) +
-          (current >= num ? suffix : "");
-        if (progress < 1) requestAnimationFrame(tick);
-      }
-      requestAnimationFrame(tick);
-      counterObserver.unobserve(el);
+      Object.values(navLinkMap).forEach((a) => a.classList.remove("active"));
+      const link = navLinkMap[entry.target.id];
+      if (link) link.classList.add("active");
     });
   },
-  { threshold: 0.5 }
+  { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
 );
-document
-  .querySelectorAll("[data-count]")
-  .forEach((el) => counterObserver.observe(el));
+spySections.forEach((s) => spyObserver.observe(s));
 
 // ── Form handling (validation + rate limit, Formspree submits) ──
 let lastSubmit = 0;
@@ -328,134 +306,6 @@ form.addEventListener("submit", (e) => {
   lastSubmit = now;
   formMsg.textContent = translations[lang].formSuccess;
 });
-
-// ── Email deobfuscation ──
-const emailLink = document.getElementById("footer-email");
-if (emailLink) {
-  const addr = "hello" + "@" + "hyperion-labs" + "." + "ai";
-  emailLink.addEventListener("click", (e) => {
-    e.preventDefault();
-    window.location.href = "mailto:" + addr;
-  });
-}
-
-// ── Canvas Particle System ──
-const canvas = document.getElementById("bg-canvas");
-const ctx = canvas.getContext("2d");
-const prefersReduced = window.matchMedia(
-  "(prefers-reduced-motion: reduce)"
-).matches;
-let particles = [];
-let w = 0,
-  h = 0,
-  raf = 0;
-
-function resize() {
-  const dpr = Math.min(window.devicePixelRatio || 1, 2);
-  w = window.innerWidth;
-  h = window.innerHeight;
-  canvas.width = w * dpr;
-  canvas.height = h * dpr;
-  canvas.style.width = w + "px";
-  canvas.style.height = h + "px";
-  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-
-  const count = Math.min(80, Math.max(30, Math.floor(w / 20)));
-  particles = Array.from({ length: count }, () => ({
-    x: Math.random() * w,
-    y: Math.random() * h,
-    r: Math.random() * 1.6 + 0.3,
-    vx: (Math.random() - 0.5) * 0.08,
-    vy: (Math.random() - 0.5) * 0.08,
-    alpha: Math.random() * 0.6 + 0.15,
-  }));
-}
-
-function drawConnections() {
-  const maxDist = 140;
-  for (let i = 0; i < particles.length; i++) {
-    for (let j = i + 1; j < particles.length; j++) {
-      const dx = particles[i].x - particles[j].x;
-      const dy = particles[i].y - particles[j].y;
-      const dist = Math.sqrt(dx * dx + dy * dy);
-      if (dist < maxDist) {
-        const opacity = (1 - dist / maxDist) * 0.06;
-        ctx.beginPath();
-        ctx.strokeStyle = `rgba(74, 163, 145, ${opacity})`;
-        ctx.lineWidth = 0.5;
-        ctx.moveTo(particles[i].x, particles[i].y);
-        ctx.lineTo(particles[j].x, particles[j].y);
-        ctx.stroke();
-      }
-    }
-  }
-}
-
-function draw() {
-  ctx.clearRect(0, 0, w, h);
-
-  const grd = ctx.createRadialGradient(
-    w * 0.65, h * 0.2, 0,
-    w * 0.65, h * 0.2, w * 0.55
-  );
-  grd.addColorStop(0, "rgba(74, 163, 145, 0.1)");
-  grd.addColorStop(0.4, "rgba(30, 70, 130, 0.06)");
-  grd.addColorStop(1, "rgba(6, 8, 13, 0)");
-  ctx.fillStyle = grd;
-  ctx.fillRect(0, 0, w, h);
-
-  particles.forEach((p) => {
-    p.x += p.vx;
-    p.y += p.vy;
-    if (p.x < -10) p.x = w + 10;
-    if (p.x > w + 10) p.x = -10;
-    if (p.y < -10) p.y = h + 10;
-    if (p.y > h + 10) p.y = -10;
-    ctx.beginPath();
-    ctx.fillStyle = `rgba(160, 225, 210, ${p.alpha})`;
-    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-    ctx.fill();
-  });
-
-  drawConnections();
-}
-
-function animate() {
-  draw();
-  raf = requestAnimationFrame(animate);
-}
-
-resize();
-if (!prefersReduced) animate();
-else draw();
-
-window.addEventListener("resize", () => {
-  cancelAnimationFrame(raf);
-  resize();
-  if (!prefersReduced) animate();
-  else draw();
-});
-
-// ── Grain texture (generated canvas) ──
-(function initGrain() {
-  const grainEl = document.getElementById("grain");
-  const gc = document.createElement("canvas");
-  gc.width = 256;
-  gc.height = 256;
-  const gctx = gc.getContext("2d");
-  const imageData = gctx.createImageData(256, 256);
-  const data = imageData.data;
-  for (let i = 0; i < data.length; i += 4) {
-    const v = Math.random() * 255;
-    data[i] = v;
-    data[i + 1] = v;
-    data[i + 2] = v;
-    data[i + 3] = 255;
-  }
-  gctx.putImageData(imageData, 0, 0);
-  grainEl.style.backgroundImage = `url(${gc.toDataURL()})`;
-  grainEl.style.backgroundRepeat = "repeat";
-})();
 
 // ── Mobile menu ──
 const hamburger = document.getElementById("nav-hamburger");
@@ -486,3 +336,85 @@ document.addEventListener("keydown", (e) => {
     closeMobileMenu();
   }
 });
+
+/* ═══════════════════════════════════════════
+   SIGNATURE LAYER
+   ═══════════════════════════════════════════ */
+
+// ── Lenis inertia scroll — snappy, not floaty (desktop, non-touch, non-reduced) ──
+let lenis = null;
+if (!prefersReduced && !isCoarse && typeof Lenis !== "undefined") {
+  lenis = new Lenis({
+    duration: 0.9, // responsive settle, not a long glide
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // expo-out, snappy
+    smoothWheel: true,
+    wheelMultiplier: 1,
+    touchMultiplier: 1.6,
+  });
+  if (useGSAP) {
+    // single clock: GSAP ticker drives Lenis; Lenis scroll updates ScrollTrigger
+    lenis.on("scroll", ScrollTrigger.update);
+    gsap.ticker.add((time) => lenis.raf(time * 1000));
+    gsap.ticker.lagSmoothing(0);
+  } else {
+    const lenisRaf = (time) => {
+      lenis.raf(time);
+      requestAnimationFrame(lenisRaf);
+    };
+    requestAnimationFrame(lenisRaf);
+  }
+}
+
+// ── Anchor smooth-scroll (Lenis when active, native otherwise) ──
+document.querySelectorAll('a[href^="#"]').forEach((a) => {
+  a.addEventListener("click", (e) => {
+    const id = a.getAttribute("href");
+    if (!id || id.length < 2) return;
+    const target = document.querySelector(id);
+    if (!target) return;
+    e.preventDefault();
+    if (mobileMenu.classList.contains("open")) closeMobileMenu();
+    if (lenis) {
+      lenis.scrollTo(target, { offset: -80 });
+    } else {
+      target.scrollIntoView({ behavior: prefersReduced ? "auto" : "smooth" });
+    }
+  });
+});
+
+// ── Voice waveform stagger (traveling pulse) ──
+if (!prefersReduced) {
+  document.querySelectorAll(".wave span").forEach((bar, i) => {
+    bar.style.animationDelay = (i * 0.06).toFixed(2) + "s";
+  });
+}
+
+/* ═══════════════════════════════════════════
+   GSAP SCROLL REVEALS — clean, smooth (no parallax / no tilt)
+   ═══════════════════════════════════════════ */
+if (useGSAP) {
+  if (lenis) lenis.on("scroll", ScrollTrigger.update);
+
+  // Gentle staggered fade-up per section. Transform/opacity only → no jank.
+  document.querySelectorAll("section, footer").forEach((sec) => {
+    const items = sec.querySelectorAll(".reveal");
+    if (!items.length) return;
+    gsap.set(items, { opacity: 0, y: 24 });
+    ScrollTrigger.create({
+      trigger: sec,
+      start: "top 84%",
+      once: true,
+      onEnter: () =>
+        gsap.to(items, {
+          opacity: 1,
+          y: 0,
+          duration: 0.55,
+          ease: "power2.out",
+          stagger: 0.07,
+          clearProps: "transform", // hand transform back to CSS once shown
+        }),
+    });
+  });
+
+  ScrollTrigger.refresh();
+}
