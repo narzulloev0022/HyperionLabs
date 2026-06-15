@@ -852,6 +852,81 @@ section { position: relative; padding: 88px 0; scroll-margin-top: 88px; }
   color: var(--accent);
 }
 
+/* ── Stats (revived) ── */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+.stat-card {
+  padding: 30px 28px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  background: var(--lit-fill);
+  box-shadow: var(--lit-edge), var(--lit-shadow);
+  transition: border-color var(--dur-base) var(--ease-out),
+              box-shadow var(--dur-base) var(--ease-out);
+}
+.stat-card:hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--lit-edge), 0 30px 60px -26px rgba(0, 0, 0, 0.85);
+}
+.stat-number {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -.03em;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+.stat-label {
+  margin-top: 12px;
+  color: var(--text-muted);
+  font-size: .92rem;
+  line-height: 1.5;
+}
+
+/* ── Focus / Research (revived) ── */
+.focus-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+.focus-card {
+  padding: 32px 30px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  background: var(--lit-fill);
+  box-shadow: var(--lit-edge), var(--lit-shadow);
+  transition: border-color var(--dur-base) var(--ease-out),
+              box-shadow var(--dur-base) var(--ease-out);
+}
+.focus-card:hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--lit-edge), 0 30px 60px -26px rgba(0, 0, 0, 0.85);
+}
+.focus-num {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: .82rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  color: var(--accent);
+}
+.focus-card h3 { margin-top: 16px; }
+.focus-text {
+  margin-top: 12px;
+  color: var(--text-muted);
+  font-size: .96rem;
+  line-height: 1.7;
+}
+
+@media (min-width: 768px) {
+  .stats-grid { grid-template-columns: repeat(4, 1fr); }
+  .focus-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
 /* ── Contact / CTA ── */
 .cta-panel {
   position: relative;
