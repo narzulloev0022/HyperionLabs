@@ -53,6 +53,25 @@ const translations = {
     missionText4: "real people",
     missionText5: ".",
 
+    statsEyebrow: "By the numbers",
+    statsTitle: "Small lab. Real momentum.",
+    stat1: "Pilot cities",
+    stat2: "Products",
+    stat3: "Public launch",
+    stat4: "Founded · Dushanbe",
+
+    focusEyebrow: "What we work on",
+    focusTitle: "Research grounded in real deployment.",
+    focus1Title: "Medical voice AI",
+    focus1Text:
+      "Clinical workflows, speech understanding, and trust-critical systems for everyday care.",
+    focus2Title: "Regional-language NLP",
+    focus2Text:
+      "Models tuned for Tajik, Russian, and the linguistic reality of Central Asia.",
+    focus3Title: "Healthcare infrastructure",
+    focus3Text:
+      "Tooling that makes AI usable inside real clinics and institutions.",
+
     teamEyebrow: "Team",
     teamTitle: "A small, elite team.",
     teamFounderRole: "Founder & CEO",
@@ -130,6 +149,25 @@ const translations = {
     missionText3: " для ",
     missionText4: "реальных людей",
     missionText5: ".",
+
+    statsEyebrow: "Коротко",
+    statsTitle: "Небольшая лаборатория. Реальная динамика.",
+    stat1: "Города пилота",
+    stat2: "Продукта",
+    stat3: "Запуск",
+    stat4: "Основана · Душанбе",
+
+    focusEyebrow: "Над чем работаем",
+    focusTitle: "Исследования с опорой на реальное внедрение.",
+    focus1Title: "Медицинский voice AI",
+    focus1Text:
+      "Клинические процессы, распознавание речи и системы, критичные к доверию, для повседневной помощи.",
+    focus2Title: "NLP для языков региона",
+    focus2Text:
+      "Модели под таджикский, русский и лингвистическую реальность Центральной Азии.",
+    focus3Title: "Инфраструктура здравоохранения",
+    focus3Text:
+      "Инструменты, которые делают AI применимым в реальных клиниках и учреждениях.",
 
     teamEyebrow: "Команда",
     teamTitle: "Небольшая, сильная команда.",
@@ -418,3 +456,60 @@ if (useGSAP) {
 
   ScrollTrigger.refresh();
 }
+
+// ── Stat counters — count-up on scroll-in ──
+(function initCounters() {
+  const els = document.querySelectorAll("[data-count]");
+  if (!els.length) return;
+
+  const run = (el) => {
+    const target = parseInt(el.dataset.count, 10);
+    const isYear = String(target).length === 4;
+    const start = isYear ? target - 6 : 0;
+    const dur = 1.4;
+    if (useGSAP) {
+      const o = { v: start };
+      gsap.to(o, {
+        v: target,
+        duration: dur,
+        ease: "power2.out",
+        onUpdate: () => (el.textContent = String(Math.round(o.v))),
+      });
+    } else {
+      const t0 = performance.now();
+      const tick = (now) => {
+        const p = Math.min((now - t0) / (dur * 1000), 1);
+        const e = 1 - Math.pow(1 - p, 3);
+        el.textContent = String(Math.round(start + (target - start) * e));
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    }
+  };
+
+  if (prefersReduced) {
+    els.forEach((el) => (el.textContent = el.dataset.count));
+  } else if (useGSAP) {
+    els.forEach((el) =>
+      ScrollTrigger.create({
+        trigger: el,
+        start: "top 88%",
+        once: true,
+        onEnter: () => run(el),
+      })
+    );
+  } else {
+    const io = new IntersectionObserver(
+      (ents) => {
+        ents.forEach((e) => {
+          if (e.isIntersecting) {
+            run(e.target);
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+    els.forEach((el) => io.observe(el));
+  }
+})();
