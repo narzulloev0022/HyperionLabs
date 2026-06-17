@@ -1195,7 +1195,7 @@ html.gsap-on .team-card {
   padding-right: 16px;
   flex-shrink: 0;
 }
-.m-label, .m-city {
+.m-item {
   display: inline-flex;
   align-items: center;
   font-family: var(--font);
@@ -1208,15 +1208,6 @@ html.gsap-on .team-card {
 .m-sep {
   color: var(--text-dim);
   font-size: 1em;
-}
-.m-dot {
-  width: 7px;
-  height: 7px;
-  margin-right: 9px;
-  border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 8px color-mix(in srgb, var(--accent) 70%, transparent);
-  flex-shrink: 0;
 }
 @keyframes marqueeScroll { to { transform: translateX(-50%); } }
 
