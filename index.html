@@ -23,18 +23,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css?v=4" />
+    <link rel="stylesheet" href="style.css?v=5" />
   </head>
   <body>
     <!-- Skip link -->
     <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
 
-    <!-- Living atmosphere (blurred periwinkle field, under content) -->
-    <div class="bg-field" aria-hidden="true">
-      <span class="bg-orb bg-orb-1"></span>
-      <span class="bg-orb bg-orb-2"></span>
-      <span class="bg-orb bg-orb-3"></span>
-    </div>
+    <!-- Living atmosphere — baked static gradients on a fixed layer (0 repaint on scroll) -->
+    <div class="bg-field" aria-hidden="true"></div>
 
     <!-- Shell -->
     <div class="site-shell">
@@ -93,6 +89,7 @@
       <main id="main">
         <!-- ── HERO ── -->
         <section class="hero" id="top">
+          <div class="hero-grid" aria-hidden="true"><div class="hero-grid-plane"></div></div>
           <div class="container hero-inner">
             <div class="hero-badge hero-anim">
               <span class="dot"></span>
@@ -169,6 +166,77 @@
                 </svg>
               </div>
             </article>
+          </div>
+        </section>
+
+        <!-- ── HOW AVRISAI WORKS (3 steps) ── -->
+        <section id="how">
+          <div class="container">
+            <div class="section-header reveal">
+              <div class="eyebrow" data-i18n="howEyebrow">How AvrisAI works</div>
+              <h2 data-i18n="howTitle">From conversation to clinical note.</h2>
+            </div>
+            <div class="steps">
+              <article class="step-card reveal">
+                <div class="step-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>
+                </div>
+                <div class="step-num">01</div>
+                <h3 data-i18n="step1Title">Listen</h3>
+                <p class="step-text" data-i18n="step1Text">AvrisAI listens to the doctor–patient conversation.</p>
+              </article>
+              <div class="step-link" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h14M13 6l6 6-6 6"/></svg>
+              </div>
+              <article class="step-card reveal">
+                <div class="step-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h8M4 12h11M4 17h6"/><path d="M16 8l4 4-4 4"/></svg>
+                </div>
+                <div class="step-num">02</div>
+                <h3 data-i18n="step2Title">Structure</h3>
+                <p class="step-text" data-i18n="step2Text">Speech is turned into structured medical fields.</p>
+              </article>
+              <div class="step-link" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h14M13 6l6 6-6 6"/></svg>
+              </div>
+              <article class="step-card reveal">
+                <div class="step-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M9 13l2 2 4-4"/></svg>
+                </div>
+                <div class="step-num">03</div>
+                <h3 data-i18n="step3Title">Note ready</h3>
+                <p class="step-text" data-i18n="step3Text">A clean clinical note — ready in seconds.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- ── PRODUCT FLOW — conversation → SOAP (illustrative, no PHI) ── -->
+        <section id="flow">
+          <div class="container">
+            <div class="section-header reveal">
+              <div class="eyebrow" data-i18n="flowEyebrow">See it work</div>
+              <h2 data-i18n="flowTitle">Conversation in. Clinical note out.</h2>
+              <p class="lead" data-i18n="flowLead">An illustrative example — not real patient data.</p>
+            </div>
+            <div class="flow-panel reveal">
+              <div class="flow-grid">
+                <div class="flow-chat">
+                  <div class="flow-col-label" data-i18n="flowChatLabel">Conversation</div>
+                  <div class="chat-line chat-patient"><span class="chat-who" data-i18n="chatWhoP">Patient</span><p data-i18n="chat1">I've had a sore throat and mild fever for two days.</p></div>
+                  <div class="chat-line chat-doctor"><span class="chat-who" data-i18n="chatWhoD">Doctor</span><p data-i18n="chat2">Any cough or trouble swallowing?</p></div>
+                  <div class="chat-line chat-patient"><span class="chat-who" data-i18n="chatWhoP">Patient</span><p data-i18n="chat3">Some pain when swallowing, no cough.</p></div>
+                  <div class="chat-line chat-doctor"><span class="chat-who" data-i18n="chatWhoD">Doctor</span><p data-i18n="chat4">Temperature 37.8, throat looks a little red.</p></div>
+                </div>
+                <div class="flow-soap">
+                  <div class="flow-col-label" data-i18n="flowSoapLabel">SOAP note</div>
+                  <div class="soap-row"><i class="soap-hl" aria-hidden="true"></i><span class="soap-key">S</span><div><div class="soap-field" data-i18n="soapSk">Subjective</div><p data-i18n="soapS">Sore throat and mild fever, 2 days. Pain on swallowing, no cough.</p></div></div>
+                  <div class="soap-row"><i class="soap-hl" aria-hidden="true"></i><span class="soap-key">O</span><div><div class="soap-field" data-i18n="soapOk">Objective</div><p data-i18n="soapO">Temp 37.8 °C. Pharynx mildly red.</p></div></div>
+                  <div class="soap-row"><i class="soap-hl" aria-hidden="true"></i><span class="soap-key">A</span><div><div class="soap-field" data-i18n="soapAk">Assessment</div><p data-i18n="soapA">Likely viral pharyngitis.</p></div></div>
+                  <div class="soap-row"><i class="soap-hl" aria-hidden="true"></i><span class="soap-key">P</span><div><div class="soap-field" data-i18n="soapPk">Plan</div><p data-i18n="soapP">Supportive care, fluids, review if it worsens.</p></div></div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -401,9 +469,8 @@
       </footer>
     </div>
 
-    <script src="assets/vendor/lenis.min.js"></script>
     <script src="assets/vendor/gsap.min.js"></script>
     <script src="assets/vendor/ScrollTrigger.min.js"></script>
-    <script src="script.js?v=4"></script>
+    <script src="script.js?v=5"></script>
   </body>
 </html>
