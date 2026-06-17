@@ -43,6 +43,35 @@ const translations = {
     marqueeSr:
       "AvrisAI: voice AI for doctors — clinical notes in seconds, in Russian and English, built for Central Asia.",
 
+    howEyebrow: "How AvrisAI works",
+    howTitle: "From conversation to clinical note.",
+    step1Title: "Listen",
+    step1Text: "AvrisAI listens to the doctor–patient conversation.",
+    step2Title: "Structure",
+    step2Text: "Speech is turned into structured medical fields.",
+    step3Title: "Note ready",
+    step3Text: "A clean clinical note — ready in seconds.",
+
+    flowEyebrow: "See it work",
+    flowTitle: "Conversation in. Clinical note out.",
+    flowLead: "An illustrative example — not real patient data.",
+    flowChatLabel: "Conversation",
+    flowSoapLabel: "SOAP note",
+    chatWhoP: "Patient",
+    chatWhoD: "Doctor",
+    chat1: "I've had a sore throat and mild fever for two days.",
+    chat2: "Any cough or trouble swallowing?",
+    chat3: "Some pain when swallowing, no cough.",
+    chat4: "Temperature 37.8, throat looks a little red.",
+    soapSk: "Subjective",
+    soapS: "Sore throat and mild fever, 2 days. Pain on swallowing, no cough.",
+    soapOk: "Objective",
+    soapO: "Temp 37.8 °C. Pharynx mildly red.",
+    soapAk: "Assessment",
+    soapA: "Likely viral pharyngitis.",
+    soapPk: "Plan",
+    soapP: "Supportive care, fluids, review if it worsens.",
+
     aboutEyebrow: "Who we are",
     aboutTitle: "More than a startup.",
     aboutP1:
@@ -141,6 +170,35 @@ const translations = {
     val5: "Меньше бумаг — больше времени пациенту",
     marqueeSr:
       "AvrisAI: голосовой AI для врачей — клинические заметки за секунды, на русском и английском, создано для Центральной Азии.",
+
+    howEyebrow: "Как работает AvrisAI",
+    howTitle: "От разговора — к клинической заметке.",
+    step1Title: "Слушает",
+    step1Text: "AvrisAI слушает разговор врача и пациента.",
+    step2Title: "Структурирует",
+    step2Text: "Речь превращается в структурированные медицинские поля.",
+    step3Title: "Заметка готова",
+    step3Text: "Готовая клиническая заметка — за секунды.",
+
+    flowEyebrow: "Как это выглядит",
+    flowTitle: "На входе — разговор. На выходе — заметка.",
+    flowLead: "Иллюстративный пример — не реальные данные пациента.",
+    flowChatLabel: "Разговор",
+    flowSoapLabel: "SOAP-заметка",
+    chatWhoP: "Пациент",
+    chatWhoD: "Врач",
+    chat1: "Болит горло и небольшая температура уже два дня.",
+    chat2: "Есть кашель или больно глотать?",
+    chat3: "Глотать немного больно, кашля нет.",
+    chat4: "Температура 37,8, горло слегка красное.",
+    soapSk: "Субъективно",
+    soapS: "Боль в горле и небольшая температура, 2 дня. Больно глотать, кашля нет.",
+    soapOk: "Объективно",
+    soapO: "Темп. 37,8 °C. Зев слегка гиперемирован.",
+    soapAk: "Оценка",
+    soapA: "Вероятно, вирусный фарингит.",
+    soapPk: "План",
+    soapP: "Симптоматическое лечение, питьё, контроль при ухудшении.",
 
     aboutEyebrow: "О нас",
     aboutTitle: "Больше, чем стартап.",
@@ -245,7 +303,6 @@ if (useGSAP) {
 let langSwitching = false;
 function syncScroll() {
   if (typeof ScrollTrigger !== "undefined") ScrollTrigger.refresh();
-  if (typeof lenis !== "undefined" && lenis) lenis.resize();
 }
 function switchLanguage(lang) {
   if (lang === document.documentElement.lang || langSwitching) return;
@@ -383,44 +440,11 @@ document.addEventListener("keydown", (e) => {
    SIGNATURE LAYER
    ═══════════════════════════════════════════ */
 
-// ── Lenis inertia scroll — snappy, not floaty (desktop, non-touch, non-reduced) ──
-let lenis = null;
-if (!prefersReduced && !isCoarse && typeof Lenis !== "undefined") {
-  lenis = new Lenis({
-    duration: 0.9, // responsive settle, not a long glide
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // expo-out, snappy
-    smoothWheel: true,
-    wheelMultiplier: 1,
-    touchMultiplier: 1.6,
-  });
-  if (useGSAP) {
-    // single clock: GSAP ticker drives Lenis; Lenis scroll updates ScrollTrigger
-    lenis.on("scroll", ScrollTrigger.update);
-    gsap.ticker.add((time) => lenis.raf(time * 1000));
-    gsap.ticker.lagSmoothing(0);
-  } else {
-    const lenisRaf = (time) => {
-      lenis.raf(time);
-      requestAnimationFrame(lenisRaf);
-    };
-    requestAnimationFrame(lenisRaf);
-  }
-}
-
-// ── Anchor smooth-scroll (Lenis when active, native otherwise) ──
+// ── Anchor navigation — NATIVE scroll (most responsive on Mac/iOS).
+//    CSS `scroll-behavior: smooth` + `scroll-margin-top` handle the rest. ──
 document.querySelectorAll('a[href^="#"]').forEach((a) => {
-  a.addEventListener("click", (e) => {
-    const id = a.getAttribute("href");
-    if (!id || id.length < 2) return;
-    const target = document.querySelector(id);
-    if (!target) return;
-    e.preventDefault();
+  a.addEventListener("click", () => {
     if (mobileMenu.classList.contains("open")) closeMobileMenu();
-    if (lenis) {
-      lenis.scrollTo(target, { offset: -80 });
-    } else {
-      target.scrollIntoView({ behavior: prefersReduced ? "auto" : "smooth" });
-    }
   });
 });
 
@@ -435,7 +459,6 @@ if (!prefersReduced) {
    GSAP SCROLL REVEALS — clean, smooth (no parallax / no tilt)
    ═══════════════════════════════════════════ */
 if (useGSAP) {
-  if (lenis) lenis.on("scroll", ScrollTrigger.update);
 
   // Gentle staggered fade-up per section. Transform/opacity only → no jank.
   document.querySelectorAll("section, footer").forEach((sec) => {
@@ -457,6 +480,26 @@ if (useGSAP) {
         }),
     });
   });
+
+  // Product flow — assemble conversation, then build the SOAP note.
+  // Field highlight is an opacity fade on an overlay (composited, no paint-heavy box-shadow).
+  const flow = document.querySelector("#flow");
+  if (flow) {
+    const chat = flow.querySelectorAll(".chat-line");
+    const rows = flow.querySelectorAll(".soap-row");
+    const hls = flow.querySelectorAll(".soap-hl");
+    gsap.set([chat, rows], { opacity: 0, y: 12 });
+    gsap
+      .timeline({ scrollTrigger: { trigger: flow, start: "top 66%", once: true } })
+      .to(chat, { opacity: 1, y: 0, duration: 0.4, stagger: 0.22, ease: "power2.out" })
+      .to(rows, { opacity: 1, y: 0, duration: 0.4, stagger: 0.18, ease: "power2.out" }, "-=0.05")
+      .fromTo(
+        hls,
+        { opacity: 1 },
+        { opacity: 0, duration: 0.7, stagger: 0.18, ease: "power2.out" },
+        "<"
+      );
+  }
 
   ScrollTrigger.refresh();
 }
@@ -517,3 +560,46 @@ if (useGSAP) {
     els.forEach((el) => io.observe(el));
   }
 })();
+
+// ── Hero grid parallax — transform only (GPU-composited), stops when idle ──
+if (!prefersReduced && window.matchMedia("(pointer: fine)").matches) {
+  const hero = document.querySelector(".hero");
+  const plane = document.querySelector(".hero-grid-plane");
+  if (hero && plane) {
+    const AMP = 14;
+    let tx = 0, ty = 0, cx = 0, cy = 0, running = false;
+    const frame = () => {
+      cx += (tx - cx) * 0.08;
+      cy += (ty - cy) * 0.08;
+      // translate (composited) before the static rotateX — no repaint
+      plane.style.transform =
+        `translate3d(${cx.toFixed(2)}px, ${cy.toFixed(2)}px, 0) rotateX(62deg)`;
+      if (Math.abs(tx - cx) > 0.05 || Math.abs(ty - cy) > 0.05) {
+        requestAnimationFrame(frame);
+      } else {
+        running = false; // idle → stop the loop entirely (zero cost at rest)
+      }
+    };
+    const kick = () => {
+      if (!running) {
+        running = true;
+        requestAnimationFrame(frame);
+      }
+    };
+    hero.addEventListener(
+      "mousemove",
+      (e) => {
+        const r = hero.getBoundingClientRect();
+        tx = ((e.clientX - r.left) / r.width - 0.5) * AMP * 2;
+        ty = ((e.clientY - r.top) / r.height - 0.5) * AMP;
+        kick();
+      },
+      { passive: true }
+    );
+    hero.addEventListener("mouseleave", () => {
+      tx = 0;
+      ty = 0;
+      kick();
+    });
+  }
+}
