@@ -84,13 +84,6 @@ const translations = {
     missionText4: "real people",
     missionText5: ".",
 
-    statsEyebrow: "By the numbers",
-    statsTitle: "Small lab. Real momentum.",
-    stat1: "Pilot cities",
-    stat2: "Products",
-    stat3: "Public launch",
-    stat4: "Founded · Dushanbe",
-
     focusEyebrow: "What we work on",
     focusTitle: "Research grounded in real deployment.",
     focus1Title: "Medical voice AI",
@@ -212,12 +205,6 @@ const translations = {
     missionText4: "реальных людей",
     missionText5: ".",
 
-    statsEyebrow: "Коротко",
-    statsTitle: "Небольшая лаборатория. Реальная динамика.",
-    stat1: "Города пилота",
-    stat2: "Продукта",
-    stat3: "Запуск",
-    stat4: "Основана · Душанбе",
 
     focusEyebrow: "Над чем работаем",
     focusTitle: "Исследования с опорой на реальное внедрение.",
@@ -289,26 +276,15 @@ function setLanguage(lang) {
 const prefersReduced = window.matchMedia(
   "(prefers-reduced-motion: reduce)"
 ).matches;
-const isCoarse = window.matchMedia("(pointer: coarse)").matches;
-const hasGSAP =
-  typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined";
-const useGSAP = hasGSAP && !prefersReduced;
-if (useGSAP) {
-  gsap.registerPlugin(ScrollTrigger);
-  document.documentElement.classList.add("gsap-on");
-}
+// progressive-enhancement gate: reveal/animation hidden-states apply only with JS
+document.documentElement.classList.add("js");
 
-// Soft crossfade on language switch + keep ScrollTrigger in sync
-// (text length changes page height → triggers would otherwise drift)
+// Soft crossfade on language switch
 let langSwitching = false;
-function syncScroll() {
-  if (typeof ScrollTrigger !== "undefined") ScrollTrigger.refresh();
-}
 function switchLanguage(lang) {
   if (lang === document.documentElement.lang || langSwitching) return;
   if (prefersReduced) {
     setLanguage(lang);
-    syncScroll();
     return;
   }
   langSwitching = true;
@@ -316,7 +292,6 @@ function switchLanguage(lang) {
   root.classList.add("lang-fade");
   window.setTimeout(() => {
     setLanguage(lang);
-    syncScroll();
     requestAnimationFrame(() => {
       root.classList.remove("lang-fade");
       langSwitching = false;
@@ -336,28 +311,22 @@ window.addEventListener(
   { passive: true }
 );
 
-// ── Scroll reveals — IntersectionObserver fallback (used when GSAP is off) ──
-if (!useGSAP) {
-  document.querySelectorAll("section, footer").forEach((sec) => {
-    sec.querySelectorAll(".reveal").forEach((el, i) => {
-      el.style.setProperty("--rd", i * 80 + "ms");
+// ── Scroll reveals — lightweight IntersectionObserver → CSS transition.
+//    Fires EARLY (as soon as the element enters from the bottom), once. ──
+const revealObserver = new IntersectionObserver(
+  (entries, obs) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      // #flow plays its CSS keyframe demo once; everything else just reveals
+      entry.target.classList.add(entry.target.id === "flow" ? "play" : "in");
+      obs.unobserve(entry.target);
     });
-  });
-  const revealObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("in");
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.15 }
-  );
-  document
-    .querySelectorAll(".reveal")
-    .forEach((el) => revealObserver.observe(el));
-}
+  },
+  { rootMargin: "0px 0px -10% 0px", threshold: 0 }
+);
+document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
+const flowSection = document.getElementById("flow");
+if (flowSection) revealObserver.observe(flowSection);
 
 // ── Active nav link (scroll-spy) ──
 const navLinkMap = {};
@@ -453,153 +422,4 @@ if (!prefersReduced) {
   document.querySelectorAll(".wave span").forEach((bar, i) => {
     bar.style.animationDelay = (i * 0.06).toFixed(2) + "s";
   });
-}
-
-/* ═══════════════════════════════════════════
-   GSAP SCROLL REVEALS — clean, smooth (no parallax / no tilt)
-   ═══════════════════════════════════════════ */
-if (useGSAP) {
-
-  // Gentle staggered fade-up per section. Transform/opacity only → no jank.
-  document.querySelectorAll("section, footer").forEach((sec) => {
-    const items = sec.querySelectorAll(".reveal");
-    if (!items.length) return;
-    gsap.set(items, { opacity: 0, y: 24 });
-    ScrollTrigger.create({
-      trigger: sec,
-      start: "top 84%",
-      once: true,
-      onEnter: () =>
-        gsap.to(items, {
-          opacity: 1,
-          y: 0,
-          duration: 0.55,
-          ease: "power2.out",
-          stagger: 0.07,
-          clearProps: "transform", // hand transform back to CSS once shown
-        }),
-    });
-  });
-
-  // Product flow — assemble conversation, then build the SOAP note.
-  // Field highlight is an opacity fade on an overlay (composited, no paint-heavy box-shadow).
-  const flow = document.querySelector("#flow");
-  if (flow) {
-    const chat = flow.querySelectorAll(".chat-line");
-    const rows = flow.querySelectorAll(".soap-row");
-    const hls = flow.querySelectorAll(".soap-hl");
-    gsap.set([chat, rows], { opacity: 0, y: 12 });
-    gsap
-      .timeline({ scrollTrigger: { trigger: flow, start: "top 66%", once: true } })
-      .to(chat, { opacity: 1, y: 0, duration: 0.4, stagger: 0.22, ease: "power2.out" })
-      .to(rows, { opacity: 1, y: 0, duration: 0.4, stagger: 0.18, ease: "power2.out" }, "-=0.05")
-      .fromTo(
-        hls,
-        { opacity: 1 },
-        { opacity: 0, duration: 0.7, stagger: 0.18, ease: "power2.out" },
-        "<"
-      );
-  }
-
-  ScrollTrigger.refresh();
-}
-
-// ── Stat counters — count-up on scroll-in ──
-(function initCounters() {
-  const els = document.querySelectorAll("[data-count]");
-  if (!els.length) return;
-
-  const run = (el) => {
-    const target = parseInt(el.dataset.count, 10);
-    const isYear = String(target).length === 4;
-    const start = isYear ? target - 6 : 0;
-    const dur = 1.4;
-    if (useGSAP) {
-      const o = { v: start };
-      gsap.to(o, {
-        v: target,
-        duration: dur,
-        ease: "power2.out",
-        onUpdate: () => (el.textContent = String(Math.round(o.v))),
-      });
-    } else {
-      const t0 = performance.now();
-      const tick = (now) => {
-        const p = Math.min((now - t0) / (dur * 1000), 1);
-        const e = 1 - Math.pow(1 - p, 3);
-        el.textContent = String(Math.round(start + (target - start) * e));
-        if (p < 1) requestAnimationFrame(tick);
-      };
-      requestAnimationFrame(tick);
-    }
-  };
-
-  if (prefersReduced) {
-    els.forEach((el) => (el.textContent = el.dataset.count));
-  } else if (useGSAP) {
-    els.forEach((el) =>
-      ScrollTrigger.create({
-        trigger: el,
-        start: "top 88%",
-        once: true,
-        onEnter: () => run(el),
-      })
-    );
-  } else {
-    const io = new IntersectionObserver(
-      (ents) => {
-        ents.forEach((e) => {
-          if (e.isIntersecting) {
-            run(e.target);
-            io.unobserve(e.target);
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-    els.forEach((el) => io.observe(el));
-  }
-})();
-
-// ── Hero grid parallax — transform only (GPU-composited), stops when idle ──
-if (!prefersReduced && window.matchMedia("(pointer: fine)").matches) {
-  const hero = document.querySelector(".hero");
-  const plane = document.querySelector(".hero-grid-plane");
-  if (hero && plane) {
-    const AMP = 14;
-    let tx = 0, ty = 0, cx = 0, cy = 0, running = false;
-    const frame = () => {
-      cx += (tx - cx) * 0.08;
-      cy += (ty - cy) * 0.08;
-      // translate (composited) before the static rotateX — no repaint
-      plane.style.transform =
-        `translate3d(${cx.toFixed(2)}px, ${cy.toFixed(2)}px, 0) rotateX(62deg)`;
-      if (Math.abs(tx - cx) > 0.05 || Math.abs(ty - cy) > 0.05) {
-        requestAnimationFrame(frame);
-      } else {
-        running = false; // idle → stop the loop entirely (zero cost at rest)
-      }
-    };
-    const kick = () => {
-      if (!running) {
-        running = true;
-        requestAnimationFrame(frame);
-      }
-    };
-    hero.addEventListener(
-      "mousemove",
-      (e) => {
-        const r = hero.getBoundingClientRect();
-        tx = ((e.clientX - r.left) / r.width - 0.5) * AMP * 2;
-        ty = ((e.clientY - r.top) / r.height - 0.5) * AMP;
-        kick();
-      },
-      { passive: true }
-    );
-    hero.addEventListener("mouseleave", () => {
-      tx = 0;
-      ty = 0;
-      kick();
-    });
-  }
 }

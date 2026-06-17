@@ -378,7 +378,7 @@ section { position: relative; padding: 88px 0; scroll-margin-top: 88px; }
 /* Skip rendering of off-screen sections — cuts paint cost dramatically.
    `auto` intrinsic-size remembers real height after first render (stable scrollbar). */
 #products, #how, #flow, #proof, #about,
-#stats, #focus, #team, #contact, footer {
+#focus, #team, #contact, footer {
   content-visibility: auto;
   contain-intrinsic-size: auto 700px;
 }
@@ -820,40 +820,6 @@ section { position: relative; padding: 88px 0; scroll-margin-top: 88px; }
   color: var(--accent);
 }
 
-/* ── Stats (revived) ── */
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-}
-.stat-card {
-  padding: 30px 28px;
-  border: 1px solid var(--border);
-  border-radius: var(--r-lg);
-  background: var(--lit-fill);
-  box-shadow: var(--lit-edge), var(--lit-shadow);
-  transition: border-color var(--dur-base) var(--ease-out),
-              box-shadow var(--dur-base) var(--ease-out);
-}
-.stat-card:hover {
-  border-color: var(--border-strong);
-  box-shadow: var(--lit-edge), 0 30px 60px -26px rgba(0, 0, 0, 0.85);
-}
-.stat-number {
-  font-family: var(--font-display);
-  font-size: clamp(2.4rem, 6vw, 3.6rem);
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: -.03em;
-  color: var(--accent);
-  font-variant-numeric: tabular-nums;
-}
-.stat-label {
-  margin-top: 12px;
-  color: var(--text-muted);
-  font-size: .92rem;
-  line-height: 1.5;
-}
 
 /* ── Focus / Research (revived) ── */
 .focus-grid {
@@ -891,7 +857,6 @@ section { position: relative; padding: 88px 0; scroll-margin-top: 88px; }
 }
 
 @media (min-width: 768px) {
-  .stats-grid { grid-template-columns: repeat(4, 1fr); }
   .focus-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
@@ -921,7 +886,6 @@ section { position: relative; padding: 88px 0; scroll-margin-top: 88px; }
   transform-origin: 50% 100%;
   -webkit-mask-image: linear-gradient(to top, #000 8%, transparent 88%);
   mask-image: linear-gradient(to top, #000 8%, transparent 88%);
-  will-change: transform, background-position;
 }
 /* faint horizon glow where the grid meets the distance */
 .hero-grid::after {
@@ -1049,7 +1013,7 @@ section { position: relative; padding: 88px 0; scroll-margin-top: 88px; }
   background: var(--surface);
   border: 1px solid var(--border);
 }
-/* highlight overlay — opacity only (composited), faded by GSAP on assemble */
+/* highlight overlay — opacity only (composited), faded by CSS keyframe on assemble */
 .soap-hl {
   position: absolute;
   inset: 0;
@@ -1083,9 +1047,30 @@ section { position: relative; padding: 88px 0; scroll-margin-top: 88px; }
 }
 .soap-row p { color: var(--text-muted); font-size: .91rem; line-height: 1.5; }
 
-/* GSAP-driven assembly: hidden until the flow timeline runs */
-html.gsap-on .chat-line,
-html.gsap-on .soap-row { opacity: 0; }
+/* Flow demo — pure CSS keyframes, played ONCE when #flow gets .play (via IO).
+   Hidden only when JS is present; `--i` (set inline) drives the stagger. */
+.js .chat-line,
+.js .soap-row { opacity: 0; }
+#flow.play .flow-chat .chat-line {
+  animation: flowRise .4s var(--ease-out) both;
+  animation-delay: calc(var(--i, 0) * .16s);
+}
+#flow.play .flow-soap .soap-row {
+  animation: flowRise .4s var(--ease-out) both;
+  animation-delay: calc(.62s + var(--i, 0) * .14s);
+}
+#flow.play .flow-soap .soap-hl {
+  animation: hlFade .7s var(--ease-out) both;
+  animation-delay: calc(.62s + var(--i, 0) * .14s);
+}
+@keyframes flowRise {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes hlFade {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
 
 @media (min-width: 880px) {
   .steps { flex-direction: row; align-items: center; gap: 4px; }
@@ -1193,22 +1178,19 @@ footer {
   font-size: .85rem;
 }
 
-/* ── Scroll reveal (orchestrated fade-up, ~80ms child stagger via --rd) ── */
-.reveal {
+/* ── Scroll reveal — JS-gated, snappy (0.35s), fires early on enter.
+   Without JS the content is simply visible (no hidden state). ── */
+.js .reveal {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity var(--dur-slow) var(--ease-out),
-              transform var(--dur-slow) var(--ease-out);
-  transition-delay: var(--rd, 0ms);
+  transform: translateY(16px);
+  transition: opacity .35s var(--ease-out), transform .35s var(--ease-out);
 }
-.reveal.in { opacity: 1; transform: none; }
+.js .reveal.in { opacity: 1; transform: none; }
 
-/* ── Hero orchestrated entrance: fade-up + blur, ~90ms stagger ── */
+/* ── Hero entrance — fade-up, staggered (transform/opacity only, self-runs) ── */
 .hero-anim {
   opacity: 0;
   transform: translateY(16px);
-  filter: blur(6px);
-  will-change: transform, opacity, filter;
   animation: heroIn var(--dur-hero) var(--ease-out) forwards;
 }
 .hero-d1 { animation-delay: 90ms; }
@@ -1216,7 +1198,7 @@ footer {
 .hero-d3 { animation-delay: 270ms; }
 
 @keyframes heroIn {
-  to { opacity: 1; transform: translateY(0); filter: blur(0); }
+  to { opacity: 1; transform: translateY(0); }
 }
 @keyframes pulse {
   0%, 100% { opacity: 1; transform: scale(1); }
@@ -1331,14 +1313,6 @@ footer {
 
 /* ═══ Motion & energy ═══ */
 
-/* GSAP owns reveal opacity/transform — drop CSS transition to avoid double-smoothing */
-html.gsap-on .reveal { opacity: 0; transform: none; transition: none; }
-html.gsap-on .product,
-html.gsap-on .team-card {
-  transition: border-color var(--dur-base) var(--ease-out),
-              box-shadow var(--dur-base) var(--ease-out);
-}
-
 /* Proof marquee (reserved for partners / proof points) */
 .marquee-section {
   padding: 26px 0;
@@ -1378,8 +1352,7 @@ html.gsap-on .team-card {
 }
 @keyframes marqueeScroll { to { transform: translateX(-50%); } }
 
-/* Cards lift on hover via shadow + border only (no transform) — clean,
-   professional, and never conflicts with the GSAP reveal tween. */
+/* Cards lift on hover via shadow + border only (no transform) — clean, professional. */
 
 /* snappier buttons */
 .btn-primary:hover { transform: translateY(-2px) scale(1.015); }
@@ -1404,12 +1377,13 @@ html.gsap-on .team-card {
     transition-duration: 0s !important;
     scroll-behavior: auto !important;
   }
-  .reveal, .hero-anim {
+  .reveal, .hero-anim, .chat-line, .soap-row {
     opacity: 1 !important;
     transform: none !important;
     filter: none !important;
   }
-  /* signature layer: show end-state, no motion */
+  /* show end-state, no motion */
   .hero-title .line-i { transform: none !important; }
   .wave span { animation: none !important; }
+  .soap-hl { display: none !important; }
 }
