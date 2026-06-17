@@ -35,11 +35,13 @@ const translations = {
     teaserDesc: "A new product in development. Coming soon.",
     teaserCta: "Private pipeline",
 
-    marqueeLabel: "AvrisAI live in",
-    city1: "Dushanbe",
-    city2: "Istaravshan",
-    city3: "Bokhtar",
-    marqueeSr: "AvrisAI is live in Dushanbe, Istaravshan and Bokhtar.",
+    val1: "Voice AI for doctors",
+    val2: "Clinical notes in seconds",
+    val3: "Russian & English",
+    val4: "Built for Central Asia",
+    val5: "Less paperwork, more care",
+    marqueeSr:
+      "AvrisAI: voice AI for doctors — clinical notes in seconds, in Russian and English, built for Central Asia.",
 
     aboutEyebrow: "Who we are",
     aboutTitle: "More than a startup.",
@@ -132,11 +134,13 @@ const translations = {
     teaserDesc: "Новый продукт в разработке. Скоро.",
     teaserCta: "Закрытый pipeline",
 
-    marqueeLabel: "AvrisAI работает в",
-    city1: "Душанбе",
-    city2: "Истаравшан",
-    city3: "Бохтар",
-    marqueeSr: "AvrisAI работает в Душанбе, Истаравшане и Бохтаре.",
+    val1: "Голосовой AI для врачей",
+    val2: "Клинические заметки за секунды",
+    val3: "Русский и английский",
+    val4: "Создано для Центральной Азии",
+    val5: "Меньше бумаг — больше времени пациенту",
+    marqueeSr:
+      "AvrisAI: голосовой AI для врачей — клинические заметки за секунды, на русском и английском, создано для Центральной Азии.",
 
     aboutEyebrow: "О нас",
     aboutTitle: "Больше, чем стартап.",
