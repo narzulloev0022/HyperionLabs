@@ -317,16 +317,21 @@ const revealObserver = new IntersectionObserver(
   (entries, obs) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
-      // #flow plays its CSS keyframe demo once; everything else just reveals
-      entry.target.classList.add(entry.target.id === "flow" ? "play" : "in");
+      // #flow plays its SOAP demo, #how draws its connector lines, rest just reveal
+      const id = entry.target.id;
+      entry.target.classList.add(
+        id === "flow" ? "play" : id === "how" ? "lines" : "in"
+      );
       obs.unobserve(entry.target);
     });
   },
-  { rootMargin: "0px 0px -10% 0px", threshold: 0 }
+  { rootMargin: "-5% 0px -5% 0px", threshold: 0 }
 );
 document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
-const flowSection = document.getElementById("flow");
-if (flowSection) revealObserver.observe(flowSection);
+["flow", "how"].forEach((id) => {
+  const el = document.getElementById(id);
+  if (el) revealObserver.observe(el);
+});
 
 // ── Active nav link (scroll-spy) ──
 const navLinkMap = {};

@@ -269,6 +269,7 @@ body {
               color var(--dur-fast) var(--ease-out);
 }
 .btn-primary {
+  position: relative;
   background: var(--accent);
   color: #0A1330;
   box-shadow: 0 0 0 rgba(124, 147, 242, 0);
@@ -277,6 +278,22 @@ body {
   background: var(--accent-hover);
   transform: translateY(-2px);
   box-shadow: 0 8px 26px rgba(124, 147, 242, .32);
+}
+/* subtle glow pulse on primary CTAs (opacity-only → composited).
+   Excludes the sticky-nav CTA to avoid constant motion in the header. */
+.btn-primary:not(.nav-cta-desktop):not(.mobile-cta)::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow: 0 0 18px 2px rgba(124, 147, 242, .55);
+  opacity: 0;
+  animation: cta-pulse 2.5s ease-in-out infinite;
+}
+@keyframes cta-pulse {
+  0%, 100% { opacity: 0; }
+  50%      { opacity: .55; }
 }
 /* lit-accent CTA (nav + mobile early-access) — solid, light from above */
 .nav-cta-desktop,
@@ -886,8 +903,19 @@ section { position: relative; padding: 88px 0; scroll-margin-top: 88px; }
   transform-origin: 50% 100%;
   -webkit-mask-image: linear-gradient(to top, #000 8%, transparent 88%);
   mask-image: linear-gradient(to top, #000 8%, transparent 88%);
+  will-change: background-position, opacity;
+  /* slow perspective drift + horizon breathing — pure CSS, no JS */
+  animation: grid-drift 22s linear infinite, grid-breathe 8s ease-in-out infinite;
 }
-/* faint horizon glow where the grid meets the distance */
+@keyframes grid-drift {
+  from { background-position: 0 0; }
+  to   { background-position: 58px 58px; }
+}
+@keyframes grid-breathe {
+  0%, 100% { opacity: .6; }
+  50%      { opacity: 1; }
+}
+/* faint horizon glow where the grid meets the distance — also breathes */
 .hero-grid::after {
   content: '';
   position: absolute;
@@ -897,6 +925,7 @@ section { position: relative; padding: 88px 0; scroll-margin-top: 88px; }
   height: 140px;
   background: radial-gradient(60% 100% at 50% 100%, color-mix(in srgb, var(--glow) 22%, transparent), transparent 72%);
   pointer-events: none;
+  animation: grid-breathe 8s ease-in-out infinite;
 }
 
 /* How it works — steps */
@@ -1051,17 +1080,19 @@ section { position: relative; padding: 88px 0; scroll-margin-top: 88px; }
    Hidden only when JS is present; `--i` (set inline) drives the stagger. */
 .js .chat-line,
 .js .soap-row { opacity: 0; }
+/* dialogue lines appear one by one: 0 / 200 / 400 / 600ms */
 #flow.play .flow-chat .chat-line {
   animation: flowRise .4s var(--ease-out) both;
-  animation-delay: calc(var(--i, 0) * .16s);
+  animation-delay: calc(var(--i, 0) * .2s);
 }
+/* SOAP fields fill in sequentially AFTER the dialogue, each with a highlight */
 #flow.play .flow-soap .soap-row {
   animation: flowRise .4s var(--ease-out) both;
-  animation-delay: calc(.62s + var(--i, 0) * .14s);
+  animation-delay: calc(1s + var(--i, 0) * .18s);
 }
 #flow.play .flow-soap .soap-hl {
-  animation: hlFade .7s var(--ease-out) both;
-  animation-delay: calc(.62s + var(--i, 0) * .14s);
+  animation: hlFade .8s var(--ease-out) both;
+  animation-delay: calc(1s + var(--i, 0) * .18s);
 }
 @keyframes flowRise {
   from { opacity: 0; transform: translateY(12px); }
@@ -1178,14 +1209,38 @@ footer {
   font-size: .85rem;
 }
 
-/* ── Scroll reveal — JS-gated, snappy (0.35s), fires early on enter.
+/* ── Scroll reveal — expressive fade-up + scale, snappy, fires early.
    Without JS the content is simply visible (no hidden state). ── */
 .js .reveal {
   opacity: 0;
-  transform: translateY(16px);
-  transition: opacity .35s var(--ease-out), transform .35s var(--ease-out);
+  transform: translateY(32px) scale(.97);
+  transition: opacity .45s var(--ease-out), transform .45s var(--ease-out);
 }
 .js .reveal.in { opacity: 1; transform: none; }
+/* stagger reveal siblings within a group (cards in a grid) */
+.js .reveal:nth-child(2) { transition-delay: 80ms; }
+.js .reveal:nth-child(3) { transition-delay: 160ms; }
+.js .reveal:nth-child(4) { transition-delay: 240ms; }
+
+/* section headings — clip wipe (left → right) on reveal */
+.js .section-header h2,
+.js .about-panel .about-title {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path .5s var(--ease-out);
+}
+.js .section-header.in h2,
+.js .about-panel.in .about-title { clip-path: inset(0 0 0 0); }
+
+/* How-it-works: explicit step stagger 0/100/200ms (cards are nth-child 1/3/5) */
+.js .steps .step-card:nth-child(3) { transition-delay: 100ms; }
+.js .steps .step-card:nth-child(5) { transition-delay: 200ms; }
+/* connector arrows draw in after the cards land */
+.js .step-link path { stroke-dasharray: 32; stroke-dashoffset: 32; }
+#how.lines .step-link path {
+  animation: draw-line .5s var(--ease-out) .4s forwards;
+}
+#how.lines .step-link:nth-child(4) path { animation-delay: .58s; }
+@keyframes draw-line { to { stroke-dashoffset: 0; } }
 
 /* ── Hero entrance — fade-up, staggered (transform/opacity only, self-runs) ── */
 .hero-anim {
@@ -1386,4 +1441,7 @@ footer {
   .hero-title .line-i { transform: none !important; }
   .wave span { animation: none !important; }
   .soap-hl { display: none !important; }
+  .section-header h2, .about-panel .about-title { clip-path: none !important; }
+  .step-link path { stroke-dashoffset: 0 !important; }
+  .hero-grid-plane, .hero-grid::after { opacity: 1 !important; }
 }
