@@ -13,12 +13,23 @@ const translations = {
     navCta: "Get Early Access",
 
     heroBadge: "AI Lab · Central Asia",
-    heroTitle1: "World-class AI",
-    heroTitle2: "for the future of healthcare.",
+    heroTitle1: "World-class AI for the ",
+    heroTitle2: "future of healthcare.",
     heroSub:
-      "Hyperion Labs builds AI for healthcare in Central Asia, starting with AvrisAI — a voice assistant for doctors.",
+      "AvrisAI listens to every visit and writes the clinical note — so doctors in Central Asia spend time on patients, not paperwork.",
     heroPrimary: "Explore AvrisAI",
-    heroSecondary: "Get Early Access",
+    heroSecondary: "Get early access",
+
+    pvConvTitle: "Conversation",
+    pvSoapTitle: "SOAP note",
+    pvDoctor: "Doctor",
+    pvPatient: "Patient",
+    pvDoctorLine: "Where is the pain strongest today?",
+    pvPatient1: "Mostly in the chest when I climb stairs.",
+    pvPatient2: "It started two nights ago",
+    pvSoapS: "Chest discomfort with exertion, onset two days ago.",
+    pvSoapO: "Vitals and exam fields prepared for clinician review.",
+    pvSoapA: "Structured assessment draft awaits doctor approval.",
 
     productsEyebrow: "Products",
     productsTitle: "Two products. One mission.",
@@ -134,12 +145,23 @@ const translations = {
     navCta: "Ранний доступ",
 
     heroBadge: "AI-лаборатория · Центральная Азия",
-    heroTitle1: "AI мирового уровня",
-    heroTitle2: "для будущего здравоохранения.",
+    heroTitle1: "AI мирового уровня для ",
+    heroTitle2: "будущего здравоохранения.",
     heroSub:
-      "Hyperion Labs создаёт AI для здравоохранения Центральной Азии. Начали с AvrisAI — голосового ассистента для врачей.",
+      "AvrisAI слушает каждый приём и пишет клиническую заметку — чтобы врачи Центральной Азии тратили время на пациентов, а не на бумаги.",
     heroPrimary: "Изучить AvrisAI",
     heroSecondary: "Ранний доступ",
+
+    pvConvTitle: "Разговор",
+    pvSoapTitle: "SOAP-заметка",
+    pvDoctor: "Врач",
+    pvPatient: "Пациент",
+    pvDoctorLine: "Где сегодня болит сильнее всего?",
+    pvPatient1: "В основном в груди, когда поднимаюсь по лестнице.",
+    pvPatient2: "Началось две ночи назад",
+    pvSoapS: "Дискомфорт в груди при нагрузке, начало два дня назад.",
+    pvSoapO: "Поля витальных показателей и осмотра подготовлены для врача.",
+    pvSoapA: "Черновик структурированной оценки ждёт подтверждения врача.",
 
     productsEyebrow: "Продукты",
     productsTitle: "Два продукта. Одна миссия.",
@@ -328,7 +350,7 @@ const revealObserver = new IntersectionObserver(
   { rootMargin: "-5% 0px -5% 0px", threshold: 0 }
 );
 document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
-["flow", "how"].forEach((id) => {
+["how"].forEach((id) => {
   const el = document.getElementById(id);
   if (el) revealObserver.observe(el);
 });
