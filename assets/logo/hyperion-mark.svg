@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">Hyperion Labs mark</title>
+  <desc id="desc">A periwinkle geometric H monogram for Hyperion Labs.</desc>
+  <defs>
+    <linearGradient id="hyperionGradient" x1="10" y1="6" x2="54" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#C5D0FB"/>
+      <stop offset=".42" stop-color="#95AEF8"/>
+      <stop offset="1" stop-color="#6E86E0"/>
+    </linearGradient>
+  </defs>
+  <rect x="7" y="7" width="50" height="50" rx="16" fill="#0E1626" stroke="rgba(197,208,251,.42)"/>
+  <path d="M20 17h8v14h8V17h8v30h-8V35h-8v12h-8V17Z" fill="url(#hyperionGradient)"/>
+  <path d="M16 50c10-8 22-8 32 0" fill="none" stroke="#95AEF8" stroke-width="2" stroke-linecap="round" opacity=".72"/>
+</svg>
