@@ -23,7 +23,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css?v=7" />
+    <link rel="stylesheet" href="style.css?v=8" />
   </head>
   <body>
     <!-- Skip link -->
@@ -40,6 +40,7 @@
           <nav class="nav" aria-label="Primary navigation">
             <!-- Logo slot — SVG goes here later, text fallback for now -->
             <a class="logo" href="#top" aria-label="Hyperion Labs home">
+              <img class="logo-mark" src="assets/logo/hyperion-mark.svg" alt="" width="26" height="26" />
               <span class="logo-text">HYPERION LABS</span>
             </a>
             <div class="nav-links">
@@ -89,22 +90,50 @@
       <main id="main">
         <!-- ── HERO ── -->
         <section class="hero" id="top">
-          <div class="hero-grid" aria-hidden="true"><div class="hero-grid-plane"></div></div>
-          <div class="container hero-inner">
-            <div class="hero-badge hero-anim">
-              <span class="dot"></span>
-              <span data-i18n="heroBadge">AI Lab · Central Asia</span>
-            </div>
-            <h1 class="hero-title">
-              <span class="line"><span class="line-i line-r1" data-i18n="heroTitle1">World-class AI</span></span>
-              <span class="line"><span class="line-i line-r2 accent" data-i18n="heroTitle2">for the future of healthcare.</span></span>
-            </h1>
-            <p class="lead hero-anim hero-d2" data-i18n="heroSub">
-              Hyperion Labs builds the AI infrastructure for healthcare in Central Asia, starting with AvrisAI — the voice assistant for doctors.
-            </p>
-            <div class="hero-actions hero-anim hero-d3">
-              <a class="btn btn-primary btn-lg" href="#avris" data-i18n="heroPrimary">Explore AvrisAI</a>
-              <a class="btn btn-secondary btn-lg" href="#contact" data-i18n="heroSecondary">Get Early Access</a>
+          <div class="container">
+            <div class="hero-grid">
+              <!-- LEFT — copy -->
+              <div class="hero-copy">
+                <div class="hero-badge hero-anim">
+                  <span class="dot"></span>
+                  <span data-i18n="heroBadge">AI Lab · Central Asia</span>
+                </div>
+                <h1 class="hero-title hero-anim hero-d1">
+                  <span data-i18n="heroTitle1">World-class AI for the </span><span class="accent" data-i18n="heroTitle2">future of healthcare.</span>
+                </h1>
+                <p class="lead hero-anim hero-d2" data-i18n="heroSub">
+                  AvrisAI listens to every visit and writes the clinical note — so doctors in Central Asia spend time on patients, not paperwork.
+                </p>
+                <div class="hero-actions hero-anim hero-d3">
+                  <a class="btn btn-primary btn-lg" href="#avris" data-i18n="heroPrimary">Explore AvrisAI</a>
+                  <a class="btn btn-secondary btn-lg" href="#contact" data-i18n="heroSecondary">Get early access</a>
+                </div>
+              </div>
+              <!-- RIGHT — AvrisAI preview -->
+              <aside class="preview-card reveal" aria-label="AvrisAI product preview">
+                <div class="preview-top">
+                  <div class="live-badge"><span class="badge-dot" aria-hidden="true"></span>AvrisAI · live</div>
+                  <div class="pv-wave" aria-label="Live audio waveform"><span></span><span></span><span></span><span></span><span></span></div>
+                </div>
+                <div class="preview-split">
+                  <div class="preview-pane">
+                    <div class="pane-title" data-i18n="pvConvTitle">Conversation</div>
+                    <div class="transcript">
+                      <p><span class="speaker" data-i18n="pvDoctor">Doctor</span><span data-i18n="pvDoctorLine">Where is the pain strongest today?</span></p>
+                      <p><span class="speaker" data-i18n="pvPatient">Patient</span><span data-i18n="pvPatient1">Mostly in the chest when I climb stairs.</span></p>
+                      <p><span class="speaker" data-i18n="pvPatient">Patient</span><span data-i18n="pvPatient2">It started two nights ago</span><span class="caret" aria-hidden="true"></span></p>
+                    </div>
+                  </div>
+                  <div class="preview-pane">
+                    <div class="pane-title" data-i18n="pvSoapTitle">SOAP note</div>
+                    <div class="soap-list">
+                      <div class="soap-item"><span class="soap-pill">S</span><p data-i18n="pvSoapS">Chest discomfort with exertion, onset two days ago.</p></div>
+                      <div class="soap-item"><span class="soap-pill">O</span><p data-i18n="pvSoapO">Vitals and exam fields prepared for clinician review.</p></div>
+                      <div class="soap-item"><span class="soap-pill">A</span><p data-i18n="pvSoapA">Structured assessment draft awaits doctor approval.</p></div>
+                    </div>
+                  </div>
+                </div>
+              </aside>
             </div>
           </div>
         </section>
@@ -207,35 +236,6 @@
                 <h3 data-i18n="step3Title">Note ready</h3>
                 <p class="step-text" data-i18n="step3Text">A clean clinical note — ready in seconds.</p>
               </article>
-            </div>
-          </div>
-        </section>
-
-        <!-- ── PRODUCT FLOW — conversation → SOAP (illustrative, no PHI) ── -->
-        <section id="flow">
-          <div class="container">
-            <div class="section-header reveal">
-              <div class="eyebrow" data-i18n="flowEyebrow">See it work</div>
-              <h2 data-i18n="flowTitle">Conversation in. Clinical note out.</h2>
-              <p class="lead" data-i18n="flowLead">An illustrative example — not real patient data.</p>
-            </div>
-            <div class="flow-panel reveal">
-              <div class="flow-grid">
-                <div class="flow-chat">
-                  <div class="flow-col-label" data-i18n="flowChatLabel">Conversation</div>
-                  <div class="chat-line chat-patient" style="--i:0"><span class="chat-who" data-i18n="chatWhoP">Patient</span><p data-i18n="chat1">I've had a sore throat and mild fever for two days.</p></div>
-                  <div class="chat-line chat-doctor" style="--i:1"><span class="chat-who" data-i18n="chatWhoD">Doctor</span><p data-i18n="chat2">Any cough or trouble swallowing?</p></div>
-                  <div class="chat-line chat-patient" style="--i:2"><span class="chat-who" data-i18n="chatWhoP">Patient</span><p data-i18n="chat3">Some pain when swallowing, no cough.</p></div>
-                  <div class="chat-line chat-doctor" style="--i:3"><span class="chat-who" data-i18n="chatWhoD">Doctor</span><p data-i18n="chat4">Temperature 37.8, throat looks a little red.</p></div>
-                </div>
-                <div class="flow-soap">
-                  <div class="flow-col-label" data-i18n="flowSoapLabel">SOAP note</div>
-                  <div class="soap-row" style="--i:0"><i class="soap-hl" aria-hidden="true"></i><span class="soap-key">S</span><div><div class="soap-field" data-i18n="soapSk">Subjective</div><p data-i18n="soapS">Sore throat and mild fever, 2 days. Pain on swallowing, no cough.</p></div></div>
-                  <div class="soap-row" style="--i:1"><i class="soap-hl" aria-hidden="true"></i><span class="soap-key">O</span><div><div class="soap-field" data-i18n="soapOk">Objective</div><p data-i18n="soapO">Temp 37.8 °C. Pharynx mildly red.</p></div></div>
-                  <div class="soap-row" style="--i:2"><i class="soap-hl" aria-hidden="true"></i><span class="soap-key">A</span><div><div class="soap-field" data-i18n="soapAk">Assessment</div><p data-i18n="soapA">Likely viral pharyngitis.</p></div></div>
-                  <div class="soap-row" style="--i:3"><i class="soap-hl" aria-hidden="true"></i><span class="soap-key">P</span><div><div class="soap-field" data-i18n="soapPk">Plan</div><p data-i18n="soapP">Supportive care, fluids, review if it worsens.</p></div></div>
-                </div>
-              </div>
             </div>
           </div>
         </section>
@@ -441,6 +441,6 @@
       </footer>
     </div>
 
-    <script src="script.js?v=7"></script>
+    <script src="script.js?v=8"></script>
   </body>
 </html>
