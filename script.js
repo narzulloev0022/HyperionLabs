@@ -122,6 +122,24 @@ const translations = {
       "We are looking for a strong co-founder to help build a world-class AI company.",
     joinUs: "Join us",
 
+    faqEyebrow: "FAQ",
+    faqTitle: "Questions, answered.",
+    faq1Q: "What is AvrisAI?",
+    faq1A:
+      "A voice AI assistant for doctors. It listens to the doctor–patient conversation and turns it into a structured clinical note in seconds. The doctor reviews and approves every note.",
+    faq2Q: "Which languages does it support?",
+    faq2A:
+      "Russian and English today. Tajik speech recognition is in active development — it's one of our core research directions.",
+    faq3Q: "Is patient data safe?",
+    faq3A:
+      "The doctor stays in control: every note is a draft until the clinician approves it, and recordings are used only to produce documentation. For deployment specifics and data-handling agreements, contact us.",
+    faq4Q: "How can my clinic get access?",
+    faq4A:
+      "Join the early access list below or write to info@theavris.ai. After a pilot across three cities in Tajikistan, we are onboarding new clinics step by step.",
+    faq5Q: "Where does Hyperion Labs operate?",
+    faq5A:
+      "We were founded in Dushanbe, Tajikistan, and build for all of Central Asia — from Dushanbe to Tashkent and Almaty.",
+
     ctaEyebrow: "Early Access",
     ctaTitle: "Work with us.",
     ctaLead:
@@ -135,6 +153,8 @@ const translations = {
     formSuccess: "Thanks — we'll be in touch soon.",
     formError: "Please enter a valid email address.",
     formRateLimit: "Please wait a moment before trying again.",
+    formSending: "Sending…",
+    formSubmitError: "Something went wrong — please try again.",
   },
   ru: {
     skip: "Перейти к содержимому",
@@ -255,6 +275,24 @@ const translations = {
       "Ищем сильного кофаундера, чтобы вместе строить AI-компанию мирового уровня.",
     joinUs: "Присоединиться",
 
+    faqEyebrow: "FAQ",
+    faqTitle: "Вопросы и ответы.",
+    faq1Q: "Что такое AvrisAI?",
+    faq1A:
+      "Голосовой AI-ассистент для врачей. Он слушает разговор врача с пациентом и за секунды превращает его в структурированную клиническую заметку. Врач проверяет и подтверждает каждую заметку.",
+    faq2Q: "Какие языки поддерживаются?",
+    faq2A:
+      "Сегодня — русский и английский. Распознавание таджикской речи в активной разработке — это одно из ключевых направлений наших исследований.",
+    faq3Q: "Безопасны ли данные пациентов?",
+    faq3A:
+      "Контроль остаётся у врача: каждая заметка — черновик, пока её не подтвердит клиницист, а записи используются только для формирования документации. Детали внедрения и соглашения о данных — по запросу.",
+    faq4Q: "Как подключить клинику?",
+    faq4A:
+      "Оставьте email в списке раннего доступа ниже или напишите на info@theavris.ai. После пилота в трёх городах Таджикистана мы поэтапно подключаем новые клиники.",
+    faq5Q: "Где работает Hyperion Labs?",
+    faq5A:
+      "Мы основаны в Душанбе, Таджикистан, и строим для всей Центральной Азии — от Душанбе до Ташкента и Алматы.",
+
     ctaEyebrow: "Ранний доступ",
     ctaTitle: "Готовы работать с нами?",
     ctaLead:
@@ -268,6 +306,160 @@ const translations = {
     formSuccess: "Спасибо — мы скоро свяжемся с вами.",
     formError: "Введите корректный email.",
     formRateLimit: "Подождите немного перед повторной попыткой.",
+    formSending: "Отправляем…",
+    formSubmitError: "Что-то пошло не так — попробуйте ещё раз.",
+  },
+  tg: {
+    skip: "Гузаштан ба муҳтаво",
+    navProducts: "Маҳсулот",
+    navAbout: "Дар бораи мо",
+    navTeam: "Даста",
+    navContact: "Тамос",
+    navCta: "Дастрасии барвақт",
+
+    heroBadge: "Лабораторияи AI · Осиёи Марказӣ",
+    heroTitle1: "AI-и сатҳи ҷаҳонӣ барои ",
+    heroTitle2: "ояндаи тандурустӣ.",
+    heroSub:
+      "AvrisAI ҳар як қабулро гӯш мекунад ва ёддошти клиникиро менависад — то духтурони Осиёи Марказӣ вақтро ба беморон сарф кунанд, на ба коғазбозӣ.",
+    heroPrimary: "Шиносоӣ бо AvrisAI",
+    heroSecondary: "Дастрасии барвақт",
+
+    pvConvTitle: "Гуфтугӯ",
+    pvSoapTitle: "Ёддошти SOAP",
+    pvDoctor: "Духтур",
+    pvPatient: "Бемор",
+    pvDoctorLine: "Имрӯз дард дар куҷо сахттар аст?",
+    pvPatient1: "Бештар дар қафаси сина, вақте бо зина мебароям.",
+    pvPatient2: "Ду шаб пеш сар шуд",
+    pvSoapS: "Нороҳатӣ дар сина ҳангоми фишори ҷисмонӣ, оғоз ду рӯз пеш.",
+    pvSoapO: "Майдонҳои нишондиҳандаҳо ва муоина барои духтур омода шуданд.",
+    pvSoapA: "Лоиҳаи арзёбии сохторёфта тасдиқи духтурро интизор аст.",
+
+    productsEyebrow: "Маҳсулот",
+    productsTitle: "Ду маҳсул. Як рисолат.",
+    productsLead:
+      "Портфели мутамарказ барои вазифаҳои воқеии тандурустии минтақа.",
+
+    avrisEyebrow: "Флагман · Voice AI",
+    avrisTagline: "Ёрдамчии овозии AI барои духтурон",
+    avrisDesc:
+      "Ёрдамчии овозии AI барои духтурон — аллакай ҷорӣ шудааст ва кор мекунад. Гуфтугӯи духтур бо беморро гӯш карда, дар чанд сония ҳуҷҷатҳои клиникии сохторёфта месозад. Лоиҳаи озмоишӣ дар се шаҳри Тоҷикистон гузашт.",
+    avrisCta: "Кушодани AvrisAI",
+
+    teaserBadge: "Ба қарибӣ",
+    teaserDesc: "Маҳсули нав дар марҳилаи таҳия. Ба қарибӣ.",
+    teaserCta: "Лоиҳаи пӯшида",
+
+    val1: "AI-и овозӣ барои духтурон",
+    val2: "Ёддоштҳои клиникӣ дар чанд сония",
+    val3: "Русӣ ва англисӣ",
+    val4: "Барои Осиёи Марказӣ сохта шудааст",
+    val5: "Камтар коғаз — бештар ғамхорӣ",
+    marqueeSr:
+      "AvrisAI: AI-и овозӣ барои духтурон — ёддоштҳои клиникӣ дар чанд сония, бо русӣ ва англисӣ, барои Осиёи Марказӣ.",
+
+    howEyebrow: "AvrisAI чӣ тавр кор мекунад",
+    howTitle: "Аз гуфтугӯ — ба ёддошти клиникӣ.",
+    step1Title: "Гӯш мекунад",
+    step1Text: "AvrisAI гуфтугӯи духтур ва беморро гӯш мекунад.",
+    step2Title: "Сохтор медиҳад",
+    step2Text: "Нутқ ба майдонҳои сохторёфтаи тиббӣ табдил меёбад.",
+    step3Title: "Ёддошт омода",
+    step3Text: "Ёддошти тозаи клиникӣ — дар чанд сония.",
+
+    flowEyebrow: "Бубинед, чӣ тавр кор мекунад",
+    flowTitle: "Даромад — гуфтугӯ. Баромад — ёддошт.",
+    flowLead: "Мисоли намунавӣ — маълумоти воқеии бемор нест.",
+    flowChatLabel: "Гуфтугӯ",
+    flowSoapLabel: "Ёддошти SOAP",
+    chatWhoP: "Бемор",
+    chatWhoD: "Духтур",
+    chat1: "Ду рӯз аст, ки гулӯям дард мекунад ва таби сабук дорам.",
+    chat2: "Сулфа ҳаст ё фурӯ бурдан дард мекунад?",
+    chat3: "Фурӯ бурдан каме дард мекунад, сулфа нест.",
+    chat4: "Ҳарорат 37,8, гулӯ каме сурх аст.",
+    soapSk: "Субъективӣ",
+    soapS: "Дарди гулӯ ва таби сабук, 2 рӯз. Ҳангоми фурӯ бурдан дард, сулфа нест.",
+    soapOk: "Объективӣ",
+    soapO: "Ҳарорат 37,8 °C. Гулӯ каме сурх.",
+    soapAk: "Арзёбӣ",
+    soapA: "Эҳтимол, фарингити вирусӣ.",
+    soapPk: "Нақша",
+    soapP: "Табобати дастгирикунанда, нӯшокии фаровон, назорат ҳангоми бадшавӣ.",
+
+    aboutEyebrow: "Дар бораи мо",
+    aboutTitle: "Бештар аз як стартап.",
+    aboutP1:
+      "Hyperion Labs дар Душанбе, Тоҷикистон таъсис ёфтааст — яке аз бозорҳои технологии камхизматрасонии ҷаҳон. Мо аз як савол сар кардем: чаро духтурон соатҳоро ба коғазбозӣ сарф мекунанд, вақте AI инро дар чанд сония карда метавонад?",
+    aboutP2:
+      "Мо на барои Водии Силикон месозем. Мо барои духтури Душанбе, беморхонаи Тошканд ва клиникаи Алмато месозем. Агар инҷо ҳал карда тавонем — дар ҳама ҷо ҳал карда метавонем.",
+    missionText1: "Мо AI месозем, ки ",
+    missionText2: "мушкилоти воқеиро",
+    missionText3: " барои ",
+    missionText4: "одамони воқеӣ",
+    missionText5: " ҳал мекунад.",
+
+    focusEyebrow: "Мо болои чӣ кор мекунем",
+    focusTitle: "Таҳқиқот дар асоси ҷоришавии воқеӣ.",
+    focus1Title: "Voice AI-и тиббӣ",
+    focus1Text:
+      "Равандҳои клиникӣ, фаҳмиши нутқ ва системаҳои боэътимод барои ёрии ҳаррӯза.",
+    focus2Title: "NLP барои забонҳои минтақа",
+    focus2Text:
+      "Моделҳо барои тоҷикӣ, русӣ ва воқеияти забонии Осиёи Марказӣ.",
+    focus3Title: "Инфрасохтори тандурустӣ",
+    focus3Text:
+      "Абзорҳое, ки AI-ро дар клиникаҳо ва муассисаҳои воқеӣ корбурдпазир мекунанд.",
+
+    teamEyebrow: "Даста",
+    teamTitle: "Дастаи хурд, вале пурқувват.",
+    teamFounderRole: "Founder & CEO",
+    teamFounderBio:
+      "AI-и сатҳи ҷаҳониро барои бозорҳои рушдкунанда месозем. Донишҷӯи тиб, ки соҳибкор шуд.",
+    cofounderLabel: "Co-Founder",
+    cofounderRole: "Co-Founder & CFO",
+    cofounderText:
+      "Барои молия, стратегия ва интизоми амалиётии Hyperion Labs масъул аст.",
+    cofounderRole2: "Founding Team",
+    cofounderTitle2: "Ҷойи холии ҳаммуассис",
+    cofounderText2:
+      "Мо ҳаммуассиси қавӣ меҷӯем, то якҷоя ширкати AI-и сатҳи ҷаҳонӣ бисозем.",
+    joinUs: "Ҳамроҳ шавед",
+
+    faqEyebrow: "Саволу ҷавоб",
+    faqTitle: "Саволҳо ва ҷавобҳо.",
+    faq1Q: "AvrisAI чист?",
+    faq1A:
+      "Ёрдамчии овозии AI барои духтурон. Он гуфтугӯи духтур бо беморро гӯш карда, дар чанд сония ба ёддошти клиникии сохторёфта табдил медиҳад. Ҳар як ёддоштро духтур месанҷад ва тасдиқ мекунад.",
+    faq2Q: "Кадом забонҳо дастгирӣ мешаванд?",
+    faq2A:
+      "Имрӯз — русӣ ва англисӣ. Шинохти нутқи тоҷикӣ дар марҳилаи таҳияи фаъол аст — ин яке аз самтҳои асосии таҳқиқоти мост.",
+    faq3Q: "Маълумоти беморон бехатар аст?",
+    faq3A:
+      "Назорат дар дасти духтур мемонад: ҳар ёддошт то тасдиқи духтур лоиҳа аст ва сабтҳо танҳо барои таҳияи ҳуҷҷатҳо истифода мешаванд. Тафсилоти ҷоришавӣ ва созишномаҳо оид ба маълумот — тавассути тамос.",
+    faq4Q: "Чӣ тавр клиникаро пайваст кардан мумкин аст?",
+    faq4A:
+      "Email-и худро дар рӯйхати дастрасии барвақт гузоред ё ба info@theavris.ai нависед. Пас аз лоиҳаи озмоишӣ дар се шаҳри Тоҷикистон мо клиникаҳои навро зина ба зина пайваст мекунем.",
+    faq5Q: "Hyperion Labs дар куҷо кор мекунад?",
+    faq5A:
+      "Мо дар Душанбе, Тоҷикистон таъсис ёфтаем ва барои тамоми Осиёи Марказӣ месозем — аз Душанбе то Тошканд ва Алмато.",
+
+    ctaEyebrow: "Дастрасии барвақт",
+    ctaTitle: "Омодаед бо мо кор кунед?",
+    ctaLead:
+      "Барои дастрасии барвақт ба AvrisAI email-и худро гузоред. Танҳо вақте менависем, ки чизи нишондоданӣ дошта бошем.",
+    emailLabel: "Почтаи электронӣ",
+    submitLabel: "Гирифтани дастрасӣ",
+
+    footerDesc:
+      "Hyperion Labs AI-и сатҳи ҷаҳониро барои тандурустии Осиёи Марказӣ месозад.",
+
+    formSuccess: "Ташаккур — ба қарибӣ бо шумо тамос мегирем.",
+    formError: "Email-и дурустро ворид кунед.",
+    formRateLimit: "Пеш аз кӯшиши навбатӣ каме сабр кунед.",
+    formSending: "Фиристода мешавад…",
+    formSubmitError: "Хатогӣ рӯй дод — боз кӯшиш кунед.",
   },
 };
 
@@ -324,7 +516,16 @@ function switchLanguage(lang) {
 langButtons.forEach((btn) =>
   btn.addEventListener("click", () => switchLanguage(btn.dataset.lang))
 );
-setLanguage(localStorage.getItem("hyperion-lang") || "en");
+// stored preference wins; otherwise auto-detect browser language (ru / tg), fallback en
+const storedLang = localStorage.getItem("hyperion-lang");
+const browserLang = (navigator.language || "").slice(0, 2).toLowerCase();
+setLanguage(
+  storedLang && translations[storedLang]
+    ? storedLang
+    : translations[browserLang]
+      ? browserLang
+      : "en"
+);
 
 // ── Scroll header (glass appears on scroll) ──
 window.addEventListener(
@@ -350,7 +551,7 @@ const revealObserver = new IntersectionObserver(
   { rootMargin: "-5% 0px -5% 0px", threshold: 0 }
 );
 document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
-["how"].forEach((id) => {
+["how", "flow"].forEach((id) => {
   const el = document.getElementById(id);
   if (el) revealObserver.observe(el);
 });
@@ -376,30 +577,53 @@ const spyObserver = new IntersectionObserver(
 );
 spySections.forEach((s) => spyObserver.observe(s));
 
-// ── Form handling (validation + rate limit, Formspree submits) ──
+// ── Form handling (validation + rate limit, AJAX submit to Formspree;
+//    the hidden _next field keeps the native-POST fallback working without JS) ──
 let lastSubmit = 0;
+const submitBtn = form.querySelector('button[type="submit"]');
 
-form.addEventListener("submit", (e) => {
-  const lang = document.documentElement.lang === "ru" ? "ru" : "en";
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const lang = translations[document.documentElement.lang]
+    ? document.documentElement.lang
+    : "en";
+  const dict = translations[lang];
 
   const now = Date.now();
   if (now - lastSubmit < 5000) {
-    e.preventDefault();
-    formMsg.textContent = translations[lang].formRateLimit;
+    formMsg.textContent = dict.formRateLimit;
     return;
   }
 
   const value = emailInput.value.trim();
   const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
   if (!valid) {
-    e.preventDefault();
-    formMsg.textContent = translations[lang].formError;
+    formMsg.textContent = dict.formError;
     emailInput.focus();
     return;
   }
 
   lastSubmit = now;
-  formMsg.textContent = translations[lang].formSuccess;
+  submitBtn.disabled = true;
+  formMsg.textContent = dict.formSending;
+
+  try {
+    const res = await fetch(form.action, {
+      method: "POST",
+      body: new FormData(form),
+      headers: { Accept: "application/json" },
+    });
+    if (res.ok) {
+      formMsg.textContent = dict.formSuccess;
+      form.reset();
+    } else {
+      formMsg.textContent = dict.formSubmitError;
+    }
+  } catch (err) {
+    formMsg.textContent = dict.formSubmitError;
+  } finally {
+    submitBtn.disabled = false;
+  }
 });
 
 // ── Mobile menu ──
