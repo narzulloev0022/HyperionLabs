@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hyperion Labs | World-class AI for Central Asia</title>
     <meta name="description" content="Hyperion Labs builds world-class AI for healthcare in Central Asia, starting with AvrisAI — the voice assistant for doctors." />
-    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta property="og:title" content="Hyperion Labs | World-class AI for Central Asia" />
     <meta property="og:description" content="AI infrastructure for healthcare in Central Asia, starting with AvrisAI — the voice assistant for doctors." />
@@ -16,14 +14,81 @@
     <meta name="twitter:title" content="Hyperion Labs" />
     <meta name="twitter:description" content="World-class AI for healthcare in Central Asia." />
     <meta property="og:image" content="https://hyperion-labs.ai/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Hyperion Labs — World-class AI for the future of healthcare" />
     <meta name="twitter:image" content="https://hyperion-labs.ai/og-image.png" />
     <link rel="canonical" href="https://hyperion-labs.ai" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg?v=3" />
-    <link rel="apple-touch-icon" href="favicon.svg?v=3" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css?v=9" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png?v=1" />
+    <link rel="preload" href="assets/fonts/Inter-400-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="assets/fonts/SpaceGrotesk-700-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="style.css?v=10" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://hyperion-labs.ai/#organization",
+          "name": "Hyperion Labs",
+          "url": "https://hyperion-labs.ai",
+          "logo": "https://hyperion-labs.ai/og-image.png",
+          "description": "Hyperion Labs builds world-class AI for healthcare in Central Asia, starting with AvrisAI — the voice assistant for doctors.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Dushanbe",
+            "addressCountry": "TJ"
+          },
+          "sameAs": [
+            "https://www.instagram.com/hyperionlabs.ai",
+            "https://x.com/hyperionlabsai",
+            "https://github.com/narzulloev0022"
+          ]
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://theavris.ai/#software",
+          "name": "AvrisAI",
+          "url": "https://theavris.ai",
+          "applicationCategory": "MedicalApplication",
+          "operatingSystem": "Web",
+          "description": "Voice AI assistant for doctors: listens to the doctor–patient conversation and produces structured clinical documentation in seconds.",
+          "publisher": { "@id": "https://hyperion-labs.ai/#organization" }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is AvrisAI?",
+              "acceptedAnswer": { "@type": "Answer", "text": "A voice AI assistant for doctors. It listens to the doctor–patient conversation and turns it into a structured clinical note in seconds. The doctor reviews and approves every note." }
+            },
+            {
+              "@type": "Question",
+              "name": "Which languages does it support?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Russian and English today. Tajik speech recognition is in active development — it's one of our core research directions." }
+            },
+            {
+              "@type": "Question",
+              "name": "Is patient data safe?",
+              "acceptedAnswer": { "@type": "Answer", "text": "The doctor stays in control: every note is a draft until the clinician approves it, and recordings are used only to produce documentation. For deployment specifics and data-handling agreements, contact us." }
+            },
+            {
+              "@type": "Question",
+              "name": "How can my clinic get access?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Join the early access list or write to info@theavris.ai. After a pilot across three cities in Tajikistan, we are onboarding new clinics step by step." }
+            },
+            {
+              "@type": "Question",
+              "name": "Where does Hyperion Labs operate?",
+              "acceptedAnswer": { "@type": "Answer", "text": "We were founded in Dushanbe, Tajikistan, and build for all of Central Asia — from Dushanbe to Tashkent and Almaty." }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <!-- Skip link -->
@@ -53,6 +118,7 @@
               <div class="lang-toggle nav-lang" role="group" aria-label="Language switcher">
                 <button type="button" class="active" data-lang="en" aria-pressed="true">EN</button>
                 <button type="button" data-lang="ru" aria-pressed="false">RU</button>
+                <button type="button" data-lang="tg" aria-pressed="false">TJ</button>
               </div>
               <a class="btn btn-primary nav-cta-desktop" href="#contact" data-i18n="navCta">Get Early Access</a>
               <button class="nav-hamburger" id="nav-hamburger" type="button" aria-label="Open menu" aria-expanded="false">
@@ -81,6 +147,7 @@
           <div class="lang-toggle" role="group" aria-label="Language switcher">
             <button type="button" class="active" data-lang="en" aria-pressed="true">EN</button>
             <button type="button" data-lang="ru" aria-pressed="false">RU</button>
+            <button type="button" data-lang="tg" aria-pressed="false">TJ</button>
           </div>
           <a class="btn btn-primary mobile-cta" href="#contact" data-i18n="navCta">Get Early Access</a>
         </div>
@@ -240,6 +307,79 @@
           </div>
         </section>
 
+        <!-- ── FLOW DEMO — conversation in, SOAP note out ── -->
+        <section id="flow">
+          <div class="container">
+            <div class="section-header reveal">
+              <div class="eyebrow" data-i18n="flowEyebrow">See it work</div>
+              <h2 data-i18n="flowTitle">Conversation in. Clinical note out.</h2>
+              <p class="lead" data-i18n="flowLead">An illustrative example — not real patient data.</p>
+            </div>
+            <div class="flow-panel reveal">
+              <div class="flow-grid">
+                <div>
+                  <div class="flow-col-label" data-i18n="flowChatLabel">Conversation</div>
+                  <div class="flow-chat">
+                    <div class="chat-line chat-patient" style="--i:0">
+                      <span class="chat-who" data-i18n="chatWhoP">Patient</span>
+                      <p data-i18n="chat1">I've had a sore throat and mild fever for two days.</p>
+                    </div>
+                    <div class="chat-line chat-doctor" style="--i:1">
+                      <span class="chat-who" data-i18n="chatWhoD">Doctor</span>
+                      <p data-i18n="chat2">Any cough or trouble swallowing?</p>
+                    </div>
+                    <div class="chat-line chat-patient" style="--i:2">
+                      <span class="chat-who" data-i18n="chatWhoP">Patient</span>
+                      <p data-i18n="chat3">Some pain when swallowing, no cough.</p>
+                    </div>
+                    <div class="chat-line chat-doctor" style="--i:3">
+                      <span class="chat-who" data-i18n="chatWhoD">Doctor</span>
+                      <p data-i18n="chat4">Temperature 37.8, throat looks a little red.</p>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flow-col-label" data-i18n="flowSoapLabel">SOAP note</div>
+                  <div class="flow-soap">
+                    <div class="soap-row" style="--i:0">
+                      <span class="soap-hl" aria-hidden="true"></span>
+                      <span class="soap-key" aria-hidden="true">S</span>
+                      <div>
+                        <div class="soap-field" data-i18n="soapSk">Subjective</div>
+                        <p data-i18n="soapS">Sore throat and mild fever, 2 days. Pain on swallowing, no cough.</p>
+                      </div>
+                    </div>
+                    <div class="soap-row" style="--i:1">
+                      <span class="soap-hl" aria-hidden="true"></span>
+                      <span class="soap-key" aria-hidden="true">O</span>
+                      <div>
+                        <div class="soap-field" data-i18n="soapOk">Objective</div>
+                        <p data-i18n="soapO">Temp 37.8 °C. Pharynx mildly red.</p>
+                      </div>
+                    </div>
+                    <div class="soap-row" style="--i:2">
+                      <span class="soap-hl" aria-hidden="true"></span>
+                      <span class="soap-key" aria-hidden="true">A</span>
+                      <div>
+                        <div class="soap-field" data-i18n="soapAk">Assessment</div>
+                        <p data-i18n="soapA">Likely viral pharyngitis.</p>
+                      </div>
+                    </div>
+                    <div class="soap-row" style="--i:3">
+                      <span class="soap-hl" aria-hidden="true"></span>
+                      <span class="soap-key" aria-hidden="true">P</span>
+                      <div>
+                        <div class="soap-field" data-i18n="soapPk">Plan</div>
+                        <p data-i18n="soapP">Supportive care, fluids, review if it worsens.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <!-- ── VALUE MARQUEE — AvrisAI capabilities ── -->
         <section class="marquee-section" id="proof">
           <p class="sr-only" data-i18n="marqueeSr">AvrisAI: voice AI for doctors — clinical notes in seconds, in Russian and English, built for Central Asia.</p>
@@ -382,6 +522,53 @@
           </div>
         </section>
 
+        <!-- ── FAQ ── -->
+        <section id="faq">
+          <div class="container">
+            <div class="section-header reveal">
+              <div class="eyebrow" data-i18n="faqEyebrow">FAQ</div>
+              <h2 data-i18n="faqTitle">Questions, answered.</h2>
+            </div>
+            <div class="faq-list reveal">
+              <details class="faq-item">
+                <summary class="faq-q">
+                  <span data-i18n="faq1Q">What is AvrisAI?</span>
+                  <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+                </summary>
+                <p class="faq-a" data-i18n="faq1A">A voice AI assistant for doctors. It listens to the doctor–patient conversation and turns it into a structured clinical note in seconds. The doctor reviews and approves every note.</p>
+              </details>
+              <details class="faq-item">
+                <summary class="faq-q">
+                  <span data-i18n="faq2Q">Which languages does it support?</span>
+                  <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+                </summary>
+                <p class="faq-a" data-i18n="faq2A">Russian and English today. Tajik speech recognition is in active development — it's one of our core research directions.</p>
+              </details>
+              <details class="faq-item">
+                <summary class="faq-q">
+                  <span data-i18n="faq3Q">Is patient data safe?</span>
+                  <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+                </summary>
+                <p class="faq-a" data-i18n="faq3A">The doctor stays in control: every note is a draft until the clinician approves it, and recordings are used only to produce documentation. For deployment specifics and data-handling agreements, contact us.</p>
+              </details>
+              <details class="faq-item">
+                <summary class="faq-q">
+                  <span data-i18n="faq4Q">How can my clinic get access?</span>
+                  <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+                </summary>
+                <p class="faq-a" data-i18n="faq4A">Join the early access list below or write to info@theavris.ai. After a pilot across three cities in Tajikistan, we are onboarding new clinics step by step.</p>
+              </details>
+              <details class="faq-item">
+                <summary class="faq-q">
+                  <span data-i18n="faq5Q">Where does Hyperion Labs operate?</span>
+                  <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+                </summary>
+                <p class="faq-a" data-i18n="faq5A">We were founded in Dushanbe, Tajikistan, and build for all of Central Asia — from Dushanbe to Tashkent and Almaty.</p>
+              </details>
+            </div>
+          </div>
+        </section>
+
         <!-- ── CONTACT / EARLY ACCESS ── -->
         <section id="contact">
           <div class="container">
@@ -441,6 +628,6 @@
       </footer>
     </div>
 
-    <script src="script.js?v=8"></script>
+    <script src="script.js?v=9"></script>
   </body>
 </html>
