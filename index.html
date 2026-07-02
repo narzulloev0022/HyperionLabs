@@ -23,7 +23,7 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png?v=1" />
     <link rel="preload" href="assets/fonts/Inter-400-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="assets/fonts/SpaceGrotesk-700-latin.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="stylesheet" href="style.css?v=12" />
+    <link rel="stylesheet" href="style.css?v=13" />
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -94,8 +94,11 @@
     <!-- Skip link -->
     <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
 
-    <!-- Living atmosphere — baked static gradients on a fixed layer (0 repaint on scroll) -->
-    <div class="bg-field" aria-hidden="true"></div>
+    <!-- Living atmosphere — baked static gradients + dim starfield on a fixed layer (0 repaint on scroll) -->
+    <div class="bg-field" aria-hidden="true">
+      <i class="stars stars-a"></i>
+      <i class="stars stars-b"></i>
+    </div>
 
     <!-- Shell -->
     <div class="site-shell">
