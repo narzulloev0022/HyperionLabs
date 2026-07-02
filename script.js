@@ -485,6 +485,7 @@ function setLanguage(lang) {
     btn.setAttribute("aria-pressed", String(active));
   });
   localStorage.setItem("hyperion-lang", lang);
+  document.dispatchEvent(new CustomEvent("hyperion:langchange"));
 }
 
 const prefersReduced = window.matchMedia(
@@ -672,5 +673,111 @@ document.querySelectorAll('a[href^="#"]').forEach((a) => {
 if (!prefersReduced) {
   document.querySelectorAll(".wave span").forEach((bar, i) => {
     bar.style.animationDelay = (i * 0.06).toFixed(2) + "s";
+  });
+}
+
+// ── Hero live demo — the preview card plays a continuous scene:
+//    lines type out ("listening"), then SOAP fields fill in, hold, loop.
+//    i18n-aware (restarts on language switch), pauses off-screen,
+//    reduced-motion / no-JS keep the static markup. ──
+(() => {
+  if (prefersReduced) return;
+  const card = document.querySelector(".preview-card");
+  if (!card) return;
+
+  const lines = Array.from(card.querySelectorAll(".transcript p"));
+  const lineKeys = ["pvDoctorLine", "pvPatient1", "pvPatient2"];
+  const textSpans = lines.map((p) =>
+    p.querySelector("span[data-i18n]:not(.speaker)")
+  );
+  const caret = card.querySelector(".caret");
+  const soapItems = Array.from(card.querySelectorAll(".soap-item"));
+  if (lines.length !== 3 || textSpans.some((s) => !s) || !caret) return;
+
+  const dict = () =>
+    translations[document.documentElement.lang] || translations.en;
+  const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+  let runId = 0;
+
+  // pause while the card is off-screen (no work when the hero isn't visible)
+  let visible = true;
+  let onVisible = null;
+  new IntersectionObserver(([entry]) => {
+    visible = entry.isIntersecting;
+    if (visible && onVisible) {
+      onVisible();
+      onVisible = null;
+    }
+  }).observe(card);
+  const waitVisible = () =>
+    visible ? Promise.resolve() : new Promise((r) => (onVisible = r));
+
+  async function typeInto(span, text, id) {
+    span.textContent = "";
+    span.after(caret);
+    caret.style.display = "";
+    for (const ch of text) {
+      if (id !== runId) return;
+      span.textContent += ch;
+      await sleep(14 + Math.random() * 26);
+    }
+  }
+
+  async function cycle(id) {
+    const d = dict();
+    // reset scene
+    card.classList.add("demo");
+    lines.forEach((p) => p.classList.remove("on"));
+    soapItems.forEach((s) => s.classList.remove("on"));
+    caret.style.display = "none";
+    await sleep(800);
+    if (id !== runId) return;
+
+    // act 1 — listening: the conversation types itself out
+    card.classList.add("listening");
+    for (let i = 0; i < lines.length; i++) {
+      lines[i].classList.add("on");
+      await typeInto(textSpans[i], d[lineKeys[i]] || "", id);
+      if (id !== runId) return;
+      await sleep(430);
+    }
+    card.classList.remove("listening");
+    caret.style.display = "none";
+
+    // act 2 — structuring: SOAP fields land one by one
+    await sleep(500);
+    for (const item of soapItems) {
+      if (id !== runId) return;
+      item.classList.add("on");
+      await sleep(560);
+    }
+
+    // hold the finished note, then start over
+    await sleep(4200);
+  }
+
+  async function loop() {
+    const id = ++runId;
+    while (id === runId) {
+      await waitVisible();
+      await cycle(id);
+    }
+  }
+
+  document.addEventListener("hyperion:langchange", () => loop());
+  loop();
+})();
+
+// ── Spotlight cards — border glow follows the cursor (desktop, fine pointers) ──
+if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+  const spotTargets =
+    ".product, .step-card, .focus-card, .team-card, .faq-item, .flow-panel, .about-panel, .cta-panel";
+  document.querySelectorAll(spotTargets).forEach((el) => {
+    el.classList.add("spot");
+    el.addEventListener("pointermove", (e) => {
+      const r = el.getBoundingClientRect();
+      el.style.setProperty("--mx", e.clientX - r.left + "px");
+      el.style.setProperty("--my", e.clientY - r.top + "px");
+    });
   });
 }

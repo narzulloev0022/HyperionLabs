@@ -863,6 +863,41 @@ section { position: relative; padding: 88px 0; scroll-margin-top: 88px; }
   font-weight: 900;
 }
 
+/* ── Hero live demo states (JS adds .demo/.listening; static without JS) ── */
+.preview-card.demo .transcript p {
+  opacity: 0;
+  transition: opacity .3s var(--ease-out);
+}
+.preview-card.demo .transcript p.on { opacity: 1; }
+.preview-card.demo .soap-item {
+  opacity: 0;
+  transform: translateY(7px);
+  padding: 6px 8px;
+  margin: -6px -8px;
+  border-radius: 10px;
+  transition: opacity .45s var(--ease-out), transform .45s var(--ease-out);
+}
+.preview-card.demo .soap-item.on {
+  opacity: 1;
+  transform: none;
+  animation: soapFlash 1s var(--ease-out);
+}
+@keyframes soapFlash {
+  from { background: color-mix(in srgb, var(--accent) 18%, transparent); }
+  to   { background: transparent; }
+}
+/* the wave "records" only while listening */
+.preview-card.demo .pv-wave span {
+  animation-play-state: paused;
+  opacity: .35;
+  transition: opacity .4s var(--ease-out);
+}
+.preview-card.demo.listening .pv-wave span {
+  animation-play-state: running;
+  animation-duration: .85s;
+  opacity: 1;
+}
+
 /* Hero — stack columns on mobile (copy top, preview bottom) */
 @media (max-width: 920px) {
   .hero-grid { grid-template-columns: 1fr; gap: 38px; }
@@ -1793,6 +1828,42 @@ footer {
   font-size: 1em;
 }
 @keyframes marqueeScroll { to { transform: translateX(-50%); } }
+
+/* ── Spotlight cards — glow ring on the border under the cursor.
+   JS sets --mx/--my per card (desktop fine-pointers only). ── */
+.spot { position: relative; }
+.spot::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: radial-gradient(240px circle at var(--mx, 50%) var(--my, 50%),
+              rgba(149, 174, 248, .65), rgba(149, 174, 248, .14) 45%, transparent 72%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  opacity: 0;
+  transition: opacity .4s var(--ease-out);
+  pointer-events: none;
+  z-index: 2;
+}
+.spot:hover::before { opacity: 1; }
+/* soft interior sheen following the cursor */
+.spot::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(320px circle at var(--mx, 50%) var(--my, 50%),
+              rgba(149, 174, 248, .07), transparent 65%);
+  opacity: 0;
+  transition: opacity .4s var(--ease-out);
+  pointer-events: none;
+  z-index: 0;
+}
+.spot:hover::after { opacity: 1; }
 
 /* Cards lift on hover via shadow + border only (no transform) — clean, professional. */
 
