@@ -23,7 +23,7 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png?v=1" />
     <link rel="preload" href="assets/fonts/Inter-400-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="assets/fonts/SpaceGrotesk-700-latin.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="stylesheet" href="style.css?v=25" />
+    <link rel="stylesheet" href="style.css?v=26" />
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -124,10 +124,11 @@
     <!-- Living atmosphere — baked static gradient field on a fixed layer -->
     <div class="bg-field" aria-hidden="true"></div>
 
-    <!-- Aurora background (21st.dev / Aceternity port → vanilla CSS) — fixed
-         layer behind the content. The opaque hero covers it, so the aurora
-         only reads from the second screen down; screen one keeps its aura. -->
-    <div class="aurora-bg" aria-hidden="true"></div>
+    <!-- Dynamic wave canvas background (21st.dev/@thanh port → vanilla canvas)
+         — fixed layer behind the content. The opaque hero covers it, so the
+         waves read from the second screen down; screen one keeps its aura.
+         Built + animated in motion.js. -->
+    <canvas class="wave-canvas" id="waveCanvas" aria-hidden="true"></canvas>
 
     <!-- Shell -->
     <div class="site-shell">
@@ -649,7 +650,7 @@
     <script src="assets/vendor/gsap/DrawSVGPlugin.min.js"></script>
     <script src="assets/vendor/gsap/ScrambleTextPlugin.min.js"></script>
     <script src="script.js?v=11"></script>
-    <script src="assets/motion.js?v=9"></script>
+    <script src="assets/motion.js?v=10"></script>
     <!-- Unicorn Studio aura on the hero (skipped for reduced motion) -->
     <script>
       (function () {
