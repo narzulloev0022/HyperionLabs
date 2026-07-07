@@ -675,9 +675,14 @@ section { position: relative; padding: 88px 0; scroll-margin-top: 88px; }
   display: flex;
   align-items: center;
   padding: 20vh 0 96px;
-  /* transparent: the fixed star shader shows while the aura loads
-     (and stays as the fallback when the aura is unavailable) */
-  background: transparent;
+  /* Opaque violet-dark base under the aura. The Unicorn scene is
+     transparent where it doesn't glow (its lower band), so without this
+     the fixed star shader bled through and broke the full-screen aura.
+     This also reads as a violet nebula before the aura loads / when it
+     is skipped. */
+  background:
+    radial-gradient(125% 82% at 50% -8%, rgba(123, 97, 255, 0.18), transparent 58%),
+    linear-gradient(180deg, #0b0820 0%, #070611 55%, #05060e 100%);
   overflow: hidden;
 }
 /* Unicorn Studio aura — hero only */
