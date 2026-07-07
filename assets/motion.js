@@ -174,11 +174,7 @@
     }
   }
 
-  /* ── container-scroll (Aceternity port): panels tilt in 3D, straighten on scroll ── */
-  gsap.fromTo(".preview-card",
-    { rotateX: 16, scale: 1.03, transformOrigin: "center top" },
-    { rotateX: 0, scale: 1, ease: "none",
-      scrollTrigger: { trigger: ".hero", start: "top top", end: "+=55%", scrub: 0.6 } });
+  /* ── container-scroll (Aceternity port): the flow panel tilts in, straightens on scroll ── */
   gsap.fromTo(".flow-panel",
     { rotateX: 15, scale: 0.95, transformOrigin: "center top" },
     { rotateX: 0, scale: 1, ease: "none",
