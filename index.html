@@ -23,7 +23,7 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png?v=1" />
     <link rel="preload" href="assets/fonts/Inter-400-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="assets/fonts/SpaceGrotesk-700-latin.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="stylesheet" href="style.css?v=20" />
+    <link rel="stylesheet" href="style.css?v=21" />
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -121,14 +121,15 @@
     <!-- Skip link -->
     <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
 
-    <!-- Living atmosphere — baked static gradients + dim starfield on a fixed layer (0 repaint on scroll) -->
+    <!-- Living atmosphere — baked static gradients on a fixed layer.
+         CSS stars are the no-WebGL fallback; the shader hides them. -->
     <div class="bg-field" aria-hidden="true">
       <i class="stars stars-a"></i>
       <i class="stars stars-b"></i>
     </div>
 
-    <!-- Flowing background paths (kokonut port) — fades in past the hero, runs to the footer -->
-    <div class="bg-paths" id="bgPaths" aria-hidden="true"></div>
+    <!-- Twinkling star shader (WebGL) — fixed layer behind the whole site -->
+    <canvas class="star-shader" id="starShader" aria-hidden="true"></canvas>
 
     <!-- Shell -->
     <div class="site-shell">
@@ -195,7 +196,8 @@
             <div class="hero-nebula"></div>
             <i class="stars stars-a"></i>
             <i class="stars stars-b"></i>
-            <canvas class="dot-surface" id="dotSurface"></canvas>
+            <!-- Unicorn Studio aura — main screen only; loader script sits before </body> -->
+            <div class="aura-bg" data-us-project="ILgOO23w4wEyPQOKyLO4"></div>
           </div>
           <div class="container">
             <div class="hero-grid">
@@ -651,6 +653,24 @@
     <script src="assets/vendor/gsap/DrawSVGPlugin.min.js"></script>
     <script src="assets/vendor/gsap/ScrambleTextPlugin.min.js"></script>
     <script src="script.js?v=11"></script>
-    <script src="assets/motion.js?v=7"></script>
+    <script src="assets/motion.js?v=8"></script>
+    <!-- Unicorn Studio aura on the hero (skipped for reduced motion) -->
+    <script>
+      (function () {
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        if (!window.UnicornStudio) {
+          window.UnicornStudio = { isInitialized: false };
+          var s = document.createElement("script");
+          s.src = "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.29/dist/unicornStudio.umd.js";
+          s.onload = function () {
+            if (!window.UnicornStudio.isInitialized) {
+              UnicornStudio.init();
+              window.UnicornStudio.isInitialized = true;
+            }
+          };
+          (document.head || document.body).appendChild(s);
+        }
+      })();
+    </script>
   </body>
 </html>
