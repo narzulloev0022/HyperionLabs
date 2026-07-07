@@ -23,7 +23,7 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png?v=1" />
     <link rel="preload" href="assets/fonts/Inter-400-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="assets/fonts/SpaceGrotesk-700-latin.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="stylesheet" href="style.css?v=23" />
+    <link rel="stylesheet" href="style.css?v=24" />
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -121,15 +121,8 @@
     <!-- Skip link -->
     <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
 
-    <!-- Living atmosphere — baked static gradients on a fixed layer.
-         CSS stars are the no-WebGL fallback; the shader hides them. -->
-    <div class="bg-field" aria-hidden="true">
-      <i class="stars stars-a"></i>
-      <i class="stars stars-b"></i>
-    </div>
-
-    <!-- Twinkling star shader (WebGL) — fixed layer behind the whole site -->
-    <canvas class="star-shader" id="starShader" aria-hidden="true"></canvas>
+    <!-- Living atmosphere — baked static gradient field on a fixed layer -->
+    <div class="bg-field" aria-hidden="true"></div>
 
     <!-- Shell -->
     <div class="site-shell">
@@ -194,8 +187,6 @@
         <section class="hero" id="top">
           <div class="hero-fx" aria-hidden="true">
             <div class="hero-nebula"></div>
-            <i class="stars stars-a"></i>
-            <i class="stars stars-b"></i>
             <!-- Unicorn Studio aura — main screen only; loader script sits before </body> -->
             <div class="aura-bg" data-us-project="ILgOO23w4wEyPQOKyLO4"></div>
           </div>
@@ -653,7 +644,7 @@
     <script src="assets/vendor/gsap/DrawSVGPlugin.min.js"></script>
     <script src="assets/vendor/gsap/ScrambleTextPlugin.min.js"></script>
     <script src="script.js?v=11"></script>
-    <script src="assets/motion.js?v=8"></script>
+    <script src="assets/motion.js?v=9"></script>
     <!-- Unicorn Studio aura on the hero (skipped for reduced motion) -->
     <script>
       (function () {

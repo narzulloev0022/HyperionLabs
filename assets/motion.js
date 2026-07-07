@@ -12,98 +12,10 @@
   var pre = document.getElementById("preloader");
   var trail = document.getElementById("preTrail");
 
-  /* ── Twinkling star shader (WebGL): fixed full-site layer.
-     Transparent background — stars are drawn with alpha so the baked
-     gradients underneath stay visible. Falls back to the CSS starfield
-     when WebGL is unavailable. staticOnly renders a single frame. ── */
-  function starShader(staticOnly) {
-    var cv = document.getElementById("starShader");
-    if (!cv) return;
-    var gl = cv.getContext("webgl", { alpha: true, antialias: false, powerPreference: "low-power" });
-    if (!gl) return;
-
-    var FRAG = [
-      "precision highp float;",
-      "uniform vec2 iResolution;",
-      "uniform float iTime;",
-      "vec3 hash(vec3 p){",
-      "  p=vec3(dot(p,vec3(127.1,311.7,74.7)),dot(p,vec3(269.5,183.3,246.1)),dot(p,vec3(113.5,271.9,124.6)));",
-      "  return -1.0+2.0*fract(sin(p)*43758.5453123);",
-      "}",
-      "float noise(in vec3 p){",
-      "  vec3 i=floor(p); vec3 f=fract(p); vec3 u=f*f*(3.0-2.0*f);",
-      "  return mix(mix(mix(dot(hash(i+vec3(0.,0.,0.)),f-vec3(0.,0.,0.)),dot(hash(i+vec3(1.,0.,0.)),f-vec3(1.,0.,0.)),u.x),",
-      "             mix(dot(hash(i+vec3(0.,1.,0.)),f-vec3(0.,1.,0.)),dot(hash(i+vec3(1.,1.,0.)),f-vec3(1.,1.,0.)),u.x),u.y),",
-      "         mix(mix(dot(hash(i+vec3(0.,0.,1.)),f-vec3(0.,0.,1.)),dot(hash(i+vec3(1.,0.,1.)),f-vec3(1.,0.,1.)),u.x),",
-      "             mix(dot(hash(i+vec3(0.,1.,1.)),f-vec3(0.,1.,1.)),dot(hash(i+vec3(1.,1.,1.)),f-vec3(1.,1.,1.)),u.x),u.y),u.z);",
-      "}",
-      "void main(){",
-      "  vec2 uv=gl_FragCoord.xy/iResolution.xy;",
-      "  vec3 dir=normalize(vec3(uv*2.0-1.0,1.0));",
-      "  float stars=pow(clamp(noise(dir*200.0),0.0,1.0),8.0)*200.0;",
-      "  stars*=mix(0.4,1.4,noise(dir*100.0+vec3(iTime)));",
-      "  float s=clamp(stars,0.0,1.0);",
-      "  gl_FragColor=vec4(vec3(0.78,0.85,1.0)*s,s);", /* premultiplied: periwinkle-white stars, transparent elsewhere */
-      "}"
-    ].join("\n");
-    var VERT = "attribute vec2 position;void main(){gl_Position=vec4(position,0.0,1.0);}";
-
-    function compile(src, type) {
-      var sh = gl.createShader(type);
-      gl.shaderSource(sh, src);
-      gl.compileShader(sh);
-      if (!gl.getShaderParameter(sh, gl.COMPILE_STATUS)) return null;
-      return sh;
-    }
-    var vs = compile(VERT, gl.VERTEX_SHADER), fs = compile(FRAG, gl.FRAGMENT_SHADER);
-    if (!vs || !fs) return;
-    var prog = gl.createProgram();
-    gl.attachShader(prog, vs);
-    gl.attachShader(prog, fs);
-    gl.linkProgram(prog);
-    if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) return;
-    gl.useProgram(prog);
-
-    var buf = gl.createBuffer();
-    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
-    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, -1,1, 1,-1, 1,1]), gl.STATIC_DRAW);
-    var posLoc = gl.getAttribLocation(prog, "position");
-    gl.enableVertexAttribArray(posLoc);
-    gl.vertexAttribPointer(posLoc, 2, gl.FLOAT, false, 0, 0);
-    var uRes = gl.getUniformLocation(prog, "iResolution");
-    var uTime = gl.getUniformLocation(prog, "iTime");
-
-    function resize() {
-      var dpr = Math.min(window.devicePixelRatio || 1, 1.5);
-      cv.width = window.innerWidth * dpr;
-      cv.height = window.innerHeight * dpr;
-      gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
-    }
-
-    var raf = null;
-    function frame(t) {
-      gl.uniform2f(uRes, cv.width, cv.height);
-      gl.uniform1f(uTime, t * 0.001);
-      gl.drawArrays(gl.TRIANGLES, 0, 6);
-      raf = staticOnly ? null : requestAnimationFrame(frame);
-    }
-
-    resize();
-    document.documentElement.classList.add("has-shader"); /* hide CSS-star fallback */
-    window.addEventListener("resize", function () { resize(); if (staticOnly) frame(40000); });
-    if (staticOnly) { frame(40000); return; }
-    document.addEventListener("visibilitychange", function () {
-      if (document.hidden) { if (raf) { cancelAnimationFrame(raf); raf = null; } }
-      else if (!raf) raf = requestAnimationFrame(frame);
-    });
-    raf = requestAnimationFrame(frame);
-  }
-
-  /* ── No GSAP / reduced motion: static fallbacks, CSS entrance stays ── */
+  /* ── No GSAP / reduced motion: keep the CSS entrance, drop the preloader ── */
   if (typeof gsap === "undefined" || reduce) {
     if (pre) pre.style.display = "none";
     if (trail) trail.style.display = "none";
-    starShader(reduce); /* animated without GSAP, one static frame when reduced */
     return;
   }
 
@@ -234,6 +146,4 @@
 
   /* ── products: the Avris mark floats ── */
   gsap.to(".product--avris .product-mark img", { y: -8, duration: 2.8, ease: "sine.inOut", yoyo: true, repeat: -1 });
-
-  starShader(false);
 })();
