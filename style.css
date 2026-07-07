@@ -346,17 +346,19 @@ body {
   }
 }
 
-/* ── Flowing background paths (kokonut port) — fixed layer between the
-   gradient field and the content; motion.js builds the SVG and fades it
-   in once the visitor scrolls past the hero. ── */
-.bg-paths {
+/* ── Twinkling star shader (WebGL) — fixed layer between the gradient
+   field and the content, covering the whole site. Transparent where
+   there are no stars, so the baked gradients show through. When the
+   shader boots, it hides the static CSS-star fallback. ── */
+.star-shader {
   position: fixed;
   inset: 0;
+  width: 100%;
+  height: 100%;
   z-index: 0;
   pointer-events: none;
-  opacity: 0;
 }
-.bg-paths svg { width: 100%; height: 100%; display: block; }
+html.has-shader .stars { display: none; }
 
 /* ── Skip link ── */
 .skip {
@@ -667,14 +669,19 @@ section { position: relative; padding: 88px 0; scroll-margin-top: 88px; }
 /* ── Hero ── two-column (copy + AvrisAI preview) ── */
 .hero {
   position: relative;
-  min-height: 100dvh;      /* one full screen of dots, edge to edge */
+  min-height: 100dvh;      /* one full screen, edge to edge */
   margin-top: -92px;       /* pull under the sticky header */
   display: flex;
   align-items: center;
   padding: 20vh 0 96px;
-  background: var(--bg-deep);
+  /* transparent: the fixed star shader shows while the aura loads
+     (and stays as the fallback when the aura is unavailable) */
+  background: transparent;
   overflow: hidden;
 }
+/* Unicorn Studio aura — hero only */
+.aura-bg { position: absolute; inset: 0; }
+.aura-bg canvas { width: 100%; height: 100%; display: block; }
 /* perspective grid floor — pure CSS */
 .hero::before {
   content: '';
@@ -1992,15 +1999,6 @@ html.js-motion .marquee { animation: none; }
   display: block; height: 100%;
   background: linear-gradient(90deg, #C5D0FB, #95AEF8, #6E86E0);
   transform: scaleX(0); transform-origin: left;
-}
-
-/* Dotted surface — perspective dot-wave floor under the hero */
-.dot-surface {
-  position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none;
-  -webkit-mask-image: linear-gradient(180deg, transparent, #000 12%);
-  mask-image: linear-gradient(180deg, transparent, #000 12%);
-}
-
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -12,60 +12,89 @@
   var pre = document.getElementById("preloader");
   var trail = document.getElementById("preTrail");
 
-  /* ── Dotted surface: perspective dot-wave floor (efferd port, canvas 2D) ── */
-  function dotSurface(staticOnly) {
-    var cv = document.getElementById("dotSurface");
+  /* ── Twinkling star shader (WebGL): fixed full-site layer.
+     Transparent background — stars are drawn with alpha so the baked
+     gradients underneath stay visible. Falls back to the CSS starfield
+     when WebGL is unavailable. staticOnly renders a single frame. ── */
+  function starShader(staticOnly) {
+    var cv = document.getElementById("starShader");
     if (!cv) return;
-    var ctx = cv.getContext("2d");
-    var W = 0, H = 0, t = 0, raf = null, visible = true;
-    var COLS = 88, ROWS = 24;
+    var gl = cv.getContext("webgl", { alpha: true, antialias: false, powerPreference: "low-power" });
+    if (!gl) return;
 
-    function size() {
-      var dpr = Math.min(window.devicePixelRatio || 1, 2);
-      var r = cv.getBoundingClientRect();
-      W = r.width; H = r.height;
-      cv.width = W * dpr; cv.height = H * dpr;
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    var FRAG = [
+      "precision highp float;",
+      "uniform vec2 iResolution;",
+      "uniform float iTime;",
+      "vec3 hash(vec3 p){",
+      "  p=vec3(dot(p,vec3(127.1,311.7,74.7)),dot(p,vec3(269.5,183.3,246.1)),dot(p,vec3(113.5,271.9,124.6)));",
+      "  return -1.0+2.0*fract(sin(p)*43758.5453123);",
+      "}",
+      "float noise(in vec3 p){",
+      "  vec3 i=floor(p); vec3 f=fract(p); vec3 u=f*f*(3.0-2.0*f);",
+      "  return mix(mix(mix(dot(hash(i+vec3(0.,0.,0.)),f-vec3(0.,0.,0.)),dot(hash(i+vec3(1.,0.,0.)),f-vec3(1.,0.,0.)),u.x),",
+      "             mix(dot(hash(i+vec3(0.,1.,0.)),f-vec3(0.,1.,0.)),dot(hash(i+vec3(1.,1.,0.)),f-vec3(1.,1.,0.)),u.x),u.y),",
+      "         mix(mix(dot(hash(i+vec3(0.,0.,1.)),f-vec3(0.,0.,1.)),dot(hash(i+vec3(1.,0.,1.)),f-vec3(1.,0.,1.)),u.x),",
+      "             mix(dot(hash(i+vec3(0.,1.,1.)),f-vec3(0.,1.,1.)),dot(hash(i+vec3(1.,1.,1.)),f-vec3(1.,1.,1.)),u.x),u.y),u.z);",
+      "}",
+      "void main(){",
+      "  vec2 uv=gl_FragCoord.xy/iResolution.xy;",
+      "  vec3 dir=normalize(vec3(uv*2.0-1.0,1.0));",
+      "  float stars=pow(clamp(noise(dir*200.0),0.0,1.0),8.0)*200.0;",
+      "  stars*=mix(0.4,1.4,noise(dir*100.0+vec3(iTime)));",
+      "  float s=clamp(stars,0.0,1.0);",
+      "  gl_FragColor=vec4(vec3(0.78,0.85,1.0)*s,s);", /* premultiplied: periwinkle-white stars, transparent elsewhere */
+      "}"
+    ].join("\n");
+    var VERT = "attribute vec2 position;void main(){gl_Position=vec4(position,0.0,1.0);}";
+
+    function compile(src, type) {
+      var sh = gl.createShader(type);
+      gl.shaderSource(sh, src);
+      gl.compileShader(sh);
+      if (!gl.getShaderParameter(sh, gl.COMPILE_STATUS)) return null;
+      return sh;
+    }
+    var vs = compile(VERT, gl.VERTEX_SHADER), fs = compile(FRAG, gl.FRAGMENT_SHADER);
+    if (!vs || !fs) return;
+    var prog = gl.createProgram();
+    gl.attachShader(prog, vs);
+    gl.attachShader(prog, fs);
+    gl.linkProgram(prog);
+    if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) return;
+    gl.useProgram(prog);
+
+    var buf = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, -1,1, 1,-1, 1,1]), gl.STATIC_DRAW);
+    var posLoc = gl.getAttribLocation(prog, "position");
+    gl.enableVertexAttribArray(posLoc);
+    gl.vertexAttribPointer(posLoc, 2, gl.FLOAT, false, 0, 0);
+    var uRes = gl.getUniformLocation(prog, "iResolution");
+    var uTime = gl.getUniformLocation(prog, "iTime");
+
+    function resize() {
+      var dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      cv.width = window.innerWidth * dpr;
+      cv.height = window.innerHeight * dpr;
+      gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
     }
 
-    function draw() {
-      ctx.clearRect(0, 0, W, H);
-      ctx.fillStyle = "#95AEF8";
-      var horizon = H * 0.06, span = H * 0.9;
-      for (var iz = 0; iz < ROWS; iz++) {
-        var zn = iz / (ROWS - 1);                       /* 0 = far, 1 = near */
-        var rowY = horizon + Math.pow(zn, 1.4) * span;
-        var spread = 0.4 + 0.6 * zn;
-        for (var ix = 0; ix < COLS; ix++) {
-          var x = (ix / (COLS - 1)) * 2 - 1;
-          var wave = Math.sin(x * 2.6 + t) * Math.cos(zn * 3.4 - t * 0.75);
-          var y = rowY + wave * (8 + 26 * zn);
-          var px = W / 2 + x * (W * 0.55) * spread;
-          var s = 0.7 + 2.1 * zn;
-          ctx.globalAlpha = 0.08 + zn * (0.34 + 0.22 * (wave * 0.5 + 0.5));
-          ctx.fillRect(px, y, s, s);
-        }
-      }
-      ctx.globalAlpha = 1;
+    var raf = null;
+    function frame(t) {
+      gl.uniform2f(uRes, cv.width, cv.height);
+      gl.uniform1f(uTime, t * 0.001);
+      gl.drawArrays(gl.TRIANGLES, 0, 6);
+      raf = staticOnly ? null : requestAnimationFrame(frame);
     }
 
-    function frame() {
-      t += 0.014;
-      draw();
-      raf = visible ? requestAnimationFrame(frame) : null;
-    }
-
-    size();
-    window.addEventListener("resize", function () { size(); if (staticOnly) draw(); });
-    if (staticOnly) { draw(); return; }
-
-    new IntersectionObserver(function (entries) {
-      visible = entries[0].isIntersecting && !document.hidden;
-      if (visible && !raf) raf = requestAnimationFrame(frame);
-    }, { threshold: 0.02 }).observe(cv);
+    resize();
+    document.documentElement.classList.add("has-shader"); /* hide CSS-star fallback */
+    window.addEventListener("resize", function () { resize(); if (staticOnly) frame(40000); });
+    if (staticOnly) { frame(40000); return; }
     document.addEventListener("visibilitychange", function () {
-      visible = !document.hidden;
-      if (visible && !raf) raf = requestAnimationFrame(frame);
+      if (document.hidden) { if (raf) { cancelAnimationFrame(raf); raf = null; } }
+      else if (!raf) raf = requestAnimationFrame(frame);
     });
     raf = requestAnimationFrame(frame);
   }
@@ -74,7 +103,7 @@
   if (typeof gsap === "undefined" || reduce) {
     if (pre) pre.style.display = "none";
     if (trail) trail.style.display = "none";
-    dotSurface(reduce); /* animated without GSAP, static when reduced */
+    starShader(reduce); /* animated without GSAP, one static frame when reduced */
     return;
   }
 
@@ -206,52 +235,5 @@
   /* ── products: the Avris mark floats ── */
   gsap.to(".product--avris .product-mark img", { y: -8, duration: 2.8, ease: "sine.inOut", yoyo: true, repeat: -1 });
 
-  /* ── Flowing background paths (kokonut port): a fixed layer of curved
-     strokes marching diagonally. Hidden over the hero, fades in from the
-     second screen and stays to the footer. Dash-offset march loops
-     seamlessly; tweens pause whenever the layer is invisible. ── */
-  (function bgPaths() {
-    var host = document.getElementById("bgPaths");
-    if (!host) return;
-    var NS = "http://www.w3.org/2000/svg";
-    var svg = document.createElementNS(NS, "svg");
-    svg.setAttribute("viewBox", "0 0 696 316");
-    svg.setAttribute("preserveAspectRatio", "xMidYMid slice");
-    svg.setAttribute("fill", "none");
-    var tweens = [];
-    [1, -1].forEach(function (pos) {
-      for (var i = 0; i < 18; i++) {
-        var sx = 380 - i * 5 * pos, sy = 189 + i * 6;
-        var d = "M-" + sx + " -" + sy +
-          "C-" + sx + " -" + sy + " -" + (312 - i * 5 * pos) + " " + (216 - i * 6) +
-          " " + (152 - i * 5 * pos) + " " + (343 - i * 6) +
-          "C" + (616 - i * 5 * pos) + " " + (470 - i * 6) +
-          " " + (684 - i * 5 * pos) + " " + (875 - i * 6) +
-          " " + (684 - i * 5 * pos) + " " + (875 - i * 6);
-        var p = document.createElementNS(NS, "path");
-        p.setAttribute("d", d);
-        p.setAttribute("stroke", "#AFC2FF");
-        p.setAttribute("stroke-width", (0.55 + i * 0.045).toFixed(2));
-        p.setAttribute("stroke-opacity", (0.07 + i * 0.026).toFixed(3));
-        p.setAttribute("stroke-linecap", "round");
-        p.style.strokeDasharray = "170 230";
-        svg.appendChild(p);
-        /* one dash cycle (400) per loop → no visible restart jump */
-        tweens.push(gsap.fromTo(p,
-          { strokeDashoffset: -(i * 53 % 400) },
-          { strokeDashoffset: "-=400", duration: 15 + (i % 6) * 2.6 + (pos > 0 ? 0 : 1.3),
-            repeat: -1, ease: "none", paused: true }));
-      }
-    });
-    host.appendChild(svg);
-    ScrollTrigger.create({
-      trigger: "#products", start: "top 88%", endTrigger: "footer", end: "bottom top",
-      onToggle: function (self) {
-        gsap.to(host, { opacity: self.isActive ? 1 : 0, duration: 0.9, overwrite: true });
-        tweens.forEach(function (t) { self.isActive ? t.play() : t.pause(); });
-      }
-    });
-  })();
-
-  dotSurface(false);
+  starShader(false);
 })();
