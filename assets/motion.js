@@ -127,7 +127,8 @@
   /* hold hero copy hidden under the preloader so nothing flashes */
   gsap.set([".hero-badge", ".hero-copy .lead", ".hero-actions", ".preview-card"], { opacity: 1 });
 
-  /* ── Preloader: monogram draws itself, counter runs, curtains lift ── */
+  /* ── Preloader: the pillars + hourglass silhouette draw as one line,
+     then the dark waist settles in and the light blooms through the pinch ── */
   var pct = document.getElementById("prePct");
   var preState = { n: 0 };
   gsap.set(".plp", { drawSVG: "0%", fillOpacity: 0 });
@@ -135,12 +136,11 @@
     .to(preState, { n: 100, duration: 2.0, ease: "power2.inOut",
       onUpdate: function () { pct.textContent = Math.round(preState.n) + "%"; } }, 0)
     .to("#preBar", { scaleX: 1, duration: 2.0, ease: "power2.inOut" }, 0)
-    .fromTo(".ph-rect", { drawSVG: "0%" }, { drawSVG: "100%", duration: 0.9, ease: "power2.inOut" }, 0.1)
-    .to(".ph-rect", { fillOpacity: 1, duration: 0.5 }, 0.7)
-    .fromTo(".ph-h", { drawSVG: "0%" }, { drawSVG: "100%", duration: 0.9, ease: "power2.inOut" }, 0.5)
-    .to(".ph-h", { fillOpacity: 1, duration: 0.5, ease: "power2.out" }, 1.15)
-    .to(".ph-h", { strokeOpacity: 0, duration: 0.4 }, 1.3)
-    .fromTo(".ph-smile", { drawSVG: "0%" }, { drawSVG: "100%", duration: 0.5, ease: "power2.out" }, 1.35)
+    .fromTo(".ph-mark", { drawSVG: "0%" }, { drawSVG: "100%", duration: 1.35, ease: "power2.inOut" }, 0.1)
+    .to(".ph-sil", { opacity: 1, duration: 0.45 }, 1.15)
+    .to(".ph-mark", { fillOpacity: 1, duration: 0.55, ease: "power2.out" }, 1.2)
+    .to(".ph-glow", { opacity: 1, duration: 0.7, ease: "sine.out" }, 1.3)
+    .to(".ph-mark", { strokeOpacity: 0, duration: 0.4 }, 1.45)
     .to("#preWord", { opacity: 1, letterSpacing: "0.18em", duration: 0.9, ease: "power2.out" }, 1.2)
     .to([".pre-center", ".pre-pct", ".pre-bar"], { opacity: 0, y: -20, duration: 0.3, ease: "power2.in" }, 2.25)
     .to("#preloader", { yPercent: -100, duration: 0.7, ease: "power4.inOut" }, 2.4)
@@ -205,6 +205,53 @@
 
   /* ── products: the Avris mark floats ── */
   gsap.to(".product--avris .product-mark img", { y: -8, duration: 2.8, ease: "sine.inOut", yoyo: true, repeat: -1 });
+
+  /* ── Flowing background paths (kokonut port): a fixed layer of curved
+     strokes marching diagonally. Hidden over the hero, fades in from the
+     second screen and stays to the footer. Dash-offset march loops
+     seamlessly; tweens pause whenever the layer is invisible. ── */
+  (function bgPaths() {
+    var host = document.getElementById("bgPaths");
+    if (!host) return;
+    var NS = "http://www.w3.org/2000/svg";
+    var svg = document.createElementNS(NS, "svg");
+    svg.setAttribute("viewBox", "0 0 696 316");
+    svg.setAttribute("preserveAspectRatio", "xMidYMid slice");
+    svg.setAttribute("fill", "none");
+    var tweens = [];
+    [1, -1].forEach(function (pos) {
+      for (var i = 0; i < 18; i++) {
+        var sx = 380 - i * 5 * pos, sy = 189 + i * 6;
+        var d = "M-" + sx + " -" + sy +
+          "C-" + sx + " -" + sy + " -" + (312 - i * 5 * pos) + " " + (216 - i * 6) +
+          " " + (152 - i * 5 * pos) + " " + (343 - i * 6) +
+          "C" + (616 - i * 5 * pos) + " " + (470 - i * 6) +
+          " " + (684 - i * 5 * pos) + " " + (875 - i * 6) +
+          " " + (684 - i * 5 * pos) + " " + (875 - i * 6);
+        var p = document.createElementNS(NS, "path");
+        p.setAttribute("d", d);
+        p.setAttribute("stroke", "#AFC2FF");
+        p.setAttribute("stroke-width", (0.55 + i * 0.045).toFixed(2));
+        p.setAttribute("stroke-opacity", (0.07 + i * 0.026).toFixed(3));
+        p.setAttribute("stroke-linecap", "round");
+        p.style.strokeDasharray = "170 230";
+        svg.appendChild(p);
+        /* one dash cycle (400) per loop → no visible restart jump */
+        tweens.push(gsap.fromTo(p,
+          { strokeDashoffset: -(i * 53 % 400) },
+          { strokeDashoffset: "-=400", duration: 15 + (i % 6) * 2.6 + (pos > 0 ? 0 : 1.3),
+            repeat: -1, ease: "none", paused: true }));
+      }
+    });
+    host.appendChild(svg);
+    ScrollTrigger.create({
+      trigger: "#products", start: "top 88%", endTrigger: "footer", end: "bottom top",
+      onToggle: function (self) {
+        gsap.to(host, { opacity: self.isActive ? 1 : 0, duration: 0.9, overwrite: true });
+        tweens.forEach(function (t) { self.isActive ? t.play() : t.pause(); });
+      }
+    });
+  })();
 
   dotSurface(false);
 })();

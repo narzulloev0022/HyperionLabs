@@ -19,11 +19,11 @@
     <meta property="og:image:alt" content="Hyperion Labs — World-class AI for the future of healthcare" />
     <meta name="twitter:image" content="https://hyperion-labs.ai/og-image.png" />
     <link rel="canonical" href="https://hyperion-labs.ai" />
-    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=3" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=4" />
     <link rel="apple-touch-icon" href="apple-touch-icon.png?v=1" />
     <link rel="preload" href="assets/fonts/Inter-400-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="assets/fonts/SpaceGrotesk-700-latin.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="stylesheet" href="style.css?v=19" />
+    <link rel="stylesheet" href="style.css?v=20" />
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -97,13 +97,19 @@
       <div class="pre-center">
         <svg class="pre-logo" viewBox="0 0 64 64" aria-hidden="true">
           <defs>
-            <linearGradient id="preHg" x1="10" y1="6" x2="54" y2="58" gradientUnits="userSpaceOnUse">
-              <stop offset="0" stop-color="#C5D0FB"/><stop offset=".42" stop-color="#95AEF8"/><stop offset="1" stop-color="#6E86E0"/>
+            <linearGradient id="preHg" x1="12" y1="8" x2="52" y2="56" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#C5D0FB"/><stop offset=".45" stop-color="#95AEF8"/><stop offset="1" stop-color="#6E86E0"/>
             </linearGradient>
+            <radialGradient id="preGlow" cx="32" cy="32" r="15" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#FFFFFF"/><stop offset=".45" stop-color="#FFFFFF" stop-opacity=".85"/><stop offset="1" stop-color="#C5D6FF" stop-opacity="0"/>
+            </radialGradient>
           </defs>
-          <rect class="plp ph-rect" x="7" y="7" width="50" height="50" rx="16" fill="#0E1626" stroke="rgba(197,208,251,.5)"/>
-          <path class="plp ph-h" d="M20 17h8v14h8V17h8v30h-8V35h-8v12h-8V17Z" fill="url(#preHg)" stroke="#95AEF8"/>
-          <path class="plp ph-smile" d="M16 50c10-8 22-8 32 0" fill="none" stroke="#95AEF8" stroke-width="2" stroke-linecap="round"/>
+            <clipPath id="preClip" clip-rule="evenodd">
+              <path fill-rule="evenodd" d="M13.2 8 H50.8 Q52 8 52 9.2 V54.8 Q52 56 50.8 56 H13.2 Q12 56 12 54.8 V9.2 Q12 8 13.2 8 Z M22 8 H42 V18.5 A10 10 0 0 1 33.25 28.42 L33.25 35.58 A10 10 0 0 1 42 45.5 V56 H22 V45.5 A10 10 0 0 1 30.75 35.58 L30.75 28.42 A10 10 0 0 1 22 18.5 Z"/>
+            </clipPath>
+          <path class="ph-sil" d="M22 8 H42 V18.5 A10 10 0 0 1 33.25 28.42 L33.25 35.58 A10 10 0 0 1 42 45.5 V56 H22 V45.5 A10 10 0 0 1 30.75 35.58 L30.75 28.42 A10 10 0 0 1 22 18.5 Z" fill="#080E18"/>
+          <path class="plp ph-mark" fill-rule="evenodd" d="M13.2 8 H50.8 Q52 8 52 9.2 V54.8 Q52 56 50.8 56 H13.2 Q12 56 12 54.8 V9.2 Q12 8 13.2 8 Z M22 8 H42 V18.5 A10 10 0 0 1 33.25 28.42 L33.25 35.58 A10 10 0 0 1 42 45.5 V56 H22 V45.5 A10 10 0 0 1 30.75 35.58 L30.75 28.42 A10 10 0 0 1 22 18.5 Z" fill="url(#preHg)" stroke="#95AEF8"/>
+          <ellipse class="ph-glow" cx="32" cy="32" rx="18" ry="9" fill="url(#preGlow)" clip-path="url(#preClip)"/>
         </svg>
         <div class="pre-word" id="preWord">Hyperion<b>&nbsp;Labs</b></div>
       </div>
@@ -121,6 +127,9 @@
       <i class="stars stars-b"></i>
     </div>
 
+    <!-- Flowing background paths (kokonut port) — fades in past the hero, runs to the footer -->
+    <div class="bg-paths" id="bgPaths" aria-hidden="true"></div>
+
     <!-- Shell -->
     <div class="site-shell">
       <!-- ═══ HEADER ═══ -->
@@ -129,7 +138,7 @@
           <nav class="nav" aria-label="Primary navigation">
             <!-- Logo slot — SVG goes here later, text fallback for now -->
             <a class="logo" href="#top" aria-label="Hyperion Labs home">
-              <img class="logo-mark" src="assets/logo/hyperion-mark.svg" alt="" width="26" height="26" />
+              <img class="logo-mark" src="assets/logo/hyperion-mark.svg?v=2" alt="" width="26" height="26" />
               <span class="logo-text">HYPERION LABS</span>
             </a>
             <div class="nav-links">
@@ -642,6 +651,6 @@
     <script src="assets/vendor/gsap/DrawSVGPlugin.min.js"></script>
     <script src="assets/vendor/gsap/ScrambleTextPlugin.min.js"></script>
     <script src="script.js?v=11"></script>
-    <script src="assets/motion.js?v=6"></script>
+    <script src="assets/motion.js?v=7"></script>
   </body>
 </html>
