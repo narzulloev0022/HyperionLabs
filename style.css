@@ -669,8 +669,9 @@ section { position: relative; padding: 88px 0; scroll-margin-top: 88px; }
 /* ── Hero ── two-column (copy + AvrisAI preview) ── */
 .hero {
   position: relative;
-  min-height: 100dvh;      /* one full screen, edge to edge */
   margin-top: -92px;       /* pull under the sticky header */
+  /* +92px so the −92px pull still reaches the bottom edge → one full screen */
+  min-height: calc(100dvh + 92px);
   display: flex;
   align-items: center;
   padding: 20vh 0 96px;
