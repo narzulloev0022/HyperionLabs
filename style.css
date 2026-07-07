@@ -1939,3 +1939,78 @@ footer {
   .section-header h2, .about-panel .about-title { clip-path: none !important; }
   .step-link path { stroke-dashoffset: 0 !important; }
 }
+
+
+/* ═══════════ Motion layer (GSAP) — appended 2026-07 ═══════════ */
+/* When motion.js drives the entrance, the CSS hero keyframes step aside. */
+html.js-motion .hero-anim { animation: none; opacity: 1; transform: none; }
+html.js-motion .marquee { animation: none; }
+
+/* Preloader: monogram self-draw + counter + curtains */
+.preloader {
+  position: fixed; inset: 0; z-index: 200; background: var(--bg-base);
+  display: flex; align-items: center; justify-content: center;
+  animation: pre-failsafe .5s ease 5s forwards;
+}
+.pre-trail {
+  position: fixed; inset: 0; z-index: 199;
+  background: linear-gradient(180deg, #141B36, #0B0F22);
+  animation: pre-failsafe .5s ease 5s forwards;
+}
+@keyframes pre-failsafe { to { opacity: 0; visibility: hidden; } }
+.pre-center { display: flex; flex-direction: column; align-items: center; gap: 26px; }
+.pre-logo { width: min(150px, 32vw); height: auto; overflow: visible; }
+.pre-logo .plp { fill-opacity: 0; stroke-width: 1.4; }
+.pre-logo .ph-smile { stroke-width: 2; }
+.pre-word {
+  font-weight: 600; font-size: 1.05rem; letter-spacing: .44em; text-transform: uppercase;
+  color: #EAF0FF; opacity: 0; padding-left: .44em; white-space: nowrap;
+}
+.pre-word b { color: #95AEF8; font-weight: 600; }
+.pre-pct {
+  position: absolute; left: clamp(20px, 4vw, 48px); bottom: clamp(22px, 4vw, 46px);
+  font-weight: 300; font-size: clamp(3rem, 8vw, 5.5rem); letter-spacing: -.02em;
+  background: linear-gradient(135deg, #C5D0FB, #95AEF8 40%, #6E86E0);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  font-variant-numeric: tabular-nums;
+}
+.pre-bar { position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: rgba(197, 208, 251, .12); }
+.pre-bar i {
+  display: block; height: 100%;
+  background: linear-gradient(90deg, #C5D0FB, #95AEF8, #6E86E0);
+  transform: scaleX(0); transform-origin: left;
+}
+
+/* Aurora over the starfield (northern lights, brand palette) */
+.aurora {
+  position: absolute; inset: 0; overflow: hidden; pointer-events: none; opacity: .32;
+  -webkit-mask-image: radial-gradient(ellipse at 78% 0%, #000 14%, transparent 66%);
+  mask-image: radial-gradient(ellipse at 78% 0%, #000 14%, transparent 66%);
+}
+.aurora-el {
+  position: absolute; inset: -40px;
+  background-image:
+    repeating-linear-gradient(100deg, var(--bg-deep) 0%, var(--bg-deep) 7%, transparent 10%, transparent 12%, var(--bg-deep) 16%),
+    repeating-linear-gradient(100deg, #4659B5 10%, #95AEF8 15%, #6E86E0 20%, #C5D0FB 25%, #7F97EE 30%);
+  background-size: 300% 200%, 200% 100%;
+  background-position: 50% 50%, 50% 50%;
+  filter: blur(14px); will-change: background-position;
+  animation: aurora-drift 60s linear infinite;
+}
+@keyframes aurora-drift { to { background-position: 350% 50%, 250% 50%; } }
+
+/* Dotted surface — perspective dot-wave floor under the hero */
+.dot-surface {
+  position: absolute; left: 0; right: 0; bottom: -2%; height: 56%; pointer-events: none;
+  -webkit-mask-image: linear-gradient(180deg, transparent, #000 32%);
+  mask-image: linear-gradient(180deg, transparent, #000 32%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .preloader, .pre-trail { display: none; }
+  .aurora-el { animation: none; }
+}
+
+/* Long Russian compounds («здравоохранения») overflow the hero column at the
+   default cap — tighten the clamp for the RU locale only. */
+html:lang(ru) .hero-title { font-size: clamp(2rem, 3.8vw, 3rem); }

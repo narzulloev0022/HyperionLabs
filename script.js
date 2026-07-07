@@ -464,7 +464,8 @@ const translations = {
 };
 
 // ── DOM refs ──
-const i18nNodes = document.querySelectorAll("[data-i18n]");
+// Queried live on every switch — motion.js (SplitText) recreates hero nodes.
+const i18nNodes = () => document.querySelectorAll("[data-i18n]");
 const langButtons = document.querySelectorAll(".lang-toggle button");
 const header = document.getElementById("site-header");
 const form = document.getElementById("early-access-form");
@@ -473,9 +474,10 @@ const formMsg = document.getElementById("form-msg");
 
 // ── Language switching ──
 function setLanguage(lang) {
+  document.documentElement.lang = lang === "tj" ? "tg" : lang;
   const dict = translations[lang] || translations.en;
   document.documentElement.lang = lang;
-  i18nNodes.forEach((node) => {
+  i18nNodes().forEach((node) => {
     const key = node.dataset.i18n;
     if (dict[key] !== undefined) node.textContent = dict[key];
   });
