@@ -346,6 +346,18 @@ body {
   }
 }
 
+/* ── Flowing background paths (kokonut port) — fixed layer between the
+   gradient field and the content; motion.js builds the SVG and fades it
+   in once the visitor scrolls past the hero. ── */
+.bg-paths {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+}
+.bg-paths svg { width: 100%; height: 100%; display: block; }
+
 /* ── Skip link ── */
 .skip {
   position: absolute;
@@ -1961,8 +1973,8 @@ html.js-motion .marquee { animation: none; }
 @keyframes pre-failsafe { to { opacity: 0; visibility: hidden; } }
 .pre-center { display: flex; flex-direction: column; align-items: center; gap: 26px; }
 .pre-logo { width: min(150px, 32vw); height: auto; overflow: visible; }
-.pre-logo .plp { fill-opacity: 0; stroke-width: 1.4; }
-.pre-logo .ph-smile { stroke-width: 2; }
+.pre-logo .plp { fill-opacity: 0; stroke-width: 1.1; }
+.pre-logo .ph-sil, .pre-logo .ph-glow { opacity: 0; }
 .pre-word {
   font-weight: 600; font-size: 1.05rem; letter-spacing: .44em; text-transform: uppercase;
   color: #EAF0FF; opacity: 0; padding-left: .44em; white-space: nowrap;
