@@ -12,10 +12,73 @@
   var pre = document.getElementById("preloader");
   var trail = document.getElementById("preTrail");
 
+  /* ── Dynamic wave canvas (21st.dev/@thanh port, canvas 2D): flowing
+     periwinkle/purple/slate sine ribbons on a fixed full-viewport layer.
+     Additive ('lighter') compositing so crossings glow. Paused when the tab
+     is hidden; one static frame under reduced motion. ── */
+  function waveCanvas(staticOnly) {
+    var cv = document.getElementById("waveCanvas");
+    if (!cv) return;
+    var ctx = cv.getContext("2d");
+    if (!ctx) return;
+    var W = 0, H = 0, t = 0, raf = null;
+    /* y = baseline fraction · amp px · len/len2 wavelengths · spd phase drift */
+    var WAVES = [
+      { y: 0.26, amp: 52, len: 470, len2: 205, spd: 0.011, w: 2.0, c: "rgba(120,144,236,0.62)" },
+      { y: 0.39, amp: 66, len: 640, len2: 255, spd: 0.008, w: 2.2, c: "rgba(146,100,248,0.52)" },
+      { y: 0.52, amp: 40, len: 400, len2: 175, spd: 0.014, w: 1.7, c: "rgba(160,182,252,0.58)" },
+      { y: 0.66, amp: 78, len: 730, len2: 300, spd: 0.006, w: 2.4, c: "rgba(176,150,252,0.48)" },
+      { y: 0.79, amp: 54, len: 520, len2: 230, spd: 0.010, w: 2.0, c: "rgba(138,152,190,0.46)" },
+      { y: 0.91, amp: 46, len: 440, len2: 195, spd: 0.012, w: 1.8, c: "rgba(120,144,236,0.54)" }
+    ];
+
+    function size() {
+      var dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      W = window.innerWidth; H = window.innerHeight;
+      cv.width = W * dpr; cv.height = H * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+      ctx.globalCompositeOperation = "lighter";
+      ctx.lineJoin = "round";
+      ctx.lineCap = "round";
+      for (var i = 0; i < WAVES.length; i++) {
+        var wv = WAVES[i], baseY = wv.y * H;
+        ctx.beginPath();
+        for (var x = 0; x <= W; x += 8) {
+          var y = baseY
+            + Math.sin(x / wv.len + t * wv.spd + i) * wv.amp
+            + Math.sin(x / wv.len2 - t * wv.spd * 0.7) * (wv.amp * 0.4);
+          if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+        }
+        ctx.strokeStyle = wv.c;
+        /* soft halo, then the crisp core — additive so the two build a glow */
+        ctx.globalAlpha = 0.16; ctx.lineWidth = wv.w * 6; ctx.stroke();
+        ctx.globalAlpha = 1;    ctx.lineWidth = wv.w;     ctx.stroke();
+      }
+      ctx.globalAlpha = 1;
+      ctx.globalCompositeOperation = "source-over";
+    }
+
+    function frame() { t += 1; draw(); raf = requestAnimationFrame(frame); }
+
+    size();
+    window.addEventListener("resize", function () { size(); if (staticOnly) draw(); });
+    if (staticOnly) { draw(); return; }
+    document.addEventListener("visibilitychange", function () {
+      if (document.hidden) { if (raf) { cancelAnimationFrame(raf); raf = null; } }
+      else if (!raf) raf = requestAnimationFrame(frame);
+    });
+    raf = requestAnimationFrame(frame);
+  }
+
   /* ── No GSAP / reduced motion: keep the CSS entrance, drop the preloader ── */
   if (typeof gsap === "undefined" || reduce) {
     if (pre) pre.style.display = "none";
     if (trail) trail.style.display = "none";
+    waveCanvas(reduce); /* animated without GSAP, one static frame when reduced */
     return;
   }
 
@@ -146,4 +209,6 @@
 
   /* ── products: the Avris mark floats ── */
   gsap.to(".product--avris .product-mark img", { y: -8, duration: 2.8, ease: "sine.inOut", yoyo: true, repeat: -1 });
+
+  waveCanvas(false);
 })();
