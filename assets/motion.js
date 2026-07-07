@@ -123,7 +123,9 @@
     gsap.from([".hero-copy .lead", ".hero-actions"], {
       y: 26, opacity: 0, duration: 0.9, ease: "power3.out", stagger: 0.12, delay: 0.3
     });
-    gsap.from(".preview-card", { y: 34, opacity: 0, duration: 1.0, ease: "power3.out", delay: 0.4 });
+    gsap.from(".preview-card", { opacity: 0, duration: 1.1, ease: "power2.out", delay: 0.4 });
+    /* the CSS float is disabled under js-motion — the GSAP one composes with the tilt */
+    gsap.to(".preview-card", { y: -10, duration: 3.2, ease: "sine.inOut", yoyo: true, repeat: -1, delay: 1.4 });
   }
   /* hold hero copy hidden under the preloader so nothing flashes */
   gsap.set([".hero-badge", ".hero-copy .lead", ".hero-actions", ".preview-card"], { opacity: 1 });
@@ -171,6 +173,45 @@
       section.addEventListener("pointerleave", function () { hovering = false; gsap.to(mqTween, { timeScale: 1, duration: 0.5, overwrite: true }); });
     }
   }
+
+  /* ── container-scroll (Aceternity port): panels tilt in 3D, straighten on scroll ── */
+  gsap.fromTo(".preview-card",
+    { rotateX: 16, scale: 1.03, transformOrigin: "center top" },
+    { rotateX: 0, scale: 1, ease: "none",
+      scrollTrigger: { trigger: ".hero", start: "top top", end: "+=55%", scrub: 0.6 } });
+  gsap.fromTo(".flow-panel",
+    { rotateX: 15, scale: 0.95, transformOrigin: "center top" },
+    { rotateX: 0, scale: 1, ease: "none",
+      scrollTrigger: { trigger: ".flow-panel", start: "top 95%", end: "top 38%", scrub: 0.6 } });
+
+  /* ── step pictograms act out their meaning ── */
+  var stepSvgs = document.querySelectorAll(".step-card .step-icon svg");
+  if (stepSvgs[0]) {
+    /* Listen: the mic breathes */
+    gsap.to(stepSvgs[0], { scale: 1.12, y: -1, duration: 1.1, ease: "sine.inOut", yoyo: true, repeat: -1 });
+  }
+  if (stepSvgs[1]) {
+    /* Structure: the field lines write themselves */
+    var lines = stepSvgs[1].querySelectorAll("path")[0];
+    gsap.timeline({ repeat: -1, repeatDelay: 0.8 })
+      .fromTo(lines, { drawSVG: "0%" }, { drawSVG: "100%", duration: 1.2, ease: "power1.inOut" })
+      .to(lines, { opacity: 0.25, duration: 0.4, delay: 0.6 })
+      .to(lines, { opacity: 1, duration: 0.3 });
+  }
+  if (stepSvgs[2]) {
+    /* Note ready: the check re-draws */
+    var check = stepSvgs[2].querySelectorAll("path")[1];
+    gsap.timeline({ repeat: -1, repeatDelay: 1.6 })
+      .fromTo(check, { drawSVG: "0%" }, { drawSVG: "100%", duration: 0.7, ease: "power2.out" });
+  }
+  /* connector arrows: a running stroke, staggered */
+  document.querySelectorAll(".step-link svg path").forEach(function (p, i) {
+    gsap.fromTo(p, { drawSVG: "0% 30%" }, { drawSVG: "70% 100%", duration: 1.4, ease: "none",
+      repeat: -1, repeatDelay: 0.5, delay: i * 0.7 });
+  });
+
+  /* ── products: the Avris mark floats ── */
+  gsap.to(".product--avris .product-mark img", { y: -8, duration: 2.8, ease: "sine.inOut", yoyo: true, repeat: -1 });
 
   dotSurface(false);
 })();
