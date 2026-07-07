@@ -120,14 +120,6 @@
     splitHero();
     gsap.from(heroSplit.chars, { yPercent: 112, duration: 1.0, ease: EASE, stagger: 0.014 });
     gsap.from(".hero-badge", { y: 14, opacity: 0, duration: 0.7, ease: "power3.out", delay: 0.15 });
-    /* kokonut shapes: fall into place, then drift forever */
-    document.querySelectorAll(".geo").forEach(function (el, i) {
-      var r = gsap.getProperty(el, "rotation");
-      gsap.from(el, { y: 140 * (i % 2 ? -1 : 1), opacity: 0, rotation: r + 14,
-        duration: 1.8, ease: "power3.out", delay: 0.2 + i * 0.14 });
-      gsap.to(el, { y: "+=" + (18 + i * 6), duration: 5 + i * 1.3,
-        ease: "sine.inOut", yoyo: true, repeat: -1, delay: 2.2 });
-    });
     gsap.from([".hero-copy .lead", ".hero-actions"], {
       y: 26, opacity: 0, duration: 0.9, ease: "power3.out", stagger: 0.12, delay: 0.3
     });
