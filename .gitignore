@@ -3,3 +3,7 @@ node_modules/
 package.json
 package-lock.json
 .claude/
+anim/
+.obsidian/
+.DS_Store
+node_modules/

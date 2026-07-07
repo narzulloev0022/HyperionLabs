@@ -2014,3 +2014,11 @@ html.js-motion .marquee { animation: none; }
 /* Long Russian compounds («здравоохранения») overflow the hero column at the
    default cap — tighten the clamp for the RU locale only. */
 html:lang(ru) .hero-title { font-size: clamp(2rem, 3.8vw, 3rem); }
+
+/* container-scroll (Aceternity port): GSAP owns transforms on the 3D panels,
+   the reveal transition keeps only opacity */
+html.js-motion .hero-grid { perspective: 1200px; }
+html.js-motion #flow .container { perspective: 1400px; }
+html.js-motion .preview-card,
+html.js-motion .flow-panel { transition-property: opacity; will-change: transform; }
+html.js-motion .preview-card { animation: none; }
