@@ -32,7 +32,8 @@ Building world-class AI products for Central Asia.
 
 ## Visual Identity
 
-- Accent color: `#4AA391`
+- Accent: periwinkle `#95AEF8` (light `#C5D0FB`, deep `#6E86E0`); the old teal `#4AA391` is retired
+- Logo: two pillars pinched by an hourglass waist with light blooming through (`assets/logo/hyperion-mark.svg`, source render `assets/logo/IMG_7153.PNG`)
 - Primary domain: `hyperion-labs.ai`
 - Preferred UI language: premium, precise, modern
 
