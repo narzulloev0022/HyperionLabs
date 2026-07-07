@@ -1983,7 +1983,7 @@ html.js-motion .marquee { animation: none; }
 
 /* Dotted surface — perspective dot-wave floor under the hero */
 .dot-surface {
-  position: absolute; left: 0; right: 0; bottom: -2%; height: 56%; pointer-events: none;
+  position: absolute; left: 0; right: 0; bottom: -2%; height: 82%; pointer-events: none;
   -webkit-mask-image: linear-gradient(180deg, transparent, #000 32%);
   mask-image: linear-gradient(180deg, transparent, #000 32%);
 }
@@ -1992,9 +1992,6 @@ html.js-motion .marquee { animation: none; }
   .preloader, .pre-trail { display: none; }
 }
 
-/* Long Russian compounds («здравоохранения») overflow the hero column at the
-   default cap — tighten the clamp for the RU locale only. */
-html:lang(ru) .hero-title { font-size: clamp(2rem, 3.8vw, 3rem); }
 
 /* container-scroll (Aceternity port): GSAP owns transforms on the 3D panels,
    the reveal transition keeps only opacity */
@@ -2002,3 +1999,8 @@ html.js-motion #flow .container { perspective: 1400px; }
 html.js-motion .preview-card,
 html.js-motion .flow-panel { transition-property: opacity; will-change: transform; }
 html.js-motion .preview-card { animation: none; }
+
+/* Hero without the preview card: one column, copy gets room to breathe */
+.hero-grid { grid-template-columns: 1fr; }
+.hero-copy { max-width: 900px; }
+.hero-title { font-size: clamp(2.6rem, 5.4vw, 4.6rem); }

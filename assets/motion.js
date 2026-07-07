@@ -123,9 +123,6 @@
     gsap.from([".hero-copy .lead", ".hero-actions"], {
       y: 26, opacity: 0, duration: 0.9, ease: "power3.out", stagger: 0.12, delay: 0.3
     });
-    gsap.from(".preview-card", { opacity: 0, duration: 1.1, ease: "power2.out", delay: 0.4 });
-    /* the CSS float is disabled under js-motion — the GSAP one composes with the tilt */
-    gsap.to(".preview-card", { y: -10, duration: 3.2, ease: "sine.inOut", yoyo: true, repeat: -1, delay: 1.4 });
   }
   /* hold hero copy hidden under the preloader so nothing flashes */
   gsap.set([".hero-badge", ".hero-copy .lead", ".hero-actions", ".preview-card"], { opacity: 1 });
