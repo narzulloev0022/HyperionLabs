@@ -1,673 +1,568 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hyperion Labs | World-class AI for Central Asia</title>
-    <meta name="description" content="Hyperion Labs builds world-class AI for healthcare in Central Asia, starting with AvrisAI — the voice assistant for doctors." />
-    <meta name="referrer" content="strict-origin-when-cross-origin" />
-    <meta property="og:title" content="Hyperion Labs | World-class AI for Central Asia" />
-    <meta property="og:description" content="AI infrastructure for healthcare in Central Asia, starting with AvrisAI — the voice assistant for doctors." />
-    <meta property="og:url" content="https://hyperion-labs.ai" />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Hyperion Labs" />
-    <meta name="twitter:description" content="World-class AI for healthcare in Central Asia." />
-    <meta property="og:image" content="https://hyperion-labs.ai/og-image.png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Hyperion Labs — World-class AI for the future of healthcare" />
-    <meta name="twitter:image" content="https://hyperion-labs.ai/og-image.png" />
-    <link rel="canonical" href="https://hyperion-labs.ai" />
-    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=4" />
-    <link rel="apple-touch-icon" href="apple-touch-icon.png?v=1" />
-    <link rel="preload" href="assets/fonts/Inter-400-latin.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="assets/fonts/SpaceGrotesk-700-latin.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="stylesheet" href="style.css?v=26" />
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Organization",
-          "@id": "https://hyperion-labs.ai/#organization",
-          "name": "Hyperion Labs",
-          "url": "https://hyperion-labs.ai",
-          "logo": "https://hyperion-labs.ai/og-image.png",
-          "description": "Hyperion Labs builds world-class AI for healthcare in Central Asia, starting with AvrisAI — the voice assistant for doctors.",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Dushanbe",
-            "addressCountry": "TJ"
-          },
-          "sameAs": [
-            "https://www.instagram.com/hyperionlabs.ai",
-            "https://x.com/hyperionlabsai",
-            "https://github.com/narzulloev0022"
-          ]
-        },
-        {
-          "@type": "SoftwareApplication",
-          "@id": "https://theavris.ai/#software",
-          "name": "AvrisAI",
-          "url": "https://theavris.ai",
-          "applicationCategory": "MedicalApplication",
-          "operatingSystem": "Web",
-          "description": "Voice AI assistant for doctors: listens to the doctor–patient conversation and produces structured clinical documentation in seconds.",
-          "publisher": { "@id": "https://hyperion-labs.ai/#organization" }
-        },
-        {
-          "@type": "FAQPage",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "What is AvrisAI?",
-              "acceptedAnswer": { "@type": "Answer", "text": "A voice AI assistant for doctors. It listens to the doctor–patient conversation and turns it into a structured clinical note in seconds. The doctor reviews and approves every note." }
-            },
-            {
-              "@type": "Question",
-              "name": "Which languages does it support?",
-              "acceptedAnswer": { "@type": "Answer", "text": "Russian and English today. Tajik speech recognition is in active development — it's one of our core research directions." }
-            },
-            {
-              "@type": "Question",
-              "name": "Is patient data safe?",
-              "acceptedAnswer": { "@type": "Answer", "text": "The doctor stays in control: every note is a draft until the clinician approves it, and recordings are used only to produce documentation. For deployment specifics and data-handling agreements, contact us." }
-            },
-            {
-              "@type": "Question",
-              "name": "How can my clinic get access?",
-              "acceptedAnswer": { "@type": "Answer", "text": "Join the early access list or write to info@theavris.ai. After a pilot across three cities in Tajikistan, we are onboarding new clinics step by step." }
-            },
-            {
-              "@type": "Question",
-              "name": "Where does Hyperion Labs operate?",
-              "acceptedAnswer": { "@type": "Answer", "text": "We were founded in Dushanbe, Tajikistan, and build for all of Central Asia — from Dushanbe to Tashkent and Almaty." }
-            }
-          ]
-        }
-      ]
-    }
-    </script>
-  </head>
-  <body>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hyperion Labs — World-class AI for Central Asia</title>
+<meta name="description" content="Hyperion Labs is an AI lab from Dushanbe building world-class products for Central Asia. Our first, AvrisAI, writes the clinical note so doctors can focus on patients." />
+<meta name="referrer" content="strict-origin-when-cross-origin" />
+<meta property="og:title" content="Hyperion Labs — World-class AI for Central Asia" />
+<meta property="og:description" content="An AI lab from Dushanbe. Flagship: AvrisAI — the voice assistant that writes medical documentation for doctors." />
+<meta property="og:url" content="https://hyperion-labs.ai" />
+<meta property="og:type" content="website" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg?v=6" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: { extend: { colors: {
+      /* Hyperion periwinkle remapped onto Tailwind's blue scale */
+      blue: { 50:'#EEF1FE',100:'#DCE3FD',200:'#C5D0FB',300:'#AFC0FF',400:'#95AEF8',500:'#7B93F0',600:'#6E86E0',700:'#4659B5',800:'#3A4AA0',900:'#2A2F6B' },
+      cyan: { 50:'#EEF3FF',100:'#DCE6FF',200:'#C5D6FF',300:'#AFC7FF',700:'#5B74D8' }
+    } } }
+  }
+</script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif; }
+  .dash-card { box-shadow: 0 24px 70px rgba(15,23,42,0.08); }
+  .soft-card { box-shadow: 0 16px 44px rgba(15,23,42,0.07); }
+  .brand-card { box-shadow: 0 30px 60px rgba(70,89,181,0.34), inset 0 1px 0 rgba(255,255,255,0.28); }
+  @keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+  @keyframes float-soft { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-4px)} }
+  @keyframes pulse-soft { 0%,100%{transform:scale(1);opacity:1} 50%{transform:scale(.96);opacity:.85} }
+  @keyframes bar-a { 0%,100%{transform:scaleY(1)} 50%{transform:scaleY(1.12)} }
+  @keyframes bar-b { 0%,100%{transform:scaleY(1)} 50%{transform:scaleY(.9)} }
+  .anim-float{animation:float-soft 4s ease-in-out infinite}
+  .anim-float-2{animation:float-soft 5s ease-in-out infinite 1s}
+  .anim-pulse{animation:pulse-soft 3s ease-in-out infinite}
+  .anim-bar-1{animation:bar-a 3s ease-in-out infinite;transform-origin:bottom}
+  .anim-bar-2{animation:bar-b 4s ease-in-out infinite .5s;transform-origin:bottom}
+  .anim-bar-3{animation:bar-a 3.5s ease-in-out infinite 1s;transform-origin:bottom}
+  .anim-bar-4{animation:bar-b 4.5s ease-in-out infinite .2s;transform-origin:bottom}
+  .anim-bar-5{animation:bar-a 4s ease-in-out infinite .8s;transform-origin:bottom}
+</style>
+</head>
+<body class="min-h-screen bg-white text-slate-950 antialiased">
+<main class="overflow-hidden relative">
+  <section class="relative z-10 mx-auto w-full max-w-[1600px] px-5 sm:px-9 lg:px-16">
+    <div class="pointer-events-none absolute left-5 top-0 hidden h-full w-px bg-slate-200/80 sm:left-9 md:block lg:left-16"></div>
+    <div class="pointer-events-none absolute right-5 top-0 hidden h-full w-px bg-slate-200/80 sm:right-9 md:block lg:right-16"></div>
 
-    <!-- Motion preloader: the H monogram draws itself, then a two-layer curtain -->
-    <div class="preloader" id="preloader" aria-hidden="true">
-      <div class="pre-center">
-        <svg class="pre-logo" viewBox="0 0 64 64" aria-hidden="true">
-          <defs>
-            <linearGradient id="preHg" x1="12" y1="8" x2="52" y2="56" gradientUnits="userSpaceOnUse">
-              <stop offset="0" stop-color="#C5D0FB"/><stop offset=".45" stop-color="#95AEF8"/><stop offset="1" stop-color="#6E86E0"/>
-            </linearGradient>
-            <radialGradient id="preGlow" cx="32" cy="32" r="15" gradientUnits="userSpaceOnUse">
-              <stop offset="0" stop-color="#FFFFFF"/><stop offset=".45" stop-color="#FFFFFF" stop-opacity=".85"/><stop offset="1" stop-color="#C5D6FF" stop-opacity="0"/>
-            </radialGradient>
-          </defs>
-            <clipPath id="preClip" clip-rule="evenodd">
-              <path fill-rule="evenodd" d="M13.2 8 H50.8 Q52 8 52 9.2 V54.8 Q52 56 50.8 56 H13.2 Q12 56 12 54.8 V9.2 Q12 8 13.2 8 Z M22 8 H42 V18.5 A10 10 0 0 1 33.25 28.42 L33.25 35.58 A10 10 0 0 1 42 45.5 V56 H22 V45.5 A10 10 0 0 1 30.75 35.58 L30.75 28.42 A10 10 0 0 1 22 18.5 Z"/>
-            </clipPath>
-          <path class="ph-sil" d="M22 8 H42 V18.5 A10 10 0 0 1 33.25 28.42 L33.25 35.58 A10 10 0 0 1 42 45.5 V56 H22 V45.5 A10 10 0 0 1 30.75 35.58 L30.75 28.42 A10 10 0 0 1 22 18.5 Z" fill="#080E18"/>
-          <path class="plp ph-mark" fill-rule="evenodd" d="M13.2 8 H50.8 Q52 8 52 9.2 V54.8 Q52 56 50.8 56 H13.2 Q12 56 12 54.8 V9.2 Q12 8 13.2 8 Z M22 8 H42 V18.5 A10 10 0 0 1 33.25 28.42 L33.25 35.58 A10 10 0 0 1 42 45.5 V56 H22 V45.5 A10 10 0 0 1 30.75 35.58 L30.75 28.42 A10 10 0 0 1 22 18.5 Z" fill="url(#preHg)" stroke="#95AEF8"/>
-          <ellipse class="ph-glow" cx="32" cy="32" rx="18" ry="9" fill="url(#preGlow)" clip-path="url(#preClip)"/>
+    <!-- ============ HEADER ============ -->
+    <header class="flex items-center justify-between border-b border-slate-200/80 py-8 lg:px-16 px-4">
+      <a href="#top" class="flex items-center gap-3" aria-label="Hyperion Labs homepage">
+        <svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true" class="shrink-0">
+          <defs><linearGradient id="hg" x1="14" y1="8" x2="50" y2="56" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#95AEF8"/><stop offset=".5" stop-color="#6E86E0"/><stop offset="1" stop-color="#4659B5"/></linearGradient></defs>
+          <path fill="url(#hg)" fill-rule="evenodd" d="M14 8 h10 v14 a8 8 0 0 0 8 8 a8 8 0 0 0 8 -8 v-14 h10 v48 h-10 v-14 a8 8 0 0 0 -8 -8 a8 8 0 0 0 -8 8 v14 h-10 z"/>
         </svg>
-        <div class="pre-word" id="preWord">Hyperion<b>&nbsp;Labs</b></div>
+        <span class="text-2xl font-semibold tracking-[-0.03em] text-slate-950 sm:text-[1.65rem]">Hyperion<span class="text-blue-700"> Labs</span></span>
+      </a>
+      <nav class="hidden items-center gap-10 text-sm font-medium text-slate-950 xl:flex">
+        <a href="#product" class="transition hover:text-blue-700">Product</a>
+        <a href="#how" class="transition hover:text-blue-700">How it works</a>
+        <a href="#team" class="transition hover:text-blue-700">Team</a>
+        <a href="#faq" class="transition hover:text-blue-700">FAQ</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <a href="#access" class="group hidden sm:inline-flex h-12 items-center justify-center overflow-hidden rounded-[16px] bg-gradient-to-br from-[#6E86E0] via-[#4659B5] to-[#3A4AA0] pl-5 pr-2.5 text-[15px] font-semibold tracking-[-0.02em] text-white shadow-[0_18px_38px_rgba(70,89,181,0.28),inset_0_1px_0_rgba(255,255,255,0.32)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_22px_48px_rgba(70,89,181,0.36)] active:translate-y-0" aria-label="Get early access">
+          <span class="relative z-10 whitespace-nowrap">Early access</span>
+          <span class="relative z-10 ml-3 inline-flex h-9 w-9 items-center justify-center rounded-[12px] border border-white/15 bg-white/15 backdrop-blur-md transition group-hover:translate-x-0.5">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+          </span>
+        </a>
+        <button class="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-950 shadow-sm xl:hidden" aria-label="Open menu"><i data-lucide="menu" class="h-5 w-5"></i></button>
       </div>
-      <div class="pre-pct" id="prePct">0%</div>
-      <div class="pre-bar"><i id="preBar"></i></div>
-    </div>
-    <div class="pre-trail" id="preTrail" aria-hidden="true"></div>
-    <noscript><style>.preloader,.pre-trail{display:none}</style></noscript>
-    <!-- Skip link -->
-    <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
+    </header>
 
-    <!-- Living atmosphere — baked static gradient field on a fixed layer -->
-    <div class="bg-field" aria-hidden="true"></div>
-
-    <!-- Dynamic wave canvas background (21st.dev/@thanh port → vanilla canvas)
-         — fixed layer behind the content. The opaque hero covers it, so the
-         waves read from the second screen down; screen one keeps its aura.
-         Built + animated in motion.js. -->
-    <canvas class="wave-canvas" id="waveCanvas" aria-hidden="true"></canvas>
-
-    <!-- Shell -->
-    <div class="site-shell">
-      <!-- ═══ HEADER ═══ -->
-      <header class="site-header" id="site-header">
-        <div class="container">
-          <nav class="nav" aria-label="Primary navigation">
-            <!-- Logo slot — SVG goes here later, text fallback for now -->
-            <a class="logo" href="#top" aria-label="Hyperion Labs home">
-              <img class="logo-mark" src="assets/logo/hyperion-mark.svg?v=2" alt="" width="26" height="26" />
-              <span class="logo-text">HYPERION LABS</span>
-            </a>
-            <div class="nav-links">
-              <a href="#products" data-i18n="navProducts">Products</a>
-              <a href="#about" data-i18n="navAbout">About</a>
-              <a href="#team" data-i18n="navTeam">Team</a>
-              <a href="#contact" data-i18n="navContact">Contact</a>
-            </div>
-            <div class="nav-actions">
-              <div class="lang-toggle nav-lang" role="group" aria-label="Language switcher">
-                <button type="button" class="active" data-lang="en" aria-pressed="true">EN</button>
-                <button type="button" data-lang="ru" aria-pressed="false">RU</button>
-                <button type="button" data-lang="tg" aria-pressed="false">TJ</button>
-              </div>
-              <a class="btn btn-primary nav-cta-desktop" href="#contact" data-i18n="navCta">Get Early Access</a>
-              <button class="nav-hamburger" id="nav-hamburger" type="button" aria-label="Open menu" aria-expanded="false">
-                <span></span><span></span><span></span>
-              </button>
-            </div>
-          </nav>
+    <!-- ============ HERO ============ -->
+    <div id="top" class="grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:px-16 lg:pt-24 lg:pb-28 pt-16 pb-20 px-4">
+      <div class="max-w-3xl">
+        <div class="mb-7 inline-flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.08em] text-blue-700">
+          <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-blue-50"><i data-lucide="sparkles" class="h-[18px] w-[18px]"></i></span>
+          AI Lab · Central Asia
         </div>
-      </header>
-
-      <!-- Mobile menu overlay -->
-      <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
-        <div class="mobile-menu-header">
-          <span class="logo-text">HYPERION LABS</span>
-          <button class="mobile-menu-close" id="mobile-menu-close" type="button" aria-label="Close menu">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-          </button>
-        </div>
-        <nav class="mobile-nav" aria-label="Mobile navigation">
-          <a href="#products" data-i18n="navProducts">Products</a>
-          <a href="#about" data-i18n="navAbout">About</a>
-          <a href="#team" data-i18n="navTeam">Team</a>
-          <a href="#contact" data-i18n="navContact">Contact</a>
-        </nav>
-        <div class="mobile-menu-footer">
-          <div class="lang-toggle" role="group" aria-label="Language switcher">
-            <button type="button" class="active" data-lang="en" aria-pressed="true">EN</button>
-            <button type="button" data-lang="ru" aria-pressed="false">RU</button>
-            <button type="button" data-lang="tg" aria-pressed="false">TJ</button>
-          </div>
-          <a class="btn btn-primary mobile-cta" href="#contact" data-i18n="navCta">Get Early Access</a>
+        <h1 class="max-w-[820px] text-[3.15rem] font-semibold leading-[1.03] tracking-[-0.055em] text-slate-950 sm:text-6xl lg:text-[4.5rem]">
+          World-class AI for Central Asia, <span class="text-blue-700">from research to the clinic.</span>
+        </h1>
+        <p class="mt-7 max-w-[600px] text-lg leading-8 text-slate-500 sm:text-xl">
+          Hyperion Labs is an independent AI lab from Dushanbe. Our first product, AvrisAI, listens to the visit and writes the clinical note — so doctors spend time on patients, not paperwork.
+        </p>
+        <div class="mt-9 flex flex-col gap-4 sm:flex-row sm:gap-5">
+          <a href="#access" class="group inline-flex h-14 w-full items-center justify-center overflow-hidden rounded-[18px] bg-gradient-to-br from-[#6E86E0] via-[#4659B5] to-[#3A4AA0] pl-7 pr-3 text-[16px] font-semibold tracking-[-0.02em] text-white shadow-[0_18px_38px_rgba(70,89,181,0.28),inset_0_1px_0_rgba(255,255,255,0.32)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_22px_48px_rgba(70,89,181,0.36)] active:translate-y-0 sm:w-auto" aria-label="Get early access">
+            <span class="relative z-10 whitespace-nowrap">Get early access</span>
+            <span class="relative z-10 ml-4 inline-flex h-11 w-11 items-center justify-center rounded-[14px] border border-white/15 bg-white/15 backdrop-blur-md transition group-hover:translate-x-0.5"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></span>
+          </a>
+          <a href="#product" class="group relative inline-flex h-14 w-full items-center justify-center overflow-hidden rounded-[18px] border border-[#d8e1f3] bg-gradient-to-b from-white to-[#f8fbff] pl-7 pr-3 text-[16px] font-semibold tracking-[-0.02em] text-[#0A0F2E] shadow-[0_14px_32px_rgba(15,23,42,0.07),inset_0_1px_0_rgba(255,255,255,0.9)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#b9c9ee] sm:w-auto" aria-label="Explore AvrisAI">
+            <span class="relative z-10 whitespace-nowrap">Explore AvrisAI</span>
+            <span class="relative z-10 ml-4 inline-flex h-11 w-11 items-center justify-center rounded-[14px] border border-[#dfe7f7] bg-white shadow-sm transition group-hover:scale-[1.03]"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-[#0A0F2E]"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="3"></rect><path d="M3 10h18"></path></svg></span>
+          </a>
         </div>
       </div>
 
-      <!-- ═══ MAIN ═══ -->
-      <div id="smooth-wrapper"><div id="smooth-content">
-      <main id="main">
-        <!-- ── HERO ── -->
-        <section class="hero" id="top">
-          <div class="hero-fx" aria-hidden="true">
-            <div class="hero-nebula"></div>
-            <!-- Unicorn Studio aura — main screen only; loader script sits before </body> -->
-            <div class="aura-bg" data-us-project="ILgOO23w4wEyPQOKyLO4"></div>
+      <!-- Dashboard mockup: AvrisAI clinical console -->
+      <div class="relative mx-auto h-[620px] w-full max-w-[760px]">
+        <div class="absolute right-[2%] top-[17%] h-[360px] w-[360px] rounded-full bg-blue-600/5 blur-3xl"></div>
+        <div class="dash-card absolute left-0 top-[8%] w-[88%] overflow-hidden rounded-[18px] border border-slate-200 bg-white/90 backdrop-blur-xl">
+          <div class="flex items-center justify-between border-b border-slate-200 px-5 py-4">
+            <div class="flex items-center gap-3">
+              <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-50 text-blue-700"><i data-lucide="mic" class="h-5 w-5"></i></span>
+              <div>
+                <p class="text-sm font-semibold text-[#0A0F2E]">AvrisAI clinical console</p>
+                <p class="text-xs font-medium text-slate-400">Visit · Cardiology</p>
+              </div>
+            </div>
+            <span class="rounded-full border border-emerald-100 bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-600">Recording</span>
           </div>
-          <div class="container">
-            <div class="hero-grid">
-              <!-- LEFT — copy -->
-              <div class="hero-copy">
-                <div class="hero-badge hero-anim">
-                  <span class="dot"></span>
-                  <span data-i18n="heroBadge">AI Lab · Central Asia</span>
-                </div>
-                <h1 class="hero-title hero-anim hero-d1">
-                  <span data-i18n="heroTitle1">World-class AI for the </span><span class="accent" data-i18n="heroTitle2">future of healthcare.</span>
-                </h1>
-                <p class="lead hero-anim hero-d2" data-i18n="heroSub">
-                  AvrisAI listens to every visit and writes the clinical note — so doctors in Central Asia spend time on patients, not paperwork.
-                </p>
-                <div class="hero-actions hero-anim hero-d3">
-                  <a class="btn btn-primary btn-lg" href="#avris" data-i18n="heroPrimary">Explore AvrisAI</a>
-                  <a class="btn btn-secondary btn-lg" href="#contact" data-i18n="heroSecondary">Get early access</a>
+          <div class="grid lg:grid-cols-[170px_1fr]">
+            <aside class="hidden border-r border-slate-200 bg-slate-50/60 p-4 lg:block">
+              <div class="space-y-2 text-xs font-semibold text-slate-500">
+                <button class="flex w-full items-center gap-2 rounded-lg border border-blue-200 px-3 py-2 text-blue-700"><i data-lucide="mic" class="h-4 w-4"></i>Listen</button>
+                <button class="flex w-full items-center gap-2 rounded-lg border border-transparent px-3 py-2"><i data-lucide="file-text" class="h-4 w-4"></i>SOAP note</button>
+                <button class="flex w-full items-center gap-2 rounded-lg border border-transparent px-3 py-2"><i data-lucide="qr-code" class="h-4 w-4"></i>Lab Connect</button>
+                <button class="flex w-full items-center gap-2 rounded-lg border border-transparent px-3 py-2"><i data-lucide="activity" class="h-4 w-4"></i>Avris Score</button>
+              </div>
+            </aside>
+            <div class="p-5 sm:p-6">
+              <div class="grid gap-4 sm:grid-cols-3">
+                <div class="rounded-lg border border-slate-200 bg-white p-4"><p class="text-xs font-medium text-slate-400">Visits today</p><p class="mt-2 text-2xl font-semibold tracking-tight text-slate-950">34</p><p class="mt-1 text-xs font-semibold text-emerald-600">+12</p></div>
+                <div class="rounded-lg border border-slate-200 bg-white p-4"><p class="text-xs font-medium text-slate-400">Auto-structured</p><p class="mt-2 text-2xl font-semibold tracking-tight text-slate-950">96%</p><p class="mt-1 text-xs font-semibold text-blue-700">SOAP</p></div>
+                <div class="rounded-lg border border-slate-200 bg-white p-4"><p class="text-xs font-medium text-slate-400">Review time</p><p class="mt-2 text-2xl font-semibold tracking-tight text-slate-950">Low</p><p class="mt-1 text-xs font-semibold text-slate-500">~40s</p></div>
+              </div>
+              <div class="mt-5 rounded-lg border border-slate-200 bg-white p-4">
+                <div class="mb-4 flex items-center justify-between"><p class="text-sm font-semibold text-[#0A0F2E]">SOAP note</p><span class="text-xs font-semibold text-blue-700">Claude Sonnet</span></div>
+                <div class="space-y-3">
+                  <div class="flex items-center gap-3 rounded-lg bg-blue-50/70 px-3 py-3"><span class="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-700 text-white text-xs font-bold">S</span><div class="min-w-0 flex-1"><p class="text-sm font-semibold text-slate-800">Pressing chest pain on exertion, 7 days</p><p class="text-xs font-medium text-slate-500">from the doctor's own words</p></div></div>
+                  <div class="flex items-center gap-3 rounded-lg bg-slate-50 px-3 py-3"><span class="flex h-8 w-8 items-center justify-center rounded-lg bg-cyan-100 text-blue-700 text-xs font-bold">A</span><div class="min-w-0 flex-1"><p class="text-sm font-semibold text-slate-800">Exertional angina · I20.8</p><p class="text-xs font-medium text-slate-500">ICD-10 coded diagnosis</p></div></div>
                 </div>
               </div>
             </div>
           </div>
-        </section>
-
-        <!-- ── PRODUCTS ── -->
-        <section id="products">
-          <div class="container">
-            <div class="section-header reveal">
-              <div class="eyebrow" data-i18n="productsEyebrow">Products</div>
-              <h2 data-i18n="productsTitle">Two products. One mission.</h2>
-              <p class="lead" data-i18n="productsLead">A focused portfolio building the digital backbone of healthcare for the region.</p>
-            </div>
-
-            <!-- AvrisAI -->
-            <article class="product product--avris reveal" id="avris">
-              <div class="product-body">
-                <div class="product-eyebrow" data-i18n="avrisEyebrow">Flagship · Voice AI</div>
-                <div class="product-status"><span class="status-dot"></span>Live</div>
-                <h3 class="product-title">AvrisAI</h3>
-                <p class="product-tagline" data-i18n="avrisTagline">Voice AI assistant for doctors</p>
-                <p class="product-desc" data-i18n="avrisDesc">A voice AI assistant for doctors — already deployed and running. It listens to the doctor–patient conversation and produces structured clinical documentation in seconds. Pilot completed across three cities in Tajikistan.</p>
-                <div class="product-contacts">
-                  <a class="product-contact product-contact--text" href="https://theavris.ai" target="_blank" rel="noopener noreferrer" aria-label="Website">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg>
-                    <span>theavris.ai</span>
-                  </a>
-                  <a class="product-contact" href="mailto:info@theavris.ai" aria-label="Email">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-                  </a>
-                  <a class="product-contact" href="https://www.instagram.com/theavris.ai" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                  </a>
-                  <a class="product-contact" href="https://x.com/theavrisai" target="_blank" rel="noopener noreferrer" aria-label="X">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.732-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                  </a>
-                </div>
-                <a class="product-cta" href="https://theavris.ai" target="_blank" rel="noopener noreferrer" data-i18n="avrisCta">Open AvrisAI <span aria-hidden="true">&#8599;</span></a>
-              </div>
-              <div class="product-mark">
-                <div class="wave" aria-hidden="true">
-                  <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-                </div>
-                <img src="assets/logo/avris-logo.svg" alt="AvrisAI" />
-              </div>
-            </article>
-
-            <!-- Stealth teaser -->
-            <article class="product product--teaser reveal" id="teaser">
-              <div class="product-body">
-                <div class="pill pill-glow" data-i18n="teaserBadge">Coming Soon</div>
-                <p class="product-desc product-desc--teaser" data-i18n="teaserDesc">A new product in development. Coming soon.</p>
-                <a class="product-cta" href="#contact" data-i18n="teaserCta">Private pipeline <span aria-hidden="true">&#8594;</span></a>
-              </div>
-              <div class="product-mark product-mark--teaser" aria-hidden="true">
-                <svg class="teaser-glyph" viewBox="0 0 120 120">
-                  <circle class="ring ring-spin" cx="60" cy="60" r="42" stroke-dasharray="2 9" opacity=".5" />
-                  <circle class="ring" cx="60" cy="60" r="27" opacity=".3" />
-                  <circle class="node" cx="60" cy="60" r="5" opacity=".8" />
-                </svg>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <!-- ── HOW AVRISAI WORKS (3 steps) ── -->
-        <section id="how">
-          <div class="container">
-            <div class="section-header reveal">
-              <div class="eyebrow" data-i18n="howEyebrow">How AvrisAI works</div>
-              <h2 data-i18n="howTitle">From conversation to clinical note.</h2>
-            </div>
-            <div class="steps">
-              <article class="step-card reveal">
-                <div class="step-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>
-                </div>
-                <div class="step-num">01</div>
-                <h3 data-i18n="step1Title">Listen</h3>
-                <p class="step-text" data-i18n="step1Text">AvrisAI listens to the doctor–patient conversation.</p>
-              </article>
-              <div class="step-link" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h14M13 6l6 6-6 6"/></svg>
-              </div>
-              <article class="step-card reveal">
-                <div class="step-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h8M4 12h11M4 17h6"/><path d="M16 8l4 4-4 4"/></svg>
-                </div>
-                <div class="step-num">02</div>
-                <h3 data-i18n="step2Title">Structure</h3>
-                <p class="step-text" data-i18n="step2Text">Speech is turned into structured medical fields.</p>
-              </article>
-              <div class="step-link" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h14M13 6l6 6-6 6"/></svg>
-              </div>
-              <article class="step-card reveal">
-                <div class="step-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M9 13l2 2 4-4"/></svg>
-                </div>
-                <div class="step-num">03</div>
-                <h3 data-i18n="step3Title">Note ready</h3>
-                <p class="step-text" data-i18n="step3Text">A clean clinical note — ready in seconds.</p>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <!-- ── FLOW DEMO — conversation in, SOAP note out ── -->
-        <section id="flow">
-          <div class="container">
-            <div class="section-header reveal">
-              <div class="eyebrow" data-i18n="flowEyebrow">See it work</div>
-              <h2 data-i18n="flowTitle">Conversation in. Clinical note out.</h2>
-              <p class="lead" data-i18n="flowLead">An illustrative example — not real patient data.</p>
-            </div>
-            <div class="flow-panel reveal">
-              <div class="flow-grid">
-                <div>
-                  <div class="flow-col-label" data-i18n="flowChatLabel">Conversation</div>
-                  <div class="flow-chat">
-                    <div class="chat-line chat-patient" style="--i:0">
-                      <span class="chat-who" data-i18n="chatWhoP">Patient</span>
-                      <p data-i18n="chat1">I've had a sore throat and mild fever for two days.</p>
-                    </div>
-                    <div class="chat-line chat-doctor" style="--i:1">
-                      <span class="chat-who" data-i18n="chatWhoD">Doctor</span>
-                      <p data-i18n="chat2">Any cough or trouble swallowing?</p>
-                    </div>
-                    <div class="chat-line chat-patient" style="--i:2">
-                      <span class="chat-who" data-i18n="chatWhoP">Patient</span>
-                      <p data-i18n="chat3">Some pain when swallowing, no cough.</p>
-                    </div>
-                    <div class="chat-line chat-doctor" style="--i:3">
-                      <span class="chat-who" data-i18n="chatWhoD">Doctor</span>
-                      <p data-i18n="chat4">Temperature 37.8, throat looks a little red.</p>
-                    </div>
-                  </div>
-                </div>
-                <div>
-                  <div class="flow-col-label" data-i18n="flowSoapLabel">SOAP note</div>
-                  <div class="flow-soap">
-                    <div class="soap-row" style="--i:0">
-                      <span class="soap-hl" aria-hidden="true"></span>
-                      <span class="soap-key" aria-hidden="true">S</span>
-                      <div>
-                        <div class="soap-field" data-i18n="soapSk">Subjective</div>
-                        <p data-i18n="soapS">Sore throat and mild fever, 2 days. Pain on swallowing, no cough.</p>
-                      </div>
-                    </div>
-                    <div class="soap-row" style="--i:1">
-                      <span class="soap-hl" aria-hidden="true"></span>
-                      <span class="soap-key" aria-hidden="true">O</span>
-                      <div>
-                        <div class="soap-field" data-i18n="soapOk">Objective</div>
-                        <p data-i18n="soapO">Temp 37.8 °C. Pharynx mildly red.</p>
-                      </div>
-                    </div>
-                    <div class="soap-row" style="--i:2">
-                      <span class="soap-hl" aria-hidden="true"></span>
-                      <span class="soap-key" aria-hidden="true">A</span>
-                      <div>
-                        <div class="soap-field" data-i18n="soapAk">Assessment</div>
-                        <p data-i18n="soapA">Likely viral pharyngitis.</p>
-                      </div>
-                    </div>
-                    <div class="soap-row" style="--i:3">
-                      <span class="soap-hl" aria-hidden="true"></span>
-                      <span class="soap-key" aria-hidden="true">P</span>
-                      <div>
-                        <div class="soap-field" data-i18n="soapPk">Plan</div>
-                        <p data-i18n="soapP">Supportive care, fluids, review if it worsens.</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- ── VALUE MARQUEE — AvrisAI capabilities ── -->
-        <section class="marquee-section" id="proof">
-          <p class="sr-only" data-i18n="marqueeSr">AvrisAI: voice AI for doctors — clinical notes in seconds, in Russian and English, built for Central Asia.</p>
-          <div class="marquee" aria-hidden="true">
-            <div class="marquee-track">
-              <span class="m-item" data-i18n="val1">Voice AI for doctors</span><span class="m-sep">·</span>
-              <span class="m-item" data-i18n="val2">Clinical notes in seconds</span><span class="m-sep">·</span>
-              <span class="m-item" data-i18n="val3">Russian &amp; English</span><span class="m-sep">·</span>
-              <span class="m-item" data-i18n="val4">Built for Central Asia</span><span class="m-sep">·</span>
-              <span class="m-item" data-i18n="val5">Less paperwork, more care</span><span class="m-sep">·</span>
-              <span class="m-item" data-i18n="val1">Voice AI for doctors</span><span class="m-sep">·</span>
-              <span class="m-item" data-i18n="val2">Clinical notes in seconds</span><span class="m-sep">·</span>
-              <span class="m-item" data-i18n="val3">Russian &amp; English</span><span class="m-sep">·</span>
-              <span class="m-item" data-i18n="val4">Built for Central Asia</span><span class="m-sep">·</span>
-              <span class="m-item" data-i18n="val5">Less paperwork, more care</span><span class="m-sep">·</span>
-              <span class="m-item" data-i18n="val1">Voice AI for doctors</span><span class="m-sep">·</span>
-              <span class="m-item" data-i18n="val2">Clinical notes in seconds</span><span class="m-sep">·</span>
-              <span class="m-item" data-i18n="val3">Russian &amp; English</span><span class="m-sep">·</span>
-              <span class="m-item" data-i18n="val4">Built for Central Asia</span><span class="m-sep">·</span>
-              <span class="m-item" data-i18n="val5">Less paperwork, more care</span><span class="m-sep">·</span>
-            </div>
-            <div class="marquee-track" aria-hidden="true">
-              <span class="m-item" data-i18n="val1">Voice AI for doctors</span><span class="m-sep">·</span>
-              <span class="m-item" data-i18n="val2">Clinical notes in seconds</span><span class="m-sep">·</span>
-              <span class="m-item" data-i18n="val3">Russian &amp; English</span><span class="m-sep">·</span>
-              <span class="m-item" data-i18n="val4">Built for Central Asia</span><span class="m-sep">·</span>
-              <span class="m-item" data-i18n="val5">Less paperwork, more care</span><span class="m-sep">·</span>
-              <span class="m-item" data-i18n="val1">Voice AI for doctors</span><span class="m-sep">·</span>
-              <span class="m-item" data-i18n="val2">Clinical notes in seconds</span><span class="m-sep">·</span>
-              <span class="m-item" data-i18n="val3">Russian &amp; English</span><span class="m-sep">·</span>
-              <span class="m-item" data-i18n="val4">Built for Central Asia</span><span class="m-sep">·</span>
-              <span class="m-item" data-i18n="val5">Less paperwork, more care</span><span class="m-sep">·</span>
-              <span class="m-item" data-i18n="val1">Voice AI for doctors</span><span class="m-sep">·</span>
-              <span class="m-item" data-i18n="val2">Clinical notes in seconds</span><span class="m-sep">·</span>
-              <span class="m-item" data-i18n="val3">Russian &amp; English</span><span class="m-sep">·</span>
-              <span class="m-item" data-i18n="val4">Built for Central Asia</span><span class="m-sep">·</span>
-              <span class="m-item" data-i18n="val5">Less paperwork, more care</span><span class="m-sep">·</span>
-            </div>
-          </div>
-        </section>
-
-        <!-- ── ABOUT / MISSION ── -->
-        <section id="about">
-          <div class="container">
-            <div class="about-panel reveal">
-              <div class="eyebrow" data-i18n="aboutEyebrow">Who we are</div>
-              <h2 class="about-title" data-i18n="aboutTitle">More than a startup.</h2>
-              <div class="about-text">
-                <p data-i18n="aboutP1">Hyperion Labs was founded in Dushanbe, Tajikistan — one of the world's most underserved tech markets. We started with one question: why do doctors lose hours to paperwork when AI can do it in seconds?</p>
-                <p data-i18n="aboutP2">We're not building for Silicon Valley. We build for the doctor in Dushanbe, the hospital in Tashkent, the clinic in Almaty. If we can solve it here, we can solve it anywhere.</p>
-              </div>
-              <p class="about-mission">
-                <span data-i18n="missionText1">We build AI that solves </span><span class="accent" data-i18n="missionText2">real problems</span><span data-i18n="missionText3"> for </span><span class="accent" data-i18n="missionText4">real people</span><span data-i18n="missionText5">.</span>
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <!-- ── FOCUS / RESEARCH (revived, restyled) ── -->
-        <section id="focus">
-          <div class="container">
-            <div class="section-header reveal">
-              <div class="eyebrow" data-i18n="focusEyebrow">What we work on</div>
-              <h2 data-i18n="focusTitle">Research grounded in real deployment.</h2>
-            </div>
-            <div class="focus-grid">
-              <article class="focus-card reveal">
-                <span class="focus-num">01</span>
-                <h3 data-i18n="focus1Title">Medical voice AI</h3>
-                <p class="focus-text" data-i18n="focus1Text">Clinical workflows, speech understanding, and trust-critical systems for everyday care.</p>
-              </article>
-              <article class="focus-card reveal">
-                <span class="focus-num">02</span>
-                <h3 data-i18n="focus2Title">Regional-language NLP</h3>
-                <p class="focus-text" data-i18n="focus2Text">Models tuned for Tajik, Russian, and the linguistic reality of Central Asia.</p>
-              </article>
-              <article class="focus-card reveal">
-                <span class="focus-num">03</span>
-                <h3 data-i18n="focus3Title">Healthcare infrastructure</h3>
-                <p class="focus-text" data-i18n="focus3Text">Tooling that makes AI usable inside real clinics and institutions.</p>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <!-- ── TEAM ── -->
-        <section id="team">
-          <div class="container">
-            <div class="section-header reveal">
-              <div class="eyebrow" data-i18n="teamEyebrow">Team</div>
-              <h2 data-i18n="teamTitle">A small, elite team.</h2>
-            </div>
-            <div class="team-grid">
-              <article class="team-card reveal">
-                <div class="team-card-top">
-                  <div class="avatar">SN</div>
-                  <div class="pill pill-accent">Founder</div>
-                </div>
-                <h3>Shahzod Narzulloev</h3>
-                <p class="team-role" data-i18n="teamFounderRole">Founder &amp; CEO</p>
-                <p class="team-bio" data-i18n="teamFounderBio">Building world-class AI for emerging markets. Medical student turned entrepreneur.</p>
-                <div class="team-socials">
-                  <a class="social-link" href="https://www.instagram.com/narzulloev__sh?igsh=MTM0dm5nejFrdTl0Yg%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                  </a>
-                  <a class="social-link" href="https://www.linkedin.com/in/%D1%88%D0%B0%D1%85%D0%B7%D0%BE%D0%B4-%D0%BD%D0%B0%D1%80%D0%B7%D1%83%D0%BB%D0%BB%D0%BE%D0%B5%D0%B2-2069953b5" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                  </a>
-                </div>
-              </article>
-
-              <article class="team-card reveal">
-                <div class="team-card-top">
-                  <div class="avatar">SO</div>
-                  <div class="pill pill-accent" data-i18n="cofounderLabel">Co-Founder</div>
-                </div>
-                <h3>Shahzod Obidov</h3>
-                <p class="team-role" data-i18n="cofounderRole">Co-Founder &amp; CFO</p>
-                <p class="team-bio" data-i18n="cofounderText">Leading finance, strategy, and operational discipline behind Hyperion Labs.</p>
-                <div class="team-socials">
-                  <a class="social-link" href="https://www.instagram.com/shaxzod_murodovich?igsh=MW1qMW42aG0zY2Q5aw==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                  </a>
-                  <a class="social-link" href="https://x.com/shahzodobidov34?s=11" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.732-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                  </a>
-                </div>
-              </article>
-
-              <article class="team-card team-card--open reveal">
-                <div class="team-card-top">
-                  <div class="avatar avatar--open">+</div>
-                  <div class="pill" data-i18n="cofounderRole2">Founding Team</div>
-                </div>
-                <h3 data-i18n="cofounderTitle2">Open Co-Founder Seat</h3>
-                <p class="team-bio" data-i18n="cofounderText2">We are looking for a strong co-founder to help build a world-class AI company.</p>
-                <a class="team-link" href="#contact" data-i18n="joinUs">Join us <span aria-hidden="true">&#8599;</span></a>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <!-- ── FAQ ── -->
-        <section id="faq">
-          <div class="container">
-            <div class="section-header reveal">
-              <div class="eyebrow" data-i18n="faqEyebrow">FAQ</div>
-              <h2 data-i18n="faqTitle">Questions, answered.</h2>
-            </div>
-            <div class="faq-list reveal">
-              <details class="faq-item">
-                <summary class="faq-q">
-                  <span data-i18n="faq1Q">What is AvrisAI?</span>
-                  <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-                </summary>
-                <p class="faq-a" data-i18n="faq1A">A voice AI assistant for doctors. It listens to the doctor–patient conversation and turns it into a structured clinical note in seconds. The doctor reviews and approves every note.</p>
-              </details>
-              <details class="faq-item">
-                <summary class="faq-q">
-                  <span data-i18n="faq2Q">Which languages does it support?</span>
-                  <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-                </summary>
-                <p class="faq-a" data-i18n="faq2A">Russian and English today. Tajik speech recognition is in active development — it's one of our core research directions.</p>
-              </details>
-              <details class="faq-item">
-                <summary class="faq-q">
-                  <span data-i18n="faq3Q">Is patient data safe?</span>
-                  <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-                </summary>
-                <p class="faq-a" data-i18n="faq3A">The doctor stays in control: every note is a draft until the clinician approves it, and recordings are used only to produce documentation. For deployment specifics and data-handling agreements, contact us.</p>
-              </details>
-              <details class="faq-item">
-                <summary class="faq-q">
-                  <span data-i18n="faq4Q">How can my clinic get access?</span>
-                  <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-                </summary>
-                <p class="faq-a" data-i18n="faq4A">Join the early access list below or write to info@theavris.ai. After a pilot across three cities in Tajikistan, we are onboarding new clinics step by step.</p>
-              </details>
-              <details class="faq-item">
-                <summary class="faq-q">
-                  <span data-i18n="faq5Q">Where does Hyperion Labs operate?</span>
-                  <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-                </summary>
-                <p class="faq-a" data-i18n="faq5A">We were founded in Dushanbe, Tajikistan, and build for all of Central Asia — from Dushanbe to Tashkent and Almaty.</p>
-              </details>
-            </div>
-          </div>
-        </section>
-
-        <!-- ── CONTACT / EARLY ACCESS ── -->
-        <section id="contact">
-          <div class="container">
-            <div class="cta-panel reveal">
-              <div class="cta-grid">
-                <div>
-                  <div class="eyebrow" data-i18n="ctaEyebrow">Early Access</div>
-                  <h2 data-i18n="ctaTitle">Work with us.</h2>
-                  <p class="lead" data-i18n="ctaLead">Join the early access list for AvrisAI and stay close to the next generation of healthcare AI.</p>
-                </div>
-                <form class="cta-form" id="early-access-form" action="https://formspree.io/f/xojyojva" method="POST" novalidate>
-                  <input type="hidden" name="_subject" value="Early Access Request — Hyperion Labs" />
-                  <input type="hidden" name="_next" value="https://hyperion-labs.ai/#contact" />
-                  <div class="hp-field" aria-hidden="true">
-                    <label for="hp-check">Leave empty</label>
-                    <input id="hp-check" name="_gotcha" type="text" tabindex="-1" autocomplete="off" />
-                  </div>
-                  <label class="form-field" for="email">
-                    <span class="sr-only" data-i18n="emailLabel">Email address</span>
-                    <input id="email" name="email" type="email" autocomplete="email" required placeholder="name@company.com" aria-describedby="form-msg" />
-                    <button class="btn btn-primary" type="submit" data-i18n="submitLabel">Get Access</button>
-                  </label>
-                  <p class="form-msg" id="form-msg" role="status" aria-live="polite"></p>
-                </form>
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <!-- ═══ FOOTER ═══ -->
-      <footer>
-        <div class="container">
-          <div class="footer-grid">
-            <div class="footer-brand">
-              <div class="logo-text">HYPERION LABS</div>
-              <p class="footer-desc" data-i18n="footerDesc">Hyperion Labs is building world-class AI for healthcare in Central Asia.</p>
-              <a class="footer-product-link" href="https://theavris.ai" target="_blank" rel="noopener noreferrer">AvrisAI — theavris.ai</a>
-            </div>
-            <div>
-              <div class="footer-links">
-                <a href="#products" data-i18n="navProducts">Products</a>
-                <a href="#about" data-i18n="navAbout">About</a>
-                <a href="#team" data-i18n="navTeam">Team</a>
-                <a href="#contact" data-i18n="navContact">Contact</a>
-              </div>
-              <div class="social-links">
-                <a href="https://www.instagram.com/hyperionlabs.ai?igsh=MWVjd3Z1ZGFvN2thNw%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer">Instagram</a>
-                <a href="https://x.com/hyperionlabsai?s=21" target="_blank" rel="noopener noreferrer">Twitter</a>
-                <a href="https://www.linkedin.com/in/%D1%88%D0%B0%D1%85%D0%B7%D0%BE%D0%B4-%D0%BD%D0%B0%D1%80%D0%B7%D1%83%D0%BB%D0%BB%D0%BE%D0%B5%D0%B2-2069953b5" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                <a href="https://github.com/narzulloev0022" target="_blank" rel="noopener noreferrer">GitHub</a>
-              </div>
-            </div>
-          </div>
-          <div class="footer-meta">&copy; 2026 Hyperion Labs. All rights reserved.</div>
         </div>
-      </footer>
-      </div></div><!-- /smooth -->
+        <div class="brand-card absolute bottom-[11%] right-0 w-[360px] max-w-[72%] rounded-[18px] border border-blue-300/30 bg-[radial-gradient(circle_at_90%_20%,rgba(149,174,248,0.85),transparent_16%),linear-gradient(135deg,#4659B5_0%,#2A2F6B_56%,#3A4AA0_100%)] p-6 text-white">
+          <div class="flex items-center justify-between"><span class="inline-flex items-center gap-2 text-sm font-medium text-blue-50"><span class="flex h-4 w-4 items-center justify-center rounded-full bg-white text-blue-700"><i data-lucide="check" class="h-3 w-3"></i></span>Ready to sign</span><i data-lucide="file-check-2" class="h-8 w-8"></i></div>
+          <p class="mt-6 text-3xl font-semibold tracking-[-0.03em]">SOAP note</p>
+          <p class="mt-3 text-sm leading-6 text-blue-50">Structured from a normal conversation. The doctor reviews, edits, and signs.</p>
+        </div>
+        <div class="soft-card absolute bottom-[4%] left-[8%] w-[250px] rounded-[16px] border border-slate-200 bg-white p-5">
+          <div class="flex items-center gap-2"><span class="flex h-4 w-4 items-center justify-center rounded-full bg-emerald-500 text-white"><i data-lucide="check" class="h-3 w-3"></i></span><p class="text-sm font-semibold text-[#0A0F2E]">Vitals captured</p></div>
+          <div class="mt-5 flex items-end gap-2">
+            <span class="w-5 rounded-t bg-blue-100 anim-bar-1" style="height:42px"></span>
+            <span class="w-5 rounded-t bg-blue-200 anim-bar-2" style="height:58px"></span>
+            <span class="w-5 rounded-t bg-blue-100 anim-bar-3" style="height:36px"></span>
+            <span class="w-5 rounded-t bg-blue-700 anim-bar-4" style="height:76px"></span>
+            <span class="w-5 rounded-t bg-cyan-200 anim-bar-5" style="height:48px"></span>
+            <span class="w-5 rounded-t bg-blue-100 anim-bar-1" style="height:64px"></span>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <script src="assets/vendor/gsap/gsap.min.js"></script>
-    <script src="assets/vendor/gsap/ScrollTrigger.min.js"></script>
-    <script src="assets/vendor/gsap/ScrollSmoother.min.js"></script>
-    <script src="assets/vendor/gsap/SplitText.min.js"></script>
-    <script src="assets/vendor/gsap/DrawSVGPlugin.min.js"></script>
-    <script src="assets/vendor/gsap/ScrambleTextPlugin.min.js"></script>
-    <script src="script.js?v=11"></script>
-    <script src="assets/motion.js?v=10"></script>
-    <!-- Unicorn Studio aura on the hero (skipped for reduced motion) -->
-    <script>
-      (function () {
-        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-        if (!window.UnicornStudio) {
-          window.UnicornStudio = { isInitialized: false };
-          var s = document.createElement("script");
-          s.src = "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.29/dist/unicornStudio.umd.js";
-          s.onload = function () {
-            if (!window.UnicornStudio.isInitialized) {
-              UnicornStudio.init();
-              window.UnicornStudio.isInitialized = true;
-            }
-          };
-          (document.head || document.body).appendChild(s);
-        }
-      })();
-    </script>
-  </body>
+    <!-- ============ 3 QUICK CARDS ============ -->
+    <div id="product" class="grid gap-5 md:grid-cols-3 lg:px-16 lg:pt-14 lg:pb-20 pt-12 pb-16 px-4">
+      <div class="group flex items-center justify-between gap-6 rounded-[18px] border border-slate-200 bg-white/80 p-6 shadow-[0_12px_34px_rgba(15,23,42,0.035)] backdrop-blur transition hover:-translate-y-0.5 hover:border-slate-300">
+        <div class="flex min-w-0 items-center gap-5"><div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-blue-50 text-blue-700"><i data-lucide="audio-lines" class="h-6 w-6"></i></div><div><h3 class="text-base font-semibold text-[#0A0F2E]">Voice to SOAP</h3><p class="mt-2 max-w-[280px] text-sm leading-5 text-slate-500">Speech becomes a structured clinical note in seconds.</p></div></div>
+        <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-slate-50 text-slate-400 transition group-hover:bg-blue-700 group-hover:text-white"><i data-lucide="arrow-right" class="h-[18px] w-[18px]"></i></span>
+      </div>
+      <div class="group flex items-center justify-between gap-6 rounded-[18px] border border-slate-200 bg-white/80 p-6 shadow-[0_12px_34px_rgba(15,23,42,0.035)] backdrop-blur transition hover:-translate-y-0.5 hover:border-slate-300">
+        <div class="flex min-w-0 items-center gap-5"><div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-blue-50 text-blue-700"><i data-lucide="qr-code" class="h-6 w-6"></i></div><div><h3 class="text-base font-semibold text-[#0A0F2E]">Lab Connect QR</h3><p class="mt-2 max-w-[280px] text-sm leading-5 text-slate-500">Lab orders as a QR code; results return to the chart.</p></div></div>
+        <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-slate-50 text-slate-400 transition group-hover:bg-blue-700 group-hover:text-white"><i data-lucide="arrow-right" class="h-[18px] w-[18px]"></i></span>
+      </div>
+      <div class="group flex items-center justify-between gap-6 rounded-[18px] border border-slate-200 bg-white/80 p-6 shadow-[0_12px_34px_rgba(15,23,42,0.035)] backdrop-blur transition hover:-translate-y-0.5 hover:border-slate-300">
+        <div class="flex min-w-0 items-center gap-5"><div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-blue-50 text-blue-700"><i data-lucide="link" class="h-6 w-6"></i></div><div><h3 class="text-base font-semibold text-[#0A0F2E]">Evidence Link</h3><p class="mt-2 max-w-[280px] text-sm leading-5 text-slate-500">Every line traces back to a phrase the doctor said.</p></div></div>
+        <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-slate-50 text-slate-400 transition group-hover:bg-blue-700 group-hover:text-white"><i data-lucide="arrow-right" class="h-[18px] w-[18px]"></i></span>
+      </div>
+    </div>
+
+    <!-- ============ MARQUEE ============ -->
+    <section class="border-t border-slate-200 bg-white px-4 py-16 lg:px-16">
+      <p class="text-center text-sm font-medium uppercase tracking-[0.12em] text-slate-400">Built on a modern AI stack</p>
+      <div class="mt-8 overflow-hidden relative" style="-webkit-mask-image:linear-gradient(to right,transparent,black 10%,black 90%,transparent);mask-image:linear-gradient(to right,transparent,black 10%,black 90%,transparent)">
+        <div class="flex w-[max-content] items-center" style="animation:marquee 34s linear infinite">
+          <div class="flex shrink-0 items-center gap-12 pr-12 text-lg font-semibold text-slate-300">
+            <span>Whisper STT</span><span>Claude Sonnet</span><span>SOAP</span><span>ICD-10</span><span>Русский</span><span>Тоҷикӣ</span><span>Lab Connect</span><span>Avris Score</span><span>Evidence Link</span><span>Night Rounds</span>
+          </div>
+          <div class="flex shrink-0 items-center gap-12 pr-12 text-lg font-semibold text-slate-300" aria-hidden="true">
+            <span>Whisper STT</span><span>Claude Sonnet</span><span>SOAP</span><span>ICD-10</span><span>Русский</span><span>Тоҷикӣ</span><span>Lab Connect</span><span>Avris Score</span><span>Evidence Link</span><span>Night Rounds</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+</main>
+
+<!-- ============ FEATURES ============ -->
+<section class="relative overflow-hidden bg-white">
+  <div class="relative mx-auto w-full max-w-[1600px] px-4 sm:px-9 lg:px-16">
+    <div class="pointer-events-none absolute left-6 top-0 hidden h-full w-px bg-slate-200/80 sm:left-9 md:block lg:left-16"></div>
+    <div class="pointer-events-none absolute right-6 top-0 hidden h-full w-px bg-slate-200/80 sm:right-9 md:block lg:right-16"></div>
+    <div class="relative border-x border-slate-200/80">
+      <div class="grid gap-8 border-y border-slate-200/80 px-6 py-16 md:grid-cols-[1fr_0.72fr] md:items-end lg:px-16 lg:py-24">
+        <div>
+          <div class="mb-6 inline-flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.04em] text-blue-700"><i data-lucide="sparkles" class="h-4 w-4"></i>Capabilities</div>
+          <h2 class="max-w-[640px] text-4xl font-semibold leading-[1.05] tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">Everything a clinic needs, <span class="text-blue-700">built for the shift.</span></h2>
+        </div>
+        <p class="max-w-[430px] text-base leading-7 text-slate-500 md:justify-self-end">Not just dictation. AvrisAI covers the whole working day — from the morning clinic to night rounds — while the doctor stays in control.</p>
+      </div>
+
+      <div class="grid border-b border-slate-200/80 md:grid-cols-2 xl:grid-cols-4">
+        <!-- Card 1 -->
+        <article class="group border-b border-slate-200/80 p-10 transition-colors duration-300 hover:bg-slate-50/60 xl:border-b-0 xl:border-r">
+          <div class="mb-9"><div class="relative h-[180px] overflow-hidden rounded-[30px] border border-slate-200/80 bg-gradient-to-br from-white via-blue-50/80 to-cyan-50/70 p-3 shadow-[0_24px_60px_rgba(15,23,42,0.09)] transition-all duration-500 group-hover:-translate-y-1">
+            <div class="absolute -right-12 -top-12 h-32 w-32 rounded-full bg-blue-300/40 blur-3xl"></div>
+            <div class="relative z-10 flex h-full flex-col justify-between rounded-[24px] border border-white/80 bg-white/90 p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.95)] backdrop-blur-xl">
+              <div class="flex items-center justify-between"><div class="flex items-center gap-2"><span class="h-2.5 w-2.5 rounded-full bg-blue-600"></span><span class="h-2.5 w-12 rounded-full bg-slate-200"></span></div><span class="rounded-full border border-blue-100 bg-blue-50 px-2 py-0.5 text-[10px] font-medium text-blue-700">Live</span></div>
+              <div class="mt-3 space-y-2">
+                <div class="flex items-center gap-2.5 rounded-[18px] border border-slate-200/70 bg-white p-2.5 transition-transform duration-500 group-hover:translate-x-1"><span class="flex h-8 w-8 items-center justify-center rounded-xl bg-blue-100 text-blue-700"><i data-lucide="mic" class="h-4 w-4"></i></span><div class="min-w-0 flex-1"><div class="h-2 w-24 rounded-full bg-slate-200"></div><div class="mt-1.5 h-1.5 w-16 rounded-full bg-slate-100"></div></div><span class="flex h-6 w-6 items-center justify-center rounded-full bg-blue-600 text-white anim-pulse"><i data-lucide="check" class="h-3 w-3"></i></span></div>
+                <div class="flex items-center gap-2.5 rounded-[18px] border border-slate-200/70 bg-white/85 p-2.5 transition-transform duration-500 group-hover:translate-x-2"><span class="flex h-8 w-8 items-center justify-center rounded-xl bg-cyan-100 text-blue-700"><i data-lucide="file-text" class="h-4 w-4"></i></span><div class="min-w-0 flex-1"><div class="h-2 w-20 rounded-full bg-slate-200"></div><div class="mt-1.5 h-1.5 w-14 rounded-full bg-slate-100"></div></div></div>
+              </div>
+            </div>
+          </div></div>
+          <div class="flex items-start justify-between gap-5"><div><h3 class="text-base font-medium text-[#0A0F2E]">Voice-first notes</h3><p class="mt-3 max-w-[260px] text-sm leading-6 text-slate-500">Talk to the patient as usual. The note grows out of the conversation.</p></div><span class="mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-slate-50 text-slate-400 transition group-hover:bg-blue-700 group-hover:text-white"><i data-lucide="arrow-right" class="h-4 w-4"></i></span></div>
+        </article>
+        <!-- Card 2 -->
+        <article class="group border-b border-slate-200/80 p-10 transition-colors duration-300 hover:bg-slate-50/60 xl:border-b-0 xl:border-r">
+          <div class="mb-9"><div class="relative h-[180px] overflow-hidden rounded-[34px] border border-[#0A0F2E]/10 bg-[#0A0F2E] p-4 shadow-[0_28px_70px_rgba(10,15,46,0.22)] transition-all duration-500 group-hover:-translate-y-1">
+            <div class="absolute -left-14 -top-14 h-36 w-36 rounded-full bg-blue-400/35 blur-3xl"></div>
+            <div class="relative z-10 flex h-full flex-col justify-between rounded-[26px] border border-white/10 bg-white/[0.08] p-4 backdrop-blur-xl">
+              <div class="flex items-center justify-between"><div class="flex items-center gap-2"><span class="h-2.5 w-2.5 rounded-full bg-cyan-300"></span><span class="h-2.5 w-14 rounded-full bg-white/25"></span></div><span class="rounded-full border border-white/15 bg-white/10 px-2.5 py-1 text-[10px] font-medium text-white/70">Draft</span></div>
+              <div class="mt-4 flex items-center gap-4"><div class="flex h-16 w-14 shrink-0 items-center justify-center rounded-[24px] bg-white text-blue-700 shadow-lg anim-pulse"><i data-lucide="shield-check" class="h-6 w-6"></i></div><div class="flex-1 space-y-2.5 px-2"><div class="h-2 w-full rounded-full bg-white/20"></div><div class="h-2 w-4/5 rounded-full bg-white/10"></div><div class="h-2 w-2/3 rounded-full bg-cyan-300/40"></div></div></div>
+            </div>
+          </div></div>
+          <div class="flex items-start justify-between gap-5"><div><h3 class="text-base font-medium text-[#0A0F2E]">Doctor in control</h3><p class="mt-3 max-w-[260px] text-sm leading-6 text-slate-500">Every note is a draft until the clinician reviews and approves it.</p></div><span class="mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-slate-50 text-slate-400 transition group-hover:bg-blue-700 group-hover:text-white"><i data-lucide="arrow-right" class="h-4 w-4"></i></span></div>
+        </article>
+        <!-- Card 3 -->
+        <article class="group border-b border-slate-200/80 p-10 transition-colors duration-300 hover:bg-slate-50/60 xl:border-b-0 xl:border-r">
+          <div class="mb-9"><div class="relative h-[180px] overflow-hidden rounded-[34px] border border-slate-200/80 bg-white p-4 shadow-[0_26px_70px_rgba(15,23,42,0.10)] transition-all duration-500 group-hover:-translate-y-1">
+            <div class="absolute -right-12 -bottom-12 h-36 w-36 rounded-full bg-blue-200/60 blur-3xl"></div>
+            <div class="relative z-10 flex h-full flex-col justify-between rounded-[26px] border border-slate-200/70 bg-white/85 p-4 backdrop-blur-xl">
+              <div class="flex items-center justify-between"><div><div class="h-2.5 w-24 rounded-full bg-slate-200"></div><div class="mt-2 h-2 w-16 rounded-full bg-slate-100"></div></div><div class="rounded-2xl border border-slate-200/80 bg-white px-3 py-2 shadow-sm anim-float"><div class="text-[10px] font-medium uppercase tracking-wide text-slate-400">Score</div><div class="mt-0.5 text-sm font-semibold text-blue-700">87</div></div></div>
+              <div class="mt-4 flex flex-1 items-end gap-2.5 rounded-[22px] bg-gradient-to-b from-transparent to-slate-50/90 px-3 pb-3">
+                <span class="h-12 flex-1 rounded-t-xl bg-blue-100 anim-bar-1"></span><span class="h-20 flex-1 rounded-t-xl bg-blue-600 anim-bar-2"></span><span class="h-14 flex-1 rounded-t-xl bg-cyan-200 anim-bar-3"></span><span class="h-24 flex-1 rounded-t-xl bg-[#0A0F2E] anim-bar-4"></span><span class="h-16 flex-1 rounded-t-xl bg-blue-200 anim-bar-5"></span>
+              </div>
+            </div>
+          </div></div>
+          <div class="flex items-start justify-between gap-5"><div><h3 class="text-base font-medium text-[#0A0F2E]">Avris Score</h3><p class="mt-3 max-w-[260px] text-sm leading-6 text-slate-500">A 0–100 condition index that highlights who to see first.</p></div><span class="mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-slate-50 text-slate-400 transition group-hover:bg-blue-700 group-hover:text-white"><i data-lucide="arrow-right" class="h-4 w-4"></i></span></div>
+        </article>
+        <!-- Card 4 -->
+        <article class="group p-10 transition-colors duration-300 hover:bg-slate-50/60">
+          <div class="mb-9"><div class="relative h-[180px] overflow-hidden rounded-[34px] border border-slate-200/80 bg-gradient-to-br from-blue-50 via-white to-cyan-50/70 p-4 shadow-[0_26px_70px_rgba(15,23,42,0.10)] transition-all duration-500 group-hover:-translate-y-1">
+            <div class="absolute -bottom-12 -right-12 h-36 w-36 rounded-full bg-cyan-200/60 blur-3xl"></div>
+            <div class="relative z-10 grid h-full grid-cols-2 gap-3 rounded-[26px] border border-white/80 bg-white/70 p-3 backdrop-blur-xl">
+              <div class="flex items-center justify-center rounded-[22px] border border-slate-200/70 bg-white shadow-sm anim-float"><span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-700 text-white"><i data-lucide="stethoscope" class="h-5 w-5"></i></span></div>
+              <div class="flex items-center justify-center rounded-[22px] border border-slate-200/70 bg-white shadow-sm anim-float-2"><span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-cyan-100 text-blue-700"><i data-lucide="languages" class="h-5 w-5"></i></span></div>
+              <div class="flex items-center justify-center rounded-[22px] border border-slate-200/70 bg-white shadow-sm anim-float-2"><span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-100 text-blue-700"><i data-lucide="monitor" class="h-5 w-5"></i></span></div>
+              <div class="flex items-center justify-center rounded-[22px] border border-slate-200/70 bg-white shadow-sm anim-float"><span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#0A0F2E] text-white"><i data-lucide="hospital" class="h-5 w-5"></i></span></div>
+            </div>
+          </div></div>
+          <div class="flex items-start justify-between gap-5"><div><h3 class="text-base font-medium text-[#0A0F2E]">Fits your clinic</h3><p class="mt-3 max-w-[260px] text-sm leading-6 text-slate-500">Russian & Tajik from day one. Runs in the browser — no installs.</p></div><span class="mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-slate-50 text-slate-400 transition group-hover:bg-blue-700 group-hover:text-white"><i data-lucide="arrow-right" class="h-4 w-4"></i></span></div>
+        </article>
+      </div>
+
+      <div class="grid items-center gap-8 border-b border-slate-200/80 bg-[radial-gradient(circle_at_2px_2px,rgba(148,163,184,0.35)_1px,transparent_0)] bg-[length:56px_56px] px-6 py-16 md:grid-cols-[1fr_1.15fr_auto] lg:px-16 lg:py-20">
+        <h3 class="text-3xl font-semibold leading-[1.05] tracking-tight text-slate-950 sm:text-4xl">One assistant.<br><span class="text-blue-700">Every visit.</span></h3>
+        <p class="max-w-[460px] text-sm leading-6 text-slate-500">Give doctors their time back. AvrisAI turns each consultation into a clean, signed clinical note without adding a single form.</p>
+        <a href="#access" class="group inline-flex h-14 w-full items-center justify-center overflow-hidden rounded-[18px] bg-gradient-to-br from-[#6E86E0] via-[#4659B5] to-[#3A4AA0] pl-7 pr-3 text-[16px] font-semibold tracking-[-0.02em] text-white shadow-[0_18px_38px_rgba(70,89,181,0.28)] transition-all duration-300 hover:-translate-y-0.5 sm:w-auto"><span class="relative z-10 whitespace-nowrap">Get early access</span><span class="relative z-10 ml-4 inline-flex h-11 w-11 items-center justify-center rounded-[14px] border border-white/15 bg-white/15 backdrop-blur-md transition group-hover:translate-x-0.5"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section id="how" class="relative overflow-hidden bg-white">
+  <div class="relative mx-auto w-full max-w-[1600px] px-4 sm:px-9 lg:px-16">
+    <div class="pointer-events-none absolute left-6 top-0 hidden h-full w-px bg-slate-200/80 sm:left-9 md:block lg:left-16"></div>
+    <div class="pointer-events-none absolute right-6 top-0 hidden h-full w-px bg-slate-200/80 sm:right-9 md:block lg:right-16"></div>
+    <div class="relative border-y border-slate-200/80">
+      <div class="grid gap-8 px-0 py-20 md:grid-cols-[0.9fr_1fr] md:items-end lg:px-12 lg:py-24">
+        <div>
+          <div class="mb-6 inline-flex items-center gap-2.5 text-xs font-semibold uppercase tracking-[0.1em] text-blue-700"><i data-lucide="sparkles" class="h-4 w-4"></i>How it works</div>
+          <h2 class="max-w-[620px] text-4xl font-semibold leading-[1.04] tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">From conversation to clinical note, <span class="text-blue-700">automatically.</span></h2>
+        </div>
+        <p class="max-w-[460px] text-base leading-7 text-slate-500 md:justify-self-end">No forms during the visit. AvrisAI listens, structures the note in SOAP format, and hands it back to the doctor to review and sign.</p>
+      </div>
+
+      <div class="grid border-t border-slate-200/80 lg:grid-cols-3">
+        <article class="group relative min-h-[420px] border-b border-slate-200/80 p-10 transition hover:bg-slate-50/60 lg:border-b-0 lg:border-r lg:p-14">
+          <div class="flex items-center justify-between"><span class="text-sm font-medium text-slate-400">01</span><span class="rounded-full bg-slate-50 px-3 py-1 text-xs font-medium text-slate-500 ring-1 ring-slate-200">Listen</span></div>
+          <div class="mt-12 flex h-44 items-center justify-center">
+            <div class="w-full max-w-[250px] rounded-2xl border border-slate-200 bg-white p-5 shadow-[0_22px_55px_rgba(15,23,42,0.08)]">
+              <div class="mb-4 flex items-center gap-2 text-xs font-semibold text-slate-800"><i data-lucide="mic" class="h-4 w-4 text-blue-700"></i>Recording · 00:34</div>
+              <div class="flex items-end gap-1.5 h-12">
+                <span class="w-2 rounded bg-blue-200 anim-bar-1" style="height:40%"></span><span class="w-2 rounded bg-blue-600 anim-bar-2" style="height:80%"></span><span class="w-2 rounded bg-blue-300 anim-bar-3" style="height:55%"></span><span class="w-2 rounded bg-blue-700 anim-bar-4" style="height:95%"></span><span class="w-2 rounded bg-cyan-200 anim-bar-5" style="height:60%"></span><span class="w-2 rounded bg-blue-200 anim-bar-1" style="height:45%"></span><span class="w-2 rounded bg-blue-500 anim-bar-2" style="height:75%"></span><span class="w-2 rounded bg-blue-300 anim-bar-3" style="height:50%"></span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-10"><h3 class="text-2xl font-semibold leading-tight tracking-tight text-slate-950">The doctor just talks.</h3><p class="mt-4 max-w-[360px] text-sm leading-6 text-slate-500">Hit record and run the visit as usual, in Russian or Tajik. No forms, no computer between you and the patient.</p></div>
+        </article>
+        <article class="group relative min-h-[420px] overflow-hidden border-b border-slate-200/80 bg-[radial-gradient(circle_at_50%_20%,rgba(149,174,248,0.55),transparent_32%),linear-gradient(180deg,#4659B5_0%,#0A0F2E_100%)] p-10 text-white shadow-[0_24px_70px_rgba(70,89,181,0.22)] lg:border-b-0 lg:border-r lg:p-14">
+          <div class="relative flex items-center justify-between"><span class="text-sm font-medium text-blue-100">02</span><span class="rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-blue-50 ring-1 ring-white/15">Structure</span></div>
+          <div class="relative mt-12 flex h-44 items-center justify-center">
+            <div class="flex items-center gap-5">
+              <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-blue-700 shadow-[0_0_38px_rgba(149,174,248,0.75)]"><i data-lucide="sparkles" class="h-6 w-6"></i></div>
+              <div class="w-[190px] rounded-2xl border border-blue-300/40 bg-white/10 p-5 backdrop-blur"><p class="text-xs text-blue-100">SOAP note</p><p class="mt-2 text-sm font-semibold text-emerald-200">● Structured</p><p class="mt-4 text-xs text-blue-100">Diagnosis</p><p class="text-lg font-semibold tracking-tight">Angina · I20.8</p></div>
+            </div>
+          </div>
+          <div class="relative mt-10"><h3 class="text-2xl font-semibold leading-tight tracking-tight">AI writes the note.</h3><p class="mt-4 max-w-[360px] text-sm leading-6 text-blue-100">Claude structures complaints, status, an ICD-10 diagnosis and a plan — every line tied to the doctor's words.</p></div>
+        </article>
+        <article class="group relative min-h-[420px] p-10 transition hover:bg-slate-50/60 lg:p-14">
+          <div class="flex items-center justify-between"><span class="text-sm font-medium text-slate-400">03</span><span class="rounded-full bg-slate-50 px-3 py-1 text-xs font-medium text-slate-500 ring-1 ring-slate-200">Sign</span></div>
+          <div class="mt-12 flex h-44 items-center justify-center">
+            <div class="w-full max-w-[250px] rounded-2xl border border-slate-200 bg-white p-5 shadow-[0_22px_55px_rgba(15,23,42,0.08)]">
+              <div class="mb-4 flex items-center justify-between text-xs font-semibold text-slate-800"><span>Ready to sign</span><span class="text-emerald-600">✓</span></div>
+              <div class="space-y-2 text-[11px] font-medium text-slate-500">
+                <p class="flex justify-between"><span>S · Subjective</span><span class="text-slate-700">done</span></p>
+                <p class="flex justify-between"><span>O · Objective</span><span class="text-slate-700">done</span></p>
+                <p class="flex justify-between"><span>A · Assessment</span><span class="text-slate-700">done</span></p>
+                <p class="flex justify-between"><span>P · Plan</span><span class="text-slate-700">done</span></p>
+              </div>
+              <div class="mt-4 h-9 rounded-xl bg-blue-700 text-white text-xs font-semibold flex items-center justify-center">Approve & sign</div>
+            </div>
+          </div>
+          <div class="mt-10"><h3 class="text-2xl font-semibold leading-tight tracking-tight text-slate-950">Review and sign.</h3><p class="mt-4 max-w-[360px] text-sm leading-6 text-slate-500">The doctor edits anything, then approves. Orders can leave for the lab by QR in the same flow.</p></div>
+        </article>
+      </div>
+
+      <div class="grid gap-6 border-t border-slate-200/80 px-0 py-16 md:grid-cols-[1fr_auto] md:items-center lg:px-12 lg:py-20">
+        <div><p class="text-3xl font-semibold leading-tight tracking-tight text-slate-950">From first word to signed note.</p><p class="mt-1 text-3xl font-semibold leading-tight tracking-tight text-slate-300">One assistant. Zero forms.</p></div>
+        <a href="#access" class="group inline-flex h-14 w-full items-center justify-center overflow-hidden rounded-[18px] bg-gradient-to-br from-[#6E86E0] via-[#4659B5] to-[#3A4AA0] pl-7 pr-3 text-[16px] font-semibold text-white shadow-[0_18px_38px_rgba(70,89,181,0.28)] transition-all duration-300 hover:-translate-y-0.5 sm:w-auto"><span class="relative z-10 whitespace-nowrap">Get early access</span><span class="relative z-10 ml-4 inline-flex h-11 w-11 items-center justify-center rounded-[14px] border border-white/15 bg-white/15 backdrop-blur-md transition group-hover:translate-x-0.5"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TEAM ============ -->
+<section id="team" class="relative overflow-hidden bg-white">
+  <div class="relative mx-auto w-full max-w-[1600px] px-4 sm:px-9 lg:px-16">
+    <div class="pointer-events-none absolute left-6 top-0 hidden h-full w-px bg-slate-200/80 sm:left-9 md:block lg:left-16"></div>
+    <div class="pointer-events-none absolute right-6 top-0 hidden h-full w-px bg-slate-200/80 sm:right-9 md:block lg:right-16"></div>
+    <div class="relative border-y border-slate-200/80">
+      <div class="grid gap-8 px-0 py-20 md:grid-cols-[0.9fr_1fr] md:items-end lg:px-12 lg:py-24">
+        <div>
+          <div class="mb-6 inline-flex items-center gap-2.5 text-xs font-semibold uppercase tracking-[0.1em] text-blue-700"><i data-lucide="users" class="h-4 w-4"></i>Team</div>
+          <h2 class="max-w-[620px] text-4xl font-semibold leading-[1.04] tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">A small, <span class="text-blue-700">elite team.</span></h2>
+        </div>
+        <p class="max-w-[460px] text-base leading-7 text-slate-500 md:justify-self-end">Hyperion Labs was founded by doctors and engineers from Central Asia. We keep the team small, senior, and close to the clinic.</p>
+      </div>
+      <div class="grid border-t border-slate-200/80 md:grid-cols-3">
+        <article class="group border-b border-slate-200/80 p-10 transition hover:bg-slate-50/60 md:border-b-0 md:border-r lg:p-14">
+          <div class="mb-8 flex items-center justify-between"><span class="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#6E86E0] to-[#4659B5] text-lg font-bold text-white">SN</span><span class="rounded-full border border-slate-200 px-3 py-1 text-xs font-medium text-slate-500">Founder</span></div>
+          <h3 class="text-xl font-semibold tracking-tight text-slate-950">Shahzod Narzulloev</h3>
+          <p class="mt-1 text-sm font-semibold text-blue-700">Founder &amp; CEO</p>
+          <p class="mt-4 text-sm leading-6 text-slate-500">Building world-class AI for emerging markets. A medical student turned entrepreneur.</p>
+        </article>
+        <article class="group border-b border-slate-200/80 p-10 transition hover:bg-slate-50/60 md:border-b-0 md:border-r lg:p-14">
+          <div class="mb-8 flex items-center justify-between"><span class="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#6E86E0] to-[#4659B5] text-lg font-bold text-white">SO</span><span class="rounded-full border border-slate-200 px-3 py-1 text-xs font-medium text-slate-500">Co-founder</span></div>
+          <h3 class="text-xl font-semibold tracking-tight text-slate-950">Shahzod Obidov</h3>
+          <p class="mt-1 text-sm font-semibold text-blue-700">Co-founder &amp; CFO</p>
+          <p class="mt-4 text-sm leading-6 text-slate-500">Finance, strategy and the operational discipline behind Hyperion Labs.</p>
+        </article>
+        <article class="group p-10 transition hover:bg-slate-50/60 lg:p-14">
+          <div class="mb-8 flex items-center justify-between"><span class="flex h-14 w-14 items-center justify-center rounded-2xl border-2 border-dashed border-blue-200 text-2xl font-light text-blue-700">+</span><span class="rounded-full border border-slate-200 px-3 py-1 text-xs font-medium text-slate-500">Open seat</span></div>
+          <h3 class="text-xl font-semibold tracking-tight text-slate-950">Open co-founder seat</h3>
+          <p class="mt-1 text-sm font-semibold text-blue-700">We're hiring</p>
+          <p class="mt-4 text-sm leading-6 text-slate-500">Looking for a strong co-founder to help build a world-class AI company.</p>
+          <a href="#access" class="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-blue-700">Join us <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq" class="relative overflow-hidden bg-white">
+  <div class="relative mx-auto w-full max-w-[1600px] px-4 sm:px-9 lg:px-16">
+    <div class="pointer-events-none absolute left-6 top-0 hidden h-full w-px bg-slate-200/80 sm:left-9 md:block lg:left-16"></div>
+    <div class="pointer-events-none absolute right-6 top-0 hidden h-full w-px bg-slate-200/80 sm:right-9 md:block lg:right-16"></div>
+    <div class="relative border-y border-slate-200/80 border-x">
+      <div class="grid border-b border-slate-200/80 lg:grid-cols-[1.35fr_1fr]">
+        <div class="px-8 pb-24 pt-20 sm:px-12 lg:px-16 lg:pb-32 lg:pt-28">
+          <div class="mb-7 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.14em] text-blue-700"><i data-lucide="help-circle" class="h-4 w-4"></i>FAQ</div>
+          <h2 class="max-w-4xl text-5xl font-semibold leading-[1.02] tracking-tight text-slate-950 sm:text-6xl lg:text-7xl">Frequently asked <span class="text-blue-700">questions.</span></h2>
+        </div>
+        <div class="flex items-center px-8 pb-20 sm:px-12 lg:px-16 lg:pb-0 lg:pt-28"><p class="max-w-xl text-lg leading-8 text-slate-500">Answers about what AvrisAI does, the languages it supports, how patient data is handled, and how a clinic can start.</p></div>
+      </div>
+      <div class="grid lg:grid-cols-[0.85fr_1.15fr]">
+        <aside class="border-b border-slate-200/80 px-8 py-16 sm:px-12 lg:border-b-0 lg:border-r lg:px-16 lg:py-20">
+          <div class="lg:sticky lg:top-24">
+            <div class="border border-slate-200 bg-slate-50/60 p-6">
+              <p class="text-sm font-semibold uppercase tracking-[0.12em] text-blue-700">Support</p>
+              <h3 class="mt-5 text-3xl font-semibold tracking-tight text-slate-950">Have another question?</h3>
+              <p class="mt-4 text-base leading-7 text-slate-500">Tell us about your clinic and your workflow. We onboard new clinics step by step.</p>
+              <a href="mailto:info@theavris.ai" class="group mt-8 inline-flex h-14 w-full items-center justify-center overflow-hidden rounded-[18px] bg-gradient-to-br from-[#6E86E0] via-[#4659B5] to-[#3A4AA0] pl-7 pr-3 text-[16px] font-semibold text-white shadow-[0_18px_38px_rgba(70,89,181,0.28)] transition-all duration-300 hover:-translate-y-0.5"><span class="relative z-10 whitespace-nowrap">Contact us</span><span class="relative z-10 ml-4 inline-flex h-11 w-11 items-center justify-center rounded-[14px] border border-white/15 bg-white/15 backdrop-blur-md transition group-hover:translate-x-0.5"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></span></a>
+            </div>
+            <div class="mt-6 grid grid-cols-2 border border-slate-200">
+              <div class="border-r border-slate-200 p-5"><p class="text-2xl font-semibold tracking-tight text-slate-950">3</p><p class="mt-1 text-sm leading-5 text-slate-500">Pilot cities</p></div>
+              <div class="p-5"><p class="text-2xl font-semibold tracking-tight text-slate-950">RU·TJ</p><p class="mt-1 text-sm leading-5 text-slate-500">Languages</p></div>
+            </div>
+          </div>
+        </aside>
+        <div class="px-8 py-16 sm:px-12 lg:px-16 lg:py-20">
+          <div class="divide-y divide-slate-200 border-y border-slate-200">
+            <details class="group py-6" open><summary class="flex cursor-pointer list-none items-start justify-between gap-8"><h3 class="mt-2 text-2xl font-semibold tracking-tight text-slate-950">What is AvrisAI?</h3><span class="mt-2 text-3xl font-light leading-none text-blue-700 transition group-open:rotate-45">+</span></summary><p class="mt-5 max-w-2xl text-base leading-7 text-slate-500">A voice AI assistant for doctors. It listens to the doctor–patient conversation and turns it into a structured clinical note in seconds. The doctor reviews and approves every note.</p></details>
+            <details class="group py-6"><summary class="flex cursor-pointer list-none items-start justify-between gap-8"><h3 class="mt-2 text-2xl font-semibold tracking-tight text-slate-950">Which languages does it support?</h3><span class="mt-2 text-3xl font-light leading-none text-blue-700 transition group-open:rotate-45">+</span></summary><p class="mt-5 max-w-2xl text-base leading-7 text-slate-500">Russian and English today. Tajik speech recognition is in active development — it's one of our core research directions.</p></details>
+            <details class="group py-6"><summary class="flex cursor-pointer list-none items-start justify-between gap-8"><h3 class="mt-2 text-2xl font-semibold tracking-tight text-slate-950">Is patient data safe?</h3><span class="mt-2 text-3xl font-light leading-none text-blue-700 transition group-open:rotate-45">+</span></summary><p class="mt-5 max-w-2xl text-base leading-7 text-slate-500">The doctor stays in control: every note is a draft until the clinician approves it, and recordings are used only to produce documentation. For deployment specifics and data-handling agreements, contact us.</p></details>
+            <details class="group py-6"><summary class="flex cursor-pointer list-none items-start justify-between gap-8"><h3 class="mt-2 text-2xl font-semibold tracking-tight text-slate-950">How can my clinic get access?</h3><span class="mt-2 text-3xl font-light leading-none text-blue-700 transition group-open:rotate-45">+</span></summary><p class="mt-5 max-w-2xl text-base leading-7 text-slate-500">Join the early access list below or write to info@theavris.ai. After a pilot across three cities in Tajikistan, we onboard new clinics step by step.</p></details>
+            <details class="group py-6"><summary class="flex cursor-pointer list-none items-start justify-between gap-8"><h3 class="mt-2 text-2xl font-semibold tracking-tight text-slate-950">Where does Hyperion Labs operate?</h3><span class="mt-2 text-3xl font-light leading-none text-blue-700 transition group-open:rotate-45">+</span></summary><p class="mt-5 max-w-2xl text-base leading-7 text-slate-500">We were founded in Dushanbe, Tajikistan, and build for all of Central Asia — from Dushanbe to Tashkent and Almaty.</p></details>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ACCESS CTA + FOOTER ============ -->
+<footer class="relative overflow-hidden bg-white">
+  <div class="relative mx-auto w-full max-w-[1600px] px-4 sm:px-9 lg:px-16 lg:pt-32 pt-24 pb-16">
+    <div class="pointer-events-none absolute left-6 top-0 hidden h-full w-px bg-slate-200/80 sm:left-9 md:block lg:left-16"></div>
+    <div class="pointer-events-none absolute right-6 top-0 hidden h-full w-px bg-slate-200/80 sm:right-9 md:block lg:right-16"></div>
+
+    <!-- Early access card -->
+    <div id="access" class="border border-slate-200 bg-white p-10 shadow-[0_12px_40px_rgba(15,23,42,0.03)] sm:p-16 lg:p-20 scroll-mt-24">
+      <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
+        <div>
+          <div class="mb-6 flex items-center gap-2.5 text-xs font-medium uppercase tracking-[0.12em] text-slate-500"><div class="grid grid-cols-2 gap-[2px]"><span class="h-1.5 w-1.5 bg-blue-700"></span><span class="h-1.5 w-1.5 bg-blue-700"></span><span class="h-1.5 w-1.5 bg-blue-700"></span><span class="h-1.5 w-1.5 bg-blue-700"></span></div>Ready when you are</div>
+          <h2 class="text-4xl font-medium leading-[1.05] tracking-tight text-slate-950 sm:text-5xl">Bring AvrisAI to your <span class="text-blue-700">clinic.</span></h2>
+          <p class="mt-6 text-lg leading-7 text-slate-500">Join the early access list. We open access in waves, and clinics on the list go first.</p>
+          <form id="accessForm" class="mt-8 flex flex-col gap-3 sm:flex-row">
+            <input type="email" id="accessEmail" name="email" required placeholder="doctor@clinic.tj" class="h-14 w-full border border-slate-200 bg-white px-5 text-base text-slate-700 shadow-sm outline-none transition placeholder:text-slate-400 focus:border-blue-600 focus:ring-4 focus:ring-blue-600/10 rounded-[14px]" />
+            <button type="submit" class="group inline-flex h-14 shrink-0 items-center justify-center gap-3 rounded-[14px] bg-gradient-to-br from-[#6E86E0] via-[#4659B5] to-[#3A4AA0] px-6 text-base font-semibold text-white shadow-[0_18px_38px_rgba(70,89,181,0.28)] transition hover:-translate-y-0.5">Get early access<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></button>
+          </form>
+          <p id="accessMsg" class="mt-3 text-sm font-medium text-blue-700" role="status" aria-live="polite"></p>
+          <div class="mt-8 flex flex-wrap items-center gap-4 text-sm font-normal text-slate-600">
+            <div class="flex items-center gap-2.5 border border-slate-200 bg-slate-50/50 px-4 py-2"><i data-lucide="shield" class="h-4 w-4 text-blue-700"></i>Doctor-approved notes</div>
+            <div class="flex items-center gap-2.5 border border-slate-200 bg-slate-50/50 px-4 py-2"><i data-lucide="monitor" class="h-4 w-4 text-blue-700"></i>Runs in the browser</div>
+            <div class="flex items-center gap-2.5 border border-slate-200 bg-slate-50/50 px-4 py-2"><i data-lucide="languages" class="h-4 w-4 text-blue-700"></i>RU &amp; TJ</div>
+          </div>
+        </div>
+        <!-- Orbit graphic -->
+        <div class="relative flex min-h-[360px] w-full items-center justify-center overflow-hidden bg-slate-50/10" style="perspective:1200px">
+          <style>
+            @keyframes orbit-spin{0%{transform:rotateX(65deg) rotateZ(0)}100%{transform:rotateX(65deg) rotateZ(360deg)}}
+            @keyframes orbit-spin-r{0%{transform:rotateX(65deg) rotateZ(360deg)}100%{transform:rotateX(65deg) rotateZ(0)}}
+            @keyframes pulse-aura{0%,100%{opacity:.3;filter:blur(24px);transform:scale(1)}50%{opacity:.7;filter:blur(32px);transform:scale(1.3)}}
+            @keyframes float-y{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+          </style>
+          <div class="pointer-events-none absolute -inset-[50%] opacity-40" style="background-image:radial-gradient(rgba(148,163,184,0.6) 1px,transparent 1px);background-size:24px 24px"></div>
+          <div class="absolute inset-0 flex items-center justify-center pointer-events-none" style="transform-style:preserve-3d">
+            <div class="absolute h-[320px] w-[320px] rounded-full border-[1.5px] border-dashed border-slate-300" style="animation:orbit-spin 24s linear infinite"></div>
+            <div class="absolute h-[180px] w-[180px] rounded-full border-[1.5px] border-dashed border-blue-300" style="animation:orbit-spin-r 16s linear infinite"></div>
+          </div>
+          <div class="relative z-10 flex h-[104px] w-[104px] items-center justify-center rounded-2xl bg-white/90 shadow-[0_0_40px_rgba(70,89,181,0.15)] ring-1 ring-slate-100 backdrop-blur-md" style="animation:float-y 5s ease-in-out infinite">
+            <div class="absolute -inset-8 rounded-full bg-blue-600/25" style="animation:pulse-aura 4s ease-in-out infinite;z-index:-1"></div>
+            <svg width="52" height="52" viewBox="0 0 64 64" aria-hidden="true"><path fill="url(#hg)" fill-rule="evenodd" d="M14 8 h10 v14 a8 8 0 0 0 8 8 a8 8 0 0 0 8 -8 v-14 h10 v48 h-10 v-14 a8 8 0 0 0 -8 -8 a8 8 0 0 0 -8 8 v14 h-10 z"/></svg>
+          </div>
+          <div class="absolute left-1/2 top-6 z-20 -translate-x-1/2"><div class="flex h-12 w-12 items-center justify-center rounded-xl border border-slate-100 bg-white/80 text-blue-700 shadow-lg backdrop-blur-sm" style="animation:float-y 4s ease-in-out infinite .5s"><i data-lucide="mic" class="h-5 w-5"></i></div></div>
+          <div class="absolute bottom-6 left-1/2 z-20 -translate-x-1/2"><div class="flex h-12 w-12 items-center justify-center rounded-xl border border-slate-100 bg-white/80 text-blue-700 shadow-lg backdrop-blur-sm" style="animation:float-y 4s ease-in-out infinite 1.5s"><i data-lucide="file-text" class="h-5 w-5"></i></div></div>
+          <div class="absolute left-6 top-1/2 z-20 -translate-y-1/2"><div class="flex h-12 w-12 items-center justify-center rounded-xl border border-slate-100 bg-white/80 text-blue-700 shadow-lg backdrop-blur-sm" style="animation:float-y 4s ease-in-out infinite 1s"><i data-lucide="stethoscope" class="h-5 w-5"></i></div></div>
+          <div class="absolute right-6 top-1/2 z-20 -translate-y-1/2"><div class="flex h-12 w-12 items-center justify-center rounded-xl border border-slate-100 bg-white/80 text-blue-700 shadow-lg backdrop-blur-sm" style="animation:float-y 4s ease-in-out infinite 2s"><i data-lucide="qr-code" class="h-5 w-5"></i></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer bento -->
+    <div class="mt-0 border-t border-slate-200/80">
+      <div class="overflow-hidden border border-slate-200/80 border-t-0 bg-gradient-to-br from-white via-slate-50 to-blue-50/40">
+        <div class="grid border-b border-slate-200/80 lg:grid-cols-[1.2fr_1.2fr]">
+          <div class="border-b border-slate-200/80 p-8 sm:p-10 lg:border-b-0 lg:border-r lg:p-12">
+            <div class="mb-8 flex items-center gap-3">
+              <svg width="30" height="30" viewBox="0 0 64 64" aria-hidden="true"><path fill="url(#hg)" fill-rule="evenodd" d="M14 8 h10 v14 a8 8 0 0 0 8 8 a8 8 0 0 0 8 -8 v-14 h10 v48 h-10 v-14 a8 8 0 0 0 -8 -8 a8 8 0 0 0 -8 8 v14 h-10 z"/></svg>
+              <span class="text-2xl font-semibold tracking-tight text-slate-950">Hyperion Labs</span>
+            </div>
+            <p class="mt-5 max-w-[380px] text-base leading-7 text-slate-500">An AI lab from Dushanbe. We build world-class products for Central Asia — starting with AvrisAI.</p>
+            <div class="mt-8 flex items-center gap-3">
+              <a href="https://instagram.com/hyperionlabs.ai" target="_blank" rel="noopener" aria-label="Instagram" class="flex h-11 w-11 items-center justify-center border border-slate-200 bg-white text-slate-500 shadow-sm transition hover:-translate-y-0.5 hover:text-blue-700"><i data-lucide="instagram" class="h-4 w-4"></i></a>
+              <a href="https://x.com/hyperionlabsai" target="_blank" rel="noopener" aria-label="X" class="flex h-11 w-11 items-center justify-center border border-slate-200 bg-white text-slate-500 shadow-sm transition hover:-translate-y-0.5 hover:text-blue-700"><i data-lucide="twitter" class="h-4 w-4"></i></a>
+              <a href="https://t.me/narzulloev0022" target="_blank" rel="noopener" aria-label="Telegram" class="flex h-11 w-11 items-center justify-center border border-slate-200 bg-white text-slate-500 shadow-sm transition hover:-translate-y-0.5 hover:text-blue-700"><i data-lucide="send" class="h-4 w-4"></i></a>
+            </div>
+          </div>
+          <div class="grid sm:grid-cols-2">
+            <div class="border-b border-slate-200/80 p-8 sm:border-r sm:p-10">
+              <h4 class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-950">Product</h4>
+              <ul class="mt-7 space-y-4 text-sm text-slate-500">
+                <li><a href="#product" class="transition hover:text-blue-700">AvrisAI</a></li>
+                <li><a href="#how" class="transition hover:text-blue-700">How it works</a></li>
+                <li><a href="https://theavris.ai/app" target="_blank" rel="noopener" class="transition hover:text-blue-700">Open the app</a></li>
+                <li><a href="#access" class="transition hover:text-blue-700">Early access</a></li>
+              </ul>
+            </div>
+            <div class="border-b border-slate-200/80 p-8 sm:p-10">
+              <h4 class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-950">Company</h4>
+              <ul class="mt-7 space-y-4 text-sm text-slate-500">
+                <li><a href="#team" class="transition hover:text-blue-700">Team</a></li>
+                <li><a href="#faq" class="transition hover:text-blue-700">FAQ</a></li>
+                <li><a href="mailto:info@theavris.ai" class="transition hover:text-blue-700">Contact</a></li>
+                <li><a href="https://github.com/narzulloev0022" target="_blank" rel="noopener" class="transition hover:text-blue-700">GitHub</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="grid border-b border-slate-200/80 lg:grid-cols-[1fr_1fr]">
+          <div class="border-b border-slate-200/80 px-8 py-10 sm:px-10 lg:border-b-0 lg:border-r lg:px-12 lg:py-14"><h2 class="text-[clamp(64px,12vw,190px)] font-black leading-[0.82] tracking-[-0.09em] text-slate-950">HYPERION</h2></div>
+          <div class="flex items-end px-8 py-10 sm:px-10 lg:px-12 lg:py-14"><p class="max-w-xl text-[clamp(30px,5vw,80px)] font-black leading-[0.88] tracking-[-0.08em] text-blue-700">AI FOR THE REGION</p></div>
+        </div>
+        <div class="flex flex-col gap-6 px-8 py-7 sm:px-10 lg:flex-row lg:items-center lg:justify-between lg:px-12">
+          <p class="text-sm text-slate-500">© 2026 Hyperion Labs. Dushanbe, Tajikistan.</p>
+          <div class="flex items-center gap-6 text-sm text-slate-500"><a href="mailto:info@theavris.ai" class="transition hover:text-blue-700">info@theavris.ai</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  lucide.createIcons({ attrs: { "stroke-width": 1.6 } });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Early-access form → Formspree
+    var form = document.getElementById("accessForm");
+    if (form) form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var email = document.getElementById("accessEmail").value.trim();
+      var msg = document.getElementById("accessMsg");
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { msg.textContent = "Please check the email address."; msg.style.color = "#b45309"; return; }
+      msg.textContent = "Sending…"; msg.style.color = "";
+      fetch("https://formspree.io/f/xojyojva", { method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json" }, body: JSON.stringify({ email: email, _subject: "Hyperion Labs — early access" }) })
+        .then(function (r) { if (!r.ok) throw new Error(); msg.textContent = "Thanks — we'll be in touch."; msg.style.color = "#4659B5"; form.reset(); })
+        .catch(function () { msg.textContent = "Couldn't send. Try again or email info@theavris.ai."; msg.style.color = "#b45309"; });
+    });
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || typeof gsap === "undefined") return;
+    gsap.registerPlugin(ScrollTrigger);
+
+    function wrapWords(node) {
+      if (node.nodeName === "SCRIPT" || node.nodeName === "STYLE" || (node.classList && node.classList.contains("gsap-reveal-word"))) return;
+      if (node.nodeType === Node.TEXT_NODE) {
+        var text = node.textContent; if (!text.trim()) return;
+        var words = text.split(/(\s+)/), frag = document.createDocumentFragment();
+        words.forEach(function (w) {
+          if (w.trim()) {
+            var outer = document.createElement("span"); outer.style.display = "inline-block"; outer.style.overflow = "hidden"; outer.style.verticalAlign = "bottom";
+            var inner = document.createElement("span"); inner.style.display = "inline-block"; inner.className = "gsap-reveal-word"; inner.textContent = w; inner.style.willChange = "transform,opacity,filter";
+            outer.appendChild(inner); frag.appendChild(outer);
+          } else { frag.appendChild(document.createTextNode(w)); }
+        });
+        node.parentNode.replaceChild(frag, node);
+      } else if (node.nodeType === Node.ELEMENT_NODE) { Array.from(node.childNodes).forEach(wrapWords); }
+    }
+
+    document.querySelectorAll("h1, h2").forEach(function (h) {
+      wrapWords(h);
+      var words = h.querySelectorAll(".gsap-reveal-word"); if (!words.length) return;
+      gsap.fromTo(words, { y: "115%", opacity: 0, filter: "blur(10px)" }, { y: "0%", opacity: 1, filter: "blur(0px)", duration: 1.2, stagger: 0.04, ease: "power3.out", scrollTrigger: { trigger: h, start: "top 88%", toggleActions: "play none none none" } });
+    });
+
+    document.querySelectorAll("p, article, .group, h3, h4, details").forEach(function (el) {
+      if (el.closest("header") || el.closest("nav")) return;
+      gsap.fromTo(el, { y: 40, opacity: 0, filter: "blur(8px)" }, { y: 0, opacity: 1, filter: "blur(0px)", duration: 1, ease: "power2.out", scrollTrigger: { trigger: el, start: "top 88%", toggleActions: "play none none none" } });
+    });
+  });
+</script>
+</body>
 </html>
