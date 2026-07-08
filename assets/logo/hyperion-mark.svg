@@ -1,22 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
-  <title id="title">Hyperion Labs mark</title>
-  <desc id="desc">A periwinkle H monogram — two pillars pinched by an hourglass of light.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="t d">
+  <title id="t">Hyperion Labs</title>
+  <desc id="d">A periwinkle H monogram with an hourglass waist.</desc>
   <defs>
-    <linearGradient id="hyperionGradient" x1="12" y1="8" x2="52" y2="56" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#C5D0FB"/>
-      <stop offset=".45" stop-color="#95AEF8"/>
-      <stop offset="1" stop-color="#6E86E0"/>
+    <linearGradient id="hypG" x1="14" y1="8" x2="50" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#C5D0FB"/><stop offset=".5" stop-color="#95AEF8"/><stop offset="1" stop-color="#4659B5"/>
     </linearGradient>
-    <radialGradient id="hyperionGlow" cx="32" cy="32" r="15" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#FFFFFF"/>
-      <stop offset=".45" stop-color="#FFFFFF" stop-opacity=".85"/>
-      <stop offset="1" stop-color="#C5D6FF" stop-opacity="0"/>
-    </radialGradient>
   </defs>
-  <clipPath id="hyperionClip" clip-rule="evenodd">
-    <path fill-rule="evenodd" d="M13.2 8 H50.8 Q52 8 52 9.2 V54.8 Q52 56 50.8 56 H13.2 Q12 56 12 54.8 V9.2 Q12 8 13.2 8 Z M22 8 H42 V18.5 A10 10 0 0 1 33.25 28.42 L33.25 35.58 A10 10 0 0 1 42 45.5 V56 H22 V45.5 A10 10 0 0 1 30.75 35.58 L30.75 28.42 A10 10 0 0 1 22 18.5 Z"/>
-  </clipPath>
-  <path d="M22 8 H42 V18.5 A10 10 0 0 1 33.25 28.42 L33.25 35.58 A10 10 0 0 1 42 45.5 V56 H22 V45.5 A10 10 0 0 1 30.75 35.58 L30.75 28.42 A10 10 0 0 1 22 18.5 Z" fill="#080E18"/>
-  <path fill-rule="evenodd" fill="url(#hyperionGradient)" d="M13.2 8 H50.8 Q52 8 52 9.2 V54.8 Q52 56 50.8 56 H13.2 Q12 56 12 54.8 V9.2 Q12 8 13.2 8 Z M22 8 H42 V18.5 A10 10 0 0 1 33.25 28.42 L33.25 35.58 A10 10 0 0 1 42 45.5 V56 H22 V45.5 A10 10 0 0 1 30.75 35.58 L30.75 28.42 A10 10 0 0 1 22 18.5 Z"/>
-  <ellipse cx="32" cy="32" rx="18" ry="9" fill="url(#hyperionGlow)" clip-path="url(#hyperionClip)"/>
+  <path fill="url(#hypG)" fill-rule="evenodd" d="M14 8 h10 v14 a8 8 0 0 0 8 8 a8 8 0 0 0 8 -8 v-14 h10 v48 h-10 v-14 a8 8 0 0 0 -8 -8 a8 8 0 0 0 -8 8 v14 h-10 z"/>
 </svg>

@@ -1,20 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <defs>
-    <linearGradient id="h" x1="12" y1="8" x2="52" y2="56" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#C5D0FB"/>
-      <stop offset=".45" stop-color="#95AEF8"/>
-      <stop offset="1" stop-color="#6E86E0"/>
+    <linearGradient id="h" x1="14" y1="8" x2="50" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#C5D0FB"/><stop offset=".5" stop-color="#95AEF8"/><stop offset="1" stop-color="#4659B5"/>
     </linearGradient>
-    <radialGradient id="fg" cx="32" cy="32" r="16" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#FFFFFF"/>
-      <stop offset=".45" stop-color="#FFFFFF" stop-opacity=".85"/>
-      <stop offset="1" stop-color="#C5D6FF" stop-opacity="0"/>
-    </radialGradient>
   </defs>
-  <clipPath id="fc" clip-rule="evenodd">
-    <path fill-rule="evenodd" d="M15.4 10 H48.6 Q50 10 50 11.4 V52.6 Q50 54 48.6 54 H15.4 Q14 54 14 52.6 V11.4 Q14 10 15.4 10 Z M23 10 H41 V19.5 A9 9 0 0 1 34.5 28.16 L34.5 35.84 A9 9 0 0 1 41 44.5 V54 H23 V44.5 A9 9 0 0 1 29.5 35.84 L29.5 28.16 A9 9 0 0 1 23 19.5 Z"/>
-  </clipPath>
-  <rect width="64" height="64" rx="16" fill="#080E18"/>
-  <path fill-rule="evenodd" fill="url(#h)" d="M15.4 10 H48.6 Q50 10 50 11.4 V52.6 Q50 54 48.6 54 H15.4 Q14 54 14 52.6 V11.4 Q14 10 15.4 10 Z M23 10 H41 V19.5 A9 9 0 0 1 34.5 28.16 L34.5 35.84 A9 9 0 0 1 41 44.5 V54 H23 V44.5 A9 9 0 0 1 29.5 35.84 L29.5 28.16 A9 9 0 0 1 23 19.5 Z"/>
-  <ellipse cx="32" cy="32" rx="17" ry="9" fill="url(#fg)" clip-path="url(#fc)"/>
+  <rect width="64" height="64" rx="14" fill="#0A0F1E"/>
+  <path fill="url(#h)" fill-rule="evenodd" d="M17 12 h8 v12 a7 7 0 0 0 7 7 a7 7 0 0 0 7 -7 v-12 h8 v40 h-8 v-12 a7 7 0 0 0 -7 -7 a7 7 0 0 0 -7 7 v12 h-8 z"/>
 </svg>
