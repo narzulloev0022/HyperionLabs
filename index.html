@@ -44,24 +44,26 @@
   .anim-bar-3{animation:bar-a 3.5s ease-in-out infinite 1s;transform-origin:bottom}
   .anim-bar-4{animation:bar-b 4.5s ease-in-out infinite .2s;transform-origin:bottom}
   .anim-bar-5{animation:bar-a 4s ease-in-out infinite .8s;transform-origin:bottom}
+  /* dark preview ambiance */
+  body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(50vw 40vw at 12% -6%,rgba(110,134,224,.14),transparent 60%),radial-gradient(46vw 40vw at 96% 8%,rgba(106,75,255,.10),transparent 62%);}
 </style>
 </head>
-<body class="min-h-screen bg-white text-slate-950 antialiased">
+<body class="min-h-screen bg-[#080C18] text-[#EAF0FF] antialiased">
 <main class="overflow-hidden relative">
   <section class="relative z-10 mx-auto w-full max-w-[1600px] px-5 sm:px-9 lg:px-16">
-    <div class="pointer-events-none absolute left-5 top-0 hidden h-full w-px bg-slate-200/80 sm:left-9 md:block lg:left-16"></div>
-    <div class="pointer-events-none absolute right-5 top-0 hidden h-full w-px bg-slate-200/80 sm:right-9 md:block lg:right-16"></div>
+    <div class="pointer-events-none absolute left-5 top-0 hidden h-full w-px bg-white/10 sm:left-9 md:block lg:left-16"></div>
+    <div class="pointer-events-none absolute right-5 top-0 hidden h-full w-px bg-white/10 sm:right-9 md:block lg:right-16"></div>
 
     <!-- ============ HEADER ============ -->
-    <header class="flex items-center justify-between border-b border-slate-200/80 py-8 lg:px-16 px-4">
+    <header class="flex items-center justify-between border-b border-white/10 py-8 lg:px-16 px-4">
       <a href="#top" class="flex items-center gap-3" aria-label="Hyperion Labs homepage">
         <svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true" class="shrink-0">
           <defs><linearGradient id="hg" x1="14" y1="8" x2="50" y2="56" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#95AEF8"/><stop offset=".5" stop-color="#6E86E0"/><stop offset="1" stop-color="#4659B5"/></linearGradient></defs>
           <path fill="url(#hg)" fill-rule="evenodd" d="M14 8 h10 v14 a8 8 0 0 0 8 8 a8 8 0 0 0 8 -8 v-14 h10 v48 h-10 v-14 a8 8 0 0 0 -8 -8 a8 8 0 0 0 -8 8 v14 h-10 z"/>
         </svg>
-        <span class="text-2xl font-semibold tracking-[-0.03em] text-slate-950 sm:text-[1.65rem]">Hyperion<span class="text-blue-700"> Labs</span></span>
+        <span class="text-2xl font-semibold tracking-[-0.03em] text-[#EAF0FF] sm:text-[1.65rem]">Hyperion<span class="text-blue-700"> Labs</span></span>
       </a>
-      <nav class="hidden items-center gap-10 text-sm font-medium text-slate-950 xl:flex">
+      <nav class="hidden items-center gap-10 text-sm font-medium text-[#EAF0FF] xl:flex">
         <a href="#product" class="transition hover:text-blue-700">AvrisAI</a>
         <a href="#how" class="transition hover:text-blue-700">How it works</a>
         <a href="#stt" class="transition hover:text-blue-700">Hyperion STT</a>
@@ -71,21 +73,21 @@
       <div class="flex items-center gap-3">
         <a href="#access" class="group hidden sm:inline-flex h-12 items-center justify-center overflow-hidden rounded-[16px] bg-gradient-to-br from-[#6E86E0] via-[#4659B5] to-[#3A4AA0] pl-5 pr-2.5 text-[15px] font-semibold tracking-[-0.02em] text-white shadow-[0_18px_38px_rgba(70,89,181,0.28),inset_0_1px_0_rgba(255,255,255,0.32)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_22px_48px_rgba(70,89,181,0.36)] active:translate-y-0" aria-label="Get early access">
           <span class="relative z-10 whitespace-nowrap">Early access</span>
-          <span class="relative z-10 ml-3 inline-flex h-9 w-9 items-center justify-center rounded-[12px] border border-white/15 bg-white/15 backdrop-blur-md transition group-hover:translate-x-0.5">
+          <span class="relative z-10 ml-3 inline-flex h-9 w-9 items-center justify-center rounded-[12px] border border-white/15 bg-[#0b1224]/15 backdrop-blur-md transition group-hover:translate-x-0.5">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
           </span>
         </a>
-        <button id="menuBtn" class="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-950 shadow-sm xl:hidden" aria-label="Open menu" aria-expanded="false"><i data-lucide="menu" class="h-5 w-5"></i></button>
+        <button id="menuBtn" class="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-white/10 bg-[#080C18] text-[#EAF0FF] shadow-sm xl:hidden" aria-label="Open menu" aria-expanded="false"><i data-lucide="menu" class="h-5 w-5"></i></button>
       </div>
     </header>
     <!-- mobile menu -->
-    <div id="mobileMenu" class="hidden border-b border-slate-200/80 xl:hidden">
-      <nav class="flex flex-col gap-1 px-4 py-4 text-base font-medium text-slate-950">
-        <a href="#product" class="rounded-lg px-3 py-3 transition hover:bg-slate-50 hover:text-blue-700" data-mclose>AvrisAI</a>
-        <a href="#how" class="rounded-lg px-3 py-3 transition hover:bg-slate-50 hover:text-blue-700" data-mclose>How it works</a>
-        <a href="#stt" class="rounded-lg px-3 py-3 transition hover:bg-slate-50 hover:text-blue-700" data-mclose>Hyperion STT</a>
-        <a href="#team" class="rounded-lg px-3 py-3 transition hover:bg-slate-50 hover:text-blue-700" data-mclose>Team</a>
-        <a href="#faq" class="rounded-lg px-3 py-3 transition hover:bg-slate-50 hover:text-blue-700" data-mclose>FAQ</a>
+    <div id="mobileMenu" class="hidden border-b border-white/10 xl:hidden">
+      <nav class="flex flex-col gap-1 px-4 py-4 text-base font-medium text-[#EAF0FF]">
+        <a href="#product" class="rounded-lg px-3 py-3 transition hover:bg-white/[0.04] hover:text-blue-700" data-mclose>AvrisAI</a>
+        <a href="#how" class="rounded-lg px-3 py-3 transition hover:bg-white/[0.04] hover:text-blue-700" data-mclose>How it works</a>
+        <a href="#stt" class="rounded-lg px-3 py-3 transition hover:bg-white/[0.04] hover:text-blue-700" data-mclose>Hyperion STT</a>
+        <a href="#team" class="rounded-lg px-3 py-3 transition hover:bg-white/[0.04] hover:text-blue-700" data-mclose>Team</a>
+        <a href="#faq" class="rounded-lg px-3 py-3 transition hover:bg-white/[0.04] hover:text-blue-700" data-mclose>FAQ</a>
         <a href="#access" class="mt-2 rounded-xl bg-gradient-to-br from-[#6E86E0] via-[#4659B5] to-[#3A4AA0] px-3 py-3 text-center text-white" data-mclose>Get early access</a>
       </nav>
     </div>
@@ -94,23 +96,23 @@
     <div id="top" class="grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:px-16 lg:pt-24 lg:pb-28 pt-16 pb-20 px-4">
       <div class="max-w-3xl">
         <div class="mb-7 inline-flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.08em] text-blue-700">
-          <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-blue-50"><i data-lucide="sparkles" class="h-[18px] w-[18px]"></i></span>
+          <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-blue-500/15"><i data-lucide="sparkles" class="h-[18px] w-[18px]"></i></span>
           AI Lab · Central Asia
         </div>
-        <h1 class="max-w-[820px] text-[3.15rem] font-semibold leading-[1.03] tracking-[-0.055em] text-slate-950 sm:text-6xl lg:text-[4.5rem]">
+        <h1 class="max-w-[820px] text-[3.15rem] font-semibold leading-[1.03] tracking-[-0.055em] text-[#EAF0FF] sm:text-6xl lg:text-[4.5rem]">
           World-class AI for Central Asia, <span class="text-blue-700">from research to the clinic.</span>
         </h1>
-        <p class="mt-7 max-w-[600px] text-lg leading-8 text-slate-500 sm:text-xl">
+        <p class="mt-7 max-w-[600px] text-lg leading-8 text-[#8A97BE] sm:text-xl">
           Hyperion Labs is an independent AI lab from Dushanbe. Our first product, AvrisAI, listens to the visit and writes the clinical note — so doctors spend time on patients, not paperwork.
         </p>
         <div class="mt-9 flex flex-col gap-4 sm:flex-row sm:gap-5">
           <a href="#access" class="group inline-flex h-14 w-full items-center justify-center overflow-hidden rounded-[18px] bg-gradient-to-br from-[#6E86E0] via-[#4659B5] to-[#3A4AA0] pl-7 pr-3 text-[16px] font-semibold tracking-[-0.02em] text-white shadow-[0_18px_38px_rgba(70,89,181,0.28),inset_0_1px_0_rgba(255,255,255,0.32)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_22px_48px_rgba(70,89,181,0.36)] active:translate-y-0 sm:w-auto" aria-label="Get early access">
             <span class="relative z-10 whitespace-nowrap">Get early access</span>
-            <span class="relative z-10 ml-4 inline-flex h-11 w-11 items-center justify-center rounded-[14px] border border-white/15 bg-white/15 backdrop-blur-md transition group-hover:translate-x-0.5"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></span>
+            <span class="relative z-10 ml-4 inline-flex h-11 w-11 items-center justify-center rounded-[14px] border border-white/15 bg-[#0b1224]/15 backdrop-blur-md transition group-hover:translate-x-0.5"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></span>
           </a>
-          <a href="#product" class="group relative inline-flex h-14 w-full items-center justify-center overflow-hidden rounded-[18px] border border-[#d8e1f3] bg-gradient-to-b from-white to-[#f8fbff] pl-7 pr-3 text-[16px] font-semibold tracking-[-0.02em] text-[#0A0F2E] shadow-[0_14px_32px_rgba(15,23,42,0.07),inset_0_1px_0_rgba(255,255,255,0.9)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#b9c9ee] sm:w-auto" aria-label="Explore AvrisAI">
+          <a href="#product" class="group relative inline-flex h-14 w-full items-center justify-center overflow-hidden rounded-[18px] border border-white/12 bg-gradient-to-b from-[#141d34] to-[#0e1728] pl-7 pr-3 text-[16px] font-semibold tracking-[-0.02em] text-[#EAF0FF] shadow-[0_14px_32px_rgba(15,23,42,0.07),inset_0_1px_0_rgba(255,255,255,0.9)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#b9c9ee] sm:w-auto" aria-label="Explore AvrisAI">
             <span class="relative z-10 whitespace-nowrap">Explore AvrisAI</span>
-            <span class="relative z-10 ml-4 inline-flex h-11 w-11 items-center justify-center rounded-[14px] border border-[#dfe7f7] bg-white shadow-sm transition group-hover:scale-[1.03]"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-[#0A0F2E]"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="3"></rect><path d="M3 10h18"></path></svg></span>
+            <span class="relative z-10 ml-4 inline-flex h-11 w-11 items-center justify-center rounded-[14px] border border-white/12 bg-[#0b1224] shadow-sm transition group-hover:scale-[1.03]"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-[#EAF0FF]"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="3"></rect><path d="M3 10h18"></path></svg></span>
           </a>
         </div>
       </div>
@@ -118,20 +120,20 @@
       <!-- Dashboard mockup: AvrisAI clinical console -->
       <div class="relative mx-auto h-[620px] w-full max-w-[760px]">
         <div class="absolute right-[2%] top-[17%] h-[360px] w-[360px] rounded-full bg-blue-600/5 blur-3xl"></div>
-        <div class="dash-card absolute left-0 top-[8%] w-[88%] overflow-hidden rounded-[18px] border border-slate-200 bg-white/90 backdrop-blur-xl">
-          <div class="flex items-center justify-between border-b border-slate-200 px-5 py-4">
+        <div class="dash-card absolute left-0 top-[8%] w-[88%] overflow-hidden rounded-[18px] border border-white/10 bg-[#0e1730]/80 backdrop-blur-xl">
+          <div class="flex items-center justify-between border-b border-white/10 px-5 py-4">
             <div class="flex items-center gap-3">
-              <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-50 text-blue-700"><i data-lucide="mic" class="h-5 w-5"></i></span>
+              <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-500/15 text-blue-700"><i data-lucide="mic" class="h-5 w-5"></i></span>
               <div>
-                <p class="text-sm font-semibold text-[#0A0F2E]">AvrisAI clinical console</p>
-                <p class="text-xs font-medium text-slate-400">Visit · Cardiology</p>
+                <p class="text-sm font-semibold text-[#EAF0FF]">AvrisAI clinical console</p>
+                <p class="text-xs font-medium text-[#6E7DA6]">Visit · Cardiology</p>
               </div>
             </div>
-            <span class="rounded-full border border-emerald-100 bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-600">Recording</span>
+            <span class="rounded-full border border-emerald-500/25 bg-emerald-500/15 px-3 py-1 text-xs font-semibold text-emerald-300">Recording</span>
           </div>
           <div class="grid lg:grid-cols-[170px_1fr]">
-            <aside class="hidden border-r border-slate-200 bg-slate-50/60 p-4 lg:block">
-              <div class="space-y-2 text-xs font-semibold text-slate-500">
+            <aside class="hidden border-r border-white/10 bg-white/[0.04] p-4 lg:block">
+              <div class="space-y-2 text-xs font-semibold text-[#8A97BE]">
                 <button class="flex w-full items-center gap-2 rounded-lg border border-blue-200 px-3 py-2 text-blue-700"><i data-lucide="mic" class="h-4 w-4"></i>Listen</button>
                 <button class="flex w-full items-center gap-2 rounded-lg border border-transparent px-3 py-2"><i data-lucide="file-text" class="h-4 w-4"></i>SOAP note</button>
                 <button class="flex w-full items-center gap-2 rounded-lg border border-transparent px-3 py-2"><i data-lucide="qr-code" class="h-4 w-4"></i>Lab Connect</button>
@@ -140,34 +142,34 @@
             </aside>
             <div class="p-5 sm:p-6">
               <div class="grid gap-4 sm:grid-cols-3">
-                <div class="rounded-lg border border-slate-200 bg-white p-4"><p class="text-xs font-medium text-slate-400">Visits today</p><p class="mt-2 text-2xl font-semibold tracking-tight text-slate-950">34</p><p class="mt-1 text-xs font-semibold text-emerald-600">+12</p></div>
-                <div class="rounded-lg border border-slate-200 bg-white p-4"><p class="text-xs font-medium text-slate-400">Auto-structured</p><p class="mt-2 text-2xl font-semibold tracking-tight text-slate-950">96%</p><p class="mt-1 text-xs font-semibold text-blue-700">SOAP</p></div>
-                <div class="rounded-lg border border-slate-200 bg-white p-4"><p class="text-xs font-medium text-slate-400">Review time</p><p class="mt-2 text-2xl font-semibold tracking-tight text-slate-950">Low</p><p class="mt-1 text-xs font-semibold text-slate-500">~40s</p></div>
+                <div class="rounded-lg border border-white/10 bg-[#0b1224] p-4"><p class="text-xs font-medium text-[#6E7DA6]">Visits today</p><p class="mt-2 text-2xl font-semibold tracking-tight text-[#EAF0FF]">34</p><p class="mt-1 text-xs font-semibold text-emerald-300">+12</p></div>
+                <div class="rounded-lg border border-white/10 bg-[#0b1224] p-4"><p class="text-xs font-medium text-[#6E7DA6]">Auto-structured</p><p class="mt-2 text-2xl font-semibold tracking-tight text-[#EAF0FF]">96%</p><p class="mt-1 text-xs font-semibold text-blue-700">SOAP</p></div>
+                <div class="rounded-lg border border-white/10 bg-[#0b1224] p-4"><p class="text-xs font-medium text-[#6E7DA6]">Review time</p><p class="mt-2 text-2xl font-semibold tracking-tight text-[#EAF0FF]">Low</p><p class="mt-1 text-xs font-semibold text-[#8A97BE]">~40s</p></div>
               </div>
-              <div class="mt-5 rounded-lg border border-slate-200 bg-white p-4">
-                <div class="mb-4 flex items-center justify-between"><p class="text-sm font-semibold text-[#0A0F2E]">SOAP note</p><span class="text-xs font-semibold text-blue-700">Claude Sonnet</span></div>
+              <div class="mt-5 rounded-lg border border-white/10 bg-[#0b1224] p-4">
+                <div class="mb-4 flex items-center justify-between"><p class="text-sm font-semibold text-[#EAF0FF]">SOAP note</p><span class="text-xs font-semibold text-blue-700">Claude Sonnet</span></div>
                 <div class="space-y-3">
-                  <div class="flex items-center gap-3 rounded-lg bg-blue-50/70 px-3 py-3"><span class="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-700 text-white text-xs font-bold">S</span><div class="min-w-0 flex-1"><p class="text-sm font-semibold text-slate-800">Pressing chest pain on exertion, 7 days</p><p class="text-xs font-medium text-slate-500">from the doctor's own words</p></div></div>
-                  <div class="flex items-center gap-3 rounded-lg bg-slate-50 px-3 py-3"><span class="flex h-8 w-8 items-center justify-center rounded-lg bg-cyan-100 text-blue-700 text-xs font-bold">A</span><div class="min-w-0 flex-1"><p class="text-sm font-semibold text-slate-800">Exertional angina · I20.8</p><p class="text-xs font-medium text-slate-500">ICD-10 coded diagnosis</p></div></div>
+                  <div class="flex items-center gap-3 rounded-lg bg-blue-500/10 px-3 py-3"><span class="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-700 text-white text-xs font-bold">S</span><div class="min-w-0 flex-1"><p class="text-sm font-semibold text-[#D5DEF2]">Pressing chest pain on exertion, 7 days</p><p class="text-xs font-medium text-[#8A97BE]">from the doctor's own words</p></div></div>
+                  <div class="flex items-center gap-3 rounded-lg bg-white/[0.04] px-3 py-3"><span class="flex h-8 w-8 items-center justify-center rounded-lg bg-cyan-400/15 text-blue-700 text-xs font-bold">A</span><div class="min-w-0 flex-1"><p class="text-sm font-semibold text-[#D5DEF2]">Exertional angina · I20.8</p><p class="text-xs font-medium text-[#8A97BE]">ICD-10 coded diagnosis</p></div></div>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div class="brand-card absolute bottom-[11%] right-0 w-[360px] max-w-[72%] rounded-[18px] border border-blue-300/30 bg-[radial-gradient(circle_at_90%_20%,rgba(149,174,248,0.85),transparent_16%),linear-gradient(135deg,#4659B5_0%,#2A2F6B_56%,#3A4AA0_100%)] p-6 text-white">
-          <div class="flex items-center justify-between"><span class="inline-flex items-center gap-2 text-sm font-medium text-blue-50"><span class="flex h-4 w-4 items-center justify-center rounded-full bg-white text-blue-700"><i data-lucide="check" class="h-3 w-3"></i></span>Ready to sign</span><i data-lucide="file-check-2" class="h-8 w-8"></i></div>
+          <div class="flex items-center justify-between"><span class="inline-flex items-center gap-2 text-sm font-medium text-blue-50"><span class="flex h-4 w-4 items-center justify-center rounded-full bg-[#0b1224] text-blue-700"><i data-lucide="check" class="h-3 w-3"></i></span>Ready to sign</span><i data-lucide="file-check-2" class="h-8 w-8"></i></div>
           <p class="mt-6 text-3xl font-semibold tracking-[-0.03em]">SOAP note</p>
           <p class="mt-3 text-sm leading-6 text-blue-50">Structured from a normal conversation. The doctor reviews, edits, and signs.</p>
         </div>
-        <div class="soft-card absolute bottom-[4%] left-[8%] w-[250px] rounded-[16px] border border-slate-200 bg-white p-5">
-          <div class="flex items-center gap-2"><span class="flex h-4 w-4 items-center justify-center rounded-full bg-emerald-500 text-white"><i data-lucide="check" class="h-3 w-3"></i></span><p class="text-sm font-semibold text-[#0A0F2E]">Vitals captured</p></div>
+        <div class="soft-card absolute bottom-[4%] left-[8%] w-[250px] rounded-[16px] border border-white/10 bg-[#0b1224] p-5">
+          <div class="flex items-center gap-2"><span class="flex h-4 w-4 items-center justify-center rounded-full bg-emerald-500/150 text-white"><i data-lucide="check" class="h-3 w-3"></i></span><p class="text-sm font-semibold text-[#EAF0FF]">Vitals captured</p></div>
           <div class="mt-5 flex items-end gap-2">
-            <span class="w-5 rounded-t bg-blue-100 anim-bar-1" style="height:42px"></span>
-            <span class="w-5 rounded-t bg-blue-200 anim-bar-2" style="height:58px"></span>
-            <span class="w-5 rounded-t bg-blue-100 anim-bar-3" style="height:36px"></span>
+            <span class="w-5 rounded-t bg-blue-500/25 anim-bar-1" style="height:42px"></span>
+            <span class="w-5 rounded-t bg-blue-400/30 anim-bar-2" style="height:58px"></span>
+            <span class="w-5 rounded-t bg-blue-500/25 anim-bar-3" style="height:36px"></span>
             <span class="w-5 rounded-t bg-blue-700 anim-bar-4" style="height:76px"></span>
-            <span class="w-5 rounded-t bg-cyan-200 anim-bar-5" style="height:48px"></span>
-            <span class="w-5 rounded-t bg-blue-100 anim-bar-1" style="height:64px"></span>
+            <span class="w-5 rounded-t bg-cyan-400/30 anim-bar-5" style="height:48px"></span>
+            <span class="w-5 rounded-t bg-blue-500/25 anim-bar-1" style="height:64px"></span>
           </div>
         </div>
       </div>
@@ -175,29 +177,29 @@
 
     <!-- ============ 3 QUICK CARDS ============ -->
     <div id="product" class="grid gap-5 md:grid-cols-3 lg:px-16 lg:pt-14 lg:pb-20 pt-12 pb-16 px-4">
-      <div class="group flex items-center justify-between gap-6 rounded-[18px] border border-slate-200 bg-white/80 p-6 shadow-[0_12px_34px_rgba(15,23,42,0.035)] backdrop-blur transition hover:-translate-y-0.5 hover:border-slate-300">
-        <div class="flex min-w-0 items-center gap-5"><div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-blue-50 text-blue-700"><i data-lucide="audio-lines" class="h-6 w-6"></i></div><div><h3 class="text-base font-semibold text-[#0A0F2E]">Voice to SOAP</h3><p class="mt-2 max-w-[280px] text-sm leading-5 text-slate-500">Speech becomes a structured clinical note in seconds.</p></div></div>
-        <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-slate-50 text-slate-400 transition group-hover:bg-blue-700 group-hover:text-white"><i data-lucide="arrow-right" class="h-[18px] w-[18px]"></i></span>
+      <div class="group flex items-center justify-between gap-6 rounded-[18px] border border-white/10 bg-[#0e1730]/75 p-6 shadow-[0_12px_34px_rgba(15,23,42,0.035)] backdrop-blur transition hover:-translate-y-0.5 hover:border-slate-300">
+        <div class="flex min-w-0 items-center gap-5"><div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-blue-500/15 text-blue-700"><i data-lucide="audio-lines" class="h-6 w-6"></i></div><div><h3 class="text-base font-semibold text-[#EAF0FF]">Voice to SOAP</h3><p class="mt-2 max-w-[280px] text-sm leading-5 text-[#8A97BE]">Speech becomes a structured clinical note in seconds.</p></div></div>
+        <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/[0.04] text-[#6E7DA6] transition group-hover:bg-blue-700 group-hover:text-white"><i data-lucide="arrow-right" class="h-[18px] w-[18px]"></i></span>
       </div>
-      <div class="group flex items-center justify-between gap-6 rounded-[18px] border border-slate-200 bg-white/80 p-6 shadow-[0_12px_34px_rgba(15,23,42,0.035)] backdrop-blur transition hover:-translate-y-0.5 hover:border-slate-300">
-        <div class="flex min-w-0 items-center gap-5"><div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-blue-50 text-blue-700"><i data-lucide="qr-code" class="h-6 w-6"></i></div><div><h3 class="text-base font-semibold text-[#0A0F2E]">Lab Connect QR</h3><p class="mt-2 max-w-[280px] text-sm leading-5 text-slate-500">Lab orders as a QR code; results return to the chart.</p></div></div>
-        <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-slate-50 text-slate-400 transition group-hover:bg-blue-700 group-hover:text-white"><i data-lucide="arrow-right" class="h-[18px] w-[18px]"></i></span>
+      <div class="group flex items-center justify-between gap-6 rounded-[18px] border border-white/10 bg-[#0e1730]/75 p-6 shadow-[0_12px_34px_rgba(15,23,42,0.035)] backdrop-blur transition hover:-translate-y-0.5 hover:border-slate-300">
+        <div class="flex min-w-0 items-center gap-5"><div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-blue-500/15 text-blue-700"><i data-lucide="qr-code" class="h-6 w-6"></i></div><div><h3 class="text-base font-semibold text-[#EAF0FF]">Lab Connect QR</h3><p class="mt-2 max-w-[280px] text-sm leading-5 text-[#8A97BE]">Lab orders as a QR code; results return to the chart.</p></div></div>
+        <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/[0.04] text-[#6E7DA6] transition group-hover:bg-blue-700 group-hover:text-white"><i data-lucide="arrow-right" class="h-[18px] w-[18px]"></i></span>
       </div>
-      <div class="group flex items-center justify-between gap-6 rounded-[18px] border border-slate-200 bg-white/80 p-6 shadow-[0_12px_34px_rgba(15,23,42,0.035)] backdrop-blur transition hover:-translate-y-0.5 hover:border-slate-300">
-        <div class="flex min-w-0 items-center gap-5"><div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-blue-50 text-blue-700"><i data-lucide="link" class="h-6 w-6"></i></div><div><h3 class="text-base font-semibold text-[#0A0F2E]">Evidence Link</h3><p class="mt-2 max-w-[280px] text-sm leading-5 text-slate-500">Every line traces back to a phrase the doctor said.</p></div></div>
-        <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-slate-50 text-slate-400 transition group-hover:bg-blue-700 group-hover:text-white"><i data-lucide="arrow-right" class="h-[18px] w-[18px]"></i></span>
+      <div class="group flex items-center justify-between gap-6 rounded-[18px] border border-white/10 bg-[#0e1730]/75 p-6 shadow-[0_12px_34px_rgba(15,23,42,0.035)] backdrop-blur transition hover:-translate-y-0.5 hover:border-slate-300">
+        <div class="flex min-w-0 items-center gap-5"><div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-blue-500/15 text-blue-700"><i data-lucide="link" class="h-6 w-6"></i></div><div><h3 class="text-base font-semibold text-[#EAF0FF]">Evidence Link</h3><p class="mt-2 max-w-[280px] text-sm leading-5 text-[#8A97BE]">Every line traces back to a phrase the doctor said.</p></div></div>
+        <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/[0.04] text-[#6E7DA6] transition group-hover:bg-blue-700 group-hover:text-white"><i data-lucide="arrow-right" class="h-[18px] w-[18px]"></i></span>
       </div>
     </div>
 
     <!-- ============ MARQUEE ============ -->
-    <section class="border-t border-slate-200 bg-white px-4 py-16 lg:px-16">
-      <p class="text-center text-sm font-medium uppercase tracking-[0.12em] text-slate-400">Built on a modern AI stack</p>
+    <section class="border-t border-white/10 bg-[#0b1224] px-4 py-16 lg:px-16">
+      <p class="text-center text-sm font-medium uppercase tracking-[0.12em] text-[#6E7DA6]">Built on a modern AI stack</p>
       <div class="mt-8 overflow-hidden relative" style="-webkit-mask-image:linear-gradient(to right,transparent,black 10%,black 90%,transparent);mask-image:linear-gradient(to right,transparent,black 10%,black 90%,transparent)">
         <div class="flex w-[max-content] items-center" style="animation:marquee 34s linear infinite">
-          <div class="flex shrink-0 items-center gap-12 pr-12 text-lg font-semibold text-slate-300">
+          <div class="flex shrink-0 items-center gap-12 pr-12 text-lg font-semibold text-[#465178]">
             <span>Whisper STT</span><span>Claude Sonnet</span><span>SOAP</span><span>ICD-10</span><span>Русский</span><span>Тоҷикӣ</span><span>Lab Connect</span><span>Avris Score</span><span>Evidence Link</span><span>Night Rounds</span>
           </div>
-          <div class="flex shrink-0 items-center gap-12 pr-12 text-lg font-semibold text-slate-300" aria-hidden="true">
+          <div class="flex shrink-0 items-center gap-12 pr-12 text-lg font-semibold text-[#465178]" aria-hidden="true">
             <span>Whisper STT</span><span>Claude Sonnet</span><span>SOAP</span><span>ICD-10</span><span>Русский</span><span>Тоҷикӣ</span><span>Lab Connect</span><span>Avris Score</span><span>Evidence Link</span><span>Night Rounds</span>
           </div>
         </div>
@@ -207,168 +209,168 @@
 </main>
 
 <!-- ============ FEATURES ============ -->
-<section class="relative overflow-hidden bg-white">
+<section class="relative overflow-hidden bg-[#0b1224]">
   <div class="relative mx-auto w-full max-w-[1600px] px-4 sm:px-9 lg:px-16">
-    <div class="pointer-events-none absolute left-6 top-0 hidden h-full w-px bg-slate-200/80 sm:left-9 md:block lg:left-16"></div>
-    <div class="pointer-events-none absolute right-6 top-0 hidden h-full w-px bg-slate-200/80 sm:right-9 md:block lg:right-16"></div>
-    <div class="relative border-x border-slate-200/80">
-      <div class="grid gap-8 border-y border-slate-200/80 px-6 py-16 md:grid-cols-[1fr_0.72fr] md:items-end lg:px-16 lg:py-24">
+    <div class="pointer-events-none absolute left-6 top-0 hidden h-full w-px bg-white/10 sm:left-9 md:block lg:left-16"></div>
+    <div class="pointer-events-none absolute right-6 top-0 hidden h-full w-px bg-white/10 sm:right-9 md:block lg:right-16"></div>
+    <div class="relative border-x border-white/10">
+      <div class="grid gap-8 border-y border-white/10 px-6 py-16 md:grid-cols-[1fr_0.72fr] md:items-end lg:px-16 lg:py-24">
         <div>
           <div class="mb-6 inline-flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.04em] text-blue-700"><i data-lucide="sparkles" class="h-4 w-4"></i>Capabilities</div>
-          <h2 class="max-w-[640px] text-4xl font-semibold leading-[1.05] tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">Everything a clinic needs, <span class="text-blue-700">built for the shift.</span></h2>
+          <h2 class="max-w-[640px] text-4xl font-semibold leading-[1.05] tracking-tight text-[#EAF0FF] sm:text-5xl lg:text-6xl">Everything a clinic needs, <span class="text-blue-700">built for the shift.</span></h2>
         </div>
-        <p class="max-w-[430px] text-base leading-7 text-slate-500 md:justify-self-end">Not just dictation. AvrisAI covers the whole working day — from the morning clinic to night rounds — while the doctor stays in control.</p>
+        <p class="max-w-[430px] text-base leading-7 text-[#8A97BE] md:justify-self-end">Not just dictation. AvrisAI covers the whole working day — from the morning clinic to night rounds — while the doctor stays in control.</p>
       </div>
 
-      <div class="grid border-b border-slate-200/80 md:grid-cols-2 xl:grid-cols-4">
+      <div class="grid border-b border-white/10 md:grid-cols-2 xl:grid-cols-4">
         <!-- Card 1 -->
-        <article class="group border-b border-slate-200/80 p-10 transition-colors duration-300 hover:bg-slate-50/60 xl:border-b-0 xl:border-r">
-          <div class="mb-9"><div class="relative h-[180px] overflow-hidden rounded-[30px] border border-slate-200/80 bg-gradient-to-br from-white via-blue-50/80 to-cyan-50/70 p-3 shadow-[0_24px_60px_rgba(15,23,42,0.09)] transition-all duration-500 group-hover:-translate-y-1">
+        <article class="group border-b border-white/10 p-10 transition-colors duration-300 hover:bg-white/[0.04] xl:border-b-0 xl:border-r">
+          <div class="mb-9"><div class="relative h-[180px] overflow-hidden rounded-[30px] border border-white/10 bg-gradient-to-br from-[#141d34] via-[#101a30] to-[#0d1a2e] p-3 shadow-[0_24px_60px_rgba(15,23,42,0.09)] transition-all duration-500 group-hover:-translate-y-1">
             <div class="absolute -right-12 -top-12 h-32 w-32 rounded-full bg-blue-300/40 blur-3xl"></div>
-            <div class="relative z-10 flex h-full flex-col justify-between rounded-[24px] border border-white/80 bg-white/90 p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.95)] backdrop-blur-xl">
-              <div class="flex items-center justify-between"><div class="flex items-center gap-2"><span class="h-2.5 w-2.5 rounded-full bg-blue-600"></span><span class="h-2.5 w-12 rounded-full bg-slate-200"></span></div><span class="rounded-full border border-blue-100 bg-blue-50 px-2 py-0.5 text-[10px] font-medium text-blue-700">Live</span></div>
+            <div class="relative z-10 flex h-full flex-col justify-between rounded-[24px] border border-white/80 bg-[#0e1730]/80 p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.95)] backdrop-blur-xl">
+              <div class="flex items-center justify-between"><div class="flex items-center gap-2"><span class="h-2.5 w-2.5 rounded-full bg-blue-600"></span><span class="h-2.5 w-12 rounded-full bg-white/15"></span></div><span class="rounded-full border border-blue-400/25 bg-blue-500/15 px-2 py-0.5 text-[10px] font-medium text-blue-700">Live</span></div>
               <div class="mt-3 space-y-2">
-                <div class="flex items-center gap-2.5 rounded-[18px] border border-slate-200/70 bg-white p-2.5 transition-transform duration-500 group-hover:translate-x-1"><span class="flex h-8 w-8 items-center justify-center rounded-xl bg-blue-100 text-blue-700"><i data-lucide="mic" class="h-4 w-4"></i></span><div class="min-w-0 flex-1"><div class="h-2 w-24 rounded-full bg-slate-200"></div><div class="mt-1.5 h-1.5 w-16 rounded-full bg-slate-100"></div></div><span class="flex h-6 w-6 items-center justify-center rounded-full bg-blue-600 text-white anim-pulse"><i data-lucide="check" class="h-3 w-3"></i></span></div>
-                <div class="flex items-center gap-2.5 rounded-[18px] border border-slate-200/70 bg-white/85 p-2.5 transition-transform duration-500 group-hover:translate-x-2"><span class="flex h-8 w-8 items-center justify-center rounded-xl bg-cyan-100 text-blue-700"><i data-lucide="file-text" class="h-4 w-4"></i></span><div class="min-w-0 flex-1"><div class="h-2 w-20 rounded-full bg-slate-200"></div><div class="mt-1.5 h-1.5 w-14 rounded-full bg-slate-100"></div></div></div>
+                <div class="flex items-center gap-2.5 rounded-[18px] border border-white/10/70 bg-[#0b1224] p-2.5 transition-transform duration-500 group-hover:translate-x-1"><span class="flex h-8 w-8 items-center justify-center rounded-xl bg-blue-500/25 text-blue-700"><i data-lucide="mic" class="h-4 w-4"></i></span><div class="min-w-0 flex-1"><div class="h-2 w-24 rounded-full bg-white/15"></div><div class="mt-1.5 h-1.5 w-16 rounded-full bg-white/[0.08]"></div></div><span class="flex h-6 w-6 items-center justify-center rounded-full bg-blue-600 text-white anim-pulse"><i data-lucide="check" class="h-3 w-3"></i></span></div>
+                <div class="flex items-center gap-2.5 rounded-[18px] border border-white/10/70 bg-[#0e1730]/80 p-2.5 transition-transform duration-500 group-hover:translate-x-2"><span class="flex h-8 w-8 items-center justify-center rounded-xl bg-cyan-400/15 text-blue-700"><i data-lucide="file-text" class="h-4 w-4"></i></span><div class="min-w-0 flex-1"><div class="h-2 w-20 rounded-full bg-white/15"></div><div class="mt-1.5 h-1.5 w-14 rounded-full bg-white/[0.08]"></div></div></div>
               </div>
             </div>
           </div></div>
-          <div class="flex items-start justify-between gap-5"><div><h3 class="text-base font-medium text-[#0A0F2E]">Voice-first notes</h3><p class="mt-3 max-w-[260px] text-sm leading-6 text-slate-500">Talk to the patient as usual. The note grows out of the conversation.</p></div><span class="mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-slate-50 text-slate-400 transition group-hover:bg-blue-700 group-hover:text-white"><i data-lucide="arrow-right" class="h-4 w-4"></i></span></div>
+          <div class="flex items-start justify-between gap-5"><div><h3 class="text-base font-medium text-[#EAF0FF]">Voice-first notes</h3><p class="mt-3 max-w-[260px] text-sm leading-6 text-[#8A97BE]">Talk to the patient as usual. The note grows out of the conversation.</p></div><span class="mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/[0.04] text-[#6E7DA6] transition group-hover:bg-blue-700 group-hover:text-white"><i data-lucide="arrow-right" class="h-4 w-4"></i></span></div>
         </article>
         <!-- Card 2 -->
-        <article class="group border-b border-slate-200/80 p-10 transition-colors duration-300 hover:bg-slate-50/60 xl:border-b-0 xl:border-r">
+        <article class="group border-b border-white/10 p-10 transition-colors duration-300 hover:bg-white/[0.04] xl:border-b-0 xl:border-r">
           <div class="mb-9"><div class="relative h-[180px] overflow-hidden rounded-[34px] border border-[#0A0F2E]/10 bg-[#0A0F2E] p-4 shadow-[0_28px_70px_rgba(10,15,46,0.22)] transition-all duration-500 group-hover:-translate-y-1">
             <div class="absolute -left-14 -top-14 h-36 w-36 rounded-full bg-blue-400/35 blur-3xl"></div>
-            <div class="relative z-10 flex h-full flex-col justify-between rounded-[26px] border border-white/10 bg-white/[0.08] p-4 backdrop-blur-xl">
-              <div class="flex items-center justify-between"><div class="flex items-center gap-2"><span class="h-2.5 w-2.5 rounded-full bg-cyan-300"></span><span class="h-2.5 w-14 rounded-full bg-white/25"></span></div><span class="rounded-full border border-white/15 bg-white/10 px-2.5 py-1 text-[10px] font-medium text-white/70">Draft</span></div>
-              <div class="mt-4 flex items-center gap-4"><div class="flex h-16 w-14 shrink-0 items-center justify-center rounded-[24px] bg-white text-blue-700 shadow-lg anim-pulse"><i data-lucide="shield-check" class="h-6 w-6"></i></div><div class="flex-1 space-y-2.5 px-2"><div class="h-2 w-full rounded-full bg-white/20"></div><div class="h-2 w-4/5 rounded-full bg-white/10"></div><div class="h-2 w-2/3 rounded-full bg-cyan-300/40"></div></div></div>
+            <div class="relative z-10 flex h-full flex-col justify-between rounded-[26px] border border-white/10 bg-[#0b1224]/[0.08] p-4 backdrop-blur-xl">
+              <div class="flex items-center justify-between"><div class="flex items-center gap-2"><span class="h-2.5 w-2.5 rounded-full bg-cyan-300"></span><span class="h-2.5 w-14 rounded-full bg-[#0b1224]/25"></span></div><span class="rounded-full border border-white/15 bg-[#0b1224]/10 px-2.5 py-1 text-[10px] font-medium text-white/70">Draft</span></div>
+              <div class="mt-4 flex items-center gap-4"><div class="flex h-16 w-14 shrink-0 items-center justify-center rounded-[24px] bg-[#0b1224] text-blue-700 shadow-lg anim-pulse"><i data-lucide="shield-check" class="h-6 w-6"></i></div><div class="flex-1 space-y-2.5 px-2"><div class="h-2 w-full rounded-full bg-[#0b1224]/20"></div><div class="h-2 w-4/5 rounded-full bg-[#0b1224]/10"></div><div class="h-2 w-2/3 rounded-full bg-cyan-300/40"></div></div></div>
             </div>
           </div></div>
-          <div class="flex items-start justify-between gap-5"><div><h3 class="text-base font-medium text-[#0A0F2E]">Doctor in control</h3><p class="mt-3 max-w-[260px] text-sm leading-6 text-slate-500">Every note is a draft until the clinician reviews and approves it.</p></div><span class="mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-slate-50 text-slate-400 transition group-hover:bg-blue-700 group-hover:text-white"><i data-lucide="arrow-right" class="h-4 w-4"></i></span></div>
+          <div class="flex items-start justify-between gap-5"><div><h3 class="text-base font-medium text-[#EAF0FF]">Doctor in control</h3><p class="mt-3 max-w-[260px] text-sm leading-6 text-[#8A97BE]">Every note is a draft until the clinician reviews and approves it.</p></div><span class="mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/[0.04] text-[#6E7DA6] transition group-hover:bg-blue-700 group-hover:text-white"><i data-lucide="arrow-right" class="h-4 w-4"></i></span></div>
         </article>
         <!-- Card 3 -->
-        <article class="group border-b border-slate-200/80 p-10 transition-colors duration-300 hover:bg-slate-50/60 xl:border-b-0 xl:border-r">
-          <div class="mb-9"><div class="relative h-[180px] overflow-hidden rounded-[34px] border border-slate-200/80 bg-white p-4 shadow-[0_26px_70px_rgba(15,23,42,0.10)] transition-all duration-500 group-hover:-translate-y-1">
-            <div class="absolute -right-12 -bottom-12 h-36 w-36 rounded-full bg-blue-200/60 blur-3xl"></div>
-            <div class="relative z-10 flex h-full flex-col justify-between rounded-[26px] border border-slate-200/70 bg-white/85 p-4 backdrop-blur-xl">
-              <div class="flex items-center justify-between"><div><div class="h-2.5 w-24 rounded-full bg-slate-200"></div><div class="mt-2 h-2 w-16 rounded-full bg-slate-100"></div></div><div class="rounded-2xl border border-slate-200/80 bg-white px-3 py-2 shadow-sm anim-float"><div class="text-[10px] font-medium uppercase tracking-wide text-slate-400">Score</div><div class="mt-0.5 text-sm font-semibold text-blue-700">87</div></div></div>
-              <div class="mt-4 flex flex-1 items-end gap-2.5 rounded-[22px] bg-gradient-to-b from-transparent to-slate-50/90 px-3 pb-3">
-                <span class="h-12 flex-1 rounded-t-xl bg-blue-100 anim-bar-1"></span><span class="h-20 flex-1 rounded-t-xl bg-blue-600 anim-bar-2"></span><span class="h-14 flex-1 rounded-t-xl bg-cyan-200 anim-bar-3"></span><span class="h-24 flex-1 rounded-t-xl bg-[#0A0F2E] anim-bar-4"></span><span class="h-16 flex-1 rounded-t-xl bg-blue-200 anim-bar-5"></span>
+        <article class="group border-b border-white/10 p-10 transition-colors duration-300 hover:bg-white/[0.04] xl:border-b-0 xl:border-r">
+          <div class="mb-9"><div class="relative h-[180px] overflow-hidden rounded-[34px] border border-white/10 bg-[#0b1224] p-4 shadow-[0_26px_70px_rgba(15,23,42,0.10)] transition-all duration-500 group-hover:-translate-y-1">
+            <div class="absolute -right-12 -bottom-12 h-36 w-36 rounded-full bg-blue-400/30/60 blur-3xl"></div>
+            <div class="relative z-10 flex h-full flex-col justify-between rounded-[26px] border border-white/10/70 bg-[#0e1730]/80 p-4 backdrop-blur-xl">
+              <div class="flex items-center justify-between"><div><div class="h-2.5 w-24 rounded-full bg-white/15"></div><div class="mt-2 h-2 w-16 rounded-full bg-white/[0.08]"></div></div><div class="rounded-2xl border border-white/10 bg-[#0b1224] px-3 py-2 shadow-sm anim-float"><div class="text-[10px] font-medium uppercase tracking-wide text-[#6E7DA6]">Score</div><div class="mt-0.5 text-sm font-semibold text-blue-700">87</div></div></div>
+              <div class="mt-4 flex flex-1 items-end gap-2.5 rounded-[22px] bg-gradient-to-b from-transparent to-white/[0.04] px-3 pb-3">
+                <span class="h-12 flex-1 rounded-t-xl bg-blue-500/25 anim-bar-1"></span><span class="h-20 flex-1 rounded-t-xl bg-blue-600 anim-bar-2"></span><span class="h-14 flex-1 rounded-t-xl bg-cyan-400/30 anim-bar-3"></span><span class="h-24 flex-1 rounded-t-xl bg-[#0A0F2E] anim-bar-4"></span><span class="h-16 flex-1 rounded-t-xl bg-blue-400/30 anim-bar-5"></span>
               </div>
             </div>
           </div></div>
-          <div class="flex items-start justify-between gap-5"><div><h3 class="text-base font-medium text-[#0A0F2E]">Avris Score</h3><p class="mt-3 max-w-[260px] text-sm leading-6 text-slate-500">A 0–100 condition index that highlights who to see first.</p></div><span class="mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-slate-50 text-slate-400 transition group-hover:bg-blue-700 group-hover:text-white"><i data-lucide="arrow-right" class="h-4 w-4"></i></span></div>
+          <div class="flex items-start justify-between gap-5"><div><h3 class="text-base font-medium text-[#EAF0FF]">Avris Score</h3><p class="mt-3 max-w-[260px] text-sm leading-6 text-[#8A97BE]">A 0–100 condition index that highlights who to see first.</p></div><span class="mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/[0.04] text-[#6E7DA6] transition group-hover:bg-blue-700 group-hover:text-white"><i data-lucide="arrow-right" class="h-4 w-4"></i></span></div>
         </article>
         <!-- Card 4 -->
-        <article class="group p-10 transition-colors duration-300 hover:bg-slate-50/60">
-          <div class="mb-9"><div class="relative h-[180px] overflow-hidden rounded-[34px] border border-slate-200/80 bg-gradient-to-br from-blue-50 via-white to-cyan-50/70 p-4 shadow-[0_26px_70px_rgba(15,23,42,0.10)] transition-all duration-500 group-hover:-translate-y-1">
-            <div class="absolute -bottom-12 -right-12 h-36 w-36 rounded-full bg-cyan-200/60 blur-3xl"></div>
-            <div class="relative z-10 grid h-full grid-cols-2 gap-3 rounded-[26px] border border-white/80 bg-white/70 p-3 backdrop-blur-xl">
-              <div class="flex items-center justify-center rounded-[22px] border border-slate-200/70 bg-white shadow-sm anim-float"><span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-700 text-white"><i data-lucide="stethoscope" class="h-5 w-5"></i></span></div>
-              <div class="flex items-center justify-center rounded-[22px] border border-slate-200/70 bg-white shadow-sm anim-float-2"><span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-cyan-100 text-blue-700"><i data-lucide="languages" class="h-5 w-5"></i></span></div>
-              <div class="flex items-center justify-center rounded-[22px] border border-slate-200/70 bg-white shadow-sm anim-float-2"><span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-100 text-blue-700"><i data-lucide="monitor" class="h-5 w-5"></i></span></div>
-              <div class="flex items-center justify-center rounded-[22px] border border-slate-200/70 bg-white shadow-sm anim-float"><span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#0A0F2E] text-white"><i data-lucide="hospital" class="h-5 w-5"></i></span></div>
+        <article class="group p-10 transition-colors duration-300 hover:bg-white/[0.04]">
+          <div class="mb-9"><div class="relative h-[180px] overflow-hidden rounded-[34px] border border-white/10 bg-gradient-to-br from-[#131f3a] via-[#101a30] to-[#0d1a2e] p-4 shadow-[0_26px_70px_rgba(15,23,42,0.10)] transition-all duration-500 group-hover:-translate-y-1">
+            <div class="absolute -bottom-12 -right-12 h-36 w-36 rounded-full bg-cyan-400/30/60 blur-3xl"></div>
+            <div class="relative z-10 grid h-full grid-cols-2 gap-3 rounded-[26px] border border-white/80 bg-[#0e1730]/65 p-3 backdrop-blur-xl">
+              <div class="flex items-center justify-center rounded-[22px] border border-white/10/70 bg-[#0b1224] shadow-sm anim-float"><span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-700 text-white"><i data-lucide="stethoscope" class="h-5 w-5"></i></span></div>
+              <div class="flex items-center justify-center rounded-[22px] border border-white/10/70 bg-[#0b1224] shadow-sm anim-float-2"><span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-cyan-400/15 text-blue-700"><i data-lucide="languages" class="h-5 w-5"></i></span></div>
+              <div class="flex items-center justify-center rounded-[22px] border border-white/10/70 bg-[#0b1224] shadow-sm anim-float-2"><span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-500/25 text-blue-700"><i data-lucide="monitor" class="h-5 w-5"></i></span></div>
+              <div class="flex items-center justify-center rounded-[22px] border border-white/10/70 bg-[#0b1224] shadow-sm anim-float"><span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#0A0F2E] text-white"><i data-lucide="hospital" class="h-5 w-5"></i></span></div>
             </div>
           </div></div>
-          <div class="flex items-start justify-between gap-5"><div><h3 class="text-base font-medium text-[#0A0F2E]">Fits your clinic</h3><p class="mt-3 max-w-[260px] text-sm leading-6 text-slate-500">Russian & Tajik from day one. Runs in the browser — no installs.</p></div><span class="mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-slate-50 text-slate-400 transition group-hover:bg-blue-700 group-hover:text-white"><i data-lucide="arrow-right" class="h-4 w-4"></i></span></div>
+          <div class="flex items-start justify-between gap-5"><div><h3 class="text-base font-medium text-[#EAF0FF]">Fits your clinic</h3><p class="mt-3 max-w-[260px] text-sm leading-6 text-[#8A97BE]">Russian & Tajik from day one. Runs in the browser — no installs.</p></div><span class="mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/[0.04] text-[#6E7DA6] transition group-hover:bg-blue-700 group-hover:text-white"><i data-lucide="arrow-right" class="h-4 w-4"></i></span></div>
         </article>
       </div>
 
-      <div class="grid items-center gap-8 border-b border-slate-200/80 bg-[radial-gradient(circle_at_2px_2px,rgba(148,163,184,0.35)_1px,transparent_0)] bg-[length:56px_56px] px-6 py-16 md:grid-cols-[1fr_1.15fr_auto] lg:px-16 lg:py-20">
-        <h3 class="text-3xl font-semibold leading-[1.05] tracking-tight text-slate-950 sm:text-4xl">One assistant.<br><span class="text-blue-700">Every visit.</span></h3>
-        <p class="max-w-[460px] text-sm leading-6 text-slate-500">Give doctors their time back. AvrisAI turns each consultation into a clean, signed clinical note without adding a single form.</p>
-        <a href="#access" class="group inline-flex h-14 w-full items-center justify-center overflow-hidden rounded-[18px] bg-gradient-to-br from-[#6E86E0] via-[#4659B5] to-[#3A4AA0] pl-7 pr-3 text-[16px] font-semibold tracking-[-0.02em] text-white shadow-[0_18px_38px_rgba(70,89,181,0.28)] transition-all duration-300 hover:-translate-y-0.5 sm:w-auto"><span class="relative z-10 whitespace-nowrap">Get early access</span><span class="relative z-10 ml-4 inline-flex h-11 w-11 items-center justify-center rounded-[14px] border border-white/15 bg-white/15 backdrop-blur-md transition group-hover:translate-x-0.5"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></span></a>
+      <div class="grid items-center gap-8 border-b border-white/10 bg-[radial-gradient(circle_at_2px_2px,rgba(149,174,248,0.16)_1px,transparent_0)] bg-[length:56px_56px] px-6 py-16 md:grid-cols-[1fr_1.15fr_auto] lg:px-16 lg:py-20">
+        <h3 class="text-3xl font-semibold leading-[1.05] tracking-tight text-[#EAF0FF] sm:text-4xl">One assistant.<br><span class="text-blue-700">Every visit.</span></h3>
+        <p class="max-w-[460px] text-sm leading-6 text-[#8A97BE]">Give doctors their time back. AvrisAI turns each consultation into a clean, signed clinical note without adding a single form.</p>
+        <a href="#access" class="group inline-flex h-14 w-full items-center justify-center overflow-hidden rounded-[18px] bg-gradient-to-br from-[#6E86E0] via-[#4659B5] to-[#3A4AA0] pl-7 pr-3 text-[16px] font-semibold tracking-[-0.02em] text-white shadow-[0_18px_38px_rgba(70,89,181,0.28)] transition-all duration-300 hover:-translate-y-0.5 sm:w-auto"><span class="relative z-10 whitespace-nowrap">Get early access</span><span class="relative z-10 ml-4 inline-flex h-11 w-11 items-center justify-center rounded-[14px] border border-white/15 bg-[#0b1224]/15 backdrop-blur-md transition group-hover:translate-x-0.5"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></span></a>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============ HOW IT WORKS ============ -->
-<section id="how" class="relative overflow-hidden bg-white">
+<section id="how" class="relative overflow-hidden bg-[#0b1224]">
   <div class="relative mx-auto w-full max-w-[1600px] px-4 sm:px-9 lg:px-16">
-    <div class="pointer-events-none absolute left-6 top-0 hidden h-full w-px bg-slate-200/80 sm:left-9 md:block lg:left-16"></div>
-    <div class="pointer-events-none absolute right-6 top-0 hidden h-full w-px bg-slate-200/80 sm:right-9 md:block lg:right-16"></div>
-    <div class="relative border-y border-slate-200/80">
+    <div class="pointer-events-none absolute left-6 top-0 hidden h-full w-px bg-white/10 sm:left-9 md:block lg:left-16"></div>
+    <div class="pointer-events-none absolute right-6 top-0 hidden h-full w-px bg-white/10 sm:right-9 md:block lg:right-16"></div>
+    <div class="relative border-y border-white/10">
       <div class="grid gap-8 px-0 py-20 md:grid-cols-[0.9fr_1fr] md:items-end lg:px-12 lg:py-24">
         <div>
           <div class="mb-6 inline-flex items-center gap-2.5 text-xs font-semibold uppercase tracking-[0.1em] text-blue-700"><i data-lucide="sparkles" class="h-4 w-4"></i>How it works</div>
-          <h2 class="max-w-[620px] text-4xl font-semibold leading-[1.04] tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">From conversation to clinical note, <span class="text-blue-700">automatically.</span></h2>
+          <h2 class="max-w-[620px] text-4xl font-semibold leading-[1.04] tracking-tight text-[#EAF0FF] sm:text-5xl lg:text-6xl">From conversation to clinical note, <span class="text-blue-700">automatically.</span></h2>
         </div>
-        <p class="max-w-[460px] text-base leading-7 text-slate-500 md:justify-self-end">No forms during the visit. AvrisAI listens, structures the note in SOAP format, and hands it back to the doctor to review and sign.</p>
+        <p class="max-w-[460px] text-base leading-7 text-[#8A97BE] md:justify-self-end">No forms during the visit. AvrisAI listens, structures the note in SOAP format, and hands it back to the doctor to review and sign.</p>
       </div>
 
-      <div class="grid border-t border-slate-200/80 lg:grid-cols-3">
-        <article class="group relative min-h-[420px] border-b border-slate-200/80 p-10 transition hover:bg-slate-50/60 lg:border-b-0 lg:border-r lg:p-14">
-          <div class="flex items-center justify-between"><span class="text-sm font-medium text-slate-400">01</span><span class="rounded-full bg-slate-50 px-3 py-1 text-xs font-medium text-slate-500 ring-1 ring-slate-200">Listen</span></div>
+      <div class="grid border-t border-white/10 lg:grid-cols-3">
+        <article class="group relative min-h-[420px] border-b border-white/10 p-10 transition hover:bg-white/[0.04] lg:border-b-0 lg:border-r lg:p-14">
+          <div class="flex items-center justify-between"><span class="text-sm font-medium text-[#6E7DA6]">01</span><span class="rounded-full bg-white/[0.04] px-3 py-1 text-xs font-medium text-[#8A97BE] ring-1 ring-slate-200">Listen</span></div>
           <div class="mt-12 flex h-44 items-center justify-center">
-            <div class="w-full max-w-[250px] rounded-2xl border border-slate-200 bg-white p-5 shadow-[0_22px_55px_rgba(15,23,42,0.08)]">
-              <div class="mb-4 flex items-center gap-2 text-xs font-semibold text-slate-800"><i data-lucide="mic" class="h-4 w-4 text-blue-700"></i>Recording · 00:34</div>
+            <div class="w-full max-w-[250px] rounded-2xl border border-white/10 bg-[#0b1224] p-5 shadow-[0_22px_55px_rgba(15,23,42,0.08)]">
+              <div class="mb-4 flex items-center gap-2 text-xs font-semibold text-[#D5DEF2]"><i data-lucide="mic" class="h-4 w-4 text-blue-700"></i>Recording · 00:34</div>
               <div class="flex items-end gap-1.5 h-12">
-                <span class="w-2 rounded bg-blue-200 anim-bar-1" style="height:40%"></span><span class="w-2 rounded bg-blue-600 anim-bar-2" style="height:80%"></span><span class="w-2 rounded bg-blue-300 anim-bar-3" style="height:55%"></span><span class="w-2 rounded bg-blue-700 anim-bar-4" style="height:95%"></span><span class="w-2 rounded bg-cyan-200 anim-bar-5" style="height:60%"></span><span class="w-2 rounded bg-blue-200 anim-bar-1" style="height:45%"></span><span class="w-2 rounded bg-blue-500 anim-bar-2" style="height:75%"></span><span class="w-2 rounded bg-blue-300 anim-bar-3" style="height:50%"></span>
+                <span class="w-2 rounded bg-blue-400/30 anim-bar-1" style="height:40%"></span><span class="w-2 rounded bg-blue-600 anim-bar-2" style="height:80%"></span><span class="w-2 rounded bg-blue-300 anim-bar-3" style="height:55%"></span><span class="w-2 rounded bg-blue-700 anim-bar-4" style="height:95%"></span><span class="w-2 rounded bg-cyan-400/30 anim-bar-5" style="height:60%"></span><span class="w-2 rounded bg-blue-400/30 anim-bar-1" style="height:45%"></span><span class="w-2 rounded bg-blue-500 anim-bar-2" style="height:75%"></span><span class="w-2 rounded bg-blue-300 anim-bar-3" style="height:50%"></span>
               </div>
             </div>
           </div>
-          <div class="mt-10"><h3 class="text-2xl font-semibold leading-tight tracking-tight text-slate-950">The doctor just talks.</h3><p class="mt-4 max-w-[360px] text-sm leading-6 text-slate-500">Hit record and run the visit as usual, in Russian or Tajik. No forms, no computer between you and the patient.</p></div>
+          <div class="mt-10"><h3 class="text-2xl font-semibold leading-tight tracking-tight text-[#EAF0FF]">The doctor just talks.</h3><p class="mt-4 max-w-[360px] text-sm leading-6 text-[#8A97BE]">Hit record and run the visit as usual, in Russian or Tajik. No forms, no computer between you and the patient.</p></div>
         </article>
-        <article class="group relative min-h-[420px] overflow-hidden border-b border-slate-200/80 bg-[radial-gradient(circle_at_50%_20%,rgba(149,174,248,0.55),transparent_32%),linear-gradient(180deg,#4659B5_0%,#0A0F2E_100%)] p-10 text-white shadow-[0_24px_70px_rgba(70,89,181,0.22)] lg:border-b-0 lg:border-r lg:p-14">
-          <div class="relative flex items-center justify-between"><span class="text-sm font-medium text-blue-100">02</span><span class="rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-blue-50 ring-1 ring-white/15">Structure</span></div>
+        <article class="group relative min-h-[420px] overflow-hidden border-b border-white/10 bg-[radial-gradient(circle_at_50%_20%,rgba(149,174,248,0.55),transparent_32%),linear-gradient(180deg,#4659B5_0%,#0A0F2E_100%)] p-10 text-white shadow-[0_24px_70px_rgba(70,89,181,0.22)] lg:border-b-0 lg:border-r lg:p-14">
+          <div class="relative flex items-center justify-between"><span class="text-sm font-medium text-blue-100">02</span><span class="rounded-full bg-[#0b1224]/10 px-3 py-1 text-xs font-medium text-blue-50 ring-1 ring-white/15">Structure</span></div>
           <div class="relative mt-12 flex h-44 items-center justify-center">
             <div class="flex items-center gap-5">
-              <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-blue-700 shadow-[0_0_38px_rgba(149,174,248,0.75)]"><i data-lucide="sparkles" class="h-6 w-6"></i></div>
-              <div class="w-[190px] rounded-2xl border border-blue-300/40 bg-white/10 p-5 backdrop-blur"><p class="text-xs text-blue-100">SOAP note</p><p class="mt-2 text-sm font-semibold text-emerald-200">● Structured</p><p class="mt-4 text-xs text-blue-100">Diagnosis</p><p class="text-lg font-semibold tracking-tight">Angina · I20.8</p></div>
+              <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#0b1224] text-blue-700 shadow-[0_0_38px_rgba(149,174,248,0.75)]"><i data-lucide="sparkles" class="h-6 w-6"></i></div>
+              <div class="w-[190px] rounded-2xl border border-blue-300/40 bg-[#0b1224]/10 p-5 backdrop-blur"><p class="text-xs text-blue-100">SOAP note</p><p class="mt-2 text-sm font-semibold text-emerald-200">● Structured</p><p class="mt-4 text-xs text-blue-100">Diagnosis</p><p class="text-lg font-semibold tracking-tight">Angina · I20.8</p></div>
             </div>
           </div>
           <div class="relative mt-10"><h3 class="text-2xl font-semibold leading-tight tracking-tight">AI writes the note.</h3><p class="mt-4 max-w-[360px] text-sm leading-6 text-blue-100">Claude structures complaints, status, an ICD-10 diagnosis and a plan — every line tied to the doctor's words.</p></div>
         </article>
-        <article class="group relative min-h-[420px] p-10 transition hover:bg-slate-50/60 lg:p-14">
-          <div class="flex items-center justify-between"><span class="text-sm font-medium text-slate-400">03</span><span class="rounded-full bg-slate-50 px-3 py-1 text-xs font-medium text-slate-500 ring-1 ring-slate-200">Sign</span></div>
+        <article class="group relative min-h-[420px] p-10 transition hover:bg-white/[0.04] lg:p-14">
+          <div class="flex items-center justify-between"><span class="text-sm font-medium text-[#6E7DA6]">03</span><span class="rounded-full bg-white/[0.04] px-3 py-1 text-xs font-medium text-[#8A97BE] ring-1 ring-slate-200">Sign</span></div>
           <div class="mt-12 flex h-44 items-center justify-center">
-            <div class="w-full max-w-[250px] rounded-2xl border border-slate-200 bg-white p-5 shadow-[0_22px_55px_rgba(15,23,42,0.08)]">
-              <div class="mb-4 flex items-center justify-between text-xs font-semibold text-slate-800"><span>Ready to sign</span><span class="text-emerald-600">✓</span></div>
-              <div class="space-y-2 text-[11px] font-medium text-slate-500">
-                <p class="flex justify-between"><span>S · Subjective</span><span class="text-slate-700">done</span></p>
-                <p class="flex justify-between"><span>O · Objective</span><span class="text-slate-700">done</span></p>
-                <p class="flex justify-between"><span>A · Assessment</span><span class="text-slate-700">done</span></p>
-                <p class="flex justify-between"><span>P · Plan</span><span class="text-slate-700">done</span></p>
+            <div class="w-full max-w-[250px] rounded-2xl border border-white/10 bg-[#0b1224] p-5 shadow-[0_22px_55px_rgba(15,23,42,0.08)]">
+              <div class="mb-4 flex items-center justify-between text-xs font-semibold text-[#D5DEF2]"><span>Ready to sign</span><span class="text-emerald-300">✓</span></div>
+              <div class="space-y-2 text-[11px] font-medium text-[#8A97BE]">
+                <p class="flex justify-between"><span>S · Subjective</span><span class="text-[#C2CCE6]">done</span></p>
+                <p class="flex justify-between"><span>O · Objective</span><span class="text-[#C2CCE6]">done</span></p>
+                <p class="flex justify-between"><span>A · Assessment</span><span class="text-[#C2CCE6]">done</span></p>
+                <p class="flex justify-between"><span>P · Plan</span><span class="text-[#C2CCE6]">done</span></p>
               </div>
               <div class="mt-4 h-9 rounded-xl bg-blue-700 text-white text-xs font-semibold flex items-center justify-center">Approve & sign</div>
             </div>
           </div>
-          <div class="mt-10"><h3 class="text-2xl font-semibold leading-tight tracking-tight text-slate-950">Review and sign.</h3><p class="mt-4 max-w-[360px] text-sm leading-6 text-slate-500">The doctor edits anything, then approves. Orders can leave for the lab by QR in the same flow.</p></div>
+          <div class="mt-10"><h3 class="text-2xl font-semibold leading-tight tracking-tight text-[#EAF0FF]">Review and sign.</h3><p class="mt-4 max-w-[360px] text-sm leading-6 text-[#8A97BE]">The doctor edits anything, then approves. Orders can leave for the lab by QR in the same flow.</p></div>
         </article>
       </div>
 
-      <div class="grid gap-6 border-t border-slate-200/80 px-0 py-16 md:grid-cols-[1fr_auto] md:items-center lg:px-12 lg:py-20">
-        <div><p class="text-3xl font-semibold leading-tight tracking-tight text-slate-950">From first word to signed note.</p><p class="mt-1 text-3xl font-semibold leading-tight tracking-tight text-slate-300">One assistant. Zero forms.</p></div>
-        <a href="#access" class="group inline-flex h-14 w-full items-center justify-center overflow-hidden rounded-[18px] bg-gradient-to-br from-[#6E86E0] via-[#4659B5] to-[#3A4AA0] pl-7 pr-3 text-[16px] font-semibold text-white shadow-[0_18px_38px_rgba(70,89,181,0.28)] transition-all duration-300 hover:-translate-y-0.5 sm:w-auto"><span class="relative z-10 whitespace-nowrap">Get early access</span><span class="relative z-10 ml-4 inline-flex h-11 w-11 items-center justify-center rounded-[14px] border border-white/15 bg-white/15 backdrop-blur-md transition group-hover:translate-x-0.5"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></span></a>
+      <div class="grid gap-6 border-t border-white/10 px-0 py-16 md:grid-cols-[1fr_auto] md:items-center lg:px-12 lg:py-20">
+        <div><p class="text-3xl font-semibold leading-tight tracking-tight text-[#EAF0FF]">From first word to signed note.</p><p class="mt-1 text-3xl font-semibold leading-tight tracking-tight text-[#465178]">One assistant. Zero forms.</p></div>
+        <a href="#access" class="group inline-flex h-14 w-full items-center justify-center overflow-hidden rounded-[18px] bg-gradient-to-br from-[#6E86E0] via-[#4659B5] to-[#3A4AA0] pl-7 pr-3 text-[16px] font-semibold text-white shadow-[0_18px_38px_rgba(70,89,181,0.28)] transition-all duration-300 hover:-translate-y-0.5 sm:w-auto"><span class="relative z-10 whitespace-nowrap">Get early access</span><span class="relative z-10 ml-4 inline-flex h-11 w-11 items-center justify-center rounded-[14px] border border-white/15 bg-[#0b1224]/15 backdrop-blur-md transition group-hover:translate-x-0.5"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></span></a>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============ HYPERION STT ============ -->
-<section id="stt" class="relative overflow-hidden bg-white">
+<section id="stt" class="relative overflow-hidden bg-[#0b1224]">
   <div class="relative mx-auto w-full max-w-[1600px] px-4 sm:px-9 lg:px-16">
-    <div class="pointer-events-none absolute left-6 top-0 hidden h-full w-px bg-slate-200/80 sm:left-9 md:block lg:left-16"></div>
-    <div class="pointer-events-none absolute right-6 top-0 hidden h-full w-px bg-slate-200/80 sm:right-9 md:block lg:right-16"></div>
-    <div class="relative border-y border-slate-200/80">
+    <div class="pointer-events-none absolute left-6 top-0 hidden h-full w-px bg-white/10 sm:left-9 md:block lg:left-16"></div>
+    <div class="pointer-events-none absolute right-6 top-0 hidden h-full w-px bg-white/10 sm:right-9 md:block lg:right-16"></div>
+    <div class="relative border-y border-white/10">
       <div class="grid gap-8 px-0 py-20 md:grid-cols-[0.95fr_1fr] md:items-end lg:px-12 lg:py-24">
         <div>
           <div class="mb-6 inline-flex items-center gap-2.5 text-xs font-semibold uppercase tracking-[0.1em] text-blue-700"><i data-lucide="audio-lines" class="h-4 w-4"></i>Second product · Open model</div>
-          <h2 class="max-w-[640px] text-4xl font-semibold leading-[1.04] tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">Hyperion STT: machines that <span class="text-blue-700">hear Tajik.</span></h2>
+          <h2 class="max-w-[640px] text-4xl font-semibold leading-[1.04] tracking-tight text-[#EAF0FF] sm:text-5xl lg:text-6xl">Hyperion STT: machines that <span class="text-blue-700">hear Tajik.</span></h2>
         </div>
-        <p class="max-w-[460px] text-base leading-7 text-slate-500 md:justify-self-end">The first fine-tuned streaming speech-to-text model for the Tajik language, open on HuggingFace. It's the language engine that gives AvrisAI its Tajik — and a research effort in its own right.</p>
+        <p class="max-w-[460px] text-base leading-7 text-[#8A97BE] md:justify-self-end">The first fine-tuned streaming speech-to-text model for the Tajik language, open on HuggingFace. It's the language engine that gives AvrisAI its Tajik — and a research effort in its own right.</p>
       </div>
 
-      <div class="grid border-t border-slate-200/80 lg:grid-cols-[1.15fr_0.85fr]">
+      <div class="grid border-t border-white/10 lg:grid-cols-[1.15fr_0.85fr]">
         <!-- Dark demo card (echoes the STT product UI) -->
-        <div class="border-b border-slate-200/80 p-8 sm:p-12 lg:border-b-0 lg:border-r lg:p-16">
+        <div class="border-b border-white/10 p-8 sm:p-12 lg:border-b-0 lg:border-r lg:p-16">
           <div class="relative overflow-hidden rounded-[26px] border border-white/10 bg-[linear-gradient(165deg,#0d1a34,#050a16)] p-6 shadow-[0_30px_80px_rgba(10,15,46,0.35)] sm:p-8">
             <div class="absolute -left-16 -top-16 h-52 w-52 rounded-full bg-[#6A4BFF]/25 blur-3xl"></div>
             <div class="absolute -right-16 bottom-0 h-52 w-52 rounded-full bg-[#5EE0FF]/15 blur-3xl"></div>
             <div class="relative">
               <div class="flex items-center gap-3">
-                <span class="flex h-11 w-11 items-center justify-center rounded-xl border border-white/15 bg-white/10 text-[#95AEF8]"><i data-lucide="mic" class="h-5 w-5"></i></span>
+                <span class="flex h-11 w-11 items-center justify-center rounded-xl border border-white/15 bg-[#0b1224]/10 text-[#95AEF8]"><i data-lucide="mic" class="h-5 w-5"></i></span>
                 <div><p class="text-sm font-bold tracking-[0.16em] text-white">HYPERION STT</p><p class="text-[10px] font-medium tracking-[0.24em] text-[#6E7DA6]">SPEECH-TO-TEXT</p></div>
                 <span class="ml-auto rounded-full border border-[#95AEF8]/30 bg-[#95AEF8]/10 px-3 py-1 text-xs font-semibold text-[#95AEF8]">TJ · v0.4</span>
               </div>
@@ -404,15 +406,15 @@
         </div>
         <!-- Metrics + CTA -->
         <div class="p-8 sm:p-12 lg:p-16">
-          <p class="text-base leading-7 text-slate-500">Fine-tuned from Whisper-medium on a 196-hour Tajik corpus and run streaming with voice-activity detection. Trained in the open, measured on public benchmarks, and getting sharper with every release.</p>
+          <p class="text-base leading-7 text-[#8A97BE]">Fine-tuned from Whisper-medium on a 196-hour Tajik corpus and run streaming with voice-activity detection. Trained in the open, measured on public benchmarks, and getting sharper with every release.</p>
           <div class="mt-8 grid grid-cols-2 gap-4">
-            <div class="rounded-2xl border border-slate-200 bg-slate-50/60 p-5"><p class="text-3xl font-semibold tracking-tight text-slate-950">20.15<span class="text-lg text-slate-400">%</span></p><p class="mt-1 text-sm text-slate-500">WER · FLEURS</p></div>
-            <div class="rounded-2xl border border-slate-200 bg-slate-50/60 p-5"><p class="text-3xl font-semibold tracking-tight text-slate-950">34.5<span class="text-lg text-slate-400">%</span></p><p class="mt-1 text-sm text-slate-500">WER · conversational</p></div>
-            <div class="rounded-2xl border border-slate-200 bg-slate-50/60 p-5"><p class="text-3xl font-semibold tracking-tight text-slate-950">196<span class="text-lg text-slate-400">h</span></p><p class="mt-1 text-sm text-slate-500">Training corpus</p></div>
-            <div class="rounded-2xl border border-slate-200 bg-slate-50/60 p-5"><p class="text-3xl font-semibold tracking-tight text-slate-950">34.5<span class="text-lg text-slate-400">k</span></p><p class="mt-1 text-sm text-slate-500">Labeled clips</p></div>
+            <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-5"><p class="text-3xl font-semibold tracking-tight text-[#EAF0FF]">20.15<span class="text-lg text-[#6E7DA6]">%</span></p><p class="mt-1 text-sm text-[#8A97BE]">WER · FLEURS</p></div>
+            <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-5"><p class="text-3xl font-semibold tracking-tight text-[#EAF0FF]">34.5<span class="text-lg text-[#6E7DA6]">%</span></p><p class="mt-1 text-sm text-[#8A97BE]">WER · conversational</p></div>
+            <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-5"><p class="text-3xl font-semibold tracking-tight text-[#EAF0FF]">196<span class="text-lg text-[#6E7DA6]">h</span></p><p class="mt-1 text-sm text-[#8A97BE]">Training corpus</p></div>
+            <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-5"><p class="text-3xl font-semibold tracking-tight text-[#EAF0FF]">34.5<span class="text-lg text-[#6E7DA6]">k</span></p><p class="mt-1 text-sm text-[#8A97BE]">Labeled clips</p></div>
           </div>
-          <a href="https://huggingface.co/narzulloev0022/hyperion-stt-tg" target="_blank" rel="noopener" class="group mt-8 inline-flex h-14 w-full items-center justify-center overflow-hidden rounded-[18px] bg-gradient-to-br from-[#6E86E0] via-[#4659B5] to-[#3A4AA0] pl-7 pr-3 text-[16px] font-semibold text-white shadow-[0_18px_38px_rgba(70,89,181,0.28)] transition-all duration-300 hover:-translate-y-0.5"><span class="relative z-10 whitespace-nowrap">View the model on HuggingFace</span><span class="relative z-10 ml-4 inline-flex h-11 w-11 items-center justify-center rounded-[14px] border border-white/15 bg-white/15 backdrop-blur-md transition group-hover:translate-x-0.5"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></span></a>
-          <p class="mt-4 text-xs text-slate-400">Open weights · Tajik Cyrillic · v0.4 today, 600-hour v0.5 in training.</p>
+          <a href="https://huggingface.co/narzulloev0022/hyperion-stt-tg" target="_blank" rel="noopener" class="group mt-8 inline-flex h-14 w-full items-center justify-center overflow-hidden rounded-[18px] bg-gradient-to-br from-[#6E86E0] via-[#4659B5] to-[#3A4AA0] pl-7 pr-3 text-[16px] font-semibold text-white shadow-[0_18px_38px_rgba(70,89,181,0.28)] transition-all duration-300 hover:-translate-y-0.5"><span class="relative z-10 whitespace-nowrap">View the model on HuggingFace</span><span class="relative z-10 ml-4 inline-flex h-11 w-11 items-center justify-center rounded-[14px] border border-white/15 bg-[#0b1224]/15 backdrop-blur-md transition group-hover:translate-x-0.5"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></span></a>
+          <p class="mt-4 text-xs text-[#6E7DA6]">Open weights · Tajik Cyrillic · v0.4 today, 600-hour v0.5 in training.</p>
         </div>
       </div>
     </div>
@@ -420,36 +422,36 @@
 </section>
 
 <!-- ============ TEAM ============ -->
-<section id="team" class="relative overflow-hidden bg-white">
+<section id="team" class="relative overflow-hidden bg-[#0b1224]">
   <div class="relative mx-auto w-full max-w-[1600px] px-4 sm:px-9 lg:px-16">
-    <div class="pointer-events-none absolute left-6 top-0 hidden h-full w-px bg-slate-200/80 sm:left-9 md:block lg:left-16"></div>
-    <div class="pointer-events-none absolute right-6 top-0 hidden h-full w-px bg-slate-200/80 sm:right-9 md:block lg:right-16"></div>
-    <div class="relative border-y border-slate-200/80">
+    <div class="pointer-events-none absolute left-6 top-0 hidden h-full w-px bg-white/10 sm:left-9 md:block lg:left-16"></div>
+    <div class="pointer-events-none absolute right-6 top-0 hidden h-full w-px bg-white/10 sm:right-9 md:block lg:right-16"></div>
+    <div class="relative border-y border-white/10">
       <div class="grid gap-8 px-0 py-20 md:grid-cols-[0.9fr_1fr] md:items-end lg:px-12 lg:py-24">
         <div>
           <div class="mb-6 inline-flex items-center gap-2.5 text-xs font-semibold uppercase tracking-[0.1em] text-blue-700"><i data-lucide="users" class="h-4 w-4"></i>Team</div>
-          <h2 class="max-w-[620px] text-4xl font-semibold leading-[1.04] tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">A small, <span class="text-blue-700">elite team.</span></h2>
+          <h2 class="max-w-[620px] text-4xl font-semibold leading-[1.04] tracking-tight text-[#EAF0FF] sm:text-5xl lg:text-6xl">A small, <span class="text-blue-700">elite team.</span></h2>
         </div>
-        <p class="max-w-[460px] text-base leading-7 text-slate-500 md:justify-self-end">Hyperion Labs was founded by doctors and engineers from Central Asia. We keep the team small, senior, and close to the clinic.</p>
+        <p class="max-w-[460px] text-base leading-7 text-[#8A97BE] md:justify-self-end">Hyperion Labs was founded by doctors and engineers from Central Asia. We keep the team small, senior, and close to the clinic.</p>
       </div>
-      <div class="grid border-t border-slate-200/80 md:grid-cols-3">
-        <article class="group border-b border-slate-200/80 p-10 transition hover:bg-slate-50/60 md:border-b-0 md:border-r lg:p-14">
-          <div class="mb-8 flex items-center justify-between"><span class="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#6E86E0] to-[#4659B5] text-lg font-bold text-white">SN</span><span class="rounded-full border border-slate-200 px-3 py-1 text-xs font-medium text-slate-500">Founder</span></div>
-          <h3 class="text-xl font-semibold tracking-tight text-slate-950">Shahzod Narzulloev</h3>
+      <div class="grid border-t border-white/10 md:grid-cols-3">
+        <article class="group border-b border-white/10 p-10 transition hover:bg-white/[0.04] md:border-b-0 md:border-r lg:p-14">
+          <div class="mb-8 flex items-center justify-between"><span class="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#6E86E0] to-[#4659B5] text-lg font-bold text-white">SN</span><span class="rounded-full border border-white/10 px-3 py-1 text-xs font-medium text-[#8A97BE]">Founder</span></div>
+          <h3 class="text-xl font-semibold tracking-tight text-[#EAF0FF]">Shahzod Narzulloev</h3>
           <p class="mt-1 text-sm font-semibold text-blue-700">Founder &amp; CEO</p>
-          <p class="mt-4 text-sm leading-6 text-slate-500">Building world-class AI for emerging markets. A medical student turned entrepreneur.</p>
+          <p class="mt-4 text-sm leading-6 text-[#8A97BE]">Building world-class AI for emerging markets. A medical student turned entrepreneur.</p>
         </article>
-        <article class="group border-b border-slate-200/80 p-10 transition hover:bg-slate-50/60 md:border-b-0 md:border-r lg:p-14">
-          <div class="mb-8 flex items-center justify-between"><span class="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#6E86E0] to-[#4659B5] text-lg font-bold text-white">SO</span><span class="rounded-full border border-slate-200 px-3 py-1 text-xs font-medium text-slate-500">Co-founder</span></div>
-          <h3 class="text-xl font-semibold tracking-tight text-slate-950">Shahzod Obidov</h3>
+        <article class="group border-b border-white/10 p-10 transition hover:bg-white/[0.04] md:border-b-0 md:border-r lg:p-14">
+          <div class="mb-8 flex items-center justify-between"><span class="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#6E86E0] to-[#4659B5] text-lg font-bold text-white">SO</span><span class="rounded-full border border-white/10 px-3 py-1 text-xs font-medium text-[#8A97BE]">Co-founder</span></div>
+          <h3 class="text-xl font-semibold tracking-tight text-[#EAF0FF]">Shahzod Obidov</h3>
           <p class="mt-1 text-sm font-semibold text-blue-700">Co-founder &amp; CFO</p>
-          <p class="mt-4 text-sm leading-6 text-slate-500">Finance, strategy and the operational discipline behind Hyperion Labs.</p>
+          <p class="mt-4 text-sm leading-6 text-[#8A97BE]">Finance, strategy and the operational discipline behind Hyperion Labs.</p>
         </article>
-        <article class="group p-10 transition hover:bg-slate-50/60 lg:p-14">
-          <div class="mb-8 flex items-center justify-between"><span class="flex h-14 w-14 items-center justify-center rounded-2xl border-2 border-dashed border-blue-200 text-2xl font-light text-blue-700">+</span><span class="rounded-full border border-slate-200 px-3 py-1 text-xs font-medium text-slate-500">Open seat</span></div>
-          <h3 class="text-xl font-semibold tracking-tight text-slate-950">Open co-founder seat</h3>
+        <article class="group p-10 transition hover:bg-white/[0.04] lg:p-14">
+          <div class="mb-8 flex items-center justify-between"><span class="flex h-14 w-14 items-center justify-center rounded-2xl border-2 border-dashed border-blue-200 text-2xl font-light text-blue-700">+</span><span class="rounded-full border border-white/10 px-3 py-1 text-xs font-medium text-[#8A97BE]">Open seat</span></div>
+          <h3 class="text-xl font-semibold tracking-tight text-[#EAF0FF]">Open co-founder seat</h3>
           <p class="mt-1 text-sm font-semibold text-blue-700">We're hiring</p>
-          <p class="mt-4 text-sm leading-6 text-slate-500">Looking for a strong co-founder to help build a world-class AI company.</p>
+          <p class="mt-4 text-sm leading-6 text-[#8A97BE]">Looking for a strong co-founder to help build a world-class AI company.</p>
           <a href="#access" class="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-blue-700">Join us <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
         </article>
       </div>
@@ -458,40 +460,40 @@
 </section>
 
 <!-- ============ FAQ ============ -->
-<section id="faq" class="relative overflow-hidden bg-white">
+<section id="faq" class="relative overflow-hidden bg-[#0b1224]">
   <div class="relative mx-auto w-full max-w-[1600px] px-4 sm:px-9 lg:px-16">
-    <div class="pointer-events-none absolute left-6 top-0 hidden h-full w-px bg-slate-200/80 sm:left-9 md:block lg:left-16"></div>
-    <div class="pointer-events-none absolute right-6 top-0 hidden h-full w-px bg-slate-200/80 sm:right-9 md:block lg:right-16"></div>
-    <div class="relative border-y border-slate-200/80 border-x">
-      <div class="grid border-b border-slate-200/80 lg:grid-cols-[1.35fr_1fr]">
+    <div class="pointer-events-none absolute left-6 top-0 hidden h-full w-px bg-white/10 sm:left-9 md:block lg:left-16"></div>
+    <div class="pointer-events-none absolute right-6 top-0 hidden h-full w-px bg-white/10 sm:right-9 md:block lg:right-16"></div>
+    <div class="relative border-y border-white/10 border-x">
+      <div class="grid border-b border-white/10 lg:grid-cols-[1.35fr_1fr]">
         <div class="px-8 pb-24 pt-20 sm:px-12 lg:px-16 lg:pb-32 lg:pt-28">
           <div class="mb-7 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.14em] text-blue-700"><i data-lucide="help-circle" class="h-4 w-4"></i>FAQ</div>
-          <h2 class="max-w-4xl text-5xl font-semibold leading-[1.02] tracking-tight text-slate-950 sm:text-6xl lg:text-7xl">Frequently asked <span class="text-blue-700">questions.</span></h2>
+          <h2 class="max-w-4xl text-5xl font-semibold leading-[1.02] tracking-tight text-[#EAF0FF] sm:text-6xl lg:text-7xl">Frequently asked <span class="text-blue-700">questions.</span></h2>
         </div>
-        <div class="flex items-center px-8 pb-20 sm:px-12 lg:px-16 lg:pb-0 lg:pt-28"><p class="max-w-xl text-lg leading-8 text-slate-500">Answers about what AvrisAI does, the languages it supports, how patient data is handled, and how a clinic can start.</p></div>
+        <div class="flex items-center px-8 pb-20 sm:px-12 lg:px-16 lg:pb-0 lg:pt-28"><p class="max-w-xl text-lg leading-8 text-[#8A97BE]">Answers about what AvrisAI does, the languages it supports, how patient data is handled, and how a clinic can start.</p></div>
       </div>
       <div class="grid lg:grid-cols-[0.85fr_1.15fr]">
-        <aside class="border-b border-slate-200/80 px-8 py-16 sm:px-12 lg:border-b-0 lg:border-r lg:px-16 lg:py-20">
+        <aside class="border-b border-white/10 px-8 py-16 sm:px-12 lg:border-b-0 lg:border-r lg:px-16 lg:py-20">
           <div class="lg:sticky lg:top-24">
-            <div class="border border-slate-200 bg-slate-50/60 p-6">
+            <div class="border border-white/10 bg-white/[0.04] p-6">
               <p class="text-sm font-semibold uppercase tracking-[0.12em] text-blue-700">Support</p>
-              <h3 class="mt-5 text-3xl font-semibold tracking-tight text-slate-950">Have another question?</h3>
-              <p class="mt-4 text-base leading-7 text-slate-500">Tell us about your clinic and your workflow. We onboard new clinics step by step.</p>
-              <a href="mailto:info@theavris.ai" class="group mt-8 inline-flex h-14 w-full items-center justify-center overflow-hidden rounded-[18px] bg-gradient-to-br from-[#6E86E0] via-[#4659B5] to-[#3A4AA0] pl-7 pr-3 text-[16px] font-semibold text-white shadow-[0_18px_38px_rgba(70,89,181,0.28)] transition-all duration-300 hover:-translate-y-0.5"><span class="relative z-10 whitespace-nowrap">Contact us</span><span class="relative z-10 ml-4 inline-flex h-11 w-11 items-center justify-center rounded-[14px] border border-white/15 bg-white/15 backdrop-blur-md transition group-hover:translate-x-0.5"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></span></a>
+              <h3 class="mt-5 text-3xl font-semibold tracking-tight text-[#EAF0FF]">Have another question?</h3>
+              <p class="mt-4 text-base leading-7 text-[#8A97BE]">Tell us about your clinic and your workflow. We onboard new clinics step by step.</p>
+              <a href="mailto:info@theavris.ai" class="group mt-8 inline-flex h-14 w-full items-center justify-center overflow-hidden rounded-[18px] bg-gradient-to-br from-[#6E86E0] via-[#4659B5] to-[#3A4AA0] pl-7 pr-3 text-[16px] font-semibold text-white shadow-[0_18px_38px_rgba(70,89,181,0.28)] transition-all duration-300 hover:-translate-y-0.5"><span class="relative z-10 whitespace-nowrap">Contact us</span><span class="relative z-10 ml-4 inline-flex h-11 w-11 items-center justify-center rounded-[14px] border border-white/15 bg-[#0b1224]/15 backdrop-blur-md transition group-hover:translate-x-0.5"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></span></a>
             </div>
-            <div class="mt-6 grid grid-cols-2 border border-slate-200">
-              <div class="border-r border-slate-200 p-5"><p class="text-2xl font-semibold tracking-tight text-slate-950">3</p><p class="mt-1 text-sm leading-5 text-slate-500">Pilot cities</p></div>
-              <div class="p-5"><p class="text-2xl font-semibold tracking-tight text-slate-950">RU·TJ</p><p class="mt-1 text-sm leading-5 text-slate-500">Languages</p></div>
+            <div class="mt-6 grid grid-cols-2 border border-white/10">
+              <div class="border-r border-white/10 p-5"><p class="text-2xl font-semibold tracking-tight text-[#EAF0FF]">3</p><p class="mt-1 text-sm leading-5 text-[#8A97BE]">Pilot cities</p></div>
+              <div class="p-5"><p class="text-2xl font-semibold tracking-tight text-[#EAF0FF]">RU·TJ</p><p class="mt-1 text-sm leading-5 text-[#8A97BE]">Languages</p></div>
             </div>
           </div>
         </aside>
         <div class="px-8 py-16 sm:px-12 lg:px-16 lg:py-20">
-          <div class="divide-y divide-slate-200 border-y border-slate-200">
-            <details class="group py-6" open><summary class="flex cursor-pointer list-none items-start justify-between gap-8"><h3 class="mt-2 text-2xl font-semibold tracking-tight text-slate-950">What is AvrisAI?</h3><span class="mt-2 text-3xl font-light leading-none text-blue-700 transition group-open:rotate-45">+</span></summary><p class="mt-5 max-w-2xl text-base leading-7 text-slate-500">A voice AI assistant for doctors. It listens to the doctor–patient conversation and turns it into a structured clinical note in seconds. The doctor reviews and approves every note.</p></details>
-            <details class="group py-6"><summary class="flex cursor-pointer list-none items-start justify-between gap-8"><h3 class="mt-2 text-2xl font-semibold tracking-tight text-slate-950">Which languages does it support?</h3><span class="mt-2 text-3xl font-light leading-none text-blue-700 transition group-open:rotate-45">+</span></summary><p class="mt-5 max-w-2xl text-base leading-7 text-slate-500">Russian and English today. Tajik speech recognition is in active development — it's one of our core research directions.</p></details>
-            <details class="group py-6"><summary class="flex cursor-pointer list-none items-start justify-between gap-8"><h3 class="mt-2 text-2xl font-semibold tracking-tight text-slate-950">Is patient data safe?</h3><span class="mt-2 text-3xl font-light leading-none text-blue-700 transition group-open:rotate-45">+</span></summary><p class="mt-5 max-w-2xl text-base leading-7 text-slate-500">The doctor stays in control: every note is a draft until the clinician approves it, and recordings are used only to produce documentation. For deployment specifics and data-handling agreements, contact us.</p></details>
-            <details class="group py-6"><summary class="flex cursor-pointer list-none items-start justify-between gap-8"><h3 class="mt-2 text-2xl font-semibold tracking-tight text-slate-950">How can my clinic get access?</h3><span class="mt-2 text-3xl font-light leading-none text-blue-700 transition group-open:rotate-45">+</span></summary><p class="mt-5 max-w-2xl text-base leading-7 text-slate-500">Join the early access list below or write to info@theavris.ai. After a pilot across three cities in Tajikistan, we onboard new clinics step by step.</p></details>
-            <details class="group py-6"><summary class="flex cursor-pointer list-none items-start justify-between gap-8"><h3 class="mt-2 text-2xl font-semibold tracking-tight text-slate-950">Where does Hyperion Labs operate?</h3><span class="mt-2 text-3xl font-light leading-none text-blue-700 transition group-open:rotate-45">+</span></summary><p class="mt-5 max-w-2xl text-base leading-7 text-slate-500">We were founded in Dushanbe, Tajikistan, and build for all of Central Asia — from Dushanbe to Tashkent and Almaty.</p></details>
+          <div class="divide-y divide-white/10 border-y border-white/10">
+            <details class="group py-6" open><summary class="flex cursor-pointer list-none items-start justify-between gap-8"><h3 class="mt-2 text-2xl font-semibold tracking-tight text-[#EAF0FF]">What is AvrisAI?</h3><span class="mt-2 text-3xl font-light leading-none text-blue-700 transition group-open:rotate-45">+</span></summary><p class="mt-5 max-w-2xl text-base leading-7 text-[#8A97BE]">A voice AI assistant for doctors. It listens to the doctor–patient conversation and turns it into a structured clinical note in seconds. The doctor reviews and approves every note.</p></details>
+            <details class="group py-6"><summary class="flex cursor-pointer list-none items-start justify-between gap-8"><h3 class="mt-2 text-2xl font-semibold tracking-tight text-[#EAF0FF]">Which languages does it support?</h3><span class="mt-2 text-3xl font-light leading-none text-blue-700 transition group-open:rotate-45">+</span></summary><p class="mt-5 max-w-2xl text-base leading-7 text-[#8A97BE]">Russian and English today. Tajik speech recognition is in active development — it's one of our core research directions.</p></details>
+            <details class="group py-6"><summary class="flex cursor-pointer list-none items-start justify-between gap-8"><h3 class="mt-2 text-2xl font-semibold tracking-tight text-[#EAF0FF]">Is patient data safe?</h3><span class="mt-2 text-3xl font-light leading-none text-blue-700 transition group-open:rotate-45">+</span></summary><p class="mt-5 max-w-2xl text-base leading-7 text-[#8A97BE]">The doctor stays in control: every note is a draft until the clinician approves it, and recordings are used only to produce documentation. For deployment specifics and data-handling agreements, contact us.</p></details>
+            <details class="group py-6"><summary class="flex cursor-pointer list-none items-start justify-between gap-8"><h3 class="mt-2 text-2xl font-semibold tracking-tight text-[#EAF0FF]">How can my clinic get access?</h3><span class="mt-2 text-3xl font-light leading-none text-blue-700 transition group-open:rotate-45">+</span></summary><p class="mt-5 max-w-2xl text-base leading-7 text-[#8A97BE]">Join the early access list below or write to info@theavris.ai. After a pilot across three cities in Tajikistan, we onboard new clinics step by step.</p></details>
+            <details class="group py-6"><summary class="flex cursor-pointer list-none items-start justify-between gap-8"><h3 class="mt-2 text-2xl font-semibold tracking-tight text-[#EAF0FF]">Where does Hyperion Labs operate?</h3><span class="mt-2 text-3xl font-light leading-none text-blue-700 transition group-open:rotate-45">+</span></summary><p class="mt-5 max-w-2xl text-base leading-7 text-[#8A97BE]">We were founded in Dushanbe, Tajikistan, and build for all of Central Asia — from Dushanbe to Tashkent and Almaty.</p></details>
           </div>
         </div>
       </div>
@@ -500,83 +502,83 @@
 </section>
 
 <!-- ============ ACCESS CTA + FOOTER ============ -->
-<footer class="relative overflow-hidden bg-white">
+<footer class="relative overflow-hidden bg-[#0b1224]">
   <div class="relative mx-auto w-full max-w-[1600px] px-4 sm:px-9 lg:px-16 lg:pt-32 pt-24 pb-16">
-    <div class="pointer-events-none absolute left-6 top-0 hidden h-full w-px bg-slate-200/80 sm:left-9 md:block lg:left-16"></div>
-    <div class="pointer-events-none absolute right-6 top-0 hidden h-full w-px bg-slate-200/80 sm:right-9 md:block lg:right-16"></div>
+    <div class="pointer-events-none absolute left-6 top-0 hidden h-full w-px bg-white/10 sm:left-9 md:block lg:left-16"></div>
+    <div class="pointer-events-none absolute right-6 top-0 hidden h-full w-px bg-white/10 sm:right-9 md:block lg:right-16"></div>
 
     <!-- Early access card -->
-    <div id="access" class="border border-slate-200 bg-white p-10 shadow-[0_12px_40px_rgba(15,23,42,0.03)] sm:p-16 lg:p-20 scroll-mt-24">
+    <div id="access" class="border border-white/10 bg-[#0b1224] p-10 shadow-[0_12px_40px_rgba(15,23,42,0.03)] sm:p-16 lg:p-20 scroll-mt-24">
       <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
         <div>
-          <div class="mb-6 flex items-center gap-2.5 text-xs font-medium uppercase tracking-[0.12em] text-slate-500"><div class="grid grid-cols-2 gap-[2px]"><span class="h-1.5 w-1.5 bg-blue-700"></span><span class="h-1.5 w-1.5 bg-blue-700"></span><span class="h-1.5 w-1.5 bg-blue-700"></span><span class="h-1.5 w-1.5 bg-blue-700"></span></div>Ready when you are</div>
-          <h2 class="text-4xl font-medium leading-[1.05] tracking-tight text-slate-950 sm:text-5xl">Bring AvrisAI to your <span class="text-blue-700">clinic.</span></h2>
-          <p class="mt-6 text-lg leading-7 text-slate-500">Join the early access list. We open access in waves, and clinics on the list go first.</p>
+          <div class="mb-6 flex items-center gap-2.5 text-xs font-medium uppercase tracking-[0.12em] text-[#8A97BE]"><div class="grid grid-cols-2 gap-[2px]"><span class="h-1.5 w-1.5 bg-blue-700"></span><span class="h-1.5 w-1.5 bg-blue-700"></span><span class="h-1.5 w-1.5 bg-blue-700"></span><span class="h-1.5 w-1.5 bg-blue-700"></span></div>Ready when you are</div>
+          <h2 class="text-4xl font-medium leading-[1.05] tracking-tight text-[#EAF0FF] sm:text-5xl">Bring AvrisAI to your <span class="text-blue-700">clinic.</span></h2>
+          <p class="mt-6 text-lg leading-7 text-[#8A97BE]">Join the early access list. We open access in waves, and clinics on the list go first.</p>
           <form id="accessForm" class="mt-8 flex flex-col gap-3 sm:flex-row">
-            <input type="email" id="accessEmail" name="email" required placeholder="doctor@clinic.tj" class="h-14 w-full border border-slate-200 bg-white px-5 text-base text-slate-700 shadow-sm outline-none transition placeholder:text-slate-400 focus:border-blue-600 focus:ring-4 focus:ring-blue-600/10 rounded-[14px]" />
+            <input type="email" id="accessEmail" name="email" required placeholder="doctor@clinic.tj" class="h-14 w-full border border-white/10 bg-[#0b1224] px-5 text-base text-[#C2CCE6] shadow-sm outline-none transition placeholder:text-[#6E7DA6] focus:border-blue-600 focus:ring-4 focus:ring-blue-600/10 rounded-[14px]" />
             <button type="submit" class="group inline-flex h-14 shrink-0 items-center justify-center gap-3 rounded-[14px] bg-gradient-to-br from-[#6E86E0] via-[#4659B5] to-[#3A4AA0] px-6 text-base font-semibold text-white shadow-[0_18px_38px_rgba(70,89,181,0.28)] transition hover:-translate-y-0.5">Get early access<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></button>
           </form>
           <p id="accessMsg" class="mt-3 text-sm font-medium text-blue-700" role="status" aria-live="polite"></p>
-          <div class="mt-8 flex flex-wrap items-center gap-4 text-sm font-normal text-slate-600">
-            <div class="flex items-center gap-2.5 border border-slate-200 bg-slate-50/50 px-4 py-2"><i data-lucide="shield" class="h-4 w-4 text-blue-700"></i>Doctor-approved notes</div>
-            <div class="flex items-center gap-2.5 border border-slate-200 bg-slate-50/50 px-4 py-2"><i data-lucide="monitor" class="h-4 w-4 text-blue-700"></i>Runs in the browser</div>
-            <div class="flex items-center gap-2.5 border border-slate-200 bg-slate-50/50 px-4 py-2"><i data-lucide="languages" class="h-4 w-4 text-blue-700"></i>RU &amp; TJ</div>
+          <div class="mt-8 flex flex-wrap items-center gap-4 text-sm font-normal text-[#AEB8D6]">
+            <div class="flex items-center gap-2.5 border border-white/10 bg-white/[0.04] px-4 py-2"><i data-lucide="shield" class="h-4 w-4 text-blue-700"></i>Doctor-approved notes</div>
+            <div class="flex items-center gap-2.5 border border-white/10 bg-white/[0.04] px-4 py-2"><i data-lucide="monitor" class="h-4 w-4 text-blue-700"></i>Runs in the browser</div>
+            <div class="flex items-center gap-2.5 border border-white/10 bg-white/[0.04] px-4 py-2"><i data-lucide="languages" class="h-4 w-4 text-blue-700"></i>RU &amp; TJ</div>
           </div>
         </div>
         <!-- Orbit graphic -->
-        <div class="relative flex min-h-[360px] w-full items-center justify-center overflow-hidden bg-slate-50/10" style="perspective:1200px">
+        <div class="relative flex min-h-[360px] w-full items-center justify-center overflow-hidden bg-white/[0.04]/10" style="perspective:1200px">
           <style>
             @keyframes orbit-spin{0%{transform:rotateX(65deg) rotateZ(0)}100%{transform:rotateX(65deg) rotateZ(360deg)}}
             @keyframes orbit-spin-r{0%{transform:rotateX(65deg) rotateZ(360deg)}100%{transform:rotateX(65deg) rotateZ(0)}}
             @keyframes pulse-aura{0%,100%{opacity:.3;filter:blur(24px);transform:scale(1)}50%{opacity:.7;filter:blur(32px);transform:scale(1.3)}}
             @keyframes float-y{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
           </style>
-          <div class="pointer-events-none absolute -inset-[50%] opacity-40" style="background-image:radial-gradient(rgba(148,163,184,0.6) 1px,transparent 1px);background-size:24px 24px"></div>
+          <div class="pointer-events-none absolute -inset-[50%] opacity-40" style="background-image:radial-gradient(rgba(149,174,248,0.22) 1px,transparent 1px);background-size:24px 24px"></div>
           <div class="absolute inset-0 flex items-center justify-center pointer-events-none" style="transform-style:preserve-3d">
             <div class="absolute h-[320px] w-[320px] rounded-full border-[1.5px] border-dashed border-slate-300" style="animation:orbit-spin 24s linear infinite"></div>
             <div class="absolute h-[180px] w-[180px] rounded-full border-[1.5px] border-dashed border-blue-300" style="animation:orbit-spin-r 16s linear infinite"></div>
           </div>
-          <div class="relative z-10 flex h-[104px] w-[104px] items-center justify-center rounded-2xl bg-white/90 shadow-[0_0_40px_rgba(70,89,181,0.15)] ring-1 ring-slate-100 backdrop-blur-md" style="animation:float-y 5s ease-in-out infinite">
+          <div class="relative z-10 flex h-[104px] w-[104px] items-center justify-center rounded-2xl bg-[#0e1730]/80 shadow-[0_0_40px_rgba(70,89,181,0.15)] ring-1 ring-slate-100 backdrop-blur-md" style="animation:float-y 5s ease-in-out infinite">
             <div class="absolute -inset-8 rounded-full bg-blue-600/25" style="animation:pulse-aura 4s ease-in-out infinite;z-index:-1"></div>
             <svg width="52" height="52" viewBox="0 0 64 64" aria-hidden="true"><path fill="url(#hg)" fill-rule="evenodd" d="M14 8 h10 v14 a8 8 0 0 0 8 8 a8 8 0 0 0 8 -8 v-14 h10 v48 h-10 v-14 a8 8 0 0 0 -8 -8 a8 8 0 0 0 -8 8 v14 h-10 z"/></svg>
           </div>
-          <div class="absolute left-1/2 top-6 z-20 -translate-x-1/2"><div class="flex h-12 w-12 items-center justify-center rounded-xl border border-slate-100 bg-white/80 text-blue-700 shadow-lg backdrop-blur-sm" style="animation:float-y 4s ease-in-out infinite .5s"><i data-lucide="mic" class="h-5 w-5"></i></div></div>
-          <div class="absolute bottom-6 left-1/2 z-20 -translate-x-1/2"><div class="flex h-12 w-12 items-center justify-center rounded-xl border border-slate-100 bg-white/80 text-blue-700 shadow-lg backdrop-blur-sm" style="animation:float-y 4s ease-in-out infinite 1.5s"><i data-lucide="file-text" class="h-5 w-5"></i></div></div>
-          <div class="absolute left-6 top-1/2 z-20 -translate-y-1/2"><div class="flex h-12 w-12 items-center justify-center rounded-xl border border-slate-100 bg-white/80 text-blue-700 shadow-lg backdrop-blur-sm" style="animation:float-y 4s ease-in-out infinite 1s"><i data-lucide="stethoscope" class="h-5 w-5"></i></div></div>
-          <div class="absolute right-6 top-1/2 z-20 -translate-y-1/2"><div class="flex h-12 w-12 items-center justify-center rounded-xl border border-slate-100 bg-white/80 text-blue-700 shadow-lg backdrop-blur-sm" style="animation:float-y 4s ease-in-out infinite 2s"><i data-lucide="qr-code" class="h-5 w-5"></i></div></div>
+          <div class="absolute left-1/2 top-6 z-20 -translate-x-1/2"><div class="flex h-12 w-12 items-center justify-center rounded-xl border border-slate-100 bg-[#0e1730]/75 text-blue-700 shadow-lg backdrop-blur-sm" style="animation:float-y 4s ease-in-out infinite .5s"><i data-lucide="mic" class="h-5 w-5"></i></div></div>
+          <div class="absolute bottom-6 left-1/2 z-20 -translate-x-1/2"><div class="flex h-12 w-12 items-center justify-center rounded-xl border border-slate-100 bg-[#0e1730]/75 text-blue-700 shadow-lg backdrop-blur-sm" style="animation:float-y 4s ease-in-out infinite 1.5s"><i data-lucide="file-text" class="h-5 w-5"></i></div></div>
+          <div class="absolute left-6 top-1/2 z-20 -translate-y-1/2"><div class="flex h-12 w-12 items-center justify-center rounded-xl border border-slate-100 bg-[#0e1730]/75 text-blue-700 shadow-lg backdrop-blur-sm" style="animation:float-y 4s ease-in-out infinite 1s"><i data-lucide="stethoscope" class="h-5 w-5"></i></div></div>
+          <div class="absolute right-6 top-1/2 z-20 -translate-y-1/2"><div class="flex h-12 w-12 items-center justify-center rounded-xl border border-slate-100 bg-[#0e1730]/75 text-blue-700 shadow-lg backdrop-blur-sm" style="animation:float-y 4s ease-in-out infinite 2s"><i data-lucide="qr-code" class="h-5 w-5"></i></div></div>
         </div>
       </div>
     </div>
 
     <!-- Footer bento -->
-    <div class="mt-0 border-t border-slate-200/80">
-      <div class="overflow-hidden border border-slate-200/80 border-t-0 bg-gradient-to-br from-white via-slate-50 to-blue-50/40">
-        <div class="grid border-b border-slate-200/80 lg:grid-cols-[1.2fr_1.2fr]">
-          <div class="border-b border-slate-200/80 p-8 sm:p-10 lg:border-b-0 lg:border-r lg:p-12">
+    <div class="mt-0 border-t border-white/10">
+      <div class="overflow-hidden border border-white/10 border-t-0 bg-gradient-to-br from-[#0b1224] via-[#0a1020] to-[#101a34]">
+        <div class="grid border-b border-white/10 lg:grid-cols-[1.2fr_1.2fr]">
+          <div class="border-b border-white/10 p-8 sm:p-10 lg:border-b-0 lg:border-r lg:p-12">
             <div class="mb-8 flex items-center gap-3">
               <svg width="30" height="30" viewBox="0 0 64 64" aria-hidden="true"><path fill="url(#hg)" fill-rule="evenodd" d="M14 8 h10 v14 a8 8 0 0 0 8 8 a8 8 0 0 0 8 -8 v-14 h10 v48 h-10 v-14 a8 8 0 0 0 -8 -8 a8 8 0 0 0 -8 8 v14 h-10 z"/></svg>
-              <span class="text-2xl font-semibold tracking-tight text-slate-950">Hyperion Labs</span>
+              <span class="text-2xl font-semibold tracking-tight text-[#EAF0FF]">Hyperion Labs</span>
             </div>
-            <p class="mt-5 max-w-[380px] text-base leading-7 text-slate-500">An AI lab from Dushanbe. We build world-class products for Central Asia — starting with AvrisAI.</p>
+            <p class="mt-5 max-w-[380px] text-base leading-7 text-[#8A97BE]">An AI lab from Dushanbe. We build world-class products for Central Asia — starting with AvrisAI.</p>
             <div class="mt-8 flex items-center gap-3">
-              <a href="https://instagram.com/hyperionlabs.ai" target="_blank" rel="noopener" aria-label="Instagram" class="flex h-11 w-11 items-center justify-center border border-slate-200 bg-white text-slate-500 shadow-sm transition hover:-translate-y-0.5 hover:text-blue-700"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37a4 4 0 1 1-7.75 1.26 4 4 0 0 1 7.75-1.26z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-              <a href="https://x.com/hyperionlabsai" target="_blank" rel="noopener" aria-label="X" class="flex h-11 w-11 items-center justify-center border border-slate-200 bg-white text-slate-500 shadow-sm transition hover:-translate-y-0.5 hover:text-blue-700"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></a>
-              <a href="https://t.me/narzulloev0022" target="_blank" rel="noopener" aria-label="Telegram" class="flex h-11 w-11 items-center justify-center border border-slate-200 bg-white text-slate-500 shadow-sm transition hover:-translate-y-0.5 hover:text-blue-700"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></a>
+              <a href="https://instagram.com/hyperionlabs.ai" target="_blank" rel="noopener" aria-label="Instagram" class="flex h-11 w-11 items-center justify-center border border-white/10 bg-[#0b1224] text-[#8A97BE] shadow-sm transition hover:-translate-y-0.5 hover:text-blue-700"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37a4 4 0 1 1-7.75 1.26 4 4 0 0 1 7.75-1.26z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+              <a href="https://x.com/hyperionlabsai" target="_blank" rel="noopener" aria-label="X" class="flex h-11 w-11 items-center justify-center border border-white/10 bg-[#0b1224] text-[#8A97BE] shadow-sm transition hover:-translate-y-0.5 hover:text-blue-700"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></a>
+              <a href="https://t.me/narzulloev0022" target="_blank" rel="noopener" aria-label="Telegram" class="flex h-11 w-11 items-center justify-center border border-white/10 bg-[#0b1224] text-[#8A97BE] shadow-sm transition hover:-translate-y-0.5 hover:text-blue-700"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></a>
             </div>
           </div>
           <div class="grid sm:grid-cols-2">
-            <div class="border-b border-slate-200/80 p-8 sm:border-r sm:p-10">
-              <h4 class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-950">Product</h4>
-              <ul class="mt-7 space-y-4 text-sm text-slate-500">
+            <div class="border-b border-white/10 p-8 sm:border-r sm:p-10">
+              <h4 class="text-xs font-semibold uppercase tracking-[0.18em] text-[#EAF0FF]">Product</h4>
+              <ul class="mt-7 space-y-4 text-sm text-[#8A97BE]">
                 <li><a href="#product" class="transition hover:text-blue-700">AvrisAI</a></li>
                 <li><a href="#how" class="transition hover:text-blue-700">How it works</a></li>
                 <li><a href="https://theavris.ai/app" target="_blank" rel="noopener" class="transition hover:text-blue-700">Open the app</a></li>
                 <li><a href="#access" class="transition hover:text-blue-700">Early access</a></li>
               </ul>
             </div>
-            <div class="border-b border-slate-200/80 p-8 sm:p-10">
-              <h4 class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-950">Company</h4>
-              <ul class="mt-7 space-y-4 text-sm text-slate-500">
+            <div class="border-b border-white/10 p-8 sm:p-10">
+              <h4 class="text-xs font-semibold uppercase tracking-[0.18em] text-[#EAF0FF]">Company</h4>
+              <ul class="mt-7 space-y-4 text-sm text-[#8A97BE]">
                 <li><a href="#team" class="transition hover:text-blue-700">Team</a></li>
                 <li><a href="#faq" class="transition hover:text-blue-700">FAQ</a></li>
                 <li><a href="mailto:info@theavris.ai" class="transition hover:text-blue-700">Contact</a></li>
@@ -585,13 +587,13 @@
             </div>
           </div>
         </div>
-        <div class="grid border-b border-slate-200/80 lg:grid-cols-[1fr_1fr]">
-          <div class="border-b border-slate-200/80 px-8 py-10 sm:px-10 lg:border-b-0 lg:border-r lg:px-12 lg:py-14"><h2 class="text-[clamp(64px,12vw,190px)] font-black leading-[0.82] tracking-[-0.09em] text-slate-950">HYPERION</h2></div>
+        <div class="grid border-b border-white/10 lg:grid-cols-[1fr_1fr]">
+          <div class="border-b border-white/10 px-8 py-10 sm:px-10 lg:border-b-0 lg:border-r lg:px-12 lg:py-14"><h2 class="text-[clamp(64px,12vw,190px)] font-black leading-[0.82] tracking-[-0.09em] text-[#EAF0FF]">HYPERION</h2></div>
           <div class="flex items-end px-8 py-10 sm:px-10 lg:px-12 lg:py-14"><p class="max-w-xl text-[clamp(30px,5vw,80px)] font-black leading-[0.88] tracking-[-0.08em] text-blue-700">AI FOR THE REGION</p></div>
         </div>
         <div class="flex flex-col gap-6 px-8 py-7 sm:px-10 lg:flex-row lg:items-center lg:justify-between lg:px-12">
-          <p class="text-sm text-slate-500">© 2026 Hyperion Labs. Dushanbe, Tajikistan.</p>
-          <div class="flex items-center gap-6 text-sm text-slate-500"><a href="mailto:info@theavris.ai" class="transition hover:text-blue-700">info@theavris.ai</a></div>
+          <p class="text-sm text-[#8A97BE]">© 2026 Hyperion Labs. Dushanbe, Tajikistan.</p>
+          <div class="flex items-center gap-6 text-sm text-[#8A97BE]"><a href="mailto:info@theavris.ai" class="transition hover:text-blue-700">info@theavris.ai</a></div>
         </div>
       </div>
     </div>
