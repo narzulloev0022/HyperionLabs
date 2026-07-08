@@ -75,9 +75,20 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
           </span>
         </a>
-        <button class="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-950 shadow-sm xl:hidden" aria-label="Open menu"><i data-lucide="menu" class="h-5 w-5"></i></button>
+        <button id="menuBtn" class="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-950 shadow-sm xl:hidden" aria-label="Open menu" aria-expanded="false"><i data-lucide="menu" class="h-5 w-5"></i></button>
       </div>
     </header>
+    <!-- mobile menu -->
+    <div id="mobileMenu" class="hidden border-b border-slate-200/80 xl:hidden">
+      <nav class="flex flex-col gap-1 px-4 py-4 text-base font-medium text-slate-950">
+        <a href="#product" class="rounded-lg px-3 py-3 transition hover:bg-slate-50 hover:text-blue-700" data-mclose>AvrisAI</a>
+        <a href="#how" class="rounded-lg px-3 py-3 transition hover:bg-slate-50 hover:text-blue-700" data-mclose>How it works</a>
+        <a href="#stt" class="rounded-lg px-3 py-3 transition hover:bg-slate-50 hover:text-blue-700" data-mclose>Hyperion STT</a>
+        <a href="#team" class="rounded-lg px-3 py-3 transition hover:bg-slate-50 hover:text-blue-700" data-mclose>Team</a>
+        <a href="#faq" class="rounded-lg px-3 py-3 transition hover:bg-slate-50 hover:text-blue-700" data-mclose>FAQ</a>
+        <a href="#access" class="mt-2 rounded-xl bg-gradient-to-br from-[#6E86E0] via-[#4659B5] to-[#3A4AA0] px-3 py-3 text-center text-white" data-mclose>Get early access</a>
+      </nav>
+    </div>
 
     <!-- ============ HERO ============ -->
     <div id="top" class="grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:px-16 lg:pt-24 lg:pb-28 pt-16 pb-20 px-4">
@@ -594,6 +605,17 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 <script>
   document.addEventListener("DOMContentLoaded", () => {
+    // Mobile menu toggle
+    var menuBtn = document.getElementById("menuBtn"), mobileMenu = document.getElementById("mobileMenu");
+    if (menuBtn && mobileMenu) {
+      var closeMenu = function () { mobileMenu.classList.add("hidden"); menuBtn.setAttribute("aria-expanded", "false"); };
+      menuBtn.addEventListener("click", function () {
+        var open = mobileMenu.classList.toggle("hidden") === false;
+        menuBtn.setAttribute("aria-expanded", String(open));
+      });
+      mobileMenu.querySelectorAll("[data-mclose]").forEach(function (a) { a.addEventListener("click", closeMenu); });
+    }
+
     // Early-access form → Formspree
     var form = document.getElementById("accessForm");
     if (form) form.addEventListener("submit", function (e) {
