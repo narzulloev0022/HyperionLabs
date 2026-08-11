@@ -775,7 +775,7 @@ section { position: relative; padding: 88px 0; scroll-margin-top: 88px; }
   justify-content: flex-start;
 }
 
-/* ── hyp-* keyframes (from Claude Design reference) ── */
+/* ── hyp-* keyframes (from design reference) ── */
 @keyframes hyp-drift   { from { background-position: 0 0; } to { background-position: 58px 58px; } }
 @keyframes hyp-breathe { 0%, 100% { opacity: .5; } 50% { opacity: 1; } }
 @keyframes hyp-portal  { 0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: .9; } 50% { transform: translate(-50%, -50%) scale(1.06); opacity: 1; } }
